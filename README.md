@@ -14,8 +14,7 @@ Portfolio of Kaan, a developer specializing in modern websites and powerful Chro
 
 The portfolio currently showcases the following projects (in development):
 
-- **Attention Map**: A tool to visualize user attention on web pages using client-side heatmaps.
-- **Soft Blackout**: An extension that transforms web pages into blackout poetry by selectively redacting text.
+- **Soft Blackout**: Selectively redact text on web pages.
 
 ## Design System & Color Palette
 
