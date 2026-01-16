@@ -219,9 +219,9 @@
                     project_alpha_title: "Attention Map",
                     project_alpha_desc: "Visualize user attention on any webpage with a client-side heatmap.",
                     project_beta_title: "Soft Blackout",
-                    project_beta_desc: "Transform web pages into blackout poetry. Reveal hidden meanings by selectively redacting text.",
-                    project_gamma_title: "Attention Map",
-                    project_gamma_desc: "Visualize user attention on any webpage with a client-side heatmap.",
+                    project_beta_desc: "Selectively redact text on web pages.",
+                    project_gamma_title: "Upcoming Project",
+                    project_gamma_desc: "Something new and exciting is in the works. Stay tuned for updates.",
                     coming_soon: "Coming Soon",
                     about_title: "About Me",
                     about_desc: "Hey, I’m Kaan, a developer who enjoys building simple tools that make the web more useful. I focus on creating clean, efficient websites and Chrome extensions that solve real, everyday problems.",
@@ -243,9 +243,9 @@
                     project_alpha_title: "Attention Map",
                     project_alpha_desc: "Herhangi bir web sayfasındaki kullanıcı dikkatini istemci taraflı bir ısı haritası ile görselleştirin.",
                     project_beta_title: "Soft Blackout",
-                    project_beta_desc: "Web sayfalarını karartma şiirine dönüştürün. Metni seçici bir şekilde redakte ederek gizli anlamları ortaya çıkarın.",
-                    project_gamma_title: "Attention Map",
-                    project_gamma_desc: "Herhangi bir web sayfasındaki kullanıcı dikkatini istemci taraflı bir ısı haritası ile görselleştirin.",
+                    project_beta_desc: "Web sayfalarındaki metinleri dilediğiniz gibi gizleyin.",
+                    project_gamma_title: "Gelecek Proje",
+                    project_gamma_desc: "Yeni ve heyecan verici bir şeyler hazırlanıyor. Güncellemeler için takipte kalın.",
                     coming_soon: "Çok Yakında",
                     about_title: "Hakkımda",
                     about_desc: "Selam, ben Kaan. Web’i daha kullanışlı hale getiren, günlük sorunlara odaklanan basit ve araçlar geliştirmeye çalışıyorum.",
@@ -422,30 +422,6 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- Card 1 -->
-                <!-- Card 1 -->
-                <div
-                    class="group glass-card rounded-3xl p-8 transition-all duration-300 hover:bg-white/80 dark:hover:bg-zinc-900 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-900/5 flex flex-col h-full">
-                    <div
-                        class="w-16 h-16 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 transition-transform duration-300 border border-emerald-200 dark:bg-emerald-900/50 dark:text-emerald-400 dark:border-emerald-800">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 data-i18n="project_alpha_title"
-                        class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Project Alpha</h3>
-                    <p data-i18n="project_alpha_desc"
-                        class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
-                        A powerful productivity tool currently in the workshop. Stay tuned for minimalist innovation.
-                    </p>
-                    <span data-i18n="coming_soon"
-                        class="inline-flex items-center text-sm font-bold text-slate-400 cursor-not-allowed uppercase tracking-wider mx-auto">
-                        Coming Soon
-                    </span>
-                </div>
-
                 <!-- Card 2 -->
                 <div
                     class="group glass-card rounded-3xl p-8 transition-all duration-300 hover:bg-white/80 dark:hover:bg-zinc-900 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-900/5 flex flex-col h-full">
@@ -457,15 +433,46 @@
                         </svg>
                     </div>
                     <h3 data-i18n="project_beta_title"
-                        class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Project Beta</h3>
+                        class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Soft Blackout</h3>
                     <p data-i18n="project_beta_desc"
                         class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
-                        Streamlining the developer workflow with smart automation. Currently under active development.
+                        Selectively redact text on web pages.
                     </p>
                     <span data-i18n="coming_soon"
                         class="inline-flex items-center text-sm font-bold text-slate-400 cursor-not-allowed uppercase tracking-wider mx-auto">
                         Coming Soon
                     </span>
+                </div>
+
+                <!-- Card 1 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col h-full relative overflow-hidden">
+                    <!-- Blurred Content -->
+                    <div
+                        class="flex flex-col h-full filter blur-[8px] opacity-60 select-none pointer-events-none grayscale">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600 mb-6 border border-emerald-200 dark:bg-emerald-900/50 dark:text-emerald-400 dark:border-emerald-800">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="project_alpha_title"
+                            class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Project Alpha</h3>
+                        <p data-i18n="project_alpha_desc"
+                            class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
+                            A powerful productivity tool currently in the workshop. Stay tuned for minimalist
+                            innovation.
+                        </p>
+                    </div>
+
+                    <!-- Centered Badge -->
+                    <div class="absolute inset-0 flex items-center justify-center z-10">
+                        <span data-i18n="coming_soon"
+                            class="px-6 py-3 rounded-full bg-white/90 text-slate-800 text-sm font-bold backdrop-blur-md border border-white/50 shadow-lg uppercase tracking-wider dark:bg-black/80 dark:text-white dark:border-white/10">
+                            Coming Soon
+                        </span>
+                    </div>
                 </div>
 
                 <!-- Card 3 -->
@@ -481,10 +488,10 @@
                             </svg>
                         </div>
                         <h3 data-i18n="project_gamma_title"
-                            class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Project Gamma</h3>
+                            class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Upcoming Project</h3>
                         <p data-i18n="project_gamma_desc"
                             class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
-                            A lightweight utility designed for the modern web. We are putting the final touches on this.
+                            Something new and exciting is in the works. Stay tuned for updates.
                         </p>
                     </div>
 
