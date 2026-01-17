@@ -216,12 +216,15 @@
                     hero_btn_github: "GitHub Profile",
                     projects_title: "Featured Projects",
                     projects_subtitle: "A collection of web applications and browser tools crafted with care.",
-                    project_alpha_title: "Attention Map",
-                    project_alpha_desc: "Visualize user attention on any webpage with a client-side heatmap.",
-                    project_beta_title: "Soft Blackout",
-                    project_beta_desc: "Selectively redact text on web pages.",
-                    project_gamma_title: "Upcoming Project",
-                    project_gamma_desc: "Something new and exciting is in the works. Stay tuned for updates.",
+                    ext_attention_map_title: "Attention Map",
+                    ext_attention_map_desc: "Visualize user attention on any webpage with a client-side heatmap.",
+                    ext_soft_blackout_title: "Soft Blackout",
+                    ext_soft_blackout_desc: "Selectively redact text on web pages.",
+                    category_extensions: "Browser Extensions",
+                    category_games: "Games",
+                    game_zanaat_title: "Zanaat.app",
+                    game_zanaat_desc: "Craft is an interactive experience combining AI's limitless creativity with alchemy logic.",
+                    visit_site: "Visit Site",
                     coming_soon: "Coming Soon",
                     about_title: "About Me",
                     about_desc: "Hey, I’m Kaan, a developer who enjoys building simple tools that make the web more useful. I focus on creating clean, efficient websites and Chrome extensions that solve real, everyday problems.",
@@ -240,12 +243,15 @@
                     hero_btn_github: "GitHub Profili",
                     projects_title: "Öne Çıkan Projeler",
                     projects_subtitle: "Özenle hazırlanmış web uygulamaları ve tarayıcı araçları koleksiyonu.",
-                    project_alpha_title: "Attention Map",
-                    project_alpha_desc: "Herhangi bir web sayfasındaki kullanıcı dikkatini istemci taraflı bir ısı haritası ile görselleştirin.",
-                    project_beta_title: "Soft Blackout",
-                    project_beta_desc: "Web sayfalarındaki metinleri dilediğiniz gibi gizleyin.",
-                    project_gamma_title: "Gelecek Proje",
-                    project_gamma_desc: "Yeni ve heyecan verici bir şeyler hazırlanıyor. Güncellemeler için takipte kalın.",
+                    ext_attention_map_title: "Attention Map",
+                    ext_attention_map_desc: "Herhangi bir web sayfasındaki kullanıcı dikkatini istemci taraflı bir ısı haritası ile görselleştirin.",
+                    ext_soft_blackout_title: "Soft Blackout",
+                    ext_soft_blackout_desc: "Web sayfalarındaki metinleri dilediğiniz gibi gizleyin.",
+                    category_extensions: "Tarayıcı Eklentileri",
+                    category_games: "Oyunlar",
+                    game_zanaat_title: "Zanaat.app",
+                    game_zanaat_desc: "Yapay zekanın sınırsız yaratıcılığını simya mantığıyla birleştiren etkileşimli bir deneyim.",
+                    visit_site: "Siteyi Ziyaret Et",
                     coming_soon: "Çok Yakında",
                     about_title: "Hakkımda",
                     about_desc: "Selam, ben Kaan. Web’i daha kullanışlı hale getiren, günlük sorunlara odaklanan basit ve araçlar geliştirmeye çalışıyorum.",
@@ -420,91 +426,137 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Card 2 -->
+            <!-- Browser Extensions Subsection -->
+            <div class="mb-20 relative">
+                <!-- Modern Frame -->
                 <div
-                    class="group glass-card rounded-3xl p-8 transition-all duration-300 hover:bg-white/80 dark:hover:bg-zinc-900 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-900/5 flex flex-col h-full">
-                    <div
-                        class="w-16 h-16 rounded-2xl bg-teal-100 flex items-center justify-center text-teal-600 mb-6 group-hover:scale-110 transition-transform duration-300 border border-teal-200 dark:bg-teal-900/50 dark:text-teal-400 dark:border-teal-800">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                        </svg>
-                    </div>
-                    <h3 data-i18n="project_beta_title"
-                        class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Soft Blackout</h3>
-                    <p data-i18n="project_beta_desc"
-                        class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
-                        Selectively redact text on web pages.
-                    </p>
-                    <span data-i18n="coming_soon"
-                        class="inline-flex items-center text-sm font-bold text-slate-400 cursor-not-allowed uppercase tracking-wider mx-auto">
-                        Coming Soon
-                    </span>
-                </div>
+                    class="rounded-3xl border border-slate-300 bg-slate-50/50 p-6 md:p-10 shadow-sm dark:border-white/10 dark:bg-white/5">
 
-                <!-- Card 1 -->
-                <div class="glass-card rounded-3xl p-8 flex flex-col h-full relative overflow-hidden">
-                    <!-- Blurred Content -->
-                    <div
-                        class="flex flex-col h-full filter blur-[8px] opacity-60 select-none pointer-events-none grayscale">
+                    <!-- Section Title Badge (positioned at top) -->
+                    <div class="flex items-center justify-center mb-8">
                         <div
-                            class="w-16 h-16 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600 mb-6 border border-emerald-200 dark:bg-emerald-900/50 dark:text-emerald-400 dark:border-emerald-800">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 border border-cyan-200/50 text-cyan-600 font-medium text-sm dark:bg-cyan-950/50 dark:border-cyan-800/50 dark:text-cyan-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                                    d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z">
                                 </path>
                             </svg>
+                            <span data-i18n="category_extensions">Browser Extensions</span>
                         </div>
-                        <h3 data-i18n="project_alpha_title"
-                            class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Project Alpha</h3>
-                        <p data-i18n="project_alpha_desc"
-                            class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
-                            A powerful productivity tool currently in the workshop. Stay tuned for minimalist
-                            innovation.
-                        </p>
                     </div>
 
-                    <!-- Centered Badge -->
-                    <div class="absolute inset-0 flex items-center justify-center z-10">
-                        <span data-i18n="coming_soon"
-                            class="px-6 py-3 rounded-full bg-white/90 text-slate-800 text-sm font-bold backdrop-blur-md border border-white/50 shadow-lg uppercase tracking-wider dark:bg-black/80 dark:text-white dark:border-white/10">
-                            Coming Soon
-                        </span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                        <!-- Card: Soft Blackout -->
+                        <div
+                            class="group glass-card rounded-3xl p-8 transition-all duration-300 hover:bg-white/80 dark:hover:bg-zinc-900 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-900/5 flex flex-col h-full bg-white/40 dark:bg-black/20 border-white/40 dark:border-white/5">
+                            <img src="assets/images/soft_blackout_logo.png" alt="Soft Blackout Logo"
+                                class="w-16 h-16 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                            <h3 data-i18n="ext_soft_blackout_title"
+                                class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Soft Blackout</h3>
+                            <p data-i18n="ext_soft_blackout_desc"
+                                class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
+                                Selectively redact text on web pages.
+                            </p>
+                            <span data-i18n="coming_soon"
+                                class="inline-flex items-center text-sm font-bold text-slate-400 cursor-not-allowed uppercase tracking-wider mx-auto">
+                                Coming Soon
+                            </span>
+                        </div>
+
+                        <!-- Card: Attention Map -->
+                        <div
+                            class="glass-card rounded-3xl p-8 flex flex-col h-full relative overflow-hidden bg-white/40 dark:bg-black/20 border-white/40 dark:border-white/5">
+                            <!-- Blurred Content -->
+                            <div
+                                class="flex flex-col h-full filter blur-[8px] opacity-60 select-none pointer-events-none grayscale">
+                                <div
+                                    class="w-16 h-16 rounded-2xl bg-sky-100 flex items-center justify-center text-sky-600 mb-6 border border-sky-200 dark:bg-sky-900/50 dark:text-sky-400 dark:border-sky-800">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h3 data-i18n="ext_attention_map_title"
+                                    class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Attention Map
+                                </h3>
+                                <p data-i18n="ext_attention_map_desc"
+                                    class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
+                                    A powerful productivity tool currently in the workshop. Stay tuned for minimalist
+                                    innovation.
+                                </p>
+                            </div>
+
+                            <!-- Centered Badge -->
+                            <div class="absolute inset-0 flex items-center justify-center z-10">
+                                <span data-i18n="coming_soon"
+                                    class="px-6 py-3 rounded-full bg-white/90 text-slate-800 text-sm font-bold backdrop-blur-md border border-white/50 shadow-lg uppercase tracking-wider dark:bg-black/80 dark:text-white dark:border-white/10">
+                                    Coming Soon
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Card 3 -->
-                <div class="glass-card rounded-3xl p-8 flex flex-col h-full relative overflow-hidden">
-                    <!-- Blurred Content -->
-                    <div
-                        class="flex flex-col h-full filter blur-[8px] opacity-60 select-none pointer-events-none grayscale">
+            <!-- Games Subsection -->
+            <div class="mb-16 relative">
+                <!-- Modern Frame -->
+                <div
+                    class="rounded-3xl border border-slate-300 bg-slate-50/50 p-6 md:p-10 shadow-sm dark:border-white/10 dark:bg-white/5">
+
+                    <!-- Section Title Badge -->
+                    <div class="flex items-center justify-center mb-8">
                         <div
-                            class="w-16 h-16 rounded-2xl bg-zinc-100 flex items-center justify-center text-zinc-400 mb-6 border border-zinc-200 dark:bg-zinc-800 dark:text-zinc-600 dark:border-zinc-700">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 border border-cyan-200/50 text-cyan-600 font-medium text-sm dark:bg-cyan-950/50 dark:border-cyan-800/50 dark:text-cyan-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
+                            <span data-i18n="category_games">Games</span>
                         </div>
-                        <h3 data-i18n="project_gamma_title"
-                            class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Upcoming Project</h3>
-                        <p data-i18n="project_gamma_desc"
-                            class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
-                            Something new and exciting is in the works. Stay tuned for updates.
-                        </p>
                     </div>
 
-                    <!-- Centered Badge -->
-                    <div class="absolute inset-0 flex items-center justify-center z-10">
-                        <span data-i18n="coming_soon"
-                            class="px-6 py-3 rounded-full bg-white/90 text-slate-800 text-sm font-bold backdrop-blur-md border border-white/50 shadow-lg uppercase tracking-wider dark:bg-black/80 dark:text-white dark:border-white/10">
-                            Coming Soon
-                        </span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                        <!-- Card: Zanaat.app -->
+                        <a href="https://zanaat.app" target="_blank" rel="noopener noreferrer" class="block h-full">
+                            <div
+                                class="group glass-card rounded-3xl p-8 transition-all duration-300 hover:bg-white/80 dark:hover:bg-zinc-900 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-900/5 flex flex-col h-full bg-white/40 dark:bg-black/20 border-white/40 dark:border-white/5">
+                                <img src="assets/images/zanaat_logo.png" alt="Zanaat.app Logo"
+                                    class="w-16 h-16 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                                <h3 data-i18n="game_zanaat_title"
+                                    class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Zanaat.app
+                                </h3>
+                                <p data-i18n="game_zanaat_desc"
+                                    class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
+                                    Craft is an interactive experience combining AI's limitless creativity with alchemy
+                                    logic.
+                                </p>
+                                <!-- Visit Site Button -->
+                                <div class="flex justify-end">
+                                    <span
+                                        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-50 text-cyan-600 font-semibold text-sm transition-all duration-300 group-hover:bg-cyan-500 group-hover:text-white dark:bg-cyan-900/30 dark:text-cyan-300">
+                                        <span data-i18n="visit_site">Visit Site</span>
+                                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+
                     </div>
                 </div>
             </div>
         </div>
+
 
     </section>
 
@@ -549,14 +601,26 @@
                     <p data-i18n="contact_desc" class="text-slate-600 mb-6 text-sm dark:text-slate-400">Check out my
                         code or reach out!</p>
 
-                    <a href="https://github.com/kaanddemir" target="_blank" rel="noopener noreferrer"
-                        class="w-16 h-16 rounded-2xl bg-slate-900 text-white flex items-center justify-center hover:bg-slate-700 hover:scale-110 transition-all duration-300 shadow-xl shadow-slate-900/20 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
+                    <div class="flex items-center gap-4">
+                        <!-- GitHub Button -->
+                        <a href="https://github.com/kaanddemir" target="_blank" rel="noopener noreferrer"
+                            class="w-16 h-16 rounded-2xl bg-slate-900 text-white flex items-center justify-center hover:bg-slate-700 hover:scale-110 transition-all duration-300 shadow-xl shadow-slate-900/20 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <!-- Email Button -->
+                        <a href="mailto:heykaan.dev@gmail.com"
+                            class="w-16 h-16 rounded-2xl bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-500 hover:scale-110 transition-all duration-300 shadow-xl shadow-emerald-600/20 dark:bg-emerald-500 dark:hover:bg-emerald-400">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

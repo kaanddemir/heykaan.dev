@@ -1,54 +1,56 @@
 # HeyKaan.dev
 
-Portfolio of Kaan, a developer specializing in modern websites and powerful Chrome extensions. This project showcases a clean, glassmorphism-inspired UI with robust localization and theme management.
+Portfolio of Kaan, a developer specializing in modern websites, Chrome extensions, and interactive web experiences. This project showcases a clean, minimal UI with robust localization and theme management.
 
 ## Features
 
 - **Dynamic Dark/Light Mode**: Automatically detects system preference and allows manual toggling. Persists preference via `localStorage`.
 - **Localization (i18n)**: Full support for English and Turkish languages with instant content updates without page reload.
-- **Glassmorphism Design**: Custom CSS classes for frosted glass effects on cards and navigation.
+- **Modern Design**: Clean, minimal aesthetics with subtle glassmorphism effects and smooth animations.
 - **Responsive Layout**: Fully responsive design adapting from mobile to large desktop screens.
 - **Smooth Animations**: Custom Tailwind animations for blobs, text shimmering, and fade-in effects.
 
-## Portfolio Highlights
+## Projects
 
-The portfolio currently showcases the following projects (in development):
+### Browser Extensions
 
-- **Soft Blackout**: Selectively redact text on web pages.
+| Project | Description | Status |
+| :--- | :--- | :--- |
+| **Soft Blackout** | Selectively redact text on web pages. | Coming Soon |
+| **Attention Map** | Visualize user attention on any webpage with a client-side heatmap. | Coming Soon |
+
+### Games
+
+| Project | Description | Status |
+| :--- | :--- | :--- |
+| **[Zanaat.app](https://zanaat.app)** | Craft is an interactive experience combining AI's limitless creativity with alchemy logic. | Live |
 
 ## Design System & Color Palette
 
-The project uses a curated color palette primarily based on Tailwind CSS colors, with custom extensions for glassmorphism.
+The project uses a curated color palette primarily based on Tailwind CSS colors.
 
-### Primary Colors (Emerald)
-Used for primary actions, branding, and active states.
+### Primary Colors (Cyan)
+Used for category badges, buttons, and accent elements.
 
-| Class | Hex Code | Usage |
-| :--- | :--- | :--- |
-| `emerald-50` | `#ecfdf5` | Light Mode Background (with opacity) |
-| `emerald-100` | `#d1fae5` | Light Mode Icon Backgrounds |
-| `emerald-400` | `#34d399` | Dark Mode Text Accent, Animated Blobs |
-| `emerald-600` | `#059669` | Primary Buttons, Light Mode Text Accent |
-| `emerald-950` | `#022c22` | Light Mode Headings, Dark Mode Background Hover |
+| Class | Usage |
+| :--- | :--- |
+| `cyan-50` | Badge backgrounds (Light Mode) |
+| `cyan-200` | Badge borders (Light Mode) |
+| `cyan-400` | Accent text (Dark Mode) |
+| `cyan-500` | Hover states |
+| `cyan-600` | Primary text (Light Mode) |
+| `cyan-950` | Badge backgrounds (Dark Mode) |
 
 ### Neutral Colors
 Used for text, backgrounds, and borders.
 
-| Class | Hex Code | Usage |
-| :--- | :--- | :--- |
-| `slate-600` | `#475569` | Body Text (Light Mode) |
-| `slate-400` | `#94a3b8` | Subtitles, "Coming Soon" Text |
-| `zinc-300` | `#d4d4d8` | Body Text (Dark Mode) |
-| `zinc-800` | `#27272a` | Dark Mode Hover States |
-| `zinc-900` | `#18181b` | Dark Mode Card Hover Backgrounds |
-| `zinc-950` | `#09090b` | Dark Mode Page Background |
-
-### Accent Colors
-Used for specific project cards and animated background blobs.
-
-- **Teal**: `teal-400` (#2dd4bf), `teal-600` (#0d9488)
-- **Cyan**: `cyan-400` (#22d3ee), `cyan-500` (#06b6d4)
-- **Lime**: `lime-600` (#65a30d)
+| Class | Usage |
+| :--- | :--- |
+| `slate-50` | Frame backgrounds (Light Mode) |
+| `slate-300` | Frame borders (Light Mode) |
+| `slate-600` | Body Text (Light Mode) |
+| `zinc-900` | Dark Mode Card Hover Backgrounds |
+| `zinc-950` | Dark Mode Page Background |
 
 ### Glassmorphism Utilities
 
@@ -77,5 +79,20 @@ Since this is a static site using Tailwind CDN:
 2.  Open `index.html` in any modern web browser.
 3.  No build step or node_modules required.
 
+## File Structure
+
+```
+HeyKaan.dev/
+├── index.html          # Main HTML file
+├── README.md           # Project documentation
+├── CNAME               # Custom domain configuration
+├── og-image.jpg        # Open Graph image for social sharing
+├── assets/
+│   └── images/
+│       ├── soft_blackout_logo.png
+│       └── zanaat_logo.png
+└── .git/               # Git repository
+```
+
 ---
-&copy; 2026 HeyKaan.dev
+© 2026 HeyKaan.dev
