@@ -221,9 +221,11 @@
                     ext_soft_blackout_title: "Soft Blackout",
                     ext_soft_blackout_desc: "Selectively redact text on web pages.",
                     category_extensions: "Browser Extensions",
-                    category_games: "Games",
-                    game_zanaat_title: "Zanaat.app",
-                    game_zanaat_desc: "Craft is an interactive experience combining AI's limitless creativity with alchemy logic.",
+                    category_websites: "Websites",
+                    website_zanaat_title: "Zanaat.app",
+                    website_zanaat_desc: "Craft is an interactive experience combining AI's limitless creativity with alchemy logic.",
+                    website_studhub_title: "StudHub",
+                    website_studhub_desc: "A personal study dashboard designed to help students track habits, manage courses, calculate grades, and boost productivity.",
                     visit_site: "Visit Site",
                     coming_soon: "Coming Soon",
                     about_title: "About Me",
@@ -248,9 +250,11 @@
                     ext_soft_blackout_title: "Soft Blackout",
                     ext_soft_blackout_desc: "Web sayfalarındaki metinleri dilediğiniz gibi gizleyin.",
                     category_extensions: "Tarayıcı Eklentileri",
-                    category_games: "Oyunlar",
-                    game_zanaat_title: "Zanaat.app",
-                    game_zanaat_desc: "Yapay zekanın sınırsız yaratıcılığını simya mantığıyla birleştiren etkileşimli bir deneyim.",
+                    category_websites: "Web Siteleri",
+                    website_zanaat_title: "Zanaat.app",
+                    website_zanaat_desc: "Yapay zekanın sınırsız yaratıcılığını simya mantığıyla birleştiren etkileşimli bir deneyim.",
+                    website_studhub_title: "StudHub",
+                    website_studhub_desc: "Öğrencilerin alışkanlıklarını takip etmelerine, derslerini yönetmelerine, notlarını hesaplamalarına ve üretkenliklerini artırmalarına yardımcı olmak için tasarlanmış kişisel bir çalışma panosu.",
                     visit_site: "Siteyi Ziyaret Et",
                     coming_soon: "Çok Yakında",
                     about_title: "Hakkımda",
@@ -500,7 +504,7 @@
                 </div>
             </div>
 
-            <!-- Games Subsection -->
+            <!-- Websites Subsection -->
             <div class="mb-16 relative">
                 <!-- Modern Frame -->
                 <div
@@ -517,7 +521,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            <span data-i18n="category_games">Games</span>
+                            <span data-i18n="category_websites">Websites</span>
                         </div>
                     </div>
 
@@ -529,13 +533,45 @@
                                 class="group glass-card rounded-3xl p-8 transition-all duration-300 hover:bg-white/80 dark:hover:bg-zinc-900 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-900/5 flex flex-col h-full bg-white/40 dark:bg-black/20 border-white/40 dark:border-white/5">
                                 <img src="assets/images/zanaat_logo.png" alt="Zanaat.app Logo"
                                     class="w-16 h-16 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
-                                <h3 data-i18n="game_zanaat_title"
+                                <h3 data-i18n="website_zanaat_title"
                                     class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Zanaat.app
                                 </h3>
-                                <p data-i18n="game_zanaat_desc"
+                                <p data-i18n="website_zanaat_desc"
                                     class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
                                     Craft is an interactive experience combining AI's limitless creativity with alchemy
                                     logic.
+                                </p>
+                                <!-- Visit Site Button -->
+                                <div class="flex justify-end">
+                                    <span
+                                        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-50 text-cyan-600 font-semibold text-sm transition-all duration-300 group-hover:bg-cyan-500 group-hover:text-white dark:bg-cyan-900/30 dark:text-cyan-300">
+                                        <span data-i18n="visit_site">Visit Site</span>
+                                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+
+
+
+                        <!-- Card: StudHub -->
+                        <a href="https://github.com/kaanddemir/studyhub" target="_blank" rel="noopener noreferrer"
+                            class="block h-full">
+                            <div
+                                class="group glass-card rounded-3xl p-8 transition-all duration-300 hover:bg-white/80 dark:hover:bg-zinc-900 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-900/5 flex flex-col h-full bg-white/40 dark:bg-black/20 border-white/40 dark:border-white/5">
+                                <img src="assets/images/studhub_logo.png" alt="StudHub Logo"
+                                    class="w-16 h-16 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                                <h3 data-i18n="website_studhub_title"
+                                    class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">StudHub
+                                </h3>
+                                <p data-i18n="website_studhub_desc"
+                                    class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
+                                    A personal study dashboard designed to help students track habits, manage courses,
+                                    calculate grades, and boost productivity.
                                 </p>
                                 <!-- Visit Site Button -->
                                 <div class="flex justify-end">
