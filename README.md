@@ -19,11 +19,12 @@ Portfolio of Kaan, a developer specializing in modern websites, Chrome extension
 | **Soft Blackout** | Selectively redact text on web pages. | Coming Soon |
 | **Attention Map** | Visualize user attention on any webpage with a client-side heatmap. | Coming Soon |
 
-### Games
+### Websites
 
 | Project | Description | Status |
 | :--- | :--- | :--- |
 | **[Zanaat.app](https://zanaat.app)** | Craft is an interactive experience combining AI's limitless creativity with alchemy logic. | Live |
+| **[StudHub](https://github.com/kaanddemir/studyhub)** | A personal study dashboard designed to help students track habits, manage courses, calculate grades, and boost productivity. | Live |
 
 ## Design System & Color Palette
 
@@ -90,6 +91,7 @@ HeyKaan.dev/
 ├── assets/
 │   └── images/
 │       ├── soft_blackout_logo.png
+│       ├── studhub_logo.png
 │       └── zanaat_logo.png
 └── .git/               # Git repository
 ```
