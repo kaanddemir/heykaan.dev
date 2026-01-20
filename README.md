@@ -16,7 +16,7 @@ Portfolio of Kaan, a developer specializing in modern websites, Chrome extension
 
 | Project | Description | Status |
 | :--- | :--- | :--- |
-| **Soft Blackout** | Selectively redact text on web pages. | Coming Soon |
+| **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Selectively redact text on web pages. | Live |
 | **Attention Map** | Visualize user attention on any webpage with a client-side heatmap. | Coming Soon |
 
 ### Websites
