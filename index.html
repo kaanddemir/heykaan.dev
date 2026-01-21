@@ -216,8 +216,8 @@
                     hero_btn_github: "GitHub Profile",
                     projects_title: "Featured Projects",
                     projects_subtitle: "A collection of web applications and browser tools crafted with care.",
-                    ext_attention_map_title: "Attention Map",
-                    ext_attention_map_desc: "Visualize user attention on any webpage with a client-side heatmap.",
+                    ext_readscore_title: "ReadScore",
+                    ext_readscore_desc: "Analyze the readability of web pages with transparent, explainable metrics.",
                     ext_soft_blackout_title: "Soft Blackout",
                     ext_soft_blackout_desc: "Selectively redact text on web pages.",
                     category_extensions: "Browser Extensions",
@@ -245,8 +245,8 @@
                     hero_btn_github: "GitHub Profili",
                     projects_title: "Öne Çıkan Projeler",
                     projects_subtitle: "Özenle hazırlanmış web uygulamaları ve tarayıcı araçları koleksiyonu.",
-                    ext_attention_map_title: "Attention Map",
-                    ext_attention_map_desc: "Herhangi bir web sayfasındaki kullanıcı dikkatini istemci taraflı bir ısı haritası ile görselleştirin.",
+                    ext_readscore_title: "ReadScore",
+                    ext_readscore_desc: "Web sayfalarının okunabilirliğini şeffaf ve açıklanabilir metriklerle analiz edin.",
                     ext_soft_blackout_title: "Soft Blackout",
                     ext_soft_blackout_desc: "Web sayfalarındaki metinleri dilediğiniz gibi gizleyin.",
                     category_extensions: "Tarayıcı Eklentileri",
@@ -480,34 +480,25 @@
                             </div>
                         </a>
 
-                        <!-- Card: Attention Map -->
+                        <!-- Card: ReadScore -->
                         <div
-                            class="glass-card rounded-3xl p-8 flex flex-col h-full relative overflow-hidden bg-white/40 dark:bg-black/20 border-white/40 dark:border-white/5">
-                            <!-- Blurred Content -->
-                            <div
-                                class="flex flex-col h-full filter blur-[8px] opacity-60 select-none pointer-events-none grayscale">
-                                <div
-                                    class="w-16 h-16 rounded-2xl bg-sky-100 flex items-center justify-center text-sky-600 mb-6 border border-sky-200 dark:bg-sky-900/50 dark:text-sky-400 dark:border-sky-800">
-                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <h3 data-i18n="ext_attention_map_title"
-                                    class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Attention Map
-                                </h3>
-                                <p data-i18n="ext_attention_map_desc"
-                                    class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
-                                    A powerful productivity tool currently in the workshop. Stay tuned for minimalist
-                                    innovation.
-                                </p>
-                            </div>
+                            class="glass-card rounded-3xl p-8 flex flex-col h-full bg-white/40 dark:bg-black/20 border-white/40 dark:border-white/5 hover:-translate-y-2 transition-transform duration-300">
 
-                            <!-- Centered Badge -->
-                            <div class="absolute inset-0 flex items-center justify-center z-10">
+                            <img src="assets/images/readscore_logo.png" alt="ReadScore Logo"
+                                class="w-16 h-16 rounded-2xl mb-6 shadow-md">
+
+                            <h3 data-i18n="ext_readscore_title"
+                                class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">ReadScore
+                            </h3>
+                            <p data-i18n="ext_readscore_desc"
+                                class="text-slate-600 leading-relaxed mb-8 flex-grow dark:text-slate-400">
+                                Analyze the readability of web pages with transparent, explainable metrics.
+                            </p>
+
+                            <!-- Coming Soon Badge -->
+                            <div class="flex justify-end mt-auto">
                                 <span data-i18n="coming_soon"
-                                    class="px-6 py-3 rounded-full bg-white/90 text-slate-800 text-sm font-bold backdrop-blur-md border border-white/50 shadow-lg uppercase tracking-wider dark:bg-black/80 dark:text-white dark:border-white/10">
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-200/50 font-semibold text-sm dark:bg-emerald-900/20 dark:text-emerald-400 dark:border-emerald-800/30 cursor-default">
                                     Coming Soon
                                 </span>
                             </div>
