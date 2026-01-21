@@ -17,7 +17,7 @@ Portfolio of Kaan, a developer specializing in modern websites, Chrome extension
 | Project | Description | Status |
 | :--- | :--- | :--- |
 | **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Selectively redact text on web pages. | Live |
-| **Attention Map** | Visualize user attention on any webpage with a client-side heatmap. | Coming Soon |
+| **ReadScore** | Analyze the readability of web pages with transparent, explainable metrics. | Coming Soon |
 
 ### Websites
 
@@ -90,6 +90,7 @@ HeyKaan.dev/
 ├── og-image.jpg        # Open Graph image for social sharing
 ├── assets/
 │   └── images/
+│       ├── readscore_logo.png
 │       ├── soft_blackout_logo.png
 │       ├── studyhub_logo.png
 │       └── zanaat_logo.png
