@@ -1,4 +1,4 @@
-# HeyKaan.dev
+# heykaan.dev
 
 Portfolio of Kaan, a developer specializing in modern websites, Chrome extensions, and interactive web experiences. This project showcases a clean, minimal UI with robust localization and theme management.
 
@@ -30,28 +30,37 @@ Portfolio of Kaan, a developer specializing in modern websites, Chrome extension
 
 The project uses a curated color palette primarily based on Tailwind CSS colors.
 
-### Primary Colors (Cyan)
-Used for category badges, buttons, and accent elements.
+### Primary Colors (Emerald)
+Used for headings, primary buttons, and interactions.
 
-| Class | Usage |
-| :--- | :--- |
-| `cyan-50` | Badge backgrounds (Light Mode) |
-| `cyan-200` | Badge borders (Light Mode) |
-| `cyan-400` | Accent text (Dark Mode) |
-| `cyan-500` | Hover states |
-| `cyan-600` | Primary text (Light Mode) |
-| `cyan-950` | Badge backgrounds (Dark Mode) |
+| Class | Hex | Usage |
+| :--- | :--- | :--- |
+| `emerald-50` | `#ecfdf5` | Background tints & subtles |
+| `emerald-400` | `#34d399` | Dark mode accents |
+| `emerald-500` | `#10b981` | Button hover states |
+| `emerald-600` | `#059669` | Primary buttons & selection |
+| `emerald-950` | `#022c22` | Headings & Logo (Light Mode) |
+
+### Accent Colors (Cyan)
+Used for badges, secondary gradients, and decorations.
+
+| Class | Hex | Usage |
+| :--- | :--- | :--- |
+| `cyan-50` | `#ecfeff` | Badge backgrounds (Light Mode) |
+| `cyan-200` | `#a5f3fc` | Badge borders (Light Mode) |
+| `cyan-600` | `#0891b2` | Badge text (Light Mode) |
+| `cyan-950` | `#083344` | Badge backgrounds (Dark Mode) |
 
 ### Neutral Colors
 Used for text, backgrounds, and borders.
 
-| Class | Usage |
-| :--- | :--- |
-| `slate-50` | Frame backgrounds (Light Mode) |
-| `slate-300` | Frame borders (Light Mode) |
-| `slate-600` | Body Text (Light Mode) |
-| `zinc-900` | Dark Mode Card Hover Backgrounds |
-| `zinc-950` | Dark Mode Page Background |
+| Class | Hex | Usage |
+| :--- | :--- | :--- |
+| `slate-50` | `#f8fafc` | Frame backgrounds (Light Mode) |
+| `slate-300` | `#cbd5e1` | Frame borders (Light Mode) |
+| `slate-600` | `#475569` | Body Text (Light Mode) |
+| `zinc-900` | `#18181b` | Dark Mode Card Hover Backgrounds |
+| `zinc-950` | `#09090b` | Dark Mode Page Background |
 
 ### Glassmorphism Utilities
 
@@ -83,7 +92,7 @@ Since this is a static site using Tailwind CDN:
 ## File Structure
 
 ```
-HeyKaan.dev/
+heykaan.dev/
 ├── index.html          # Main HTML file
 ├── README.md           # Project documentation
 ├── CNAME               # Custom domain configuration
@@ -98,4 +107,4 @@ HeyKaan.dev/
 ```
 
 ---
-© 2026 HeyKaan.dev
+© 2026 heykaan.dev
