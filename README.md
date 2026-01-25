@@ -96,7 +96,7 @@ heykaan.dev/
 ├── index.html          # Main HTML file
 ├── README.md           # Project documentation
 ├── CNAME               # Custom domain configuration
-├── og-image.jpg        # Open Graph image for social sharing
+├── og-image.png        # Open Graph image for social sharing
 ├── assets/
 │   └── images/
 │       ├── readscore_logo.png
