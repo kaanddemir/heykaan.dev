@@ -1,10 +1,12 @@
 # heykaan.dev
 
-Portfolio of Kaan, a developer specializing in modern websites, Chrome extensions, and simple, useful web tools.
+![Open Graph Image](./og-image.png)
+
+A modern, minimal, performance-conscious personal platform designed to showcase web experiments and browser extensions.
 
 ## Overview
 
-This project serves as my personal portfolio, designed to showcase my work in a clean, interactive, and user-friendly environment. It features a custom design system with support for dynamic theming (Dark/Light/Brutalism) and full localization (English/Turkish), all built without heavy frameworks or build steps.
+This project represents a personal portfolio built with a focus on lightweight architecture and clean UI philosophy. It features a custom design system with support for dynamic theming (Dark/Light/Brutalism) and full localization, focusing on clarity, performance, and maintainability.
 
 ## Live Site
 
@@ -12,11 +14,11 @@ Visit the live portfolio: **[heykaan.dev](https://heykaan.dev)**
 
 ## Features
 
-- **Dynamic Theme System**: Automatically detects system preference and supports manual toggling between **Light**, **Dark**, and a special **Brutalism** mode.
-- **Localization (i18n)**: Native support for English and Turkish with instant content updates (no page reload).
-- **Glassmorphism UI**: Custom CSS utilities for frosted glass effects (`.glass-card`, `.glass-nav`).
-- **Responsive Design**: Fluid layout that adapts perfectly from mobile phones to large desktop screens.
-- **Zero Build Step**: Built with pure HTML, Tailwind CSS (via CDN), and Vanilla JS for maximum portability and simplicity.
+- **Clean UI Philosophy**: A polished interface utilizing glassmorphism and smooth micro-interactions.
+- **Accessibility-Aware**: Semantic HTML and high-contrast modes for an inclusive experience.
+- **Dynamic Theming**: Automatic preference detection with support for Dark, Light, and Brutalism modes.
+- **Localization**: Native English and Turkish support with instant content updates.
+- **Lightweight Architecture**: Built with Vite and minimal JavaScript to keep the frontend fast and maintainable.
 
 ## Projects
 
@@ -25,73 +27,53 @@ Visit the live portfolio: **[heykaan.dev](https://heykaan.dev)**
 | Project | Description | Status |
 | :--- | :--- | :--- |
 | **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Selectively redact text on web pages. | Live |
-| **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en)** | Analyze the readability of web pages with transparent metrics. | Live |
+| **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en)** | Analyze web page readability with transparent metrics. | Live |
 
 ### Websites
 
 | Project | Description | Status |
 | :--- | :--- | :--- |
-| **[Zanaat.app](https://zanaat.app)** | An interactive experience combining AI's creativity with alchemy logic. | Live |
-| **[StudyHub](https://github.com/kaanddemir/studyhub)** | A personal study dashboard for tracking habits and managing courses. | Live |
-
-## Design System
-
-The project uses a curated color palette and custom utility classes.
-
-### Colors
-- **Primary**: Emerald (`emerald-600`, `emerald-950`) - Used for main actions and branding.
-- **Accent**: Cyan (`cyan-50`, `cyan-600`) - Used for badges and secondary highlights.
-- **Neutral**: Slate (`slate-600`) & Zinc (`zinc-950`) - Used for text and dark mode backgrounds.
-
-### Typography
-- **Primary Font**: `Inter` (Clean, modern sans-serif).
-- **Brutalism Font**: `Space Mono` (Monospace for the brutalist theme).
+| **[Zanaat.app](https://zanaat.app)** | Interactive AI alchemy experience. | Live |
+| **[StudyHub](https://github.com/kaanddemir/studyhub)** | Comprehensive personal study dashboard. | Live |
 
 ## Tech Stack
 
 - **Core**: HTML5, Vanilla JavaScript (ES6+)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com) (CDN)
-- **Fonts**: Google Fonts (Inter, Space Mono)
-- **Icons**: SVG Icons (Heroicons style)
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Typography**: Inter, Space Mono
 
-## Performance & Philosophy
+## Project Philosophy
 
-This project is built on the philosophy of **simplicity and raw performance**.
-- **No Build Tools**: No Webpack, Vite, or complex node_modules dependencies.
-- **Instant Load**: The site loads almost instantly due to minimal blocking resources.
-- **Accessibility**: Semantic HTML and high-contrast colors ensure the content is accessible.
+- Minimal but expressive UI
+- Performance-aware frontend decisions
+- No unnecessary dependencies
+- Privacy-friendly, no tracking
+- Design system consistency across projects
 
 ## Installation
 
-Since this project uses no build tools, running it is extremely simple:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/kaanddemir/heykaan.dev.git
+   cd heykaan.dev
+   ```
 
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/kaanddemir/heykaan.dev.git
-    ```
-2.  Navigate to the project folder:
-    ```bash
-    cd heykaan.dev
-    ```
-3.  Open `index.html` in your browser.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## File Structure
-
-```
-heykaan.dev/
-├── index.html          # Main application file (HTML + embedded JS/CSS logic)
-├── README.md           # Documentation
-├── CNAME               # Custom domain configuration
-├── og-image.png        # Social sharing preview image
-└── assets/
-    └── images/         # Project logos and static assets
-```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
 ## Future Improvements
 
-- [ ] Add a dedicated blog section for technical writing.
-- [ ] Improve accessibility (a11y) scores.
-- [ ] Add more interactive experiments.
+- [ ] Technical blog section
+- [ ] Accessibility (a11y) score optimization
+- [ ] Additional interactive experiments
 
 ## License
 
