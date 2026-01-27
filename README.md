@@ -1,14 +1,22 @@
 # heykaan.dev
 
-Portfolio of Kaan, a developer specializing in modern websites, Chrome extensions, and interactive web experiences. This project showcases a clean, minimal UI with robust localization and theme management.
+Portfolio of Kaan, a developer specializing in modern websites, Chrome extensions, and simple, useful web tools.
+
+## Overview
+
+This project serves as my personal portfolio, designed to showcase my work in a clean, interactive, and user-friendly environment. It features a custom design system with support for dynamic theming (Dark/Light/Brutalism) and full localization (English/Turkish), all built without heavy frameworks or build steps.
+
+## Live Site
+
+Visit the live portfolio: **[heykaan.dev](https://heykaan.dev)**
 
 ## Features
 
-- **Dynamic Dark/Light Mode**: Automatically detects system preference and allows manual toggling. Persists preference via `localStorage`.
-- **Localization (i18n)**: Full support for English and Turkish languages with instant content updates without page reload.
-- **Modern Design**: Clean, minimal aesthetics with subtle glassmorphism effects and smooth animations.
-- **Responsive Layout**: Fully responsive design adapting from mobile to large desktop screens.
-- **Smooth Animations**: Custom Tailwind animations for blobs, text shimmering, and fade-in effects.
+- **Dynamic Theme System**: Automatically detects system preference and supports manual toggling between **Light**, **Dark**, and a special **Brutalism** mode.
+- **Localization (i18n)**: Native support for English and Turkish with instant content updates (no page reload).
+- **Glassmorphism UI**: Custom CSS utilities for frosted glass effects (`.glass-card`, `.glass-nav`).
+- **Responsive Design**: Fluid layout that adapts perfectly from mobile phones to large desktop screens.
+- **Zero Build Step**: Built with pure HTML, Tailwind CSS (via CDN), and Vanilla JS for maximum portability and simplicity.
 
 ## Projects
 
@@ -17,94 +25,77 @@ Portfolio of Kaan, a developer specializing in modern websites, Chrome extension
 | Project | Description | Status |
 | :--- | :--- | :--- |
 | **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Selectively redact text on web pages. | Live |
-| **ReadScore** | Analyze the readability of web pages with transparent, explainable metrics. | Coming Soon |
+| **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en)** | Analyze the readability of web pages with transparent metrics. | Live |
 
 ### Websites
 
 | Project | Description | Status |
 | :--- | :--- | :--- |
-| **[Zanaat.app](https://zanaat.app)** | Craft is an interactive experience combining AI's limitless creativity with alchemy logic. | Live |
-| **[StudyHub](https://github.com/kaanddemir/studyhub)** | A personal study dashboard designed to help students track habits, manage courses, calculate grades, and boost productivity. | Live |
+| **[Zanaat.app](https://zanaat.app)** | An interactive experience combining AI's creativity with alchemy logic. | Live |
+| **[StudyHub](https://github.com/kaanddemir/studyhub)** | A personal study dashboard for tracking habits and managing courses. | Live |
 
-## Design System & Color Palette
+## Design System
 
-The project uses a curated color palette primarily based on Tailwind CSS colors.
+The project uses a curated color palette and custom utility classes.
 
-### Primary Colors (Emerald)
-Used for headings, primary buttons, and interactions.
+### Colors
+- **Primary**: Emerald (`emerald-600`, `emerald-950`) - Used for main actions and branding.
+- **Accent**: Cyan (`cyan-50`, `cyan-600`) - Used for badges and secondary highlights.
+- **Neutral**: Slate (`slate-600`) & Zinc (`zinc-950`) - Used for text and dark mode backgrounds.
 
-| Class | Hex | Usage |
-| :--- | :--- | :--- |
-| `emerald-50` | `#ecfdf5` | Background tints & subtles |
-| `emerald-400` | `#34d399` | Dark mode accents |
-| `emerald-500` | `#10b981` | Button hover states |
-| `emerald-600` | `#059669` | Primary buttons & selection |
-| `emerald-950` | `#022c22` | Headings & Logo (Light Mode) |
-
-### Accent Colors (Cyan)
-Used for badges, secondary gradients, and decorations.
-
-| Class | Hex | Usage |
-| :--- | :--- | :--- |
-| `cyan-50` | `#ecfeff` | Badge backgrounds (Light Mode) |
-| `cyan-200` | `#a5f3fc` | Badge borders (Light Mode) |
-| `cyan-600` | `#0891b2` | Badge text (Light Mode) |
-| `cyan-950` | `#083344` | Badge backgrounds (Dark Mode) |
-
-### Neutral Colors
-Used for text, backgrounds, and borders.
-
-| Class | Hex | Usage |
-| :--- | :--- | :--- |
-| `slate-50` | `#f8fafc` | Frame backgrounds (Light Mode) |
-| `slate-300` | `#cbd5e1` | Frame borders (Light Mode) |
-| `slate-600` | `#475569` | Body Text (Light Mode) |
-| `zinc-900` | `#18181b` | Dark Mode Card Hover Backgrounds |
-| `zinc-950` | `#09090b` | Dark Mode Page Background |
-
-### Glassmorphism Utilities
-
-Custom CSS classes defined in `<head>`:
-
-**`.glass-card`**
-- **Light**: `bg-white/65`, `backdrop-blur-md`, `border-white/50`
-- **Dark**: `bg-zinc-950/60`, `border-white/5`
-
-**`.glass-nav`**
-- **Light**: `bg-white/5`, `backdrop-blur-sm`
-- **Dark**: `bg-black/60`, `border-white/3`
+### Typography
+- **Primary Font**: `Inter` (Clean, modern sans-serif).
+- **Brutalism Font**: `Space Mono` (Monospace for the brutalist theme).
 
 ## Tech Stack
 
-- **HTML5**: Semantic markup.
-- **Tailwind CSS**: Utility-first CSS framework (loaded via CDN for portability).
-- **JavaScript (Vanilla)**: For theme toggling and localization logic.
-- **Inter Font**: Google Fonts.
+- **Core**: HTML5, Vanilla JavaScript (ES6+)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com) (CDN)
+- **Fonts**: Google Fonts (Inter, Space Mono)
+- **Icons**: SVG Icons (Heroicons style)
 
-## Installation & Usage
+## Performance & Philosophy
 
-Since this is a static site using Tailwind CDN:
+This project is built on the philosophy of **simplicity and raw performance**.
+- **No Build Tools**: No Webpack, Vite, or complex node_modules dependencies.
+- **Instant Load**: The site loads almost instantly due to minimal blocking resources.
+- **Accessibility**: Semantic HTML and high-contrast colors ensure the content is accessible.
 
-1.  Clone the repository or download the files.
-2.  Open `index.html` in any modern web browser.
-3.  No build step or node_modules required.
+## Installation
+
+Since this project uses no build tools, running it is extremely simple:
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/kaanddemir/heykaan.dev.git
+    ```
+2.  Navigate to the project folder:
+    ```bash
+    cd heykaan.dev
+    ```
+3.  Open `index.html` in your browser.
 
 ## File Structure
 
 ```
 heykaan.dev/
-├── index.html          # Main HTML file
-├── README.md           # Project documentation
+├── index.html          # Main application file (HTML + embedded JS/CSS logic)
+├── README.md           # Documentation
 ├── CNAME               # Custom domain configuration
-├── og-image.png        # Open Graph image for social sharing
-├── assets/
-│   └── images/
-│       ├── readscore_logo.png
-│       ├── soft_blackout_logo.png
-│       ├── studyhub_logo.png
-│       └── zanaat_logo.png
-└── .git/               # Git repository
+├── og-image.png        # Social sharing preview image
+└── assets/
+    └── images/         # Project logos and static assets
 ```
 
+## Future Improvements
+
+- [ ] Add a dedicated blog section for technical writing.
+- [ ] Improve accessibility (a11y) scores.
+- [ ] Add more interactive experiments.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
 ---
-© 2026 heykaan.dev
+Built by **heykaan.dev**
