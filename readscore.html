@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReadScore | heykaan.dev</title>
+
+    <!-- SEO & Meta Tags -->
+    <meta name="title" content="ReadScore | heykaan.dev">
+    <meta name="description"
+        content="ReadScore - Analyze the readability of web pages with transparent, explainable metrics. A Chrome extension by Kaan.">
+    <meta name="keywords" content="readscore, readability, metrics, chrome extension, analysis, privacy">
+    <meta name="author" content="Kaan">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#059669">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://heykaan.dev/readscore.html">
+    <meta property="og:title" content="ReadScore | heykaan.dev">
+    <meta property="og:description"
+        content="ReadScore - Analyze the readability of web pages with transparent, explainable metrics. A Chrome extension by Kaan.">
+    <meta property="og:image" content="https://heykaan.dev/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://heykaan.dev/readscore.html">
+    <meta property="twitter:title" content="ReadScore | heykaan.dev">
+    <meta property="twitter:description"
+        content="ReadScore - Analyze the readability of web pages with transparent, explainable metrics. A Chrome extension by Kaan.">
+    <meta property="twitter:image" content="https://heykaan.dev/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%23059669"/><text x="50" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">K</text></svg>'>
+
+    <!-- Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Custom Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .dark .glass-card {
+            background: rgba(9, 9, 11, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dark .glass-nav {
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        /* Features & Workflow Section Styling */
+        .feature-box {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark .feature-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Brutalism Overrides */
+        .brutalism * {
+            border-radius: 0 !important;
+            font-family: 'Space Mono', monospace !important;
+        }
+
+        .brutalism .glass-card,
+        .brutalism .glass-nav,
+        .brutalism .feature-box {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            background: white;
+            border: 2px solid #000;
+            box-shadow: 6px 6px 0px 0px #000;
+        }
+
+        .brutalism.dark .glass-card,
+        .brutalism.dark .glass-nav,
+        .brutalism.dark .feature-box {
+            background: #09090b;
+            border: 2px solid #fff;
+            box-shadow: 6px 6px 0px 0px #fff;
+        }
+
+        .brutalism .animate-blob {
+            display: none;
+        }
+
+        .brutalism a[href^="#"],
+        .brutalism button,
+        .brutalism .glass-card,
+        .brutalism .feature-box {
+            transition: transform 0.1s;
+        }
+
+        .brutalism a[href^="#"]:hover,
+        .brutalism button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px 0px currentColor;
+            border: 2px solid currentColor;
+        }
+
+        .brutalism a[href^="#"]:active,
+        .brutalism button:active {
+            transform: translate(0, 0);
+            box-shadow: none;
+        }
+    </style>
+
+    <!-- Configuration & Logic -->
+    <script>
+        // Tailwind Config
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        emerald: { 950: '#022c22' }
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Application Logic
+        const App = {
+            init() {
+                this.initTheme();
+                this.initBrutalism();
+                this.initLocalization();
+                this.initYear();
+            },
+            initTheme() {
+                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            },
+            initYear() {
+                const yearElement = document.getElementById('year');
+                if (yearElement) {
+                    yearElement.textContent = new Date().getFullYear();
+                }
+            },
+            initBrutalism() {
+                if (localStorage.brutalism === 'true') {
+                    document.documentElement.classList.add('brutalism');
+                }
+            },
+            toggleBrutalism() {
+                document.documentElement.classList.toggle('brutalism');
+                localStorage.brutalism = document.documentElement.classList.contains('brutalism');
+            },
+            toggleTheme() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.theme = 'light';
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                }
+            },
+            translations: {
+                en: {
+                    nav_home: "Home",
+                    nav_projects: "Projects",
+                    nav_about: "About",
+
+                    hero_title: "ReadScore",
+                    hero_subtitle: "Analyze the readability of web pages with transparent, explainable metrics.",
+                    btn_install: "Add to Chrome - Free",
+
+                    ov_title: "OVERVIEW",
+                    ov_desc: "ReadScore is a Chrome extension that analyzes web page readability, reading level, and text complexity using transparent, rule-based readability formulas. It provides instant readability scores, highlights hard-to-read sentences and dense paragraphs, and helps improve content clarity and writing quality. All analysis runs locally in your browser.",
+
+                    val_privacy: "Privacy-First Architecture",
+                    val_transparent: "Transparent Metrics",
+                    val_local: "Local Processing",
+
+                    sec_features_workflow: "FEATURES & WORKFLOW",
+                    feat_title: "FEATURES",
+                    f_readability: "Instant Readability Score",
+                    f_highlight: "Visual Highlighting",
+                    f_multilang: "Transparent Rule-Based Metrics",
+                    f_darkmode: "Local & Private",
+
+                    how_title: "HOW IT WORKS",
+                    how_1: "Extraction",
+                    how_2: "Analysis",
+                    how_3: "Visualization",
+
+                    sec_usecases: "USE CASES",
+                    uc_creators: "Content Creators",
+                    uc_editors: "Editors",
+                    uc_researchers: "Students & Researchers",
+                    uc_ux: "UX Writers",
+
+                    footer_rights: "© {year} heykaan.dev. All rights reserved."
+                },
+                tr: {
+                    nav_home: "Ana Sayfa",
+                    nav_projects: "Projeler",
+                    nav_about: "Hakkımda",
+
+                    hero_title: "ReadScore",
+                    hero_subtitle: "Web sayfalarının okunabilirliğini şeffaf ve açıklanabilir metriklerle analiz edin.",
+                    btn_install: "Chrome'a Ekle - Ücretsiz",
+
+                    ov_title: "GENEL BAKIŞ",
+                    ov_desc: "ReadScore, web sayfalarının okunabilirliğini, okuma seviyesini ve metin karmaşıklığını şeffaf, kural tabanlı okunabilirlik formülleri kullanarak analiz eden bir Chrome uzantısıdır. Anında okunabilirlik skorları sunar, zor okunan cümleleri ve yoğun paragrafları vurgular ve içerik netliğini ile yazı kalitesini iyileştirmeye yardımcı olur. Tüm analizler tamamen tarayıcınızda yerel olarak çalışır.",
+
+                    val_privacy: "Gizlilik Öncelikli Mimari",
+                    val_transparent: "Şeffaf Metrikler",
+                    val_local: "Yerel İşleme",
+
+                    sec_features_workflow: "ÖZELLİKLER & AKIŞ",
+                    feat_title: "ÖZELLİKLER",
+                    f_readability: "Anlık Okunabilirlik Puanı",
+                    f_highlight: "Görsel Vurgulama",
+                    f_multilang: "Şeffaf Kural Tabanlı Metrikler",
+                    f_darkmode: "Yerel & Gizli",
+
+                    how_title: "NASIL ÇALIŞIR",
+                    how_1: "Çıkarım",
+                    how_2: "Analiz",
+                    how_3: "Görselleştirme",
+
+                    sec_usecases: "KULLANIM ALANLARI",
+                    uc_creators: "İçerik Üreticileri",
+                    uc_editors: "Editörler",
+                    uc_researchers: "Öğrenciler & Araştırmacılar",
+                    uc_ux: "UX Yazarları",
+
+                    footer_rights: "© {year} heykaan.dev. Tüm hakları saklıdır."
+                }
+            },
+            initLocalization() {
+                this.currentLang = localStorage.getItem('lang') || 'en';
+                this.updateContent();
+            },
+            updateContent() {
+                const currentYear = new Date().getFullYear();
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (this.translations[this.currentLang][key]) {
+                        let content = this.translations[this.currentLang][key];
+                        if (content.includes('{year}')) {
+                            content = content.replace('{year}', currentYear);
+                        }
+                        element.innerText = content;
+                    }
+                });
+                document.getElementById('lang-toggle-text').innerText = this.currentLang === 'en' ? 'TR' : 'EN';
+            },
+            toggleLanguage() {
+                this.currentLang = this.currentLang === 'en' ? 'tr' : 'en';
+                localStorage.setItem('lang', this.currentLang);
+                this.updateContent();
+            }
+        };
+
+        window.addEventListener('DOMContentLoaded', () => App.init());
+        window.toggleTheme = () => App.toggleTheme();
+        window.toggleLanguage = () => App.toggleLanguage();
+        window.toggleBrutalism = () => App.toggleBrutalism();
+    </script>
+</head>
+
+<body
+    class="bg-emerald-50/50 text-slate-800 antialiased selection:bg-emerald-600 selection:text-white overflow-x-hidden transition-colors duration-300 dark:bg-zinc-950 dark:text-zinc-300">
+
+    <!-- Ambient Background Blobs -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none opacity-60 dark:opacity-40">
+        <div
+            class="absolute top-0 left-1/4 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-[128px] animate-blob">
+        </div>
+        <div
+            class="absolute top-0 right-1/4 w-96 h-96 bg-cyan-400 rounded-full mix-blend-multiply filter blur-[128px] animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute -bottom-32 left-1/3 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-[128px] animate-blob animation-delay-4000">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full glass-nav z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html"
+                        class="text-xl sm:text-2xl font-bold tracking-tight text-emerald-950 hover:text-emerald-700 transition-colors dark:text-emerald-50 dark:hover:text-emerald-400">
+                        heykaan<span class="text-emerald-600 dark:text-emerald-400">.dev</span>
+                    </a>
+                </div>
+                <!-- Links -->
+                <!-- Right Side Actions -->
+                <div class="flex items-center gap-2 sm:gap-8">
+                    <!-- Navigation Links (Desktop) -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="index.html" data-i18n="nav_home"
+                            class="text-sm font-medium text-slate-600 hover:text-emerald-800 transition-colors dark:text-slate-300 dark:hover:text-emerald-400">Home</a>
+                        <a href="index.html#projects" data-i18n="nav_projects"
+                            class="text-sm font-medium text-slate-600 hover:text-emerald-800 transition-colors dark:text-slate-300 dark:hover:text-emerald-400">Projects</a>
+                        <a href="index.html#about" data-i18n="nav_about"
+                            class="text-sm font-medium text-slate-600 hover:text-emerald-800 transition-colors dark:text-slate-300 dark:hover:text-emerald-400">About</a>
+                    </div>
+
+                    <!-- Brutalism Toggle -->
+                    <button onclick="toggleBrutalism()" title="Toggle Brutalism"
+                        class="p-2 mr-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none">
+                        <svg class="w-5 h-5 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Language Toggle -->
+                    <button onclick="toggleLanguage()"
+                        class="text-sm font-bold text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors focus:outline-none w-8"
+                        id="lang-toggle-text">
+                        TR
+                    </button>
+
+                    <!-- Theme Toggle (Always Visible) -->
+                    <button onclick="toggleTheme()"
+                        class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none"
+                        aria-label="Toggle Dark Mode">
+                        <!-- Sun Icon (Show in Dark Mode) -->
+                        <svg class="w-5 h-5 hidden dark:block text-yellow-400" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <!-- Moon Icon (Show in Light Mode) -->
+                        <svg class="w-5 h-5 block dark:hidden text-slate-600" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Workspace -->
+    <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto space-y-24">
+
+            <!-- 1. Hero Section -->
+            <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left: Content -->
+                <div class="lg:col-span-5 flex flex-col items-start text-left space-y-8 animate-fade-in-up">
+                    <div class="flex items-center gap-4">
+                        <img src="assets/images/readscore_logo.png" alt="ReadScore Logo"
+                            class="w-16 h-16 rounded-2xl shadow-lg shadow-emerald-500/20">
+                        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+                            data-i18n="hero_title">
+                            ReadScore
+                        </h1>
+                    </div>
+
+                    <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 font-light leading-relaxed max-w-xl"
+                        data-i18n="hero_subtitle">
+                        Analyze the readability of web pages with transparent, explainable metrics.
+                    </p>
+
+                    <a href="https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en"
+                        target="_blank"
+                        class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-emerald-600 rounded-xl hover:bg-emerald-700 hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto"
+                        data-i18n="btn_install">
+                        Add to Chrome - Free
+                    </a>
+                </div>
+
+                <!-- Right: Mockup -->
+                <div class="hidden lg:block lg:col-span-7 relative group animate-fade-in-up animation-delay-500">
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000">
+                    </div>
+                    <div
+                        class="relative bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 rounded-2xl p-2 shadow-2xl">
+                        <!-- Browser Header -->
+                        <div
+                            class="flex items-center gap-2 px-3 py-2 border-b border-slate-200 dark:border-zinc-700/50 mb-2">
+                            <div class="flex gap-1.5">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
+                            <div
+                                class="flex-1 bg-white dark:bg-zinc-900 h-6 rounded px-2 text-xs flex items-center text-slate-400 ml-4 font-mono">
+                                extension://readscore
+                            </div>
+                        </div>
+
+                        <!-- Browser Content (Fake Split) -->
+                        <div class="grid grid-cols-2 h-[350px] sm:h-[450px] rounded bg-white dark:bg-zinc-950 relative">
+                            <!-- Left: Original Content -->
+                            <div class="p-6 border-r border-slate-100 dark:border-zinc-900 overflow-hidden relative">
+                                <!-- Label -->
+                                <div class="absolute top-4 left-4 z-10">
+                                    <span
+                                        class="px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-500 dark:bg-zinc-800 dark:text-zinc-500 border border-slate-200 dark:border-zinc-700">
+                                        Original
+                                    </span>
+                                </div>
+
+                                <!-- Content Simulation (Dense) -->
+                                <div class="mt-8 space-y-2.5 opacity-30 select-none">
+                                    <div class="h-2.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-full"></div>
+                                    <div class="h-2.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-11/12"></div>
+                                    <div class="h-2.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-full"></div>
+                                    <div class="h-2.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-4/5"></div>
+                                    <div class="h-2.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-full"></div>
+                                    <div class="h-2.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-full"></div>
+                                    <div class="h-32 bg-slate-200 dark:bg-zinc-800 rounded-lg w-full my-4"></div>
+                                    <div class="h-2.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-full"></div>
+                                    <div class="h-2.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-5/6"></div>
+                                    <div class="h-2.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-full"></div>
+                                    <div class="h-2.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-3/4"></div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Analyzed Content -->
+                            <div class="p-6 relative bg-slate-50/50 dark:bg-zinc-900/50">
+                                <!-- Label -->
+                                <div class="absolute top-4 left-4 z-10">
+                                    <span
+                                        class="px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/30">
+                                        Analyzed
+                                    </span>
+                                </div>
+
+                                <div class="mt-8 space-y-4">
+                                    <!-- Highlight Block (Amber) -->
+                                    <div
+                                        class="bg-amber-50 dark:bg-amber-900/10 rounded-lg p-2.5 border-l-2 border-amber-400 space-y-2">
+                                        <div class="h-2 bg-amber-200 dark:bg-amber-700/40 rounded w-full"></div>
+                                        <div class="h-2 bg-amber-200 dark:bg-amber-700/40 rounded w-3/4"></div>
+                                    </div>
+
+                                    <!-- Standard Text -->
+                                    <div class="space-y-2 opacity-40">
+                                        <div class="h-2 bg-slate-400 dark:bg-zinc-500 rounded w-full"></div>
+                                        <div class="h-2 bg-slate-400 dark:bg-zinc-500 rounded w-5/6"></div>
+                                    </div>
+
+                                    <!-- Highlight Block (Red) -->
+                                    <div
+                                        class="bg-red-50 dark:bg-red-900/10 rounded-lg p-2.5 border-l-2 border-red-400 space-y-2">
+                                        <div class="h-2 bg-red-200 dark:bg-red-700/40 rounded w-full"></div>
+                                        <div class="h-2 bg-red-200 dark:bg-red-700/40 rounded w-11/12"></div>
+                                        <div class="h-2 bg-red-200 dark:bg-red-700/40 rounded w-4/5"></div>
+                                    </div>
+
+                                    <!-- Popover UI (Image) -->
+                                    <div
+                                        class="absolute top-16 -right-20 w-72 z-20 transition-transform hover:scale-105 duration-300">
+                                        <img src="assets/images/readscore_popup_mockup.png" alt="ReadScore Analysis UI"
+                                            class="w-full rounded-xl shadow-2xl border border-slate-200/50 dark:border-zinc-700/50">
+                                    </div>
+
+                                    <!-- Further Content -->
+                                    <div class="opacity-40">
+                                        <div class="h-24 bg-slate-200 dark:bg-zinc-800 rounded-lg w-full mb-3"></div>
+                                        <div class="space-y-2">
+                                            <div class="h-2 bg-slate-400 dark:bg-zinc-500 rounded w-full"></div>
+                                            <div class="h-2 bg-slate-400 dark:bg-zinc-500 rounded w-2/3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Overview & Features -->
+            <section class="grid grid-cols-1 lg:grid-cols-4 gap-4 items-start">
+                <!-- Overview -->
+                <div class="lg:col-span-2 space-y-6 mt-2">
+                    <h3 class="text-sm font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase"
+                        data-i18n="ov_title">Overview</h3>
+                    <p class="text-lg leading-relaxed text-slate-700 dark:text-zinc-400" data-i18n="ov_desc">
+                        ReadScore is a Chrome extension that analyzes web page readability, reading level, and text
+                        complexity using transparent, rule-based readability formulas. It provides instant readability
+                        scores, highlights hard-to-read sentences and dense paragraphs, and helps improve content
+                        clarity and writing quality. All analysis runs locally in your browser.
+                    </p>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="lg:col-span-2 mt-2">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Feature 1 -->
+                        <div
+                            class="glass-card p-6 flex flex-col items-center justify-center gap-4 text-center rounded-2xl hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors cursor-default">
+                            <div
+                                class="w-12 h-12 text-[#204190] bg-[#DDF0FC] dark:text-[#DDF0FC] dark:bg-[#204190]/30 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm font-semibold" data-i18n="f_readability">Instant Readability Score</p>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div
+                            class="glass-card p-6 flex flex-col items-center justify-center gap-4 text-center rounded-2xl hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors cursor-default">
+                            <div
+                                class="w-12 h-12 text-[#204190] bg-[#DDF0FC] dark:text-[#DDF0FC] dark:bg-[#204190]/30 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="text-sm font-semibold" data-i18n="f_highlight">Visual Highlighting</p>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div
+                            class="glass-card p-6 flex flex-col items-center justify-center gap-4 text-center rounded-2xl hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors cursor-default">
+                            <div
+                                class="w-12 h-12 text-[#204190] bg-[#DDF0FC] dark:text-[#DDF0FC] dark:bg-[#204190]/30 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="text-sm font-semibold" data-i18n="f_multilang">Transparent Rule-Based Metrics</p>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div
+                            class="glass-card p-6 flex flex-col items-center justify-center gap-4 text-center rounded-2xl hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors cursor-default">
+                            <div
+                                class="w-12 h-12 text-[#204190] bg-[#DDF0FC] dark:text-[#DDF0FC] dark:bg-[#204190]/30 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="text-sm font-semibold" data-i18n="f_darkmode">Local & Private</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Use Cases -->
+            <section class="space-y-6">
+                <h3 class="text-sm font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase"
+                    data-i18n="sec_usecases">Use Cases</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Creator -->
+                    <div
+                        class="glass-card p-6 flex flex-col items-center justify-center gap-3 rounded-2xl hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors cursor-default">
+                        <div
+                            class="w-12 h-12 text-[#204190] bg-[#DDF0FC] dark:text-[#DDF0FC] dark:bg-[#204190]/30 rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                </path>
+                            </svg>
+                        </div>
+                        <span class="text-sm font-semibold text-center" data-i18n="uc_creators">Content Creators</span>
+                    </div>
+                    <!-- Editor -->
+                    <div
+                        class="glass-card p-6 flex flex-col items-center justify-center gap-3 rounded-2xl hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors cursor-default">
+                        <div
+                            class="w-12 h-12 text-[#204190] bg-[#DDF0FC] dark:text-[#DDF0FC] dark:bg-[#204190]/30 rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <span class="text-sm font-semibold text-center" data-i18n="uc_editors">Editors</span>
+                    </div>
+                    <!-- Researchers -->
+                    <div
+                        class="glass-card p-6 flex flex-col items-center justify-center gap-3 rounded-2xl hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors cursor-default">
+                        <div
+                            class="w-12 h-12 text-[#204190] bg-[#DDF0FC] dark:text-[#DDF0FC] dark:bg-[#204190]/30 rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                                <path
+                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                            </svg>
+                        </div>
+                        <span class="text-sm font-semibold text-center" data-i18n="uc_researchers">Students &
+                            Researchers</span>
+                    </div>
+                    <!-- UX -->
+                    <div
+                        class="glass-card p-6 flex flex-col items-center justify-center gap-3 rounded-2xl hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors cursor-default">
+                        <div
+                            class="w-12 h-12 text-[#204190] bg-[#DDF0FC] dark:text-[#DDF0FC] dark:bg-[#204190]/30 rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                                </path>
+                            </svg>
+                        </div>
+                        <span class="text-sm font-semibold text-center" data-i18n="uc_ux">UX Writers</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/40 bg-white/30 backdrop-blur-md dark:bg-black/30 dark:border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+
+                <!-- Brand -->
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold tracking-tight text-emerald-950 dark:text-emerald-50">
+                        heykaan<span class="text-emerald-600 dark:text-emerald-400">.dev</span>
+                    </span>
+                </div>
+
+                <!-- Copyright -->
+                <p data-i18n="footer_rights" class="text-slate-500 text-sm"></p>
+
+                <!-- Socials -->
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/kaanddemir" target="_blank" rel="noopener noreferrer"
+                        class="text-slate-500 hover:text-emerald-700 transition-colors p-2 hover:bg-white/50 dark:hover:bg-zinc-800 dark:hover:text-emerald-400 rounded-full">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

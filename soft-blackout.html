@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft Blackout | heykaan.dev</title>
+
+    <!-- SEO & Meta Tags -->
+    <meta name="title" content="Soft Blackout | heykaan.dev">
+    <meta name="description"
+        content="Soft Blackout - Selectively redact text on web pages. A privacy-focused Chrome extension by Kaan.">
+    <meta name="keywords" content="soft blackout, redaction, privacy, chrome extension">
+    <meta name="author" content="Kaan">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#059669">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://heykaan.dev/soft-blackout.html">
+    <meta property="og:title" content="Soft Blackout | heykaan.dev">
+    <meta property="og:description"
+        content="Soft Blackout - Selectively redact text on web pages. A privacy-focused Chrome extension by Kaan.">
+    <meta property="og:image" content="https://heykaan.dev/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://heykaan.dev/soft-blackout.html">
+    <meta property="twitter:title" content="Soft Blackout | heykaan.dev">
+    <meta property="twitter:description"
+        content="Soft Blackout - Selectively redact text on web pages. A privacy-focused Chrome extension by Kaan.">
+    <meta property="twitter:image" content="https://heykaan.dev/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%23059669"/><text x="50" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">K</text></svg>'>
+
+    <!-- Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Custom Styles (Copied from index.html) */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .dark .glass-card {
+            background: rgba(9, 9, 11, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dark .glass-nav {
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        /* Animation Utilities */
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+
+        /* Redaction Animation for Browser Mockup */
+        .redact-anim {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .redact-anim:hover,
+        .redact-anim.is-active {
+            background-color: #000;
+            color: transparent;
+            cursor: default;
+        }
+
+        .dark .redact-anim:hover,
+        .dark .redact-anim.is-active {
+            background-color: currentColor;
+        }
+
+
+        /* Brutalism Overrides */
+        .brutalism * {
+            border-radius: 0 !important;
+            font-family: 'Space Mono', monospace !important;
+        }
+
+        .brutalism .glass-card,
+        .brutalism .glass-nav {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            background: white;
+            border: 2px solid #000;
+            box-shadow: 6px 6px 0px 0px #000;
+        }
+
+        .brutalism.dark .glass-card,
+        .brutalism.dark .glass-nav {
+            background: #09090b;
+            border: 2px solid #fff;
+            box-shadow: 6px 6px 0px 0px #fff;
+        }
+
+        .brutalism .animate-blob {
+            display: none;
+        }
+
+        .brutalism a[href^="#"],
+        .brutalism button,
+        .brutalism .glass-card {
+            transition: transform 0.1s;
+        }
+
+        .brutalism a[href^="#"]:hover,
+        .brutalism button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px 0px currentColor;
+            border: 2px solid currentColor;
+        }
+
+        .brutalism a[href^="#"]:active,
+        .brutalism button:active {
+            transform: translate(0, 0);
+            box-shadow: none;
+        }
+
+        /* Brutalism Specific Adjustments */
+        .brutalism .browser-mockup-text {
+            font-size: 0.75rem !important;
+            /* text-xs */
+            line-height: 1.5 !important;
+        }
+
+        .brutalism .browser-mockup-text h3 {
+            font-size: 0.875rem !important;
+            /* text-sm */
+            margin-bottom: 0.5rem !important;
+        }
+
+        .brutalism .browser-mockup-text p {
+            margin-bottom: 0.5rem !important;
+        }
+
+        .brutalism .overview-text {
+            font-size: 0.875rem !important;
+            /* Keep text-sm for brutalism */
+        }
+    </style>
+
+    <!-- Configuration & Logic -->
+    <script>
+        // Tailwind Config
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        cream: '#F7F5E7',
+                        offblack: '#1E1E1E',
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'text-shimmer': 'text-shimmer 3s ease infinite',
+                        'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        'text-shimmer': {
+                            '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
+                            '50%': { 'background-size': '200% 200%', 'background-position': 'right center' },
+                        },
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Application Logic (Theme & Localization)
+        const App = {
+            init() {
+                this.initTheme();
+                this.initBrutalism();
+                this.initLocalization();
+                this.initYear();
+            },
+            initTheme() {
+                document.documentElement.classList.add('dark');
+            },
+            initYear() {
+                const yearElement = document.getElementById('year');
+                if (yearElement) {
+                    yearElement.textContent = new Date().getFullYear();
+                }
+            },
+            initBrutalism() {
+                if (localStorage.brutalism === 'true') {
+                    document.documentElement.classList.add('brutalism');
+                }
+            },
+            toggleBrutalism() {
+                document.documentElement.classList.toggle('brutalism');
+                localStorage.brutalism = document.documentElement.classList.contains('brutalism');
+            },
+            toggleTheme() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.theme = 'light';
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                }
+            },
+            translations: {
+                en: {
+                    nav_home: "Home",
+                    nav_projects: "Projects",
+                    nav_about: "About",
+
+                    product_title: "SOFT BLACKOUT",
+                    product_value_prop: "Hide sensitive content",
+                    product_overview_title: "Overview",
+                    product_overview_desc: "Soft Blackout is a lightweight, privacy-first Chrome extension that lets you selectively hide text on any web page. Remove sensitive information, eliminate distractions, or reshape content creatively, all processed locally and only when you activate it.",
+                    btn_add_chrome: "Add to Chrome - Free",
+
+                    feat_smart_redaction: "Smart Redaction",
+                    feat_smart_redaction_desc: "Automatically hides text using intelligent modes like Privacy, Poetry, and Random.",
+                    feat_manual_control: "Manual Control",
+                    feat_manual_control_desc: "Lets you click and drag to selectively redact any text on the page.",
+                    feat_custom_intensity: "Adjustable Intensity",
+                    feat_custom_intensity_desc: "Offers Light, Medium, and Heavy levels to control how much text is hidden.",
+                    feat_smart_filters: "Smart Filters",
+                    feat_smart_filters_desc: "Allows important elements like names, numbers, or long words to remain visible.",
+                    feat_blackout_all: "Blackout All",
+                    feat_blackout_all_desc: "Instantly obscures all readable content on the page with a single click.",
+                    feat_history_reveal: "Undo & Reveal",
+                    feat_history_reveal_desc: "Supports full Undo/Redo and lets you double-click to temporarily reveal hidden text.",
+
+                    mockup_btn: "Toggle Blackout",
+                    footer_rights: "© {year} heykaan.dev. All rights reserved.",
+                },
+                tr: {
+                    nav_home: "Ana Sayfa",
+                    nav_projects: "Projeler",
+                    nav_about: "Hakkımda",
+
+                    product_title: "SOFT BLACKOUT",
+                    product_value_prop: "Hassas içeriği gizle",
+                    product_overview_title: "Genel Bakış",
+                    product_overview_desc: "Soft Blackout, hassas içerikleri gizlemenize veya dikkat dağıtıcı unsurları ortadan kaldırmanıza yardımcı olan hafif ve gizlilik odaklı bir Chrome uzantısıdır. İçeriği kontrol edin, karmaşa olmadan okumaya odaklanın ya da blackout şiirleriyle yaratıcılığınızı ortaya çıkarın. Yalnızca istediğinizde çalışır, hızlıdır ve gizliliğinizi korur.",
+                    btn_add_chrome: "Chrome'a Ekle - Ücretsiz",
+
+                    feat_smart_redaction: "Akıllı Gizleme",
+                    feat_smart_redaction_desc: "Gizlilik, Şiir ve Rastgele gibi akıllı modlar kullanarak metni otomatik olarak gizler.",
+                    feat_manual_control: "Manuel Kontrol",
+                    feat_manual_control_desc: "Sayfadaki herhangi bir metni seçerek gizlemen için tıkla ve sürükle kontrolü sağlar.",
+                    feat_custom_intensity: "Ayarlanabilir Seviye",
+                    feat_custom_intensity_desc: "Ne kadar metnin gizleneceğini ayarlaman için Az, Orta ve Yüksek seviyeleri sunar.",
+                    feat_smart_filters: "Akıllı Filtreler",
+                    feat_smart_filters_desc: "İsimler, sayılar veya uzun kelimeler gibi önemli öğelerin görünür kalmasına izin verir.",
+                    feat_blackout_all: "Tümünü Karart",
+                    feat_blackout_all_desc: "Tek tıklamayla sayfadaki tüm okunabilir içeriği anında gizler.",
+                    feat_history_reveal: "Geri Al ve Yinele",
+                    feat_history_reveal_desc: "Geri al ve yinele desteği sunar ve gizlenmiş metni geçici olarak görmek için çift tıklamaya izin verir.",
+
+                    mockup_btn: "Karartmayı Aç/Kapat",
+                    footer_rights: "© {year} heykaan.dev. Tüm hakları saklıdır."
+                }
+            },
+            initLocalization() {
+                this.currentLang = localStorage.getItem('lang') || 'en';
+                this.updateContent();
+            },
+            updateContent() {
+                const currentYear = new Date().getFullYear();
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (this.translations[this.currentLang][key]) {
+                        let content = this.translations[this.currentLang][key];
+
+                        // Handle dynamic year substitution
+                        if (content.includes('{year}')) {
+                            content = content.replace('{year}', currentYear);
+                        }
+
+                        if (content.includes('<')) {
+                            element.innerHTML = content;
+                        } else {
+                            element.innerText = content;
+                        }
+                    }
+                });
+                document.getElementById('lang-toggle-text').innerText = this.currentLang === 'en' ? 'TR' : 'EN';
+            },
+            toggleMockup() {
+                document.querySelectorAll('.redact-anim').forEach(el => el.classList.toggle('is-active'));
+            },
+            toggleLanguage() {
+                this.currentLang = this.currentLang === 'en' ? 'tr' : 'en';
+                localStorage.setItem('lang', this.currentLang);
+                this.updateContent();
+            }
+        };
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => App.init());
+
+        // Global accessors for onclick events
+        window.toggleTheme = () => App.toggleTheme();
+        window.toggleMockup = () => App.toggleMockup();
+        window.toggleLanguage = () => App.toggleLanguage();
+        window.toggleBrutalism = () => App.toggleBrutalism();
+    </script>
+</head>
+
+<body
+    class="bg-cream text-offblack antialiased selection:bg-emerald-600 selection:text-white overflow-x-hidden transition-colors duration-300 dark:bg-offblack dark:text-cream">
+
+    <!-- Ambient Background Blobs -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div
+            class="absolute top-0 left-1/4 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-blob">
+        </div>
+        <div
+            class="absolute top-0 right-1/4 w-96 h-96 bg-cyan-400 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute -bottom-32 left-1/3 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-blob animation-delay-4000">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full glass-nav z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html"
+                        class="text-xl sm:text-2xl font-bold tracking-tight text-emerald-950 hover:text-emerald-700 transition-colors dark:text-emerald-50 dark:hover:text-emerald-400">
+                        heykaan<span class="text-emerald-600 dark:text-emerald-400">.dev</span>
+                    </a>
+                </div>
+
+                <!-- Right Side Actions -->
+                <div class="flex items-center gap-2 sm:gap-8">
+                    <!-- Navigation Links (Desktop) -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="index.html" data-i18n="nav_home"
+                            class="text-sm font-medium text-slate-600 hover:text-emerald-800 transition-colors dark:text-slate-300 dark:hover:text-emerald-400">Home</a>
+                        <a href="index.html#projects" data-i18n="nav_projects"
+                            class="text-sm font-medium text-slate-600 hover:text-emerald-800 transition-colors dark:text-slate-300 dark:hover:text-emerald-400">Projects</a>
+                        <a href="index.html#about" data-i18n="nav_about"
+                            class="text-sm font-medium text-slate-600 hover:text-emerald-800 transition-colors dark:text-slate-300 dark:hover:text-emerald-400">About</a>
+                    </div>
+
+                    <!-- Brutalism Toggle -->
+                    <button onclick="toggleBrutalism()" title="Toggle Brutalism"
+                        class="p-2 mr-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none">
+                        <svg class="w-5 h-5 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Language Toggle -->
+                    <button onclick="toggleLanguage()"
+                        class="text-sm font-bold text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors focus:outline-none w-8"
+                        id="lang-toggle-text">
+                        TR
+                    </button>
+
+                    <!-- Theme Toggle -->
+                    <button onclick="toggleTheme()"
+                        class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none"
+                        aria-label="Toggle Dark Mode">
+                        <svg class="w-5 h-5 hidden dark:block text-yellow-400" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 block dark:hidden text-slate-600" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Layout -->
+    <main class="min-h-screen pt-32 pb-20 lg:pt-32 lg:pb-20 flex items-center justify-center">
+        <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full">
+
+                <!-- Column 1: Browser Mockup (Visual) -->
+                <div
+                    class="hidden lg:block lg:col-span-1 border border-emerald-900/10 dark:border-white/10 rounded-3xl p-4 glass-card h-full min-h-[600px] flex flex-col justify-center relative overflow-hidden">
+                    <!-- Fake Browser Window -->
+                    <div
+                        class="bg-slate-100 dark:bg-zinc-800 rounded-lg shadow-lg overflow-hidden border border-slate-200 dark:border-zinc-700 w-full h-full flex flex-col">
+                        <!-- Browser Header -->
+                        <div
+                            class="bg-slate-200 dark:bg-zinc-900 h-8 flex items-center px-3 gap-2 border-b border-slate-300 dark:border-zinc-800">
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                            <div class="bg-white dark:bg-zinc-800 h-5 flex-grow rounded ml-2 opacity-50"></div>
+                        </div>
+                        <!-- Browser Body -->
+                        <div
+                            class="browser-mockup-text p-6 bg-white dark:bg-zinc-950 flex-grow font-serif text-sm leading-relaxed text-slate-600 dark:text-slate-400 overflow-hidden relative">
+                            <div
+                                class="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white dark:from-zinc-950 to-transparent pointer-events-none">
+                            </div>
+
+                            <h3 class="font-sans font-bold text-lg mb-4 text-offblack dark:text-cream">Why Privacy
+                                Matters</h3>
+
+                            <p class="mb-4 leading-loose">
+                                <span class="redact-anim rounded-sm px-0.5">While browsing online, it is common to
+                                    find</span>
+                                useful information
+                                <span class="redact-anim rounded-sm px-0.5"> mixed with</span>
+                                personal details,
+                                distracting
+                                <span class="redact-anim rounded-sm px-0.5"> elements</span>, <span
+                                    class="redact-anim rounded-sm px-0.5">and sections that were never meant to be
+                                    shared publicly</span>. <span class="redact-anim rounded-sm px-0.5">Instead of
+                                    editing screenshots or copying text into other tools</span>,
+                                Soft Blackout
+                                <span class="redact-anim rounded-sm px-0.5"> allows certain parts of a page to be</span>
+                                hidden
+                                <span class="redact-anim rounded-sm px-0.5"> while the</span>
+                                rest
+                                <span class="redact-anim rounded-sm px-0.5"> stays</span>
+                                readable
+                                <span class="redact-anim rounded-sm px-0.5"> and intact</span>. <span
+                                    class="redact-anim rounded-sm px-0.5">This simple control helps people</span>
+                                share
+                                <span class="redact-anim rounded-sm px-0.5"> content</span>
+                                safely,
+                                stay focused, <span class="redact-anim rounded-sm px-0.5">and</span>
+                                reduce
+                                <span class="redact-anim rounded-sm px-0.5"> visual</span>
+                                noise
+                                <span class="redact-anim rounded-sm px-0.5"> without changing the original page
+                                    structure</span>. <span class="redact-anim rounded-sm px-0.5">Over time, using Soft
+                                    Blackout makes browsing feel calmer, more</span>
+                                private, <span class="redact-anim rounded-sm px-0.5">and fully under</span>
+                                control.
+                            </p>
+
+                            <div class="mt-8 pt-4 border-t border-slate-100 dark:border-zinc-900 text-center">
+                                <button onclick="toggleMockup()"
+                                    class="font-sans inline-flex items-center gap-2.5 px-6 py-3 bg-offblack text-cream dark:bg-cream dark:text-offblack rounded-full text-sm font-bold shadow-md hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-300">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                        </path>
+                                    </svg>
+                                    <span data-i18n="mockup_btn">Toggle Blackout</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Product Info (Center) -->
+                <div class="lg:col-span-1 flex flex-col gap-4">
+                    <!-- Top Card: Identity -->
+                    <div
+                        class="glass-card rounded-3xl p-4 sm:p-5 md:p-6 border border-emerald-900/10 dark:border-white/10 flex flex-col items-center text-center">
+                        <h2 data-i18n="product_title"
+                            class="text-xs font-bold tracking-[0.2em] text-offblack/60 dark:text-cream/60 mb-4 uppercase">
+                            Soft Blackout</h2>
+
+                        <div class="mb-4">
+                            <img src="assets/images/soft_blackout_logo.png" alt="Soft Blackout Logo"
+                                class="w-20 h-20 rounded-2xl shadow-lg">
+                        </div>
+
+                        <div>
+                            <p class="text-xl font-bold text-offblack dark:text-cream leading-tight">
+                                <span data-i18n="product_value_prop">Hide sensitive content</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Card: Details & Action -->
+                    <div
+                        class="glass-card rounded-3xl p-4 sm:p-5 md:p-6 border border-emerald-900/10 dark:border-white/10 flex-grow flex flex-col">
+                        <div class="mb-8">
+                            <h3 data-i18n="product_overview_title"
+                                class="text-lg font-semibold text-offblack dark:text-cream mb-3">Overview
+                            </h3>
+                            <p data-i18n="product_overview_desc"
+                                class="overview-text text-offblack/80 dark:text-cream/80 text-base leading-relaxed">
+                                Soft Blackout is a lightweight, privacy-first Chrome Extension designed to help you
+                                hide sensitive content or remove distractions. Control your content, focus on
+                                reading without clutter, or unleash your creativity with blackout poetry.
+                            </p>
+                        </div>
+                        <div class="mt-auto">
+                            <a href="https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo"
+                                target="_blank" rel="noopener noreferrer"
+                                class="w-full block text-center py-4 rounded-xl bg-offblack text-cream dark:bg-cream dark:text-offblack font-bold tracking-wide hover:opacity-90 hover:-translate-y-1 transition-all duration-300">
+                                <span data-i18n="btn_add_chrome">Add to Chrome - Free</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3: Features Grid (Right - Spans 2 cols on wide, or handles small cards) -->
+                <div class="lg:col-span-1 flex flex-col h-full">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
+
+                        <!-- Feature 1 -->
+                        <div
+                            class="glass-card rounded-2xl p-4 border border-offblack/5 dark:border-cream/5 hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-offblack/5 dark:bg-cream/10 text-offblack dark:text-cream flex items-center justify-center mb-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h4 data-i18n="feat_smart_redaction" class="font-bold text-offblack dark:text-cream mb-1">
+                                Smart Redaction</h4>
+                            <p data-i18n="feat_smart_redaction_desc"
+                                class="text-xs text-offblack/60 dark:text-cream/60">
+                                Automatically redact using intelligent modes like Poetry, Privacy, and Random.</p>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div
+                            class="glass-card rounded-2xl p-4 border border-offblack/5 dark:border-cream/5 hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-offblack/5 dark:bg-cream/10 text-offblack dark:text-cream flex items-center justify-center mb-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h4 data-i18n="feat_manual_control" class="font-bold text-offblack dark:text-cream mb-1">
+                                Manual Control</h4>
+                            <p data-i18n="feat_manual_control_desc" class="text-xs text-offblack/60 dark:text-cream/60">
+                                Click and drag to selectively redact specific sentences or paragraphs.</p>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div
+                            class="glass-card rounded-2xl p-4 border border-offblack/5 dark:border-cream/5 hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-offblack/5 dark:bg-cream/10 text-offblack dark:text-cream flex items-center justify-center mb-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h4 data-i18n="feat_custom_intensity" class="font-bold text-offblack dark:text-cream mb-1">
+                                Customizable Intensity</h4>
+                            <p data-i18n="feat_custom_intensity_desc"
+                                class="text-xs text-offblack/60 dark:text-cream/60">Adjust redaction levels (Light,
+                                Medium, Heavy) to suit your needs.</p>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div
+                            class="glass-card rounded-2xl p-4 border border-offblack/5 dark:border-cream/5 hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-offblack/5 dark:bg-cream/10 text-offblack dark:text-cream flex items-center justify-center mb-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h4 data-i18n="feat_smart_filters" class="font-bold text-offblack dark:text-cream mb-1">
+                                Smart Filters</h4>
+                            <p data-i18n="feat_smart_filters_desc" class="text-xs text-offblack/60 dark:text-cream/60">
+                                Choose to keep proper nouns, long words, or numbers visible while redacting.</p>
+                        </div>
+
+                        <!-- Feature 5 -->
+                        <div
+                            class="glass-card rounded-2xl p-4 border border-offblack/5 dark:border-cream/5 hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-offblack/5 dark:bg-cream/10 text-offblack dark:text-cream flex items-center justify-center mb-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 6h16M4 12h16M4 18h16"></path>
+                                </svg>
+                            </div>
+                            <h4 data-i18n="feat_blackout_all" class="font-bold text-offblack dark:text-cream mb-1">
+                                Blackout All</h4>
+                            <p data-i18n="feat_blackout_all_desc" class="text-xs text-offblack/60 dark:text-cream/60">A
+                                single-click option to completely obscure everything on the page.</p>
+                        </div>
+
+                        <!-- Feature 6 -->
+                        <div
+                            class="glass-card rounded-2xl p-4 border border-offblack/5 dark:border-cream/5 hover:bg-white/50 dark:hover:bg-zinc-800/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-offblack/5 dark:bg-cream/10 text-offblack dark:text-cream flex items-center justify-center mb-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h4 data-i18n="feat_history_reveal" class="font-bold text-offblack dark:text-cream mb-1">
+                                History & Reveal</h4>
+                            <p data-i18n="feat_history_reveal_desc" class="text-xs text-offblack/60 dark:text-cream/60">
+                                Full Undo and Redo capabilities. Interactive Reveal on double-click.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/40 bg-white/30 backdrop-blur-md dark:bg-black/30 dark:border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+
+                <!-- Brand -->
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold tracking-tight text-emerald-950 dark:text-emerald-50">
+                        heykaan<span class="text-emerald-600 dark:text-emerald-400">.dev</span>
+                    </span>
+                </div>
+
+                <!-- Copyright -->
+                <p data-i18n="footer_rights" class="text-slate-500 text-sm"></p>
+
+                <!-- Socials -->
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/kaanddemir" target="_blank" rel="noopener noreferrer"
+                        class="text-slate-500 hover:text-emerald-700 transition-colors p-2 hover:bg-white/50 dark:hover:bg-zinc-800 dark:hover:text-emerald-400 rounded-full">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
