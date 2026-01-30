@@ -20,9 +20,9 @@
     <link rel="canonical" href="https://heykaan.dev/">
 
     <!-- Language Alternates -->
-    <link rel="alternate" hreflang="en" href="https://heykaan.dev/">
-    <link rel="alternate" hreflang="tr" href="https://heykaan.dev/">
-    <link rel="alternate" hreflang="x-default" href="https://heykaan.dev/">
+    <link rel="alternate" hreflang="en" href="https://heykaan.dev/?lang=en">
+    <link rel="alternate" hreflang="tr" href="https://heykaan.dev/?lang=tr">
+    <link rel="alternate" hreflang="x-default" href="https://heykaan.dev/?lang=en">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -211,6 +211,7 @@
                 this.initBrutalism();
                 this.initLocalization();
                 this.initYear(); // Ensure this is only called once
+                this.updateHtmlLang(); // Update <html lang> attribute
             },
             initTheme() {
                 if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -306,8 +307,20 @@
                 }
             },
             initLocalization() {
-                this.currentLang = localStorage.getItem('lang') || 'en';
+                // Read language from URL parameter, fallback to 'en'
+                const urlParams = new URLSearchParams(window.location.search);
+                this.currentLang = urlParams.get('lang') || 'en';
+
+                // Validate language (only 'en' or 'tr' allowed)
+                if (this.currentLang !== 'en' && this.currentLang !== 'tr') {
+                    this.currentLang = 'en';
+                }
+
                 this.updateContent();
+            },
+            updateHtmlLang() {
+                // Update <html lang="..."> attribute for SEO
+                document.documentElement.setAttribute('lang', this.currentLang);
             },
             updateContent() {
                 const currentYear = new Date().getFullYear();
@@ -331,9 +344,13 @@
                 document.getElementById('lang-toggle-text').innerText = this.currentLang === 'en' ? 'TR' : 'EN';
             },
             toggleLanguage() {
-                this.currentLang = this.currentLang === 'en' ? 'tr' : 'en';
-                localStorage.setItem('lang', this.currentLang);
-                this.updateContent();
+                // Toggle language and update URL
+                const newLang = this.currentLang === 'en' ? 'tr' : 'en';
+
+                // Update URL with new language parameter
+                const url = new URL(window.location);
+                url.searchParams.set('lang', newLang);
+                window.location.href = url.toString();
             }
         };
 
