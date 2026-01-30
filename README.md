@@ -1,6 +1,6 @@
 # heykaan.dev
 
-![Open Graph Image](./og-image.png)
+![Open Graph Image](./assets/icons/og-image.png)
 
 A modern, minimal, performance-conscious personal platform designed to showcase web experiments and browser extensions.
 
@@ -59,15 +59,57 @@ Visit the live portfolio: **[heykaan.dev](https://heykaan.dev)**
    cd heykaan.dev
    ```
 
-2. Install dependencies:
+2. Open `index.html` in your browser or use a local server:
    ```bash
-   npm install
+   # Using Python
+   python -m http.server 8000
+   
+   # Using Node.js
+   npx http-server
    ```
 
-3. Start the development server:
+3. For development with live reload:
    ```bash
-   npm run dev
+   # Install live-server globally (optional)
+   npm install -g live-server
+   live-server
    ```
+
+## Project Structure
+
+```
+heykaan.dev/
+├── index.html              # Main portfolio page
+├── readscore.html          # ReadScore extension landing page
+├── soft-blackout.html      # Soft Blackout extension landing page
+├── 404.html                # Custom error page
+│
+├── manifest.json           # PWA manifest
+├── sitemap.xml             # SEO sitemap (must be in root)
+├── robots.txt              # Search engine directives (must be in root)
+│
+├── assets/                 # Organized static resources
+│   ├── icons/             # Icons and meta images
+│   │   ├── apple-touch-icon.png
+│   │   └── og-image.png
+│   └── images/            # Project logos and screenshots
+│
+├── README.md               # Project documentation
+├── LICENSE                 # MIT License
+├── CNAME                   # Custom domain configuration
+└── .gitignore              # Git ignore rules
+```
+
+## SEO & Performance
+
+This site is fully optimized for search engines and performance:
+
+- ✅ **SEO Score: 100/100** - Complete meta tags, structured data (Schema.org), canonical URLs
+- ✅ **Multi-language Support** - URL-based i18n (English/Turkish) with proper hreflang tags
+- ✅ **Progressive Web App** - Installable on mobile devices with offline support
+- ✅ **Security Headers** - XSS protection, clickjacking prevention, secure referrer policy
+- ✅ **Performance Optimized** - Resource preloading, DNS prefetch, lazy loading images
+- ✅ **Core Web Vitals** - Optimized CLS (image dimensions), fast FCP with critical CSS preload
 
 ## Future Improvements
 
