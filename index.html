@@ -9,12 +9,20 @@
     <!-- SEO & Meta Tags -->
     <meta name="title" content="heykaan.dev | Web Developer & Chrome Extension Creator">
     <meta name="description"
-        content="Portfolio of Kaan, a developer specializing in modern websites and powerful Chrome extensions. Explore exceptional web experiences and useful tools.">
+        content="Portfolio of Kaan, a web developer specializing in modern websites and powerful Chrome extensions like ReadScore and Soft Blackout. Explore exceptional web experiences.">
     <meta name="keywords"
-        content="web development, chrome extensions, javascript, ui design, frontend developer, portfolio">
+        content="web development, chrome extensions, javascript, ui design, frontend developer, portfolio, readscore, soft blackout">
     <meta name="author" content="Kaan">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#059669">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://heykaan.dev/">
+
+    <!-- Language Alternates -->
+    <link rel="alternate" hreflang="en" href="https://heykaan.dev/">
+    <link rel="alternate" hreflang="tr" href="https://heykaan.dev/">
+    <link rel="alternate" hreflang="x-default" href="https://heykaan.dev/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -42,6 +50,37 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kaan",
+      "url": "https://heykaan.dev",
+      "sameAs": [
+        "https://github.com/kaanddemir"
+      ],
+      "jobTitle": "Web Developer",
+      "description": "Web developer specializing in modern websites and Chrome extensions",
+      "knowsAbout": ["Web Development", "Chrome Extensions", "JavaScript", "UI Design"],
+      "email": "heykaan.dev@gmail.com"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "heykaan.dev",
+      "url": "https://heykaan.dev",
+      "description": "Portfolio of Kaan - Web Developer & Chrome Extension Creator",
+      "author": {
+        "@type": "Person",
+        "name": "Kaan"
+      },
+      "inLanguage": ["en", "tr"]
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -458,7 +497,9 @@
                             <div
                                 class="group glass-card rounded-3xl p-8 transition-all duration-300 hover:bg-white/80 dark:hover:bg-zinc-900 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-900/5 flex flex-col h-full bg-white/40 dark:bg-black/20 border-white/40 dark:border-white/5">
                                 <a href="soft-blackout.html" class="block flex-grow cursor-pointer">
-                                    <img src="assets/images/soft_blackout_logo.png" alt="Soft Blackout Logo"
+                                    <img src="assets/images/soft_blackout_logo.png"
+                                        alt="Soft Blackout Chrome Extension Logo - Selectively redact text on web pages"
+                                        loading="lazy"
                                         class="w-16 h-16 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
                                     <h3 data-i18n="ext_soft_blackout_title"
                                         class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Soft
@@ -494,7 +535,9 @@
                             <div
                                 class="group glass-card rounded-3xl p-8 transition-all duration-300 hover:bg-white/80 dark:hover:bg-zinc-900 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-900/5 flex flex-col h-full bg-white/40 dark:bg-black/20 border-white/40 dark:border-white/5">
                                 <a href="readscore.html" class="block flex-grow cursor-pointer">
-                                    <img src="assets/images/readscore_logo.png" alt="ReadScore Logo"
+                                    <img src="assets/images/readscore_logo.png"
+                                        alt="ReadScore Chrome Extension Logo - Analyze web page readability"
+                                        loading="lazy"
                                         class="w-16 h-16 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
                                     <h3 data-i18n="ext_readscore_title"
                                         class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">ReadScore
@@ -554,7 +597,8 @@
                         <a href="https://zanaat.app" target="_blank" rel="noopener noreferrer" class="block h-full">
                             <div
                                 class="group glass-card rounded-3xl p-8 transition-all duration-300 hover:bg-white/80 dark:hover:bg-zinc-900 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-900/5 flex flex-col h-full bg-white/40 dark:bg-black/20 border-white/40 dark:border-white/5">
-                                <img src="assets/images/zanaat_logo.png" alt="Zanaat.app Logo"
+                                <img src="assets/images/zanaat_logo.png"
+                                    alt="Zanaat.app Logo - AI creativity meets alchemy logic" loading="lazy"
                                     class="w-16 h-16 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
                                 <h3 data-i18n="website_zanaat_title"
                                     class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">Zanaat.app
@@ -586,7 +630,8 @@
                             class="block h-full">
                             <div
                                 class="group glass-card rounded-3xl p-8 transition-all duration-300 hover:bg-white/80 dark:hover:bg-zinc-900 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-900/5 flex flex-col h-full bg-white/40 dark:bg-black/20 border-white/40 dark:border-white/5">
-                                <img src="assets/images/studyhub_logo.png" alt="StudyHub Logo"
+                                <img src="assets/images/studyhub_logo.png"
+                                    alt="StudyHub Logo - Personal study dashboard for students" loading="lazy"
                                     class="w-16 h-16 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
                                 <h3 data-i18n="website_studyhub_title"
                                     class="text-2xl font-bold text-emerald-950 mb-3 dark:text-emerald-50">StudyHub

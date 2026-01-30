@@ -7,18 +7,27 @@
     <title>ReadScore | heykaan.dev</title>
 
     <!-- SEO & Meta Tags -->
-    <meta name="title" content="ReadScore | heykaan.dev">
+    <meta name="title" content="ReadScore - Web Readability Analyzer | Chrome Extension">
     <meta name="description"
-        content="ReadScore - Analyze the readability of web pages with transparent, explainable metrics. A Chrome extension by Kaan.">
-    <meta name="keywords" content="readscore, readability, metrics, chrome extension, analysis, privacy">
+        content="ReadScore analyzes web page readability using transparent, rule-based metrics. Instant readability scores, visual highlighting, and privacy-first local processing. Free Chrome extension.">
+    <meta name="keywords"
+        content="readscore, readability analyzer, flesch reading ease, readability metrics, chrome extension, text analysis, content clarity, writing quality">
     <meta name="author" content="Kaan">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#059669">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://heykaan.dev/readscore.html">
+
+    <!-- Language Alternates -->
+    <link rel="alternate" hreflang="en" href="https://heykaan.dev/readscore.html">
+    <link rel="alternate" hreflang="tr" href="https://heykaan.dev/readscore.html">
+    <link rel="alternate" hreflang="x-default" href="https://heykaan.dev/readscore.html">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://heykaan.dev/readscore.html">
-    <meta property="og:title" content="ReadScore | heykaan.dev">
+    <meta property="og:title" content="ReadScore - Web Readability Analyzer | Chrome Extension">
     <meta property="og:description"
         content="ReadScore - Analyze the readability of web pages with transparent, explainable metrics. A Chrome extension by Kaan.">
     <meta property="og:image" content="https://heykaan.dev/og-image.png">
@@ -26,7 +35,7 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://heykaan.dev/readscore.html">
-    <meta property="twitter:title" content="ReadScore | heykaan.dev">
+    <meta property="twitter:title" content="ReadScore - Web Readability Analyzer | Chrome Extension">
     <meta property="twitter:description"
         content="ReadScore - Analyze the readability of web pages with transparent, explainable metrics. A Chrome extension by Kaan.">
     <meta property="twitter:image" content="https://heykaan.dev/og-image.png">
@@ -41,6 +50,61 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
+
+    <!-- Structured Data (JSON-LD) for Chrome Extension -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ReadScore",
+      "applicationCategory": "BrowserExtension",
+      "operatingSystem": "Chrome",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Analyze web page readability with transparent, rule-based metrics. Provides instant readability scores and visual highlighting.",
+      "author": {
+        "@type": "Person",
+        "name": "Kaan",
+        "url": "https://heykaan.dev"
+      },
+      "url": "https://heykaan.dev/readscore.html",
+      "screenshot": "https://heykaan.dev/assets/images/readscore_popup_mockup.png",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "ratingCount": "1"
+      },
+      "featureList": [
+        "Instant Readability Score",
+        "Visual Highlighting",
+        "Transparent Rule-Based Metrics",
+        "Local & Private Processing"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://heykaan.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ReadScore",
+          "item": "https://heykaan.dev/readscore.html"
+        }
+      ]
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -400,7 +464,8 @@
                 <!-- Left: Content -->
                 <div class="lg:col-span-5 flex flex-col items-start text-left space-y-8 animate-fade-in-up">
                     <div class="flex items-center gap-4">
-                        <img src="assets/images/readscore_logo.png" alt="ReadScore Logo"
+                        <img src="assets/images/readscore_logo.png"
+                            alt="ReadScore Chrome Extension Logo - Analyze web page readability" loading="eager"
                             class="w-16 h-16 rounded-2xl shadow-lg shadow-emerald-500/20">
                         <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white"
                             data-i18n="hero_title">
@@ -505,7 +570,9 @@
                                     <!-- Popover UI (Image) -->
                                     <div
                                         class="absolute top-16 -right-20 w-72 z-20 transition-transform hover:scale-105 duration-300">
-                                        <img src="assets/images/readscore_popup_mockup.png" alt="ReadScore Analysis UI"
+                                        <img src="assets/images/readscore_popup_mockup.png"
+                                            alt="ReadScore Analysis UI showing readability metrics and text highlighting"
+                                            loading="lazy"
                                             class="w-full rounded-xl shadow-2xl border border-slate-200/50 dark:border-zinc-700/50">
                                     </div>
 

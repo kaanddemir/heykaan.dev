@@ -1,0 +1,14 @@
+# robots.txt for heykaan.dev
+
+# Allow all search engines to crawl all pages
+User-agent: *
+Allow: /
+
+# Disallow crawling of asset directories (optional, but good practice)
+Disallow: /assets/
+
+# Sitemap location
+Sitemap: https://heykaan.dev/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1

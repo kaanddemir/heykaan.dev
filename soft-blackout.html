@@ -7,18 +7,27 @@
     <title>Soft Blackout | heykaan.dev</title>
 
     <!-- SEO & Meta Tags -->
-    <meta name="title" content="Soft Blackout | heykaan.dev">
+    <meta name="title" content="Soft Blackout - Text Redaction Tool | Chrome Extension">
     <meta name="description"
-        content="Soft Blackout - Selectively redact text on web pages. A privacy-focused Chrome extension by Kaan.">
-    <meta name="keywords" content="soft blackout, redaction, privacy, chrome extension">
+        content="Soft Blackout lets you selectively hide text on web pages. Privacy-first Chrome extension with smart redaction modes, manual control, and instant blackout. Free to use.">
+    <meta name="keywords"
+        content="soft blackout, text redaction, privacy tool, chrome extension, hide text, blackout poetry, content filtering, selective redaction">
     <meta name="author" content="Kaan">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#059669">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://heykaan.dev/soft-blackout.html">
+
+    <!-- Language Alternates -->
+    <link rel="alternate" hreflang="en" href="https://heykaan.dev/soft-blackout.html">
+    <link rel="alternate" hreflang="tr" href="https://heykaan.dev/soft-blackout.html">
+    <link rel="alternate" hreflang="x-default" href="https://heykaan.dev/soft-blackout.html">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://heykaan.dev/soft-blackout.html">
-    <meta property="og:title" content="Soft Blackout | heykaan.dev">
+    <meta property="og:title" content="Soft Blackout - Text Redaction Tool | Chrome Extension">
     <meta property="og:description"
         content="Soft Blackout - Selectively redact text on web pages. A privacy-focused Chrome extension by Kaan.">
     <meta property="og:image" content="https://heykaan.dev/og-image.png">
@@ -26,7 +35,7 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://heykaan.dev/soft-blackout.html">
-    <meta property="twitter:title" content="Soft Blackout | heykaan.dev">
+    <meta property="twitter:title" content="Soft Blackout - Text Redaction Tool | Chrome Extension">
     <meta property="twitter:description"
         content="Soft Blackout - Selectively redact text on web pages. A privacy-focused Chrome extension by Kaan.">
     <meta property="twitter:image" content="https://heykaan.dev/og-image.png">
@@ -41,6 +50,58 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
+
+    <!-- Structured Data (JSON-LD) for Chrome Extension -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Soft Blackout",
+      "applicationCategory": "BrowserExtension",
+      "operatingSystem": "Chrome",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Selectively redact text on web pages with smart modes, manual control, and privacy-first design. Perfect for hiding sensitive content and creating blackout poetry.",
+      "author": {
+        "@type": "Person",
+        "name": "Kaan",
+        "url": "https://heykaan.dev"
+      },
+      "url": "https://heykaan.dev/soft-blackout.html",
+      "screenshot": "https://heykaan.dev/assets/images/soft_blackout_logo.png",
+      "featureList": [
+        "Smart Redaction Modes",
+        "Manual Control",
+        "Adjustable Intensity",
+        "Smart Filters",
+        "Blackout All",
+        "Undo & Reveal"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://heykaan.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Soft Blackout",
+          "item": "https://heykaan.dev/soft-blackout.html"
+        }
+      ]
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -506,13 +567,14 @@
                     <!-- Top Card: Identity -->
                     <div
                         class="glass-card rounded-3xl p-4 sm:p-5 md:p-6 border border-emerald-900/10 dark:border-white/10 flex flex-col items-center text-center">
-                        <h2 data-i18n="product_title"
+                        <h1 data-i18n="product_title"
                             class="text-xs font-bold tracking-[0.2em] text-offblack/60 dark:text-cream/60 mb-4 uppercase">
-                            Soft Blackout</h2>
+                            Soft Blackout</h1>
 
                         <div class="mb-4">
-                            <img src="assets/images/soft_blackout_logo.png" alt="Soft Blackout Logo"
-                                class="w-20 h-20 rounded-2xl shadow-lg">
+                            <img src="assets/images/soft_blackout_logo.png"
+                                alt="Soft Blackout Chrome Extension Logo - Selectively redact text on web pages"
+                                loading="eager" class="w-20 h-20 rounded-2xl shadow-lg">
                         </div>
 
                         <div>
@@ -526,9 +588,9 @@
                     <div
                         class="glass-card rounded-3xl p-4 sm:p-5 md:p-6 border border-emerald-900/10 dark:border-white/10 flex-grow flex flex-col">
                         <div class="mb-8">
-                            <h3 data-i18n="product_overview_title"
+                            <h2 data-i18n="product_overview_title"
                                 class="text-lg font-semibold text-offblack dark:text-cream mb-3">Overview
-                            </h3>
+                            </h2>
                             <p data-i18n="product_overview_desc"
                                 class="overview-text text-offblack/80 dark:text-cream/80 text-base leading-relaxed">
                                 Soft Blackout is a lightweight, privacy-first Chrome Extension designed to help you
@@ -560,8 +622,8 @@
                                         d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                 </svg>
                             </div>
-                            <h4 data-i18n="feat_smart_redaction" class="font-bold text-offblack dark:text-cream mb-1">
-                                Smart Redaction</h4>
+                            <h3 data-i18n="feat_smart_redaction" class="font-bold text-offblack dark:text-cream mb-1">
+                                Smart Redaction</h3>
                             <p data-i18n="feat_smart_redaction_desc"
                                 class="text-xs text-offblack/60 dark:text-cream/60">
                                 Automatically redact using intelligent modes like Poetry, Privacy, and Random.</p>
@@ -578,8 +640,8 @@
                                     </path>
                                 </svg>
                             </div>
-                            <h4 data-i18n="feat_manual_control" class="font-bold text-offblack dark:text-cream mb-1">
-                                Manual Control</h4>
+                            <h3 data-i18n="feat_manual_control" class="font-bold text-offblack dark:text-cream mb-1">
+                                Manual Control</h3>
                             <p data-i18n="feat_manual_control_desc" class="text-xs text-offblack/60 dark:text-cream/60">
                                 Click and drag to selectively redact specific sentences or paragraphs.</p>
                         </div>
@@ -595,8 +657,8 @@
                                     </path>
                                 </svg>
                             </div>
-                            <h4 data-i18n="feat_custom_intensity" class="font-bold text-offblack dark:text-cream mb-1">
-                                Customizable Intensity</h4>
+                            <h3 data-i18n="feat_custom_intensity" class="font-bold text-offblack dark:text-cream mb-1">
+                                Customizable Intensity</h3>
                             <p data-i18n="feat_custom_intensity_desc"
                                 class="text-xs text-offblack/60 dark:text-cream/60">Adjust redaction levels (Light,
                                 Medium, Heavy) to suit your needs.</p>
@@ -613,8 +675,8 @@
                                     </path>
                                 </svg>
                             </div>
-                            <h4 data-i18n="feat_smart_filters" class="font-bold text-offblack dark:text-cream mb-1">
-                                Smart Filters</h4>
+                            <h3 data-i18n="feat_smart_filters" class="font-bold text-offblack dark:text-cream mb-1">
+                                Smart Filters</h3>
                             <p data-i18n="feat_smart_filters_desc" class="text-xs text-offblack/60 dark:text-cream/60">
                                 Choose to keep proper nouns, long words, or numbers visible while redacting.</p>
                         </div>
@@ -629,8 +691,8 @@
                                         d="M4 6h16M4 12h16M4 18h16"></path>
                                 </svg>
                             </div>
-                            <h4 data-i18n="feat_blackout_all" class="font-bold text-offblack dark:text-cream mb-1">
-                                Blackout All</h4>
+                            <h3 data-i18n="feat_blackout_all" class="font-bold text-offblack dark:text-cream mb-1">
+                                Blackout All</h3>
                             <p data-i18n="feat_blackout_all_desc" class="text-xs text-offblack/60 dark:text-cream/60">A
                                 single-click option to completely obscure everything on the page.</p>
                         </div>
@@ -646,8 +708,8 @@
                                     </path>
                                 </svg>
                             </div>
-                            <h4 data-i18n="feat_history_reveal" class="font-bold text-offblack dark:text-cream mb-1">
-                                History & Reveal</h4>
+                            <h3 data-i18n="feat_history_reveal" class="font-bold text-offblack dark:text-cream mb-1">
+                                History & Reveal</h3>
                             <p data-i18n="feat_history_reveal_desc" class="text-xs text-offblack/60 dark:text-cream/60">
                                 Full Undo and Redo capabilities. Interactive Reveal on double-click.</p>
                         </div>
