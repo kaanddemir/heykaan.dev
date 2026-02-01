@@ -28,6 +28,7 @@ Visit the live portfolio: **[heykaan.dev](https://heykaan.dev)**
 | :--- | :--- | :--- |
 | **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Selectively redact text on web pages. | Live |
 | **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en)** | Analyze web page readability with transparent metrics. | Live |
+| **[UX HeatGrid](https://heykaan.dev/ux-heatgrid.html)** | Real-time UX heatmap and attention analysis. | Coming Soon |
 
 ### Websites
 
@@ -82,6 +83,7 @@ heykaan.dev/
 ├── index.html              # Main portfolio page
 ├── readscore.html          # ReadScore extension landing page
 ├── soft-blackout.html      # Soft Blackout extension landing page
+├── ux-heatgrid.html        # UX HeatGrid extension landing page
 ├── 404.html                # Custom error page
 │
 ├── manifest.json           # PWA manifest
@@ -104,12 +106,12 @@ heykaan.dev/
 
 This site is fully optimized for search engines and performance:
 
-- ✅ **SEO Score: 100/100** - Complete meta tags, structured data (Schema.org), canonical URLs
-- ✅ **Multi-language Support** - URL-based i18n (English/Turkish) with proper hreflang tags
-- ✅ **Progressive Web App** - Installable on mobile devices with offline support
-- ✅ **Security Headers** - XSS protection, clickjacking prevention, secure referrer policy
-- ✅ **Performance Optimized** - Resource preloading, DNS prefetch, lazy loading images
-- ✅ **Core Web Vitals** - Optimized CLS (image dimensions), fast FCP with critical CSS preload
+- **SEO Score: 100/100** - Complete meta tags, structured data (Schema.org), canonical URLs
+- **Multi-language Support** - URL-based i18n (English/Turkish) with proper hreflang tags
+- **Progressive Web App** - Installable on mobile devices with offline support
+- **Security Headers** - XSS protection, clickjacking prevention, secure referrer policy
+- **Performance Optimized** - Resource preloading, DNS prefetch, lazy loading images
+- **Core Web Vitals** - Optimized CLS (image dimensions), fast FCP with critical CSS preload
 
 ## Future Improvements
 
