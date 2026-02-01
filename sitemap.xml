@@ -62,4 +62,24 @@
         <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/soft-blackout.html?lang=tr" />
     </url>
     
+    <!-- UX HeatGrid Extension Page - English -->
+    <url>
+        <loc>https://heykaan.dev/ux-heatgrid.html?lang=en</loc>
+        <lastmod>2026-02-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/ux-heatgrid.html?lang=en" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/ux-heatgrid.html?lang=tr" />
+    </url>
+    
+    <!-- UX HeatGrid Extension Page - Turkish -->
+    <url>
+        <loc>https://heykaan.dev/ux-heatgrid.html?lang=tr</loc>
+        <lastmod>2026-02-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/ux-heatgrid.html?lang=en" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/ux-heatgrid.html?lang=tr" />
+    </url>
+    
 </urlset>
