@@ -5,7 +5,7 @@
     <!-- Homepage - English -->
     <url>
         <loc>https://heykaan.dev/?lang=en</loc>
-        <lastmod>2026-01-31</lastmod>
+        <lastmod>2026-02-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/?lang=en" />
@@ -15,7 +15,7 @@
     <!-- Homepage - Turkish -->
     <url>
         <loc>https://heykaan.dev/?lang=tr</loc>
-        <lastmod>2026-01-31</lastmod>
+        <lastmod>2026-02-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/?lang=en" />
@@ -25,8 +25,8 @@
     <!-- ReadScore Extension Page - English -->
     <url>
         <loc>https://heykaan.dev/readscore.html?lang=en</loc>
-        <lastmod>2026-01-31</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-02</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/readscore.html?lang=en" />
         <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/readscore.html?lang=tr" />
@@ -35,8 +35,8 @@
     <!-- ReadScore Extension Page - Turkish -->
     <url>
         <loc>https://heykaan.dev/readscore.html?lang=tr</loc>
-        <lastmod>2026-01-31</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-02</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/readscore.html?lang=en" />
         <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/readscore.html?lang=tr" />
@@ -45,8 +45,8 @@
     <!-- Soft Blackout Extension Page - English -->
     <url>
         <loc>https://heykaan.dev/soft-blackout.html?lang=en</loc>
-        <lastmod>2026-01-31</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-02</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/soft-blackout.html?lang=en" />
         <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/soft-blackout.html?lang=tr" />
@@ -55,8 +55,8 @@
     <!-- Soft Blackout Extension Page - Turkish -->
     <url>
         <loc>https://heykaan.dev/soft-blackout.html?lang=tr</loc>
-        <lastmod>2026-01-31</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-02</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/soft-blackout.html?lang=en" />
         <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/soft-blackout.html?lang=tr" />
@@ -65,8 +65,8 @@
     <!-- UX HeatGrid Extension Page - English -->
     <url>
         <loc>https://heykaan.dev/ux-heatgrid.html?lang=en</loc>
-        <lastmod>2026-02-01</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-02</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/ux-heatgrid.html?lang=en" />
         <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/ux-heatgrid.html?lang=tr" />
@@ -75,8 +75,8 @@
     <!-- UX HeatGrid Extension Page - Turkish -->
     <url>
         <loc>https://heykaan.dev/ux-heatgrid.html?lang=tr</loc>
-        <lastmod>2026-02-01</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-02</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/ux-heatgrid.html?lang=en" />
         <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/ux-heatgrid.html?lang=tr" />

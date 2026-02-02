@@ -22,8 +22,19 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#059669">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://heykaan.dev/soft-blackout.html">
+    <!-- Canonical URL (Dynamic via JS) -->
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var lang = params.get('lang') || 'en';
+            if (lang !== 'en' && lang !== 'tr') lang = 'en';
+            var link = document.querySelector("link[rel='canonical']") || document.createElement('link');
+            link.setAttribute('rel', 'canonical');
+            link.href = 'https://heykaan.dev/soft-blackout.html?lang=' + lang;
+            document.head.appendChild(link);
+            document.documentElement.lang = lang;
+        })();
+    </script>
 
     <!-- Language Alternates -->
     <link rel="alternate" hreflang="en" href="https://heykaan.dev/soft-blackout.html?lang=en">
@@ -292,6 +303,7 @@
                 this.initLocalization();
                 this.initYear();
                 this.updateHtmlLang(); // Update <html lang> attribute
+                this.updateCanonical();
             },
             initTheme() {
                 document.documentElement.classList.add('dark');
@@ -424,6 +436,14 @@
                 const url = new URL(window.location);
                 url.searchParams.set('lang', newLang);
                 window.location.href = url.toString();
+            },
+            updateCanonical() {
+                let link = document.querySelector("link[rel='canonical']");
+                if (link) {
+                    const url = new URL(window.location.href);
+                    const baseUrl = url.origin + url.pathname;
+                    link.href = `${baseUrl}?lang=${this.currentLang}`;
+                }
             }
         };
 

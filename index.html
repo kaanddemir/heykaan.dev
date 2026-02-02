@@ -23,7 +23,19 @@
     <meta name="theme-color" content="#059669">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://heykaan.dev/">
+    <!-- Canonical URL (Dynamic via JS) -->
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var lang = params.get('lang') || 'en';
+            if (lang !== 'en' && lang !== 'tr') lang = 'en';
+            var link = document.querySelector("link[rel='canonical']") || document.createElement('link');
+            link.setAttribute('rel', 'canonical');
+            link.href = 'https://heykaan.dev/?lang=' + lang;
+            document.head.appendChild(link);
+            document.documentElement.lang = lang;
+        })();
+    </script>
 
     <!-- Language Alternates -->
     <link rel="alternate" hreflang="en" href="https://heykaan.dev/?lang=en">
@@ -235,6 +247,7 @@
                 this.initLocalization();
                 this.initYear(); // Ensure this is only called once
                 this.updateHtmlLang(); // Update <html lang> attribute
+                this.updateCanonical(); // Update canonical URL for SEO
             },
             initTheme() {
                 if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -378,6 +391,16 @@
                 const url = new URL(window.location);
                 url.searchParams.set('lang', newLang);
                 window.location.href = url.toString();
+            },
+            updateCanonical() {
+                // Update canonical tag to include the language parameter
+                let link = document.querySelector("link[rel='canonical']");
+                if (link) {
+                    const url = new URL(window.location.href);
+                    // Ensure we are using the correct basis
+                    const baseUrl = url.origin + url.pathname;
+                    link.href = `${baseUrl}?lang=${this.currentLang}`;
+                }
             }
         };
 
