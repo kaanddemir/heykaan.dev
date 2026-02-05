@@ -24,18 +24,18 @@ Visit the live portfolio: **[heykaan.dev](https://heykaan.dev)**
 
 ### Browser Extensions
 
-| Project | Description | Status |
-| :--- | :--- | :--- |
-| **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Selectively redact text on web pages. | Live |
-| **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en)** | Analyze web page readability with transparent metrics. | Live |
-| **[UX HeatGrid](https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn)** | Real-time UX heatmap and attention analysis. | Live |
+| Icon | Project | Description | Status |
+| :---: | :--- | :--- | :--- |
+| <img src="./assets/images/soft_blackout_logo.png" width="48"> | **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Selectively redact text on web pages. | Live |
+| <img src="./assets/images/readscore_logo.png" width="48"> | **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en)** | Analyze web page readability with transparent metrics. | Live |
+| <img src="./assets/images/ux_heatgrid_logo.png" width="48"> | **[UX HeatGrid](https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn)** | Real-time UX heatmap and attention analysis. | Live |
 
 ### Websites
 
-| Project | Description | Status |
-| :--- | :--- | :--- |
-| **[Zanaat.app](https://zanaat.app)** | Interactive AI alchemy experience. | Live |
-| **[StudyHub](https://github.com/kaanddemir/studyhub)** | Comprehensive personal study dashboard. | Live |
+| Icon | Project | Description | Status |
+| :---: | :--- | :--- | :--- |
+| <img src="./assets/images/zanaat_logo.png" width="48"> | **[Zanaat.app](https://zanaat.app)** | Interactive AI alchemy experience. | Live |
+| <img src="./assets/images/studyhub_logo.png" width="48"> | **[StudyHub](https://github.com/kaanddemir/studyhub)** | Comprehensive personal study dashboard. | Live |
 
 ## Tech Stack
 
