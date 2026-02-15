@@ -7,8 +7,7 @@
     <title>heykaan.dev | Chrome Extensions and Web Tools</title>
 
     <!-- Mobile Status Bar Style -->
-    <meta name="theme-color" content="#030f05" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#f0fdf4" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#030f05">
 
     <!-- SEO: Meta description (155 chars) -->
     <meta name="description"
@@ -1736,7 +1735,6 @@
                 document.documentElement.classList.add('light');
                 updateStatusBarColor('light');
             } else {
-                // Ensure default state is correct regarding status bar
                 updateStatusBarColor('dark');
             }
         })();
