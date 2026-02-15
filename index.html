@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>heykaan.dev | Chrome Extensions and Web Tools</title>
 
+    <!-- Mobile Status Bar Style -->
+    <meta name="theme-color" content="#030f05" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f0fdf4" media="(prefers-color-scheme: light)">
+
     <!-- SEO: Meta description (155 chars) -->
     <meta name="description"
         content="Build smarter Chrome tools for the modern web. Readability, UX attention, and visual control directly on the page.">
@@ -1692,10 +1696,32 @@
     <!-- ========== SCRIPTS ========== -->
     <script>
         // Theme — default is dark
+        function updateStatusBarColor(theme) {
+            // Colors from CSS variables for Navbar background
+            // Dark: #030f05
+            // Light: #f0fdf4
+            var color = theme === 'dark' ? '#030f05' : '#f0fdf4';
+
+            // Find or create dynamic meta tag
+            var meta = document.getElementById('dynamic-theme-color');
+            if (!meta) {
+                meta = document.createElement('meta');
+                meta.name = "theme-color";
+                meta.id = "dynamic-theme-color";
+                document.head.appendChild(meta);
+            }
+            meta.content = color;
+        }
+
+        // Theme — default is dark
         (function () {
             if (localStorage.theme === 'light') {
                 document.documentElement.classList.remove('dark');
                 document.documentElement.classList.add('light');
+                updateStatusBarColor('light');
+            } else {
+                // Ensure default state is correct regarding status bar
+                updateStatusBarColor('dark');
             }
         })();
 
@@ -1705,10 +1731,12 @@
                 html.classList.remove('dark');
                 html.classList.add('light');
                 localStorage.theme = 'light';
+                updateStatusBarColor('light');
             } else {
                 html.classList.remove('light');
                 html.classList.add('dark');
                 localStorage.theme = 'dark';
+                updateStatusBarColor('dark');
             }
         }
 
