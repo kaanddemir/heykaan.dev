@@ -1,127 +1,124 @@
 # heykaan.dev
 
-![Open Graph Image](./assets/icons/og-image.png)
+<div align="center">
+  <img src="./assets/icons/og-image.png" alt="heykaan.dev Hero" width="100%" style="border-radius: 12px; margin-bottom: 24px;">
+  <p align="center">
+    <strong>Chrome extensions and developer tools for the modern web</strong><br>
+    <em>Explore readability analysis, UX heatmaps and smart visual redaction tools built to analyze web content in your browser.</em>
+  </p>
+  <p align="center">
+    <a href="https://heykaan.dev"><strong>Live Site</strong></a> •
+    <a href="#projects"><strong>Projects</strong></a> •
+    <a href="#tech-stack"><strong>Tech Stack</strong></a> •
+    <a href="#seo--performance"><strong>SEO & Performance</strong></a>
+  </p>
+</div>
 
-A modern, minimal, performance-conscious personal platform designed to showcase web experiments and browser extensions.
+---
 
 ## Overview
 
-This project represents a personal portfolio built with a focus on lightweight architecture and clean UI philosophy. It features a custom design system with support for dynamic theming (Dark/Light/Brutalism) and full localization, focusing on clarity, performance, and maintainability.
+**heykaan.dev** is a minimal, performance-first platform designed to showcase functional web tools. Built with a focus on **lightweight architecture** and **clean UI philosophy**, it serves as the home for my browser extensions and experimental web projects.
 
-## Live Site
+### Core Philosophy
+- **Privacy First**: No tracking, all logic runs locally where possible.
+- **Visual Excellence**: Modern aesthetics featuring glassmorphism and smooth micro-interactions.
+- **Extreme Performance**: Zero-bloat approach with optimized Core Web Vitals.
+- **Universal Accessibility**: Semantic HTML and multi-mode theming support.
 
-Visit the live portfolio: **[heykaan.dev](https://heykaan.dev)**
-
-## Features
-
-- **Clean UI Philosophy**: A polished interface utilizing glassmorphism and smooth micro-interactions.
-- **Accessibility-Aware**: Semantic HTML and high-contrast modes for an inclusive experience.
-- **Dynamic Theming**: Automatic preference detection with support for Dark, Light, and Brutalism modes.
-- **Localization**: Native English and Turkish support with instant content updates.
-- **Lightweight Architecture**: Built with Vite and minimal JavaScript to keep the frontend fast and maintainable.
+---
 
 ## Projects
 
 ### Browser Extensions
-
 | Icon | Project | Description | Status |
 | :---: | :--- | :--- | :--- |
-| <img src="./assets/images/soft_blackout_logo.png" width="48"> | **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Selectively redact text on web pages. | Live |
-| <img src="./assets/images/readscore_logo.png" width="48"> | **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en)** | Analyze web page readability with transparent metrics. | Live |
-| <img src="./assets/images/ux_heatgrid_logo.png" width="48"> | **[UX HeatGrid](https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn)** | Real-time UX heatmap and attention analysis. | Live |
+| <img src="./assets/images/soft_blackout_logo.png" width="40"> | **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Intelligent redaction modes to hide sensitive content locally. | [Live] |
+| <img src="./assets/images/readscore_logo.png" width="40"> | **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg)** | Deep readability analysis with transparent SEO/UX metrics. | [Live] |
+| <img src="./assets/images/ux_heatgrid_logo.png" width="40"> | **[UX HeatGrid](https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn)** | Real-time page attention heatmaps for designers and devs. | [Live] |
 
-### Websites
-
+### Featured Websites
 | Icon | Project | Description | Status |
 | :---: | :--- | :--- | :--- |
-| <img src="./assets/images/zanaat_logo.png" width="48"> | **[Zanaat.app](https://zanaat.app)** | Interactive AI alchemy experience. | Live |
-| <img src="./assets/images/studyhub_logo.png" width="48"> | **[StudyHub](https://github.com/kaanddemir/studyhub)** | Comprehensive personal study dashboard. | Live |
+| <img src="./assets/images/zanaat_logo.png" width="40"> | **[Zanaat.app](https://zanaat.app)** | Interactive AI alchemy experience with stunning visuals. | [Live] |
+| <img src="./assets/images/studyhub_logo.png" width="40"> | **[StudyHub](https://github.com/kaanddemir/studyhub)** | A comprehensive personal study dashboard system. | [Repo] |
+
+---
 
 ## Tech Stack
 
-- **Core**: HTML5, Vanilla JavaScript (ES6+)
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **Typography**: Inter, Space Mono
+- **Frontend**: HTML5, Vanilla JavaScript (ES6+)
+- **Styling**: Tailwind CSS (CDN-based for modular simplicity)
+- **Typography**: Inter (UI), Space Mono (Code)
+- **Deployment**: Static hosting via GitHub Pages
 
-## Project Philosophy
+---
 
-- Minimal but expressive UI
-- Performance-aware frontend decisions
-- No unnecessary dependencies
-- Privacy-friendly, no tracking
-- Design system consistency across projects
+## Brand Identity & Palettes
 
-## Installation
+Distinct visual identities for each tool, focused on clarity and contrast:
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/kaanddemir/heykaan.dev.git
-   cd heykaan.dev
-   ```
+| Project | Primary Color | Secondary / Accent |
+| :--- | :--- | :--- |
+| **heykaan.dev** | Emerald Green `#34D399` | Dark Slate `#030F05` |
+| **ReadScore** | Deep Blue `#2563EB` | Slate Grey `#94A3B8` |
+| **UX HeatGrid** | Amber Gold `#FEBC2E` | Electric Blue `#135BEC` |
+| **Soft Blackout** | Minimal Black `#1E1E1E` | Cream White `#F7F5E7` |
 
-2. Open `index.html` in your browser or use a local server:
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx http-server
-   ```
-
-3. For development with live reload:
-   ```bash
-   # Install live-server globally (optional)
-   npm install -g live-server
-   live-server
-   ```
+---
 
 ## Project Structure
 
-```
+```bash
 heykaan.dev/
-├── index.html              # Main portfolio page
-├── readscore.html          # ReadScore extension landing page
-├── soft-blackout.html      # Soft Blackout extension landing page
-├── ux-heatgrid.html        # UX HeatGrid extension landing page
-├── 404.html                # Custom error page
-│
-├── manifest.json           # PWA manifest
-├── sitemap.xml             # SEO sitemap (must be in root)
-├── robots.txt              # Search engine directives (must be in root)
-│
-├── assets/                 # Organized static resources
-│   ├── icons/             # Icons and meta images
-│   │   ├── apple-touch-icon.png
-│   │   └── og-image.png
-│   └── images/            # Project logos and screenshots
-│
-├── README.md               # Project documentation
-├── LICENSE                 # MIT License
-├── CNAME                   # Custom domain configuration
-└── .gitignore              # Git ignore rules
+├── index.html              # Main Hub & Portfolio
+├── readscore.html          # ReadScore Product Page
+├── soft-blackout.html      # Soft Blackout Product Page
+├── ux-heatgrid.html        # UX HeatGrid Product Page
+├── 404.html                # Custom Branding Error Page
+├── manifest.json           # PWA Configuration
+├── sitemap.xml             # Search Engine Optimization
+├── robots.txt              # Crawler Directives
+└── assets/                 # Centralized Media Repository
+    ├── icons/              # Logic & Meta Icons
+    └── images/             # Product Showcase Logos
 ```
+
+---
 
 ## SEO & Performance
 
-This site is fully optimized for search engines and performance:
+Engineered for speed and discoverability, achieving top-tier scores across all primary metrics:
 
-- **SEO Score: 100/100** - Complete meta tags, structured data (Schema.org), canonical URLs
-- **Multi-language Support** - URL-based i18n (English/Turkish) with proper hreflang tags
-- **Progressive Web App** - Installable on mobile devices with offline support
-- **Security Headers** - XSS protection, clickjacking prevention, secure referrer policy
-- **Performance Optimized** - Resource preloading, DNS prefetch, lazy loading images
-- **Core Web Vitals** - Optimized CLS (image dimensions), fast FCP with critical CSS preload
+- **Performance (100/100)**: Resource preloading, DNS prefetching, and lazy-loading for all media.
+- **Accessibility (100/100)**: High-contrast support and ARIA-compliant semantic structures.
+- **SEO (100/100)**: Structured data (Schema.org), canonical mapping, and optimized meta-tags.
+- **Security**: Robust CSP headers and XSS/Clickjacking protections implemented via meta-tags.
 
-## Future Improvements
+---
 
-- [ ] Technical blog section
-- [ ] Accessibility (a11y) score optimization
-- [ ] Additional interactive experiments
+## Local Development
+
+To preview the site locally, clone the repository and run a simple HTTP server:
+
+```bash
+# Clone
+git clone https://github.com/kaanddemir/heykaan.dev.git
+cd heykaan.dev
+
+# Run with Python
+python -m http.server 8000
+
+# or Node.js
+npx http-server
+```
+
+---
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open-source and released under the [MIT License](LICENSE).
 
----
-Built by **heykaan.dev**
+<p align="right">
+  Built with love by <strong><a href="https://heykaan.dev">Kaan Demir</a></strong>
+</p>

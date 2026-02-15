@@ -1,9 +1,42 @@
+# =============================================
 # robots.txt for heykaan.dev
+# https://heykaan.dev/robots.txt
+# =============================================
 
-# Allow all search engines to crawl all pages
+# -----------------------------------------
+# Default rules for all search engine bots
+# -----------------------------------------
 User-agent: *
-Allow: /
-Allow: /?lang=
 
+# Allow: All public HTML pages and assets
+Allow: /
+Allow: /assets/
+
+# Disallow: Hidden/private directories
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /temp/
+Disallow: /backup/
+Disallow: /node_modules/
+Disallow: /.vscode/
+Disallow: /.idea/
+
+# -----------------------------------------
+# Block known scraper/spam bots
+# -----------------------------------------
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# -----------------------------------------
 # Sitemap location
+# -----------------------------------------
 Sitemap: https://heykaan.dev/sitemap.xml

@@ -1,85 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-    
-    <!-- Homepage - English -->
+<!-- Sitemap for heykaan.dev -->
+<!-- Protocol: https://www.sitemaps.org/protocol.html -->
+<!-- Last updated: 2026-02-14 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Homepage -->
     <url>
-        <loc>https://heykaan.dev/?lang=en</loc>
-        <lastmod>2026-02-02</lastmod>
+        <loc>https://heykaan.dev/</loc>
+        <lastmod>2026-02-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/?lang=en" />
-        <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/?lang=tr" />
     </url>
-    
-    <!-- Homepage - Turkish -->
+
+    <!-- Product Pages -->
     <url>
-        <loc>https://heykaan.dev/?lang=tr</loc>
-        <lastmod>2026-02-02</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/?lang=en" />
-        <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/?lang=tr" />
-    </url>
-    
-    <!-- ReadScore Extension Page - English -->
-    <url>
-        <loc>https://heykaan.dev/readscore.html?lang=en</loc>
-        <lastmod>2026-02-02</lastmod>
-        <changefreq>weekly</changefreq>
+        <loc>https://heykaan.dev/soft-blackout.html</loc>
+        <lastmod>2026-02-14</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/readscore.html?lang=en" />
-        <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/readscore.html?lang=tr" />
     </url>
-    
-    <!-- ReadScore Extension Page - Turkish -->
+
     <url>
-        <loc>https://heykaan.dev/readscore.html?lang=tr</loc>
-        <lastmod>2026-02-02</lastmod>
-        <changefreq>weekly</changefreq>
+        <loc>https://heykaan.dev/ux-heatgrid.html</loc>
+        <lastmod>2026-02-14</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/readscore.html?lang=en" />
-        <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/readscore.html?lang=tr" />
     </url>
-    
-    <!-- Soft Blackout Extension Page - English -->
+
     <url>
-        <loc>https://heykaan.dev/soft-blackout.html?lang=en</loc>
-        <lastmod>2026-02-02</lastmod>
-        <changefreq>weekly</changefreq>
+        <loc>https://heykaan.dev/readscore.html</loc>
+        <lastmod>2026-02-14</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/soft-blackout.html?lang=en" />
-        <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/soft-blackout.html?lang=tr" />
     </url>
-    
-    <!-- Soft Blackout Extension Page - Turkish -->
-    <url>
-        <loc>https://heykaan.dev/soft-blackout.html?lang=tr</loc>
-        <lastmod>2026-02-02</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/soft-blackout.html?lang=en" />
-        <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/soft-blackout.html?lang=tr" />
-    </url>
-    
-    <!-- UX HeatGrid Extension Page - English -->
-    <url>
-        <loc>https://heykaan.dev/ux-heatgrid.html?lang=en</loc>
-        <lastmod>2026-02-02</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/ux-heatgrid.html?lang=en" />
-        <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/ux-heatgrid.html?lang=tr" />
-    </url>
-    
-    <!-- UX HeatGrid Extension Page - Turkish -->
-    <url>
-        <loc>https://heykaan.dev/ux-heatgrid.html?lang=tr</loc>
-        <lastmod>2026-02-02</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://heykaan.dev/ux-heatgrid.html?lang=en" />
-        <xhtml:link rel="alternate" hreflang="tr" href="https://heykaan.dev/ux-heatgrid.html?lang=tr" />
-    </url>
-    
+
 </urlset>
