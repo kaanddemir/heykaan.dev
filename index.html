@@ -1051,6 +1051,20 @@
             position: relative;
         }
 
+        .cta-brand .mobile-text {
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .cta-brand .desktop-text {
+                display: none;
+            }
+
+            .cta-brand .mobile-text {
+                display: block;
+            }
+        }
+
         .cta-brand::after {
             content: '';
             position: absolute;
@@ -1638,7 +1652,10 @@
         <!-- ========== CTA / BRAND SECTION ========== -->
         <section class="cta-section">
             <div class="container">
-                <div class="cta-brand">HEYKAAN</div>
+                <div class="cta-brand">
+                    <span class="desktop-text">HEYKAAN</span>
+                    <span class="mobile-text">HK</span>
+                </div>
             </div>
         </section>
     </main>
