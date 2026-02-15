@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Sitemap for heykaan.dev -->
 <!-- Protocol: https://www.sitemaps.org/protocol.html -->
-<!-- Last updated: 2026-02-14 -->
+<!-- Last updated: 2026-02-15 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <!-- Homepage -->
     <url>
         <loc>https://heykaan.dev/</loc>
-        <lastmod>2026-02-14</lastmod>
+        <lastmod>2026-02-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
 
     <!-- Product Pages -->
     <url>
-        <loc>https://heykaan.dev/soft-blackout.html</loc>
-        <lastmod>2026-02-14</lastmod>
+        <loc>https://heykaan.dev/soft-blackout/</loc>
+        <lastmod>2026-02-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://heykaan.dev/ux-heatgrid.html</loc>
-        <lastmod>2026-02-14</lastmod>
+        <loc>https://heykaan.dev/ux-heatgrid/</loc>
+        <lastmod>2026-02-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://heykaan.dev/readscore.html</loc>
-        <lastmod>2026-02-14</lastmod>
+        <loc>https://heykaan.dev/readscore/</loc>
+        <lastmod>2026-02-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
