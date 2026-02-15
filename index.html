@@ -1742,16 +1742,12 @@
         function toggleTheme() {
             var html = document.documentElement;
             if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                html.classList.add('light');
                 localStorage.theme = 'light';
-                updateStatusBarColor('light');
             } else {
-                html.classList.remove('light');
-                html.classList.add('dark');
                 localStorage.theme = 'dark';
-                updateStatusBarColor('dark');
             }
+            // Reload page to apply theme and update status bar color reliably on mobile devices
+            window.location.reload();
         }
 
         // Year
