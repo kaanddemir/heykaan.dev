@@ -10,7 +10,8 @@
     <a href="https://heykaan.dev"><strong>Live Site</strong></a> •
     <a href="#projects"><strong>Projects</strong></a> •
     <a href="#tech-stack"><strong>Tech Stack</strong></a> •
-    <a href="#seo--performance"><strong>SEO & Performance</strong></a>
+    <a href="#optimization--web-standards"><strong>Optimization</strong></a> •
+    <a href="#connect"><strong>Connect</strong></a>
   </p>
 </div>
 
@@ -18,12 +19,12 @@
 
 ## Overview
 
-**heykaan.dev** is a minimal, performance-first platform designed to showcase functional web tools. Built with a focus on **lightweight architecture** and **clean UI philosophy**, it serves as the home for my browser extensions and experimental web projects.
+**heykaan.dev** is a platform designed to showcase functional web tools and experimental projects. It serves as the primary home for my browser extensions and web applications, focused on providing clear, functional, and effective user experiences directly in the browser.
 
 ### Core Philosophy
-- **Privacy First**: No tracking, all logic runs locally where possible.
+- **Privacy First**: No tracking—all logic runs locally within the user's environment.
 - **Visual Excellence**: Modern aesthetics featuring glassmorphism and smooth micro-interactions.
-- **Extreme Performance**: Zero-bloat approach with optimized Core Web Vitals.
+- **Optimized Experience**: Built for high responsiveness and modern browser standards.
 - **Universal Accessibility**: Semantic HTML and multi-mode theming support.
 
 ---
@@ -56,14 +57,14 @@
 
 ## Brand Identity & Palettes
 
-Distinct visual identities for each tool, focused on clarity and contrast:
+Distinct visual identities for each tool, focused on clarity and functional contrast:
 
-| Project | Primary Color | Secondary / Accent |
-| :--- | :--- | :--- |
-| **heykaan.dev** | Emerald Green `#34D399` | Dark Slate `#030F05` |
-| **ReadScore** | Deep Blue `#2563EB` | Slate Grey `#94A3B8` |
-| **UX HeatGrid** | Amber Gold `#FEBC2E` | Electric Blue `#135BEC` |
-| **Soft Blackout** | Minimal Black `#1E1E1E` | Cream White `#F7F5E7` |
+| Project | Brand Color (Primary) | Accent / Secondary | Primary Background |
+| :--- | :--- | :--- | :--- |
+| **heykaan.dev** | Emerald Green `#34D399` | Mint Hover `#6EE7B7` | Deep Forest `#030F05` |
+| **ReadScore** | Royal Blue `#2563EB` | Sky Accent `#60A5FA` | Midnight Slate `#0F172A` |
+| **UX HeatGrid** | Amber Gold `#FEBC2E` | Heatmap Red `#FF5B3A` | Dark Space `#101622` |
+| **Soft Blackout** | Minimal Onyx `#1E1E1E` | Cream White `#F7F5E7` | Absolute Black `#000000` |
 
 ---
 
@@ -72,9 +73,12 @@ Distinct visual identities for each tool, focused on clarity and contrast:
 ```bash
 heykaan.dev/
 ├── index.html              # Main Hub & Portfolio
-├── readscore.html          # ReadScore Product Page
-├── soft-blackout.html      # Soft Blackout Product Page
-├── ux-heatgrid.html        # UX HeatGrid Product Page
+├── readscore/              # ReadScore Directory
+│   └── index.html          # ReadScore Product Page
+├── soft-blackout/          # Soft Blackout Directory
+│   └── index.html          # Soft Blackout Product Page
+├── ux-heatgrid/            # UX HeatGrid Directory
+│   └── index.html          # UX HeatGrid Product Page
 ├── 404.html                # Custom Branding Error Page
 ├── manifest.json           # PWA Configuration
 ├── sitemap.xml             # Search Engine Optimization
@@ -86,14 +90,14 @@ heykaan.dev/
 
 ---
 
-## SEO & Performance
+## Optimization & Web Standards
 
-Engineered for speed and discoverability, achieving top-tier scores across all primary metrics:
+The platform is built with a focus on discoverability, accessibility, and high standards:
 
-- **Performance (100/100)**: Resource preloading, DNS prefetching, and lazy-loading for all media.
-- **Accessibility (100/100)**: High-contrast support and ARIA-compliant semantic structures.
-- **SEO (100/100)**: Structured data (Schema.org), canonical mapping, and optimized meta-tags.
-- **Security**: Robust CSP headers and XSS/Clickjacking protections implemented via meta-tags.
+- **Search Visibility**: Includes comprehensive meta-tag optimization, Schema.org structured data, and canonical mapping.
+- **Responsiveness**: Implements resource preloading and lazy-loading strategies for efficient asset delivery.
+- **Accessibility**: Uses semantic HTML and ARIA-compliant structures to ensure a universal user experience.
+- **Security**: Hardened with Content Security Policy (CSP) and local-first data principles for privacy.
 
 ---
 
@@ -112,6 +116,14 @@ python -m http.server 8000
 # or Node.js
 npx http-server
 ```
+
+---
+
+## Connect
+
+- **GitHub**: [@kaanddemir](https://github.com/kaanddemir)
+- **X (Twitter)**: [@heykaandev](https://x.com/heykaandev)
+- **Product Hunt**: [@heykaandev](https://www.producthunt.com/@heykaandev)
 
 ---
 
