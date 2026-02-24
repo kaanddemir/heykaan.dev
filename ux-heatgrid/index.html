@@ -617,93 +617,110 @@
 
                             <!-- Floating Extension UI (Realistic Mockup from screenshot) -->
                             <div
-                                class="absolute top-6 left-1/2 -translate-x-1/2 w-[90%] sm:w-80 sm:right-6 sm:left-auto sm:translate-x-0 bg-[#0b1120] rounded-2xl border border-white/10 shadow-2xl overflow-hidden translate-y-0 group-hover:-translate-y-2 transition-transform duration-500 font-sans">
+                                class="absolute top-6 left-1/2 -translate-x-1/2 w-[90%] sm:w-[305px] sm:right-6 sm:left-auto sm:translate-x-0 bg-[#0c121e] rounded-2xl border border-slate-700/50 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden font-sans translate-y-0 group-hover:-translate-y-1.5 transition-transform duration-500">
                                 <!-- Header -->
                                 <div class="flex items-center justify-between p-4 pb-2">
                                     <span class="text-sm font-bold text-white tracking-tight">UX HeatGrid</span>
-                                    <span
-                                        class="text-[10px] text-slate-500 bg-slate-800/50 px-2 py-0.5 rounded">v1.0.0</span>
+                                    <div class="flex items-center gap-1.5">
+                                        <span
+                                            class="text-[10px] font-semibold text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-md border border-slate-700">v1.1.0</span>
+                                        <button
+                                            class="w-[22px] h-[22px] flex items-center justify-center rounded-full border border-slate-700/80 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                                            <span class="material-icons text-[13px]">help_outline</span>
+                                        </button>
+                                    </div>
                                 </div>
 
-                                <div class="px-4 pb-4 space-y-4">
+                                <div class="px-4 pb-4 space-y-3">
                                     <!-- Score Section -->
                                     <div
-                                        class="bg-slate-900/40 rounded-xl border border-white/5 p-6 flex flex-col items-center justify-center text-center">
-                                        <div class="text-6xl font-extrabold text-[#10b981] mb-2 leading-none">100</div>
+                                        class="bg-[#151b2b] rounded-xl border border-slate-700/60 py-6 flex flex-col items-center justify-center text-center shadow-inner">
                                         <div
-                                            class="bg-[#10b981]/10 text-[#10b981] text-[10px] font-bold uppercase tracking-widest px-6 py-1.5 rounded-full border border-[#10b981]/20">
-                                            Excellent
+                                            class="text-6xl font-bold text-[#10b981] tracking-tighter leading-none mb-3 drop-shadow-lg">
+                                            100</div>
+                                        <div
+                                            class="bg-[#10b981]/10 text-[#10b981] text-[11px] font-bold uppercase tracking-[0.15em] px-5 py-1 rounded-full border border-[#10b981]/30">
+                                            EXCELLENT
                                         </div>
                                     </div>
 
                                     <!-- Action Buttons -->
                                     <div class="grid grid-cols-3 gap-2">
-                                        <button
-                                            class="flex items-center justify-center gap-1.5 py-2.5 rounded-lg border border-amber-500/50 bg-amber-500/10 text-amber-500 text-[11px] font-bold transition-all hover:bg-amber-500/20">
-                                            <span class="material-icons text-[16px]">pause</span> Pause
+                                        <button id="mock-pause-btn"
+                                            class="flex items-center justify-center gap-1 py-2 rounded-lg border border-amber-500/50 bg-[#151b2b] text-amber-500 text-[9px] font-semibold transition-all">
+                                            <span class="material-icons text-[14px] mb-0.5">pause</span>
+                                            <span>Pause</span>
+                                        </button>
+                                        <button id="mock-hide-btn"
+                                            class="flex items-center justify-center gap-1 py-2 rounded-lg border border-orange-500/50 bg-[#151b2b] text-orange-500 text-[9px] font-semibold transition-all">
+                                            <span class="material-icons text-[14px] mb-0.5">visibility_off</span>
+                                            <span>Hide</span>
                                         </button>
                                         <button
-                                            class="flex items-center justify-center gap-1.5 py-2.5 rounded-lg border border-slate-700 bg-slate-800/50 text-slate-300 text-[11px] font-bold transition-all hover:bg-slate-700">
-                                            <span class="material-icons text-[16px]">visibility</span> Show
-                                        </button>
-                                        <button
-                                            class="flex items-center justify-center gap-1.5 py-2.5 rounded-lg border border-slate-700 bg-slate-800/50 text-slate-300 text-[11px] font-bold transition-all hover:bg-slate-700">
-                                            <span class="material-icons text-[16px]">delete</span> Clear
+                                            class="flex items-center justify-center gap-1 py-2 rounded-lg border border-slate-600 bg-[#151b2b] text-slate-100 text-[9px] font-semibold transition-all">
+                                            <span class="material-icons text-[14px] mb-0.5">delete_outline</span>
+                                            <span>Clear</span>
                                         </button>
                                     </div>
 
-                                    <!-- UX Analysis Grid -->
-                                    <div class="space-y-3">
-                                        <div class="flex justify-between items-center px-1">
+                                    <!-- UX Analysis Section -->
+                                    <div class="bg-[#151b2b] rounded-xl border border-slate-700/60 p-3 space-y-3">
+                                        <div class="flex justify-between items-center px-0.5">
                                             <span
-                                                class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">UX
-                                                Analysis</span>
-                                            <span
-                                                class="text-[10px] font-bold text-primary uppercase tracking-wider cursor-pointer">Insights</span>
+                                                class="text-[9px] font-bold text-slate-400 uppercase tracking-widest pl-1">UX
+                                                ANALYSIS</span>
+                                            <div class="flex gap-2.5 items-center">
+                                                <span class="material-icons text-[#2563eb] text-[14px]">push_pin</span>
+                                                <span
+                                                    class="text-[9px] font-bold text-[#3b82f6] uppercase tracking-[0.1em] cursor-pointer">REVIEW</span>
+                                            </div>
                                         </div>
                                         <div class="grid grid-cols-2 gap-2">
-                                            <!-- Active Time -->
+                                            <!-- Readability -->
                                             <div
-                                                class="bg-slate-900/60 rounded-xl border border-white/5 p-4 flex flex-col items-center justify-center text-center">
-                                                <div class="text-xl font-bold text-white mb-1">17s</div>
+                                                class="bg-[#1a2133] rounded-xl border border-slate-700/40 p-3 flex flex-col items-center justify-center text-center">
+                                                <div class="text-[20px] font-bold text-white mb-1 leading-none">99%
+                                                </div>
                                                 <div
-                                                    class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">
-                                                    Active Time</div>
+                                                    class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">
+                                                    Readability</div>
                                             </div>
-                                            <!-- Elements/Screen -->
+                                            <!-- Complexity -->
                                             <div
-                                                class="bg-slate-900/60 rounded-xl border border-white/5 p-4 flex flex-col items-center justify-center text-center">
-                                                <div class="text-xl font-bold text-white mb-1">11.9</div>
+                                                class="bg-[#1a2133] rounded-xl border border-slate-700/40 p-3 flex flex-col items-center justify-center text-center">
+                                                <div class="text-[20px] font-bold text-white mb-1 leading-none">15.7
+                                                </div>
                                                 <div
-                                                    class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">
-                                                    Elements/Screen</div>
+                                                    class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">
+                                                    Complexity</div>
                                             </div>
                                             <!-- White Space -->
                                             <div
-                                                class="bg-slate-900/60 rounded-xl border border-white/5 p-4 flex flex-col items-center justify-center text-center">
-                                                <div class="text-xl font-bold text-white mb-1">79%</div>
+                                                class="bg-[#1a2133] rounded-xl border border-slate-700/40 p-3 flex flex-col items-center justify-center text-center">
+                                                <div class="text-[20px] font-bold text-white mb-1 leading-none">100%
+                                                </div>
                                                 <div
-                                                    class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">
+                                                    class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">
                                                     White Space</div>
                                             </div>
-                                            <!-- Text Density -->
+                                            <!-- Content Density -->
                                             <div
-                                                class="bg-slate-900/60 rounded-xl border border-white/5 p-4 flex flex-col items-center justify-center text-center">
-                                                <div class="text-xl font-bold text-white mb-1">21%</div>
+                                                class="bg-[#1a2133] rounded-xl border border-slate-700/40 p-3 flex flex-col items-center justify-center text-center">
+                                                <div class="text-[20px] font-bold text-white mb-1 leading-none">24%
+                                                </div>
                                                 <div
-                                                    class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">
-                                                    Text Density</div>
+                                                    class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">
+                                                    Density</div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- Intensity Slider -->
-                                    <div class="pt-2">
-                                        <div class="flex items-center justify-between mb-2 px-1">
-                                            <span class="text-[11px] font-bold text-white">Intensity</span>
-                                        </div>
+                                    <div
+                                        class="bg-[#151b2b] rounded-xl border border-slate-700/60 p-3 flex items-center justify-between gap-3">
+                                        <span class="text-[10px] font-bold text-white tracking-wide">Intensity</span>
                                         <div
-                                            class="h-2 w-full bg-gradient-to-r from-blue-600 via-green-400 via-yellow-400 to-red-600 rounded-full">
+                                            class="h-1.5 bg-gradient-to-r from-blue-700 via-cyan-400 via-green-400 via-yellow-400 to-red-600 rounded-full flex-1">
                                         </div>
                                     </div>
                                 </div>
@@ -984,6 +1001,40 @@
                     });
                 }
             });
+
+            // Mock Extension UI Interactivity
+            const pauseBtn = document.getElementById('mock-pause-btn');
+            const hideBtn = document.getElementById('mock-hide-btn');
+
+            if (pauseBtn) {
+                pauseBtn.addEventListener('click', () => {
+                    const isPaused = pauseBtn.innerText.includes('Pause');
+                    if (isPaused) {
+                        pauseBtn.innerHTML = '<span class="material-icons text-[14px] mb-0.5">play_arrow</span><span>Resume</span>';
+                        pauseBtn.classList.remove('border-amber-500/50', 'text-amber-500');
+                        pauseBtn.classList.add('border-slate-600', 'text-slate-100');
+                    } else {
+                        pauseBtn.innerHTML = '<span class="material-icons text-[14px] mb-0.5">pause</span><span>Pause</span>';
+                        pauseBtn.classList.add('border-amber-500/50', 'text-amber-500');
+                        pauseBtn.classList.remove('border-slate-600', 'text-slate-100');
+                    }
+                });
+            }
+
+            if (hideBtn) {
+                hideBtn.addEventListener('click', () => {
+                    const isHidden = hideBtn.innerText.includes('Hide');
+                    if (isHidden) {
+                        hideBtn.innerHTML = '<span class="material-icons text-[14px] mb-0.5">visibility</span><span>Show</span>';
+                        hideBtn.classList.remove('border-orange-500/50', 'text-orange-500');
+                        hideBtn.classList.add('border-slate-600', 'text-slate-100');
+                    } else {
+                        hideBtn.innerHTML = '<span class="material-icons text-[14px] mb-0.5">visibility_off</span><span>Hide</span>';
+                        hideBtn.classList.add('border-orange-500/50', 'text-orange-500');
+                        hideBtn.classList.remove('border-slate-600', 'text-slate-100');
+                    }
+                });
+            }
         });
     </script>
 </body>
