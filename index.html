@@ -936,22 +936,35 @@
             margin: 0 !important;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 900px) {
+            .feature-card.wide .card-links {
+                max-width: none;
+                width: 100%;
+            }
+
             .heatgrid-buttons-row {
-                gap: 6px;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .heatgrid-buttons-row a:nth-child(1),
+            .heatgrid-buttons-row a:nth-child(2) {
+                grid-column: span 2;
             }
 
             .heatgrid-buttons-row a {
-                padding: 10px 2px;
+                flex-direction: row;
+                padding: 6px 14px;
             }
 
             .heatgrid-buttons-row a span {
-                font-size: 0.60rem;
+                font-size: 0.8rem;
+                display: inline;
             }
 
             .heatgrid-buttons-row a svg {
-                width: 16px !important;
-                height: 16px !important;
+                width: 13px !important;
+                height: 13px !important;
             }
         }
 
