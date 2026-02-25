@@ -690,12 +690,100 @@
             box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
         }
 
+        /* New Feature Card */
+        .feature-card.new {
+            border-color: rgba(6, 182, 212, 0.5);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.05), var(--card));
+            position: relative;
+        }
+
+        .feature-card.new:hover {
+            border-color: #06b6d4;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #06b6d4;
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 100px;
+            box-shadow: 0 2px 8px rgba(6, 182, 212, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 2;
+        }
+
+        .feature-card.new .feature-tagline {
+            color: #06b6d4;
+        }
+
+        .feature-card.new .card-links a {
+            color: #06b6d4;
+            border-color: rgba(6, 182, 212, 0.3);
+            background: rgba(6, 182, 212, 0.08);
+        }
+
+        .feature-card.new .card-links a:hover {
+            color: #06b6d4;
+            border-color: #06b6d4;
+            background: rgba(6, 182, 212, 0.15);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.2);
+        }
+
+        /* Wide Feature Card (Spans full width) */
+        .feature-card.wide {
+            grid-column: 1 / -1;
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+            padding: 48px;
+        }
+
+        .feature-card.wide .feature-illustration {
+            flex: 0 0 300px;
+            margin-bottom: 0;
+            height: 300px;
+        }
+
+        .feature-card.wide .feature-illustration img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .feature-card.wide .feature-illustration::after {
+            width: 180px;
+            height: 180px;
+        }
+
+        .feature-card.wide .feature-card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card.wide .card-links {
+            max-width: 400px;
+        }
+
         .feature-card.popular .feature-illustration::after {
             background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%);
         }
 
         .light .feature-card.popular .feature-illustration::after {
             background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+        }
+
+        .feature-card.new .feature-illustration::after {
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+        }
+
+        .light .feature-card.new .feature-illustration::after {
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
         }
 
         /* Illustration area */
@@ -821,6 +909,52 @@
             text-align: center;
         }
 
+        .heatgrid-buttons-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            width: 100%;
+        }
+
+        .heatgrid-buttons-row a {
+            flex-direction: column;
+            justify-content: center;
+            padding: 10px 4px;
+            gap: 6px;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .heatgrid-buttons-row a span {
+            font-size: 0.70rem;
+            display: block;
+        }
+
+        .heatgrid-buttons-row a svg {
+            width: 18px !important;
+            height: 18px !important;
+            margin: 0 !important;
+        }
+
+        @media (max-width: 600px) {
+            .heatgrid-buttons-row {
+                gap: 6px;
+            }
+
+            .heatgrid-buttons-row a {
+                padding: 10px 2px;
+            }
+
+            .heatgrid-buttons-row a span {
+                font-size: 0.60rem;
+            }
+
+            .heatgrid-buttons-row a svg {
+                width: 16px !important;
+                height: 16px !important;
+            }
+        }
+
         @media (max-width: 900px) {
             .features-header {
                 grid-template-columns: 1fr;
@@ -830,6 +964,28 @@
             .features-grid,
             .features-grid.grid-2 {
                 grid-template-columns: 1fr;
+            }
+
+            .feature-card.wide {
+                flex-direction: column;
+                padding: 40px 32px;
+                gap: 0;
+            }
+
+            .feature-card.wide .feature-illustration {
+                flex: auto;
+                margin-bottom: 24px;
+                height: 220px;
+            }
+
+            .feature-card.wide .feature-illustration img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .feature-card.wide .feature-illustration::after {
+                width: 120px;
+                height: 120px;
             }
         }
 
@@ -1383,6 +1539,10 @@
                         <img src="assets/images/soft_blackout_logo.png" alt="Soft Blackout">
                         <span>Soft Blackout</span>
                     </a>
+                    <a href="/typeflux/" class="marquee-item">
+                        <img src="assets/images/typeflux_logo.png" alt="TypeFlux">
+                        <span>TypeFlux</span>
+                    </a>
                     <!-- Set 2 (duplicate for seamless loop) -->
                     <a href="/readscore/" class="marquee-item">
                         <img src="assets/images/readscore_logo.png" alt="ReadScore">
@@ -1395,6 +1555,10 @@
                     <a href="/soft-blackout/" class="marquee-item">
                         <img src="assets/images/soft_blackout_logo.png" alt="Soft Blackout">
                         <span>Soft Blackout</span>
+                    </a>
+                    <a href="/typeflux/" class="marquee-item">
+                        <img src="assets/images/typeflux_logo.png" alt="TypeFlux">
+                        <span>TypeFlux</span>
                     </a>
                     <!-- Set 3 (extra duplicate for wider viewports) -->
                     <a href="/readscore/" class="marquee-item">
@@ -1409,6 +1573,10 @@
                         <img src="assets/images/soft_blackout_logo.png" alt="Soft Blackout">
                         <span>Soft Blackout</span>
                     </a>
+                    <a href="/typeflux/" class="marquee-item">
+                        <img src="assets/images/typeflux_logo.png" alt="TypeFlux">
+                        <span>TypeFlux</span>
+                    </a>
                     <!-- Set 4 -->
                     <a href="/readscore/" class="marquee-item">
                         <img src="assets/images/readscore_logo.png" alt="ReadScore">
@@ -1421,6 +1589,10 @@
                     <a href="/soft-blackout/" class="marquee-item">
                         <img src="assets/images/soft_blackout_logo.png" alt="Soft Blackout">
                         <span>Soft Blackout</span>
+                    </a>
+                    <a href="/typeflux/" class="marquee-item">
+                        <img src="assets/images/typeflux_logo.png" alt="TypeFlux">
+                        <span>TypeFlux</span>
                     </a>
                 </div>
             </div>
@@ -1438,13 +1610,64 @@
                         <h2 class="features-headline">Tools that work where you do</h2>
                     </div>
                     <div>
-                        <p class="features-subtext">Three Chrome extensions for readability, UX attention mapping
-                            and visual redaction built for your browser.</p>
+                        <p class="features-subtext">Four Chrome extensions for readability, UX attention mapping, visual
+                            redaction, and typography preview built for your browser.</p>
                     </div>
                 </div>
 
                 <div class="features-grid">
-                    <!-- Card 1: ReadScore -->
+
+
+                    <!-- Card 1: UX HeatGrid -->
+                    <div class="feature-card reveal popular wide">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="feature-illustration">
+                            <img src="assets/images/ux_heatgrid_logo.png" alt="UX HeatGrid Logo">
+                        </div>
+                        <div class="feature-card-content">
+                            <div class="feature-tagline">Real-time attention mapping</div>
+                            <h3>UX HeatGrid</h3>
+                            <p>Real-time UX heatmap and attention analysis to visualize focus and layout structure.</p>
+                            <div class="card-links">
+                                <div class="heatgrid-buttons-row">
+                                    <a href="/ux-heatgrid/" class="btn-block">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                                        </svg>
+                                        <span>Learn More</span>
+                                    </a>
+                                    <a href="https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn"
+                                        target="_blank" rel="noopener noreferrer" class="btn-block">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                                        </svg>
+                                        <span>Chrome Store</span>
+                                    </a>
+                                    <a href="https://github.com/kaanddemir" target="_blank" rel="noopener noreferrer"
+                                        class="btn-block">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M12 2C6.477 2 2 6.48 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span>GitHub</span>
+                                    </a>
+                                    <a href="https://www.producthunt.com/products/ux-heatgrid" target="_blank"
+                                        rel="noopener noreferrer" class="btn-block">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.6 12.4H11v3.2H8.6V6.4h5c1.76 0 3.2 1.44 3.2 3.2s-1.44 3.2-3.2 3.2h-2.4v1.6z" />
+                                            <circle cx="12.2" cy="9.6" r="1.2" />
+                                        </svg>
+                                        <span>Product Hunt</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2: ReadScore -->
                     <div class="feature-card reveal">
                         <div class="feature-illustration">
                             <img src="assets/images/readscore_logo.png" alt="ReadScore Logo">
@@ -1455,7 +1678,13 @@
                             insights.</p>
                         <div class="card-links">
                             <div class="stack-col">
-                                <a href="/readscore/" class="btn-block">Learn More</a>
+                                <a href="/readscore/" class="btn-block">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                                    </svg>
+                                    Learn More
+                                </a>
                                 <a href="https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg"
                                     target="_blank" rel="noopener noreferrer" class="btn-block">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1488,20 +1717,26 @@
                         </div>
                     </div>
 
-                    <!-- Card 2: UX HeatGrid -->
-                    <div class="feature-card reveal popular">
-                        <div class="popular-badge">Most Popular</div>
+                    <!-- Card 3: TypeFlux -->
+                    <div class="feature-card reveal new">
+                        <div class="new-badge">New</div>
                         <div class="feature-illustration">
-                            <img src="assets/images/ux_heatgrid_logo.png" alt="UX HeatGrid Logo">
+                            <img src="assets/images/typeflux_logo.png" alt="TypeFlux Logo">
                         </div>
-                        <div class="feature-tagline">Real-time attention mapping</div>
-                        <h3>UX HeatGrid</h3>
-                        <p>Real-time UX heatmap and attention analysis to visualize focus and layout structure.</p>
+                        <div class="feature-tagline">Live typography preview</div>
+                        <h3>TypeFlux</h3>
+                        <p>Live typography preview for any website. Test fonts, spacing, and hierarchy with instant
+                            results.</p>
                         <div class="card-links">
                             <div class="stack-col">
-                                <a href="/ux-heatgrid/" class="btn-block">Learn More</a>
-                                <a href="https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn"
-                                    target="_blank" rel="noopener noreferrer" class="btn-block">
+                                <a href="/typeflux/" class="btn-block">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                                    </svg>
+                                    Learn More
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="btn-block">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
                                         <path
                                             d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
@@ -1509,8 +1744,7 @@
                                     Chrome Store
                                 </a>
                                 <div class="stack-row">
-                                    <a href="https://github.com/kaanddemir" target="_blank" rel="noopener noreferrer"
-                                        class="btn-block">
+                                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn-block">
                                         <svg viewBox="0 0 24 24" fill="currentColor">
                                             <path fill-rule="evenodd"
                                                 d="M12 2C6.477 2 2 6.48 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
@@ -1518,8 +1752,7 @@
                                         </svg>
                                         GitHub
                                     </a>
-                                    <a href="https://www.producthunt.com/products/ux-heatgrid" target="_blank"
-                                        rel="noopener noreferrer" class="btn-block">
+                                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn-block">
                                         <svg viewBox="0 0 24 24" fill="currentColor">
                                             <path
                                                 d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.6 12.4H11v3.2H8.6V6.4h5c1.76 0 3.2 1.44 3.2 3.2s-1.44 3.2-3.2 3.2h-2.4v1.6z" />
@@ -1532,7 +1765,8 @@
                         </div>
                     </div>
 
-                    <!-- Card 3: Soft Blackout -->
+
+                    <!-- Card 4: Soft Blackout -->
                     <div class="feature-card reveal">
                         <div class="feature-illustration">
                             <img src="assets/images/soft_blackout_logo.png" alt="Soft Blackout Logo">
@@ -1543,7 +1777,13 @@
                         </p>
                         <div class="card-links">
                             <div class="stack-col">
-                                <a href="/soft-blackout/" class="btn-block">Learn More</a>
+                                <a href="/soft-blackout/" class="btn-block">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                                    </svg>
+                                    Learn More
+                                </a>
                                 <a href="https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo"
                                     target="_blank" rel="noopener noreferrer" class="btn-block">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1827,6 +2067,7 @@
                         <a href="/readscore/">ReadScore</a>
                         <a href="/ux-heatgrid/">UX HeatGrid</a>
                         <a href="/soft-blackout/">Soft Blackout</a>
+                        <a href="/typeflux/">TypeFlux</a>
                         <a href="#web-apps">StudyHub</a>
                         <a href="#web-apps">Zanaat.app</a>
                     </div>
