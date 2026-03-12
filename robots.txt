@@ -21,11 +21,6 @@ Disallow: /node_modules/
 Disallow: /.vscode/
 Disallow: /.idea/
 
-# Disallow: Old redirect pages (noindex)
-Disallow: /readscore.html
-Disallow: /soft-blackout.html
-Disallow: /ux-heatgrid.html
-
 # -----------------------------------------
 # Block known scraper/spam bots
 # -----------------------------------------
