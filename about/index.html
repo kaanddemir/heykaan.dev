@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaan Demir | Developer Portfolio</title>
+
+    <!-- Mobile Status Bar Style -->
+    <meta name="theme-color" content="#030f05">
+
+    <meta name="description"
+        content="Kaan Demir developer portfolio. Projects, Chrome extensions, and browser tools built with Python, SQL, and JavaScript.">
+
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://heykaan.dev/about/" />
+
+    <!-- SEO: Robots directive -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- SEO: Open Graph tags -->
+    <meta property="og:title" content="Kaan Demir | About" />
+    <meta property="og:description"
+        content="Kaan Demir developer portfolio. Projects, Chrome extensions, and browser tools built with Python, SQL, and JavaScript." />
+    <meta property="og:image" content="https://heykaan.dev/assets/icons/og-image.png" />
+    <meta property="og:url" content="https://heykaan.dev/about/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="heykaan.dev" />
+
+    <!-- SEO: Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kaan Demir | About" />
+    <meta name="twitter:description"
+        content="Kaan Demir developer portfolio. Projects, Chrome extensions, and browser tools built with Python, SQL, and JavaScript." />
+    <meta name="twitter:image" content="https://heykaan.dev/assets/icons/og-image.png" />
+
+    <!-- SEO: Author & copyright -->
+    <meta name="author" content="heykaan.dev" />
+    <meta name="copyright" content="heykaan.dev" />
+
+    <!-- =============================================
+         SECURITY HEADERS
+         ============================================= -->
+
+    <!-- CSP: Controls which resources the browser is allowed to load.
+         Prevents XSS, data injection, and clickjacking attacks. -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://api.producthunt.com https://heykaan.dev; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
+
+    <!-- X-Frame-Options removed: Not supported via meta tags on GitHub Pages -->
+
+    <!-- X-Content-Type-Options: Prevents MIME-sniffing attacks. -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+    <!-- Referrer-Policy: Controls referrer info sent to external sites.
+         strict-origin-when-cross-origin = full path same-origin, domain-only cross-origin, nothing on HTTP downgrade. -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Permissions-Policy: Cannot be set via meta tags — add to server config:
+         Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=() -->
+
+    <link rel="icon" type="image/svg+xml"
+        href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%23059669"/><text x="50" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">K</text></svg>'>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <!-- SEO: Preconnect to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- SEO: Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kaan Demir",
+      "url": "https://heykaan.dev/about/",
+      "image": "https://heykaan.dev/assets/icons/og-image.png",
+      "sameAs": [
+        "https://github.com/kaanddemir",
+        "https://x.com/heykaandev",
+        "https://www.producthunt.com/@heykaandev"
+      ],
+      "jobTitle": "Independent Developer",
+      "description": "Independent developer building Chrome extensions, UX analysis tools, and experimental web apps."
+    }
+    </script>
+
+    <style>
+        /* =============================================
+           THEME TOKENS
+           ============================================= */
+        :root {
+            --bg: #020a04;
+            --bg-alt: #041208;
+            --panel: rgba(8, 25, 12, 0.64);
+            --panel-strong: rgba(8, 25, 12, 0.88);
+            --panel-soft: rgba(52, 211, 153, 0.03);
+            --text: #e2ede6;
+            --heading: #ffffff;
+            --muted: #8ca394;
+            --primary: #34d399;
+            --primary-hover: #6ee7b7;
+            --primary-glow: rgba(52, 211, 153, 0.4);
+            --primary-strong: #10b981;
+            --primary-contrast: #011d13;
+            --border: rgba(52, 211, 153, 0.12);
+            --border-strong: rgba(52, 211, 153, 0.24);
+            --shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.4);
+            --shadow-inner: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        }
+
+        .light {
+            --bg: #f8fdfa;
+            --bg-alt: #f0f9f4;
+            --panel: rgba(255, 255, 255, 0.72);
+            --panel-strong: rgba(255, 255, 255, 0.94);
+            --panel-soft: rgba(5, 150, 105, 0.04);
+            --text: #415a4a;
+            --heading: #062116;
+            --muted: #6b8272;
+            --primary: #059669;
+            --primary-hover: #047857;
+            --primary-strong: #047857;
+            --primary-contrast: #ffffff;
+            --border: rgba(5, 150, 105, 0.1);
+            --border-strong: rgba(5, 150, 105, 0.18);
+            --shadow: 0 24px 48px -12px rgba(5, 150, 105, 0.1);
+            --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        /* =============================================
+           RESET & BASE
+           ============================================= */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(52, 211, 153, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 100% 0%, rgba(52, 211, 153, 0.05) 0%, transparent 30%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.62;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .eyebrow,
+        .footer-kicker {
+            font-family: 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        /* =============================================
+           BACKGROUND TREATMENT
+           ============================================= */
+        .site-shell::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 72px 72px;
+            opacity: 0.22;
+            mask-image: radial-gradient(circle at center, black 28%, transparent 76%);
+            -webkit-mask-image: radial-gradient(circle at center, black 28%, transparent 76%);
+            pointer-events: none;
+        }
+
+        /* =============================================
+           NAVIGATION
+           ============================================= */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            background: rgba(3, 15, 5, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .light .nav {
+            background: rgba(244, 251, 246, 0.85);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--heading);
+            letter-spacing: -0.04em;
+            text-transform: none;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            padding: 4px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--panel-soft);
+        }
+
+        .nav-center a {
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--muted);
+            transition: all 0.2s;
+        }
+
+        .nav-center a:hover,
+        .nav-center a.active {
+            color: var(--heading);
+            background: var(--panel-soft);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-cta {
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.25s;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary);
+            color: var(--primary-contrast);
+        }
+
+        .theme-toggle,
+        .btn {
+            transition: all 0.25s ease;
+        }
+
+        .theme-toggle {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            color: var(--muted);
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .theme-toggle svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .icon-sun {
+            display: none;
+        }
+
+        .light .icon-sun {
+            display: block;
+        }
+
+        .light .icon-moon {
+            display: none;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: all 0.25s;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--primary-contrast);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--heading);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* =============================================
+           HERO
+           ============================================= */
+        .hero {
+            padding: 8.5rem 0 6rem;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .section-card,
+        .contact-panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow), var(--shadow-inner);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-copy {
+            padding: 2rem 0.5rem 2rem 0;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.45rem 0.8rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--panel-soft);
+            color: var(--primary);
+            font-size: 0.74rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-title {
+            font-size: clamp(3.2rem, 8vw, 5.6rem);
+            line-height: 0.94;
+            letter-spacing: -0.05em;
+            color: var(--heading);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero-lead {
+            max-width: 680px;
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+        }
+
+        /* =============================================
+           HERO VISUAL
+           ============================================= */
+        .hero-visual {
+            position: relative;
+            height: 100%;
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 2000px;
+        }
+
+        .visual-stage {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .visual-cube {
+            position: absolute;
+            inset: 0;
+            border: 1px solid var(--primary);
+            background: radial-gradient(circle at center, var(--panel-soft), transparent 80%);
+            border-radius: 60px;
+            box-shadow:
+                0 0 40px rgba(52, 211, 153, 0.05),
+                inset 0 0 40px rgba(52, 211, 153, 0.05);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            opacity: 0.4;
+        }
+
+        .visual-cube-inner {
+            position: absolute;
+            inset: 40px;
+            border: 1px dashed var(--primary);
+            border-radius: 40px;
+            opacity: 0.2;
+            animation: spin-reverse 20s linear infinite;
+        }
+
+        @keyframes spin-reverse {
+            from {
+                transform: rotateZ(0deg);
+            }
+
+            to {
+                transform: rotateZ(-360deg);
+            }
+        }
+
+        /* Pulsing Core */
+        .visual-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at center, var(--primary), transparent 70%);
+            border-radius: 50%;
+            filter: blur(15px);
+            animation: core-glow 4s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes core-glow {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.6;
+            }
+        }
+
+        /* Orbital Rings */
+        .visual-orbital {
+            position: absolute;
+            inset: -30px;
+            border: 1px solid var(--primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            transform-style: preserve-3d;
+        }
+
+        .orbital-1 {
+            transform: rotateX(70deg);
+        }
+
+        .orbital-2 {
+            transform: rotateY(70deg);
+        }
+
+        .orbital-3 {
+            transform: rotateZ(45deg);
+        }
+
+        .visual-mesh {
+            position: absolute;
+            inset: -60px;
+            background-image:
+                radial-gradient(circle at 2px 2px, var(--primary) 1px, transparent 0);
+            background-size: 48px 48px;
+            opacity: 0.1;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+        }
+
+        .visual-node {
+            position: absolute;
+            width: 58px;
+            height: 58px;
+            background: var(--panel-strong);
+            border: 1px solid var(--border-strong);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            transition: all 0.4s ease;
+        }
+
+        .visual-node svg {
+            opacity: 0.8;
+            transition: transform 0.3s ease;
+        }
+
+        .visual-node:hover svg {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .visual-node::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 1px solid var(--primary);
+            border-radius: 18px;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .visual-node:hover {
+            transform: scale(1.1) translateZ(20px);
+            border-color: var(--primary);
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .visual-node:hover::after {
+            opacity: 0.4;
+            transform: scale(1.1);
+        }
+
+        .node-1 {
+            top: -10%;
+            left: 50%;
+            transform: translate(-50%, -50%) translateZ(60px);
+        }
+
+        .node-2 {
+            bottom: -10%;
+            left: 15%;
+            transform: translate(-50%, 50%) translateZ(100px);
+        }
+
+        .node-3 {
+            top: 45%;
+            right: -15%;
+            transform: translate(50%, -50%) translateZ(40px);
+        }
+
+        .visual-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            filter: blur(120px);
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        /* =============================================
+           CONTENT SECTIONS
+           ============================================= */
+        .section {
+            padding: 3.5rem 0;
+            scroll-margin-top: 50px;
+        }
+
+        .section-kicker {
+            color: var(--primary);
+            font-size: 0.78rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .profile-grid,
+        /* =============================================
+           CONTACT
+           ============================================= */
+        .contact-grid {
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .profile-container-card {
+            background: var(--panel-strong);
+            border: 1px solid var(--border-strong);
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .section-card {
+            border-radius: 28px;
+            padding: 2.25rem;
+        }
+
+        .section-card:hover {
+            border-color: var(--border-strong);
+            background: var(--panel-strong);
+        }
+
+        .section-card h3 {
+            color: var(--heading);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            line-height: 1.2;
+            min-height: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-card p {
+            color: var(--muted);
+            font-size: 0.98rem;
+            line-height: 1.6;
+            min-height: 3.2rem;
+            margin-bottom: 0px;
+        }
+
+
+        .skill-feature-list {
+            display: grid;
+            gap: 0.9rem;
+            margin-top: 1.25rem;
+        }
+
+        .skill-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            padding: 0.8rem 0.9rem;
+            border-radius: 14px;
+            background: rgba(52, 211, 153, 0.04);
+            border: 1px solid rgba(52, 211, 153, 0.08);
+            transition: all 0.2s ease;
+        }
+
+        .skill-feature-item:hover {
+            background: rgba(52, 211, 153, 0.08);
+            border-color: rgba(52, 211, 153, 0.2);
+            transform: translateX(4px);
+        }
+
+        .skill-feature-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: rgba(52, 211, 153, 0.1);
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .skill-feature-text {
+            font-size: 0.86rem;
+            color: var(--muted);
+            line-height: 1.35;
+        }
+
+        .skill-feature-text strong {
+            color: var(--heading);
+            display: block;
+            margin-bottom: 1px;
+            font-size: 0.92rem;
+        }
+
+        .skill-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-pill {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            padding: 0.7rem 0.9rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: rgba(52, 211, 153, 0.03);
+            color: var(--heading);
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            flex: 1 1 calc(50% - 0.4rem);
+            min-width: 140px;
+            line-height: 1.35;
+        }
+
+        .skill-pill::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.7;
+            margin-top: 0.4rem;
+            flex-shrink: 0;
+        }
+
+        .skill-pill:hover {
+            background: rgba(52, 211, 153, 0.08);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .extensions-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .extension-card {
+            display: grid;
+            grid-template-columns: 64px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.15rem 1.25rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-strong);
+            background:
+                linear-gradient(90deg, rgba(52, 211, 153, 0.08), transparent 35%),
+                var(--panel-strong);
+            box-shadow: var(--shadow);
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .extension-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            background:
+                linear-gradient(90deg, rgba(52, 211, 153, 0.14), transparent 40%),
+                var(--panel-strong);
+        }
+
+        .extension-logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            border: 1px solid rgba(52, 211, 153, 0.12);
+            background: rgba(255, 255, 255, 0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .extension-logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .extension-copy {
+            min-width: 0;
+        }
+
+        .extension-name {
+            color: var(--heading);
+            font-size: 1.08rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.35rem;
+        }
+
+        .extension-desc {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        .extension-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+            border: 1px solid rgba(52, 211, 153, 0.16);
+            color: var(--primary);
+            background: rgba(52, 211, 153, 0.05);
+            flex-shrink: 0;
+        }
+
+        .extension-card:hover .extension-arrow {
+            background: var(--primary);
+            color: var(--primary-contrast);
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-panel {
+            border-radius: 32px;
+            padding: 3rem;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-panel-info {
+            flex: 1;
+        }
+
+        .contact-panel h3 {
+            color: var(--heading);
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            font-weight: 700;
+        }
+
+        .contact-panel p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            border-radius: 20px;
+            background: var(--panel-soft);
+            border: 1px solid var(--border);
+            transition: all 0.25s ease;
+            text-decoration: none !important;
+            width: 100%;
+        }
+
+        .link-card:hover {
+            border-color: var(--primary);
+            background: var(--panel-strong);
+            transform: translateY(-2px);
+        }
+
+        .link-card-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(52, 211, 153, 0.1);
+            color: var(--primary);
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+
+        .link-card:hover .link-card-icon {
+            background: var(--primary);
+            color: var(--primary-contrast);
+        }
+
+        .link-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .link-card-header {
+            color: var(--heading);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .link-card-desc {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        /* =============================================
+           FOOTER
+           ============================================= */
+        .site-footer {
+            border-top: 1px solid var(--border);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--heading);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: normal;
+        }
+
+        .footer-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .footer-label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .footer-contact {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .footer-col-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--text);
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            text-align: center;
+        }
+
+        .footer-copy {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        /* =============================================
+           SCROLL ANIMATIONS
+           ============================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .contact-panel {
+                flex-direction: column;
+                padding: 2.5rem;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .link-grid {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .link-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .link-card {
+                padding: 1rem 1.25rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+
+            .hero-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .extensions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .profile-container-card {
+                padding: 1.5rem;
+            }
+
+
+
+            .hero-copy {
+                padding-right: 0;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+            .nav-center {
+                display: none;
+            }
+
+
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-cta {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+                white-space: nowrap;
+            }
+
+            .nav-right {
+                gap: 0.4rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .hero-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .extension-card {
+                grid-template-columns: 56px minmax(0, 1fr);
+            }
+
+            .extension-logo {
+                width: 56px;
+                height: 56px;
+            }
+
+            .extension-logo img {
+                width: 34px;
+                height: 34px;
+            }
+
+            .extension-arrow {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kaan Demir",
+        "url": "https://heykaan.dev/about/",
+        "sameAs": [
+            "https://github.com/kaanddemir",
+            "https://x.com/heykaandev",
+            "https://www.producthunt.com/@heykaandev"
+        ],
+        "jobTitle": "Independent Developer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "heykaan.dev"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="site-shell">
+        <!-- ========== NAVIGATION ========== -->
+        <header>
+            <nav class="nav" aria-label="Main navigation">
+                <div class="container nav-inner">
+                    <a href="/#overview" class="nav-logo">heykaan<span
+                            style="color: #34d399; font-weight: 500">.dev</span></a>
+                    <div class="nav-center">
+                        <a href="#overview" class="nav-link">Overview</a>
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <a href="#contact" class="nav-link">Connect</a>
+                    </div>
+                    <div class="nav-right">
+                        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                            <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                            </svg>
+                            <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </button>
+                        <a href="#contact" class="nav-cta">Connect</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <!-- ========== HERO SECTION ========== -->
+            <section class="hero" id="overview">
+                <div class="container hero-grid">
+                    <div class="hero-copy reveal">
+
+                        <h1 class="hero-title">Kaan Demir</h1>
+                        <p class="hero-lead">
+                            I am a Management Information Systems student with a strong interest in data analysis and
+                            practical software development. I work with Python, SQL, and data analysis tools to explore
+                            data and build analytical solutions.
+                        </p>
+                        <p class="hero-lead">
+                            I also build browser-based tools and software projects focused on analyzing and interacting
+                            with web content. My work combines data-driven thinking with a product and UX perspective.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="/#tools" class="btn btn-primary">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18"
+                                    height="18" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                                View portfolio
+                            </a>
+                            <a href="https://github.com/kaanddemir" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-secondary">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                Open GitHub
+                            </a>
+                            <a href="/" class="btn btn-secondary">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18"
+                                    height="18" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                                Back to Home
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="hero-visual reveal">
+                        <div class="visual-glow"></div>
+                        <div class="visual-stage">
+                            <div class="visual-cube"></div>
+                            <div class="visual-cube-inner"></div>
+                            <div class="visual-core"></div>
+                            <div class="visual-orbital orbital-1"></div>
+                            <div class="visual-orbital orbital-2"></div>
+                            <div class="visual-orbital orbital-3"></div>
+                            <div class="visual-mesh"></div>
+                            <div class="visual-node node-1">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="22" height="22">
+                                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                                    <path d="M3 5c0 1.66 4 3 9 3s9-1.34 9-3" />
+                                    <path d="M21 5v14c0 1.66-4 3-9 3s-9-1.34-9-3V5" />
+                                </svg>
+                            </div>
+                            <div class="visual-node node-2">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="22" height="22">
+                                    <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+                                </svg>
+                            </div>
+                            <div class="visual-node node-3">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="22" height="22">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section> <!-- ========== PROFILE SECTION ========== -->
+            <section class="section" id="skills">
+                <div class="container">
+                    <div class="profile-container-card reveal">
+
+
+                        <div class="profile-grid">
+                            <article class="section-card"
+                                style="background: var(--panel-soft); border: 1px solid var(--border);">
+                                <h3>Skills</h3>
+                                <p>
+                                    Core areas where I apply my technical skills in projects.
+                                </p>
+                                <div class="skill-feature-list">
+                                    <div class="skill-feature-item">
+                                        <div class="skill-feature-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" width="20" height="20">
+                                                <path
+                                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                                <line x1="12" y1="22.08" x2="12" y2="12" />
+                                            </svg>
+                                        </div>
+                                        <div class="skill-feature-text">
+                                            <strong>Data Analysis</strong>
+                                            Extracting insights and solving complex problems with data.
+                                        </div>
+                                    </div>
+                                    <div class="skill-feature-item">
+                                        <div class="skill-feature-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" width="20" height="20">
+                                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                                <line x1="8" y1="21" x2="16" y2="21" />
+                                                <line x1="12" y1="17" x2="12" y2="21" />
+                                            </svg>
+                                        </div>
+                                        <div class="skill-feature-text">
+                                            <strong>Web Development</strong>
+                                            Building fast, responsive, and intuitive web applications.
+                                        </div>
+                                    </div>
+                                    <div class="skill-feature-item">
+                                        <div class="skill-feature-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" width="20" height="20">
+                                                <path
+                                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                            </svg>
+                                        </div>
+                                        <div class="skill-feature-text">
+                                            <strong>Browser Tools</strong>
+                                            Developing extensions that enhance life inside the browser.
+                                        </div>
+                                    </div>
+                                    <div class="skill-feature-item">
+                                        <div class="skill-feature-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" width="20" height="20">
+                                                <path
+                                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                            </svg>
+                                        </div>
+                                        <div class="skill-feature-text">
+                                            <strong>Version Control</strong>
+                                            Managing projects and collaborating via GitHub.
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="section-card"
+                                style="background: var(--panel-soft); border: 1px solid var(--border);">
+                                <h3>Tools & Technologies</h3>
+                                <p>
+                                    Technologies and tools I use across my projects.
+                                </p>
+                                <div class="skill-pills">
+                                    <span class="skill-pill">Python</span>
+                                    <span class="skill-pill">SQL</span>
+                                    <span class="skill-pill">Pandas</span>
+                                    <span class="skill-pill">NumPy</span>
+                                    <span class="skill-pill">JavaScript</span>
+                                    <span class="skill-pill">HTML5</span>
+                                    <span class="skill-pill">CSS</span>
+                                    <span class="skill-pill">GitHub</span>
+
+                                    <span class="skill-pill">Chrome Extensions API</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ========== EXTENSIONS SECTION ========== -->
+            <section class="section" id="projects">
+                <div class="container">
+                    <div class="profile-container-card reveal">
+                        <div class="footer-kicker section-kicker">Projects & Tools</div>
+
+                        <div class="extensions-grid">
+                            <a href="/readscore/" class="extension-card reveal">
+                                <div class="extension-logo">
+                                    <img src="../assets/images/readscore_logo.png" alt="ReadScore logo">
+                                </div>
+                                <div class="extension-copy">
+                                    <div class="extension-name">ReadScore</div>
+                                    <div class="extension-desc">Checks readability and text clarity directly on the
+                                        page.
+                                    </div>
+                                </div>
+                                <div class="extension-arrow" aria-hidden="true">→</div>
+                            </a>
+
+                            <a href="/ux-heatgrid/" class="extension-card reveal">
+                                <div class="extension-logo">
+                                    <img src="../assets/images/ux_heatgrid_logo.png" alt="UX HeatGrid logo">
+                                </div>
+                                <div class="extension-copy">
+                                    <div class="extension-name">UX HeatGrid</div>
+                                    <div class="extension-desc">Turns layout attention into a visual UX analysis layer.
+                                    </div>
+                                </div>
+                                <div class="extension-arrow" aria-hidden="true">→</div>
+                            </a>
+
+                            <a href="/soft-blackout/" class="extension-card reveal">
+                                <div class="extension-logo">
+                                    <img src="../assets/images/soft_blackout_logo.png" alt="Soft Blackout logo">
+                                </div>
+                                <div class="extension-copy">
+                                    <div class="extension-name">Soft Blackout</div>
+                                    <div class="extension-desc">Dims distractions to keep focus inside the browser.
+                                    </div>
+                                </div>
+                                <div class="extension-arrow" aria-hidden="true">→</div>
+                            </a>
+
+                            <a href="/typeflux/" class="extension-card reveal">
+                                <div class="extension-logo">
+                                    <img src="../assets/images/typeflux_logo.png" alt="TypeFlux logo">
+                                </div>
+                                <div class="extension-copy">
+                                    <div class="extension-name">TypeFlux</div>
+                                    <div class="extension-desc">Explores typography, rhythm, and smoother reading flow.
+                                    </div>
+                                </div>
+                                <div class="extension-arrow" aria-hidden="true">→</div>
+                            </a>
+
+                            <a href="https://github.com/kaanddemir/studyhub" target="_blank" rel="noopener noreferrer"
+                                class="extension-card reveal">
+                                <div class="extension-logo">
+                                    <img src="../assets/images/studyhub_logo.png" alt="StudyHub logo">
+                                </div>
+                                <div class="extension-copy">
+                                    <div class="extension-name">StudyHub</div>
+                                    <div class="extension-desc">A focused study web app for sessions, notes, and
+                                        organization.</div>
+                                </div>
+                                <div class="extension-arrow" aria-hidden="true">→</div>
+                            </a>
+
+                            <a href="https://zanaat.app" target="_blank" rel="noopener noreferrer"
+                                class="extension-card reveal">
+                                <div class="extension-logo">
+                                    <img src="../assets/images/zanaat_logo.png" alt="Zanaat.app logo">
+                                </div>
+                                <div class="extension-copy">
+                                    <div class="extension-name">Zanaat.app</div>
+                                    <div class="extension-desc">An experimental crafting app built around combination
+                                        and
+                                        discovery.</div>
+                                </div>
+                                <div class="extension-arrow" aria-hidden="true">→</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== CONTACT SECTION ========== -->
+            <section class="section" id="contact">
+                <div class="container">
+                    <div class="contact-grid">
+                        <div class="contact-panel reveal">
+                            <div class="contact-panel-info">
+                                <div class="footer-kicker section-kicker">Connect</div>
+                                <h3>If you have an idea or project in mind, feel free to reach out.</h3>
+                                <p>
+                                    I’m always open to discussing new ideas, collaborations, and interesting problems
+                                    to work on.
+                                </p>
+                            </div>
+
+                            <div class="link-grid" style="flex: 1.2;">
+                                <a href="https://github.com/kaanddemir" target="_blank" rel="noopener noreferrer"
+                                    class="link-card">
+                                    <div class="link-card-content">
+                                        <div class="link-card-header">GitHub</div>
+                                        <div class="link-card-desc">Code & Repos</div>
+                                    </div>
+                                    <div class="link-card-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                                            <path fill-rule="evenodd"
+                                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.producthunt.com/@heykaandev" target="_blank"
+                                    rel="noopener noreferrer" class="link-card">
+                                    <div class="link-card-content">
+                                        <div class="link-card-header">Product Hunt</div>
+                                        <div class="link-card-desc">Tool Launches</div>
+                                    </div>
+                                    <div class="link-card-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.6 12.4H11v3.2H8.6V6.4h5c1.76 0 3.2 1.44 3.2 3.2s-1.44 3.2-3.2 3.2h-2.4v1.6z" />
+                                            <circle cx="12.2" cy="9.6" r="1.2" />
+                                        </svg>
+                                    </div>
+                                </a>
+
+                                <a href="https://x.com/heykaandev" target="_blank" rel="noopener noreferrer"
+                                    class="link-card">
+                                    <div class="link-card-content">
+                                        <div class="link-card-header">X / Twitter</div>
+                                        <div class="link-card-desc">Dev Thoughts</div>
+                                    </div>
+                                    <div class="link-card-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                            <path
+                                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                        </svg>
+                                    </div>
+                                </a>
+
+                                <a href="mailto:heykaan.dev@gmail.com" class="link-card">
+                                    <div class="link-card-content">
+                                        <div class="link-card-header">Email</div>
+                                        <div class="link-card-desc">Direct Chats</div>
+                                    </div>
+                                    <div class="link-card-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                            width="22" height="22">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <div class="footer-brand">
+                            heykaan.dev
+                        </div>
+                        <p class="footer-desc">Independent developer building Chrome extensions, UX tools
+                            and experimental web apps for the modern web.</p>
+                        <div class="footer-label">Email</div>
+                        <a href="mailto:heykaan.dev@gmail.com" class="footer-contact">heykaan.dev@gmail.com</a>
+                    </div>
+                    <div>
+                        <div class="footer-col-title">Navigation</div>
+                        <div class="footer-links">
+                            <a href="/#tools">Tools</a>
+                            <a href="/#how-it-works">How it works</a>
+                            <a href="/about/">About</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="footer-col-title">Tools</div>
+                        <div class="footer-links">
+                            <a href="/readscore/">ReadScore</a>
+                            <a href="/ux-heatgrid/">UX HeatGrid</a>
+                            <a href="/soft-blackout/">Soft Blackout</a>
+                            <a href="/typeflux/">TypeFlux</a>
+                            <a href="/#web-apps">StudyHub</a>
+                            <a href="/#web-apps">Zanaat.app</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="footer-col-title">Follow us</div>
+                        <div class="footer-links">
+                            <a href="https://github.com/kaanddemir" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a href="https://x.com/heykaandev" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+                            <a href="https://www.producthunt.com/@heykaandev" target="_blank"
+                                rel="noopener noreferrer">Product Hunt</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-copy">&copy; <span id="year"></span> heykaan.dev. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script>
+        function updateStatusBarColor(theme) {
+            var color = theme === 'dark' ? '#030f05' : '#f4fbf6';
+            var meta = document.getElementById('dynamic-theme-color');
+            if (!meta) {
+                meta = document.createElement('meta');
+                meta.name = 'theme-color';
+                meta.id = 'dynamic-theme-color';
+                document.head.appendChild(meta);
+            }
+            meta.content = color;
+        }
+
+        (function () {
+            if (localStorage.theme === 'light') {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+                updateStatusBarColor('light');
+            } else {
+                updateStatusBarColor('dark');
+            }
+        })();
+
+        function toggleTheme() {
+            var html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'light';
+            } else {
+                localStorage.theme = 'dark';
+            }
+            window.location.reload();
+        }
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        var reveals = document.querySelectorAll('.reveal');
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        reveals.forEach(function (item) {
+            observer.observe(item);
+        });
+        // Interactive Hero Visual
+        (function() {
+            const visual = document.querySelector('.hero-visual');
+            const stage = document.querySelector('.visual-stage');
+            const nodes = document.querySelectorAll('.visual-node');
+            const core = document.querySelector('.visual-core');
+            
+            if (!visual || !stage) return;
+
+            let mouseX = 0, mouseY = 0;
+            let targetX = 0, targetY = 0;
+            let baseRotation = 0;
+
+            window.addEventListener('mousemove', (e) => {
+                const rect = visual.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                // Normalized coordinates (-1 to 1)
+                targetX = (e.clientX - centerX) / (window.innerWidth / 2);
+                targetY = (e.clientY - centerY) / (window.innerHeight / 2);
+            });
+
+            function animate() {
+                // Smooth interpolation (lerp)
+                mouseX += (targetX - mouseX) * 0.05;
+                mouseY += (targetY - mouseY) * 0.05;
+                
+                baseRotation += 0.2; // Slow continuous rotation
+
+                const tiltX = mouseY * -15; // Rotate around X axis based on Y movement
+                const tiltY = (mouseX * 25) + baseRotation; // Rotate around Y axis
+                
+                stage.style.transform = `rotateX(${15 + tiltX}deg) rotateY(${tiltY}deg)`;
+
+                // Parallax for nodes
+                nodes.forEach((node, i) => {
+                    const depth = (i + 1) * 10;
+                    node.style.transform = `translateZ(${40 + depth}px) rotateY(${-tiltY}deg) rotateX(${-15 - tiltX}deg)`;
+                });
+
+                // Core reactive glow
+                const speed = Math.abs(targetX - mouseX) + Math.abs(targetY - mouseY);
+                if (core) {
+                    core.style.opacity = 0.2 + (speed * 0.5);
+                    core.style.transform = `translate(-50%, -50%) scale(${1 + speed * 0.5})`;
+                }
+
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        })();
+    </script>
+</body>
+
+</html>

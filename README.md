@@ -37,6 +37,7 @@
 | <img src="./assets/images/soft_blackout_logo.png" width="40"> | **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Intelligent redaction modes to hide sensitive content locally. | [Live] |
 | <img src="./assets/images/readscore_logo.png" width="40"> | **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg)** | Deep readability analysis with transparent SEO/UX metrics. | [Live] |
 | <img src="./assets/images/ux_heatgrid_logo.png" width="40"> | **[UX HeatGrid](https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn)** | Real-time page attention heatmaps for designers and devs. | [Live] |
+| <img src="./assets/images/typeflux_logo.png" width="40"> | **[TypeFlux](https://chromewebstore.google.com/detail/typeflux/nemkilhkadhfoafhdbmomnoaanodeehh)** | Live typography preview tool for fonts and vertical rhythm. | [Live] |
 
 ### Featured Websites
 | Icon | Project | Description | Status |
@@ -49,8 +50,8 @@
 ## Tech Stack
 
 - **Frontend**: HTML5, Vanilla JavaScript (ES6+)
-- **Styling**: Tailwind CSS (CDN-based for modular simplicity)
-- **Typography**: Inter (UI), Space Mono (Code)
+- **Styling**: Vanilla CSS / Tailwind CSS (Project specific)
+- **Typography**: Inter (UI), Space Mono / IBM Plex (Code)
 - **Deployment**: Static hosting via GitHub Pages
 
 ---
@@ -63,6 +64,7 @@ Distinct visual identities for each tool, focused on clarity and functional cont
 | :--- | :--- | :--- | :--- |
 | **heykaan.dev** | Emerald Green `#34D399` | Mint Hover `#6EE7B7` | Deep Forest `#030F05` |
 | **ReadScore** | Royal Blue `#2563EB` | Sky Accent `#60A5FA` | Midnight Slate `#0F172A` |
+| **TypeFlux** | Cyan Teal `#06B6D4` | Bright Aqua `#22D3EE` | Slate Space `#0F172A` |
 | **UX HeatGrid** | Amber Gold `#FEBC2E` | Heatmap Red `#FF5B3A` | Dark Space `#101622` |
 | **Soft Blackout** | Minimal Onyx `#1E1E1E` | Cream White `#F7F5E7` | Absolute Black `#000000` |
 
@@ -73,19 +75,18 @@ Distinct visual identities for each tool, focused on clarity and functional cont
 ```bash
 heykaan.dev/
 ├── index.html              # Main Hub & Portfolio
+├── about/                  # About Me & Profile
+│   └── index.html          # Detailed Profile Page
 ├── readscore/              # ReadScore Directory
-│   └── index.html          # ReadScore Product Page
-├── soft-blackout/          # Soft Blackout Directory
-│   └── index.html          # Soft Blackout Product Page
+├── typeflux/               # TypeFlux Directory
 ├── ux-heatgrid/            # UX HeatGrid Directory
-│   └── index.html          # UX HeatGrid Product Page
-├── 404.html                # Custom Branding Error Page
+├── soft-blackout/          # Soft Blackout Directory
+├── assets/                 # Centralized Media Repository
+│   ├── icons/              # Logic & Meta Icons
+│   └── images/             # Product Showcase Logos
 ├── manifest.json           # PWA Configuration
 ├── sitemap.xml             # Search Engine Optimization
-├── robots.txt              # Crawler Directives
-└── assets/                 # Centralized Media Repository
-    ├── icons/              # Logic & Meta Icons
-    └── images/             # Product Showcase Logos
+└── ...                     # Robots.txt, CNAME, etc.
 ```
 
 ---
@@ -132,5 +133,5 @@ npx http-server
 This project is open-source and released under the [MIT License](LICENSE).
 
 <p align="right">
-  Built with love by <strong><a href="https://heykaan.dev">Kaan Demir</a></strong>
+  Built by <strong><a href="https://heykaan.dev">Kaan Demir</a></strong>
 </p>
