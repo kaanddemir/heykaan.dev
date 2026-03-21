@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en">
+<html class="light" lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>ReadScore | Chrome Extension for Readability Analysis</title>
+    <title>ReadScore | Readability & AI Summary for Chrome</title>
 
     <!-- SEO: Meta description (155 chars) -->
-    <meta name="description"
-        content="Analyze web page readability directly in your browser with explainable metrics and real time clarity insights using ReadScore Chrome Extension.">
+    <meta name="description" content="Analyze readability, generate AI summaries, and use focused reading tools.">
 
     <!-- SEO: Canonical URL -->
     <link rel="canonical" href="https://heykaan.dev/readscore/" />
@@ -21,9 +20,9 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
     <!-- SEO: Open Graph tags -->
-    <meta property="og:title" content="ReadScore | Chrome Extension for Readability Analysis" />
+    <meta property="og:title" content="ReadScore | Readability & AI Summary for Chrome" />
     <meta property="og:description"
-        content="Analyze web page readability directly in your browser with explainable metrics and real time clarity insights." />
+        content="Analyze readability, generate AI summaries, and use focused reading tools." />
     <meta property="og:image" content="https://heykaan.dev/assets/icons/og-image.png" />
     <meta property="og:url" content="https://heykaan.dev/readscore/" />
     <meta property="og:type" content="website" />
@@ -31,9 +30,9 @@
 
     <!-- SEO: Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ReadScore | Chrome Extension for Readability Analysis" />
+    <meta name="twitter:title" content="ReadScore | Readability & AI Summary for Chrome" />
     <meta name="twitter:description"
-        content="Analyze web page readability directly in your browser with explainable metrics and real time clarity insights." />
+        content="Analyze readability, generate AI summaries, and use focused reading tools." />
     <meta name="twitter:image" content="https://heykaan.dev/assets/icons/og-image.png" />
 
     <!-- SEO: Author & copyright -->
@@ -47,9 +46,7 @@
     <!-- CSP: Controls which resources the browser is allowed to load.
          Prevents XSS, data injection, and clickjacking attacks. -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://api.producthunt.com https://heykaan.dev; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
-
-    <!-- X-Frame-Options removed: Not supported via meta tags on GitHub Pages -->
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://api.producthunt.com https://heykaan.dev https://lh3.googleusercontent.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
 
     <!-- X-Content-Type-Options: Prevents MIME-sniffing attacks. -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -57,62 +54,110 @@
     <!-- Referrer-Policy: Controls referrer info sent to external sites.
          strict-origin-when-cross-origin = full path same-origin, domain-only cross-origin, nothing on HTTP downgrade. -->
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-
-    <!-- Permissions-Policy: Cannot be set via meta tags — add to server config:
-         Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=() -->
-
     <link rel="icon" type="image/svg+xml"
         href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%232563eb"/><text x="50" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">RS</text></svg>'>
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
-
     <!-- SEO: Preconnect to Google Fonts for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap"
         rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <!-- Tailwind Config -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface": "#191c1e",
+                        "primary": "#0040a1",
+                        "surface-bright": "#f0f4f8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f0f4f8",
+                        "surface-variant": "#e0e3e5",
+                        "error": "#ba1a1a",
+                        "secondary": "#4a5d8e",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-container": "#a93802",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#3e5181",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-fixed": "#380d00",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-low": "#eef2f7",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#424654",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#b3c5fd",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-secondary-fixed": "#001847",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed-variant": "#0040a1",
+                        "primary-fixed": "#dae2ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#ccd8ff",
+                        "inverse-primary": "#b2c5ff",
+                        "background": "#f0f4f8",
+                        "surface-tint": "#0056d2",
+                        "secondary-container": "#b3c5fd",
+                        "secondary-fixed": "#dae2ff",
+                        "primary-container": "#0056d2",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffcebd",
+                        "tertiary": "#822800",
+                        "outline": "#737785",
+                        "on-secondary-fixed-variant": "#324575",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "on-primary-fixed": "#001847",
+                        "tertiary-fixed": "#ffdbcf",
+                        "outline-variant": "#c3c6d6",
+                        "on-background": "#191c1e",
+                        "on-error-container": "#93000a"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
     <style>
-        /* =============================================
-           THEME TOKENS
-           ============================================= */
         :root {
-            --bg: #0f172a;
-            /* Slate 900 */
-            --bg-alt: #020617;
-            /* Slate 950 */
-            --text: #94a3b8;
-            /* Slate 400 */
-            --text-heading: #f8fafc;
-            /* Slate 50 */
-            --muted: #64748b;
-            /* Slate 500 */
-            --card: rgba(30, 41, 59, 0.5);
-            /* Slate 800 alpha */
-            --card-border: rgba(148, 163, 184, 0.1);
-            --border: rgba(148, 163, 184, 0.08);
-            --primary: #2563eb;
-            /* Blue 600 */
-            --primary-hover: #1d4ed8;
-            /* Blue 700 */
+            --bg: #f0f4f8;
+            --bg-alt: #e5ecf4;
+            --text-heading: #191c1e;
+            --muted: #5f6b7c;
+            --border: rgba(66, 70, 84, 0.12);
+            --primary: #0040a1;
             --primary-contrast: #ffffff;
-            --primary-glow: rgba(37, 99, 235, 0.12);
-            --surface: rgba(37, 99, 235, 0.04);
+            --surface: rgba(0, 64, 161, 0.06);
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-        /* =============================================
-            LAYOUT UTILS
-           ============================================= */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -120,9 +165,16 @@
             width: 100%;
         }
 
-        /* =============================================
-           NAVIGATION — Modern style
-           ============================================= */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .asymmetric-break {
+            width: 40px;
+            height: 2px;
+            background-color: #0040a1;
+        }
+
         .nav {
             position: fixed;
             top: 0;
@@ -130,9 +182,10 @@
             right: 0;
             z-index: 100;
             border-bottom: 1px solid var(--border);
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(240, 244, 248, 0.88);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 12px 32px rgba(66, 70, 84, 0.05);
         }
 
         .nav-inner {
@@ -152,13 +205,6 @@
             align-items: center;
             gap: 0;
             font-family: 'Inter', sans-serif;
-        }
-
-        .nav-logo-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            object-fit: cover;
         }
 
         .nav-center {
@@ -227,39 +273,28 @@
             color: var(--primary-contrast);
         }
 
-        @media (max-width: 768px) {
-            .nav-center {
-                display: none;
-            }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #191c1e;
+            background-color: #f0f4f8;
+            /* Soft baby blue background */
         }
 
-        @media (max-width: 480px) {
-            .nav-inner {
-                padding: 0 1rem;
-            }
-
-            .nav-logo {
-                font-size: 1.2rem;
-            }
-
-            .nav-cta {
-                padding: 6px 12px;
-                font-size: 0.75rem;
-                white-space: nowrap;
-            }
-
-            .nav-right {
-                gap: 0.4rem;
-            }
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Manrope', sans-serif;
         }
 
-        /* =============================================
-           FOOTER — Dark style
-           ============================================= */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0040a1 0%, #0056d2 100%);
+        }
+
         .site-footer {
             border-top: 1px solid var(--border);
             padding: 80px 0 40px;
-            background: var(--bg-alt);
+            background: linear-gradient(180deg, #edf2f7 0%, var(--bg-alt) 100%);
         }
 
         .footer-grid {
@@ -347,40 +382,45 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .nav-center {
+                display: none;
+            }
+        }
+
         @media (max-width: 600px) {
             .footer-grid {
                 grid-template-columns: 1fr;
             }
         }
-    </style>
 
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#2563eb",
-                        "background-light": "#f8fafc",
-                        "background-dark": "#0f172a",
-                        "surface-dark": "#1e293b",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
-                },
-            },
+        @media (max-width: 480px) {
+            .nav-inner {
+                padding: 0 1rem;
+            }
+
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-cta {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+                white-space: nowrap;
+            }
+
+            .nav-right {
+                gap: 0.4rem;
+            }
         }
-    </script>
-
+    </style>
     <!-- SEO: Schema.org JSON-LD structured data (SoftwareApplication) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "ReadScore",
-        "description": "Analyze web page readability directly in your browser with explainable metrics and real time clarity insights.",
+        "description": "Analyze readability, generate AI summaries, and use focused reading tools.",
         "url": "https://heykaan.dev/readscore/",
         "applicationCategory": "BrowserApplication",
         "operatingSystem": "Chrome",
@@ -400,8 +440,7 @@
     </script>
 </head>
 
-<body class="bg-background-dark text-white font-display antialiased overflow-x-hidden">
-    <!-- Navigation -->
+<body class="bg-surface text-on-surface">
     <!-- SEO: Semantic header wrapper for navigation -->
     <header>
         <!-- SEO: Added aria-label for accessibility -->
@@ -410,10 +449,10 @@
                 <a href="/" class="nav-logo">heykaan<span
                         style="color: var(--primary); font-weight: 500">.dev</span></a>
                 <div class="nav-center">
-                    <a href="#overview" class="nav-link">Overview</a>
+                    <a href="#overview" class="nav-link active">Overview</a>
+                    <a href="#features" class="nav-link">Features</a>
                     <a href="#how-it-works" class="nav-link">How it works</a>
                     <a href="#use-cases" class="nav-link">Use Cases</a>
-                    <a href="#get-started" class="nav-link">Get Started</a>
                 </div>
                 <div class="nav-right">
                     <button class="theme-toggle" aria-label="Toggle theme" style="cursor: default; opacity: 0.6;">
@@ -432,304 +471,357 @@
     <!-- SEO: Main content wrapper starts here -->
     <main role="main">
         <!-- Hero Section -->
-        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden" id="overview"
+        <section class="relative pt-28 pb-32 overflow-hidden bg-surface" id="overview"
             aria-label="Hero — ReadScore overview">
-            <!-- Abstract Background Glows -->
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none">
-                <div class="absolute top-20 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] opacity-30">
-                </div>
-                <div
-                    class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] opacity-30">
-                </div>
-            </div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
-                <!-- Headline -->
-                <h1
-                    class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
-                    Analyze web <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">readability.</span>
-                </h1>
-                <!-- Subheadline -->
-                <p
-                    class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
-                    Analyze web page readability directly in your browser with explainable metrics and real time clarity
-                    insights.
-                </p>
-                <!-- Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                    <!-- SEO: Added rel="noopener noreferrer" to external link -->
-                    <a class="inline-flex items-center justify-center px-8 h-[54px] text-base font-medium rounded-xl text-white bg-primary hover:bg-primary/90 transition-all shadow-xl shadow-primary/25 hover:-translate-y-0.5"
-                        href="https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en"
-                        target="_blank" rel="noopener noreferrer">
-                        Add to Chrome
-                    </a>
-                    <a href="https://www.producthunt.com/products/readscore?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-readscore"
-                        target="_blank" rel="noopener noreferrer"
-                        class="block w-[250px] h-[54px] hover:opacity-90 transition-opacity hover:-translate-y-0.5 transition-all">
-                        <img alt="ReadScore - Analyze web readability with clear, explainable metrics | Product Hunt"
-                            width="250" height="54"
-                            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1073057&amp;theme=light&amp;t=1770238138305"
-                            class="w-full h-full object-contain rounded-xl shadow-xl shadow-slate-900/10">
-                    </a>
-                    <a class="inline-flex items-center justify-center px-8 h-[54px] text-base font-medium rounded-xl text-slate-700 dark:text-slate-300 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all hover:-translate-y-0.5"
-                        href="#how-it-works">
-                        How it works
-                    </a>
-                </div>
-                <!-- Browser Mockup Visualization -->
-                <div class="relative max-w-5xl mx-auto">
-                    <div class="relative group animate-fade-in-up animation-delay-500">
-                        <div
-                            class="absolute -inset-4 bg-gradient-to-r from-primary to-blue-400 rounded-2xl blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000">
-                        </div>
-                        <div
-                            class="relative bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 rounded-2xl p-2 shadow-2xl">
-                            <!-- Browser Header -->
-                            <div
-                                class="flex items-center gap-2 px-3 py-2 border-b border-slate-200 dark:border-zinc-700/50 mb-2">
-                                <div class="flex gap-1.5">
-                                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                                    <div class="w-3 h-3 rounded-full bg-amber-400"></div>
-                                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                                </div>
-                                <div
-                                    class="flex-1 bg-white dark:bg-zinc-900 h-6 rounded px-2 text-xs flex items-center text-slate-400 ml-4 font-mono">
-                                    extension://readscore
-                                </div>
-                            </div>
-
-                            <!-- Browser Content (Fake Split) -->
-                            <div
-                                class="grid grid-cols-2 h-[350px] md:h-[450px] rounded bg-white dark:bg-zinc-950 relative">
-                                <!-- Left: Original Content -->
-                                <div
-                                    class="p-2 md:p-6 border-r border-slate-100 dark:border-zinc-900 overflow-hidden relative">
-                                    <!-- Label -->
-                                    <div class="absolute top-4 left-4 z-10">
-                                        <span
-                                            class="px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-500 dark:bg-zinc-800 dark:text-zinc-500 border border-slate-200 dark:border-zinc-700">
-                                            Original
-                                        </span>
-                                    </div>
-
-                                    <!-- Content Simulation (Dense) -->
-                                    <div class="mt-10 space-y-2.5 opacity-30 select-none">
-                                        <div class="h-1.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-full"></div>
-                                        <div class="h-1.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-11/12"></div>
-                                        <div class="h-1.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-full"></div>
-                                        <div class="h-1.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-4/5"></div>
-                                        <div class="h-1.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-full"></div>
-                                        <div class="h-1.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-full"></div>
-                                        <div class="h-32 bg-slate-200 dark:bg-zinc-800 rounded-lg w-full my-4"></div>
-                                        <div class="h-1.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-full"></div>
-                                        <div class="h-1.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-5/6"></div>
-                                        <div class="h-1.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-full"></div>
-                                        <div class="h-1.5 bg-slate-800 dark:bg-slate-200 rounded-sm w-3/4"></div>
-                                    </div>
-                                </div>
-
-                                <!-- Right: Analyzed Content -->
-                                <div class="p-2 md:p-6 relative bg-slate-50/50 dark:bg-zinc-900/50">
-                                    <!-- Label -->
-                                    <div class="absolute top-4 left-4 z-10">
-                                        <span
-                                            class="px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary dark:bg-primary/20 border border-primary/20">
-                                            Analyzed
-                                        </span>
-                                    </div>
-
-                                    <div class="mt-10 space-y-4">
-                                        <!-- Highlight Block (Amber) -->
-                                        <div
-                                            class="bg-amber-50 dark:bg-amber-900/10 rounded-lg p-2.5 border-l-2 border-amber-400 space-y-2">
-                                            <div class="h-1.5 bg-amber-200 dark:bg-amber-700/40 rounded w-full"></div>
-                                            <div class="h-1.5 bg-amber-200 dark:bg-amber-700/40 rounded w-3/4"></div>
-                                        </div>
-
-                                        <!-- Standard Text -->
-                                        <div class="space-y-2 opacity-40">
-                                            <div class="h-1.5 bg-slate-400 dark:bg-zinc-500 rounded w-full"></div>
-                                            <div class="h-1.5 bg-slate-400 dark:bg-zinc-500 rounded w-5/6"></div>
-                                        </div>
-
-                                        <!-- Highlight Block (Red) -->
-                                        <div
-                                            class="bg-red-50 dark:bg-red-900/10 rounded-lg p-2.5 border-l-2 border-red-400 space-y-2">
-                                            <div class="h-1.5 bg-red-200 dark:bg-red-700/40 rounded w-full"></div>
-                                            <div class="h-1.5 bg-red-200 dark:bg-red-700/40 rounded w-11/12"></div>
-                                            <div class="h-1.5 bg-red-200 dark:bg-red-700/40 rounded w-4/5"></div>
-                                        </div>
-
-                                        <!-- Popover UI (Image) -->
-                                        <div
-                                            class="absolute top-16 -right-20 w-72 z-20 transition-transform hover:scale-105 duration-300 hidden md:block">
-                                            <img src="../assets/images/readscore_popup_mockup.png"
-                                                alt="ReadScore Analysis UI showing readability metrics and text highlighting"
-                                                loading="lazy" width="288" height="auto"
-                                                class="w-full rounded-xl shadow-2xl border border-slate-200/50 dark:border-zinc-700/50">
-                                        </div>
-
-                                        <!-- Further Content -->
-                                        <div class="opacity-40">
-                                            <div class="h-24 bg-slate-200 dark:bg-zinc-800 rounded-lg w-full mb-3">
-                                            </div>
-                                            <div class="space-y-2">
-                                                <div class="h-2 bg-slate-400 dark:bg-zinc-500 rounded w-full"></div>
-                                                <div class="h-2 bg-slate-400 dark:bg-zinc-500 rounded w-2/3"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-8">
+                    <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-on-surface leading-[1.1]">
+                        Analyze, summarize, and read any page <span class="text-primary">better.</span>
+                    </h1>
+                    <p class="text-xl text-on-surface-variant font-body leading-relaxed max-w-2xl">
+                        Everything you need to understand any page with readability insights, AI summaries, and focused
+                        reading tools. It runs entirely on your device.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4 items-center">
+                        <!-- SEO: Added rel="noopener noreferrer" to external link -->
+                        <a href="https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en"
+                            target="_blank" rel="noopener noreferrer"
+                            class="hero-gradient text-white px-10 h-[64px] flex items-center justify-center rounded-lg font-bold text-xl shadow-xl shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
+                            Add to Chrome
+                        </a>
+                        <a href="https://www.producthunt.com/products/readscore?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-readscore"
+                            target="_blank" rel="noopener noreferrer"
+                            class="block w-[280px] h-[64px] hover:opacity-90 transition-all duration-300 hover:-translate-y-1">
+                            <img alt="ReadScore - Analyze web readability with clear, explainable metrics | Product Hunt"
+                                width="250" height="54"
+                                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1073057&amp;theme=light&amp;t=1770238138305"
+                                class="w-full h-full object-contain">
+                        </a>
                     </div>
                 </div>
-
+                <div class="lg:col-span-5 relative">
+                    <div
+                        class="relative z-10 mx-auto w-full max-w-[340px] overflow-hidden rounded-[40px] shadow-2xl bg-white border-[12px] border-white ring-1 ring-gray-100">
+                        <img alt="ReadScore popup mockup showing analysis, AI summary, and reading tools"
+                            class="block w-full h-auto object-contain"
+                            src="../assets/images/readscore_popup_mockup.png" />
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+                </div>
             </div>
         </section>
-
-        <!-- How It Works Section -->
-        <section class="py-24 bg-surface-dark/30 border-y border-slate-800" id="how-it-works"
-            aria-label="ReadScore features">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Understand web content readability</h2>
-                    <p class="text-slate-400 text-lg">Analyze article complexity with explainable readability metrics
-                        directly in your browser.</p>
+        <!-- Version Highlight (Integrated Minimal) -->
+        <section class="max-w-7xl mx-auto px-6 mb-24">
+            <div
+                class="bg-tertiary-fixed rounded-3xl p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-12 border border-tertiary/10 relative overflow-hidden group">
+                <!-- Left Content -->
+                <div class="md:w-1/2 space-y-4 text-center md:text-left">
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-on-tertiary-fixed tracking-tight">What’s new in
+                        v1.1.1</h3>
+                    <p class="text-on-tertiary-fixed-variant font-medium text-lg leading-relaxed max-w-md">
+                        A smarter algorithm, AI-powered summaries, and a full set of reading tools.
+                    </p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8 relative">
-                    <!-- Connecting Line (Desktop) -->
-                    <div
-                        class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent border-t border-dashed border-slate-700 -z-10">
-                    </div>
-                    <!-- Step 1 -->
-                    <div
-                        class="group relative bg-surface-dark border border-slate-800 hover:border-primary/50 p-8 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1">
+
+                <!-- Right Content (Clean List) -->
+                <div class="md:w-1/2 w-full flex flex-col gap-6 md:pl-10 md:border-l border-on-tertiary-fixed/10">
+                    <!-- Feature 1 -->
+                    <div class="flex items-center gap-4 group/item">
                         <div
-                            class="absolute -top-6 left-1/2 -translate-x-1/2 bg-surface-dark border border-slate-700 group-hover:border-primary text-slate-400 group-hover:text-primary w-12 h-12 rounded-xl flex items-center justify-center transition-colors shadow-lg">
-                            <span class="material-icons-outlined">content_copy</span>
+                            class="w-10 h-10 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary transition-transform group-hover/item:scale-110">
+                            <span class="material-symbols-outlined text-xl">analytics</span>
                         </div>
-                        <h3 class="mt-8 text-xl font-semibold text-white text-center mb-3">Smart Extraction</h3>
-                        <p class="text-slate-400 text-center text-sm leading-relaxed">
-                            Instantly detects the main article content, ignoring ads, sidebars, and popups for pure
-                            focus.
-                        </p>
+                        <span class="font-bold text-on-tertiary-fixed text-base md:text-lg">Improved readability
+                            algorithm</span>
                     </div>
-                    <!-- Step 2 -->
-                    <div
-                        class="group relative bg-surface-dark border border-slate-800 hover:border-primary/50 p-8 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1">
+
+                    <!-- Feature 2 -->
+                    <div class="flex items-center gap-4 group/item">
                         <div
-                            class="absolute -top-6 left-1/2 -translate-x-1/2 bg-surface-dark border border-slate-700 group-hover:border-primary text-slate-400 group-hover:text-primary w-12 h-12 rounded-xl flex items-center justify-center transition-colors shadow-lg">
-                            <span class="material-icons-outlined">psychology</span>
+                            class="w-10 h-10 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary transition-transform group-hover/item:scale-110">
+                            <span class="material-symbols-outlined text-xl">auto_awesome</span>
                         </div>
-                        <h3 class="mt-8 text-xl font-semibold text-white text-center mb-3">Deep Analysis</h3>
-                        <p class="text-slate-400 text-center text-sm leading-relaxed">
-                            Evaluates Flesch-Kincaid &amp; Gunning Fog scores in milliseconds using advanced NLP
-                            algorithms.
-                        </p>
+                        <span class="font-bold text-on-tertiary-fixed text-base md:text-lg">AI Summary</span>
                     </div>
-                    <!-- Step 3 -->
-                    <div
-                        class="group relative bg-surface-dark border border-slate-800 hover:border-primary/50 p-8 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1">
+
+                    <!-- Feature 3 -->
+                    <div class="flex items-center gap-4 group/item">
                         <div
-                            class="absolute -top-6 left-1/2 -translate-x-1/2 bg-surface-dark border border-slate-700 group-hover:border-primary text-slate-400 group-hover:text-primary w-12 h-12 rounded-xl flex items-center justify-center transition-colors shadow-lg">
-                            <span class="material-icons-outlined">speed</span>
+                            class="w-10 h-10 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary transition-transform group-hover/item:scale-110">
+                            <span class="material-symbols-outlined text-xl">visibility</span>
                         </div>
-                        <h3 class="mt-8 text-xl font-semibold text-white text-center mb-3">Visual Scores</h3>
-                        <p class="text-slate-400 text-center text-sm leading-relaxed">
-                            See readability grades at a glance with color-coded gauges. Know if it's worth your time
-                            instantly.
-                        </p>
+                        <span class="font-bold text-on-tertiary-fixed text-base md:text-lg">Reading tools</span>
                     </div>
                 </div>
             </div>
-            <!-- Use Cases Section -->
-            <section class="py-24 border-b border-slate-800" id="use-cases" aria-label="Real use cases for ReadScore">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-16">
-                        <span class="text-primary font-semibold tracking-wide uppercase text-sm">Applications</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Real use cases for readability
-                            analysis</h2>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Case 1 -->
-                        <div
-                            class="group p-8 rounded-2xl bg-surface-dark/40 border border-slate-800 hover:border-primary/50 transition-all duration-300">
-                            <div
-                                class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                <span class="material-icons-outlined text-primary">assessment</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-3">Content Assessment</h3>
-                            <p class="text-slate-400">
-                                Quickly determine if an article or legal document is too complex for your target
-                                audience.
-                            </p>
-                        </div>
-                        <!-- Case 2 -->
-                        <div
-                            class="group p-8 rounded-2xl bg-surface-dark/40 border border-slate-800 hover:border-primary/50 transition-all duration-300">
-                            <div
-                                class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                <span class="material-icons-outlined text-primary">trending_up</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-3">SEO Optimization</h3>
-                            <p class="text-slate-400"> Improvement search rankings by ensuring your content is clear,
-                                accessible, and user-friendly.</p>
-                        </div>
-                        <!-- Case 3 -->
-                        <div
-                            class="group p-8 rounded-2xl bg-surface-dark/40 border border-slate-800 hover:border-primary/50 transition-all duration-300">
-                            <div
-                                class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                <span class="material-icons-outlined text-primary">school</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-3">Academic Evaluation</h3>
-                            <p class="text-slate-400">Help students and researchers assess the difficulty level of
-                                technical papers or study materials.</p>
-                        </div>
-                        <!-- Case 4 -->
-                        <div
-                            class="group p-8 rounded-2xl bg-surface-dark/40 border border-slate-800 hover:border-primary/50 transition-all duration-300">
-                            <div
-                                class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                <span class="material-icons-outlined text-primary">edit_note</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-3">Writing with Clarity</h3>
-                            <p class="text-slate-400">Refine your drafts in real-time to eliminate jargon and make every
-                                sentence impactful.</p>
-                        </div>
-                    </div>
+        </section>
+        <!-- Features Section: Bento Grid -->
+        <section class="bg-surface-container-low py-32" id="features" aria-label="ReadScore features">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-20 pl-4 md:pl-0">
+                    <div class="asymmetric-break mb-6"></div>
+                    <h2 class="text-4xl font-extrabold tracking-tight mb-4">Tools to help you read better.</h2>
+                    <p class="text-on-surface-variant max-w-xl">Features designed to improve focus, clarity, and
+                        understanding.</p>
                 </div>
-            </section>
-            <!-- Stats Section -->
-            <section class="py-20 border-b border-slate-800" id="get-started" aria-label="Get started with ReadScore">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <!-- Large Card: Readability Score & Metrics -->
                     <div
-                        class="bg-blue-800/80 backdrop-blur-sm border border-blue-700/30 rounded-3xl overflow-hidden relative">
-                        <!-- Abstract Pattern -->
-                        <div class="absolute inset-0 opacity-10"
-                            style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px;">
+                        class="md:col-span-8 bg-surface-container-lowest p-10 rounded-xl border border-outline-variant/10 group hover:border-primary/20 transition-colors">
+                        <div class="flex flex-col h-full justify-between">
+                            <div>
+                                <span class="material-symbols-outlined text-primary text-4xl mb-6">analytics</span>
+                                <h3 class="text-2xl font-bold mb-2">Readability Score &amp; Metrics</h3>
+                                <p class="text-on-surface-variant leading-relaxed text-lg">Analyze web page readability
+                                    with clear, explainable scores. Measure sentence complexity, word count, and reading
+                                    difficulty using fast, local text analysis.</p>
+                            </div>
+                            <div class="mt-8 pt-8 border-t border-surface-container">
+                                <div class="flex gap-4">
+                                    <span
+                                        class="bg-surface-container-low px-3 py-1 rounded text-xs font-bold">FLESCH-KINCAID</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="relative z-10 px-8 py-16 md:py-20 md:px-12 flex flex-col items-center text-center">
-                            <div class="max-w-2xl">
-                                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Start analyzing web
-                                    readability
-                                </h2>
-                                <p class="text-blue-50 text-lg mb-10">Install ReadScore and get instant readability
-                                    insights
-                                    directly inside your browser.</p>
-                                <!-- SEO: Added rel="noopener noreferrer" to external link -->
-                                <a href="https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="bg-white text-primary font-semibold py-4 px-10 rounded-xl hover:bg-slate-50 transition shadow-lg inline-flex items-center hover:-translate-y-0.5">
-                                    Add to Chrome
-                                </a>
+                    </div>
+                    <!-- Small Card: Selection Analysis -->
+                    <div
+                        class="md:col-span-4 bg-surface-container-lowest p-10 rounded-xl border border-outline-variant/10 group hover:border-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-6">ads_click</span>
+                        <h3 class="text-2xl font-bold mb-2">Selection Analysis</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Analyze selected text for readability and
+                            clarity. Highlight any content to get instant readability insights and accurate text
+                            analysis feedback.</p>
+                    </div>
+                    <!-- Medium Card: AI Summary -->
+                    <div
+                        class="md:col-span-6 bg-surface-container-lowest p-10 rounded-xl border border-outline-variant/10 group hover:border-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-6">summarize</span>
+                        <h3 class="text-2xl font-bold mb-2">AI Summary</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Generate AI summaries for any web page
+                            instantly. Use Chrome’s built-in AI to summarize content and understand pages faster without
+                            leaving your browser.</p>
+                    </div>
+                    <!-- Medium Card: Reading Tools -->
+                    <div
+                        class="md:col-span-6 bg-surface-container-lowest p-10 rounded-xl border border-outline-variant/10 group hover:border-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-6">auto_stories</span>
+                        <h3 class="text-2xl font-bold mb-2">Reading Tools</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Improve reading focus with powerful web
+                            reading tools. Use Focus Mode, Tracking Assist, and Reading Guide to read faster and stay
+                            focused on any page.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- How It Works Section -->
+        <section class="py-32 bg-surface" id="how-it-works" aria-label="How it works">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col lg:flex-row gap-20">
+                    <div class="lg:w-1/3">
+                        <div class="sticky top-32">
+                            <div class="asymmetric-break mb-6"></div>
+                            <h2 class="text-4xl font-extrabold tracking-tight mb-6">How It Works.</h2>
+                            <p class="text-on-surface-variant leading-relaxed">Understand any web page in a simple and
+                                clear way. Everything runs directly in your browser.</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/3 space-y-16">
+                        <div class="flex gap-8 group">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-xl">
+                                1</div>
+                            <div class="space-y-3">
+                                <h4 class="text-xl font-bold">Content Extraction</h4>
+                                <p class="text-on-surface-variant leading-relaxed">Extract clean, readable content from
+                                    any web page. We remove navigation, ads, and noise to isolate the main text for
+                                    accurate readability analysis.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8 group">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-xl">
+                                2</div>
+                            <div class="space-y-3">
+                                <h4 class="text-xl font-bold">Readability Analysis</h4>
+                                <p class="text-on-surface-variant leading-relaxed">Analyze text complexity with clear,
+                                    explainable metrics. We calculate sentence length, word density, and readability
+                                    scores locally in your browser.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8 group">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-xl">
+                                3</div>
+                            <div class="space-y-3">
+                                <h4 class="text-xl font-bold">AI Summary</h4>
+                                <p class="text-on-surface-variant leading-relaxed">Generate fast, on-page summaries with
+                                    built-in AI. When available, Chrome’s native models create concise summaries
+                                    directly in your browser.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8 group">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-xl">
+                                4</div>
+                            <div class="space-y-3">
+                                <h4 class="text-xl font-bold">Reader Tools</h4>
+                                <p class="text-on-surface-variant leading-relaxed">Rebuild the page for focused,
+                                    distraction-free reading. Use Focus Mode and reading aids to reduce cognitive load
+                                    and stay on track.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
+        <!-- Use Cases Section -->
+        <section class="py-32 bg-surface-container-low border-y border-outline-variant/5" id="use-cases"
+            aria-label="Use cases">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-20">
+                    <div class="asymmetric-break mb-6"></div>
+                    <h2 class="text-4xl font-extrabold tracking-tight text-on-surface mb-4">Use Cases.</h2>
+                    <p class="text-on-surface-variant text-lg max-w-2xl">See who ReadScore is built for.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Readers & Students -->
+                    <div
+                        class="group relative bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-2xl overflow-hidden">
+                        <div
+                            class="absolute -right-8 -bottom-8 size-40 bg-blue-500/5 rounded-full blur-3xl group-hover:bg-blue-500/10 transition-colors">
+                        </div>
+                        <div
+                            class="size-14 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <span class="material-symbols-outlined text-3xl">school</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-on-surface mb-6">Readers & Students</h3>
+                        <ul class="space-y-4 relative z-10">
+                            <li class="flex items-start gap-3 text-on-surface-variant text-[15px]">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <span>Turn long articles into quick summaries with one click.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-on-surface-variant text-[15px]">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <span>Use Focus Mode to remove distractions and read more comfortably.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-on-surface-variant text-[15px]">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <span>Understand how complex a text is before you start reading.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Professionals & Researchers -->
+                    <div
+                        class="group relative bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-2xl overflow-hidden">
+                        <div
+                            class="absolute -right-8 -bottom-8 size-40 bg-indigo-500/5 rounded-full blur-3xl group-hover:bg-indigo-500/10 transition-colors">
+                        </div>
+                        <div
+                            class="size-14 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <span class="material-symbols-outlined text-3xl">work</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-on-surface mb-6">Professionals</h3>
+                        <ul class="space-y-4 relative z-10">
+                            <li class="flex items-start gap-3 text-on-surface-variant text-[15px]">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <span>Quickly assess the readability of reports, documents, and articles.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-on-surface-variant text-[15px]">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <span>Use AI Summary to get the key points of any page without reading it in
+                                    full.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-on-surface-variant text-[15px]">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <span>Check how accessible your content is before sharing it.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Accessibility & Daily Use -->
+                    <div
+                        class="group relative bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-2xl overflow-hidden">
+                        <div
+                            class="absolute -right-8 -bottom-8 size-40 bg-teal-500/5 rounded-full blur-3xl group-hover:bg-teal-500/10 transition-colors">
+                        </div>
+                        <div
+                            class="size-14 rounded-xl bg-teal-500/10 text-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <span class="material-symbols-outlined text-3xl">accessibility_new</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-on-surface mb-6">Accessibility</h3>
+                        <ul class="space-y-4 relative z-10">
+                            <li class="flex items-start gap-3 text-on-surface-variant text-[15px]">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <span>Reduce eye strain with adjustable text size, line spacing, and letter
+                                    spacing.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-on-surface-variant text-[15px]">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <span>Never lose your place with Reading Guide.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-on-surface-variant text-[15px]">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <span>Use Tracking Assist to stay focused on long paragraphs.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Requirements Section -->
+        <section class="py-24 max-w-7xl mx-auto px-6">
+            <div class="bg-primary/5 p-12 rounded-xl border border-primary/20">
+                <h3 class="text-2xl font-bold mb-10 flex items-center gap-3 text-primary">
+                    <span class="material-symbols-outlined">info</span> Technical Requirements
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-2xl">language</span>
+                            <p class="font-bold text-primary text-lg">Browser Support</p>
+                        </div>
+                        <p class="text-sm text-on-surface leading-relaxed">Works on Chrome and Chromium-based browsers.
+                            Supports Chrome, Edge, Brave, and Vivaldi.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-2xl">auto_awesome</span>
+                            <p class="font-bold text-primary text-lg">AI Summarizer</p>
+                        </div>
+                        <p class="text-sm text-on-surface leading-relaxed">AI summaries require Chrome with built-in
+                            support. Available on newer versions.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-2xl">verified</span>
+                            <p class="font-bold text-primary text-lg">Core Features</p>
+                        </div>
+                        <p class="text-sm text-on-surface leading-relaxed">All core features work instantly. No setup or
+                            special configuration required.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Final CTA -->
+        <section class="py-32 bg-[#001d35]" id="get-started" aria-label="Get started with ReadScore">
+            <div class="max-w-4xl mx-auto px-6 text-center space-y-10">
+                <h2 class="text-4xl lg:text-6xl font-extrabold tracking-tight text-white line-height-tight">Start
+                    reading better today.</h2>
+                <p class="text-xl text-white/80 font-body">Improve your comprehension and focus with fast, privacy-first
+                    reading tools.</p>
+                <div class="flex justify-center">
+                    <!-- SEO: Added rel="noopener noreferrer" to external link -->
+                    <a href="https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-white text-[#001d35] px-10 py-5 rounded-lg font-bold text-xl shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                        Add to Chrome
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
     <!-- Footer -->
     <footer class="site-footer">
@@ -751,6 +843,7 @@
                     <div class="footer-links">
                         <a href="/#tools">Tools</a>
                         <a href="/#how-it-works">How it works</a>
+                        <a href="#use-cases">Use Cases</a>
                         <a href="/#about">About</a>
                     </div>
                 </div>
@@ -795,12 +888,9 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('id');
-                        // Clear active from all
                         navLinks.forEach(link => link.classList.remove('active'));
-                        // Add active to matching
                         navLinks.forEach(link => {
-                            const href = link.getAttribute('href');
-                            if (href === `#${id}`) {
+                            if (link.getAttribute('href') === `#${id}`) {
                                 link.classList.add('active');
                             }
                         });
@@ -812,7 +902,6 @@
 
             sections.forEach(section => observer.observe(section));
 
-            // Force Overview active when at top
             window.addEventListener('scroll', () => {
                 if (window.scrollY < 100) {
                     navLinks.forEach(link => {

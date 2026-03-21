@@ -35,7 +35,7 @@
 | Icon | Project | Description | Status |
 | :---: | :--- | :--- | :--- |
 | <img src="./assets/images/soft_blackout_logo.png" width="40"> | **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Intelligent redaction modes to hide sensitive content locally. | [Live] |
-| <img src="./assets/images/readscore_logo.png" width="40"> | **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg)** | Deep readability analysis with transparent SEO/UX metrics. | [Live] |
+| <img src="./assets/images/readscore_logo.png" width="40"> | **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg)** | Readability analysis, AI-powered summaries, and focused reading tools. | [Live] |
 | <img src="./assets/images/ux_heatgrid_logo.png" width="40"> | **[UX HeatGrid](https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn)** | Real-time page attention heatmaps for designers and devs. | [Live] |
 | <img src="./assets/images/typeflux_logo.png" width="40"> | **[TypeFlux](https://chromewebstore.google.com/detail/typeflux/nemkilhkadhfoafhdbmomnoaanodeehh)** | Live typography preview tool for fonts and vertical rhythm. | [Live] |
 
@@ -63,7 +63,7 @@ Distinct visual identities for each tool, focused on clarity and functional cont
 | Project | Brand Color (Primary) | Accent / Secondary | Primary Background |
 | :--- | :--- | :--- | :--- |
 | **heykaan.dev** | Emerald Green `#34D399` | Mint Hover `#6EE7B7` | Deep Forest `#030F05` |
-| **ReadScore** | Royal Blue `#2563EB` | Sky Accent `#60A5FA` | Midnight Slate `#0F172A` |
+| **ReadScore** | Deep Blue `#0040A1` | Sky Blue `#DAE2FF` | Soft Slate `#F0F4F8` |
 | **TypeFlux** | Cyan Teal `#06B6D4` | Bright Aqua `#22D3EE` | Slate Space `#0F172A` |
 | **UX HeatGrid** | Amber Gold `#FEBC2E` | Heatmap Red `#FF5B3A` | Dark Space `#101622` |
 | **Soft Blackout** | Minimal Onyx `#1E1E1E` | Cream White `#F7F5E7` | Absolute Black `#000000` |
