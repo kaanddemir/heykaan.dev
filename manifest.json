@@ -1,7 +1,7 @@
 {
     "name": "heykaan.dev",
     "short_name": "heykaan",
-    "description": "Kaan Demir’s portfolio featuring Chrome extensions, UX tools, and modern web experiments.",
+    "description": "Kaan Demir, recent MIS graduate focused on data analysis. Dashboards, data projects, and browser tools for the modern web.",
     "start_url": "/?utm_source=pwa",
     "display": "standalone",
     "background_color": "#059669",
@@ -23,8 +23,8 @@
     ],
     "categories": [
         "portfolio",
-        "developer",
-        "web"
+        "productivity",
+        "utilities"
     ],
     "lang": "en",
     "dir": "ltr",

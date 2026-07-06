@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en">
+<html lang="en" class="light">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>UX HeatGrid | Chrome Extension for Real-Time UX Heatmaps</title>
+    <title>UX HeatGrid | Browser Extension for Real-Time UX Heatmaps</title>
 
-    <!-- SEO: Meta description (155 chars) -->
+    <!-- SEO: Meta description -->
     <meta name="description"
         content="Visualize UX attention in real time. Generate heatmaps, scroll insights, and attention analysis directly on live web pages with UX HeatGrid.">
 
     <!-- SEO: Canonical URL -->
     <link rel="canonical" href="https://heykaan.dev/ux-heatgrid/" />
 
-    <!-- Mobile Status Bar Style (Slate-900) -->
+    <!-- Mobile Status Bar Style -->
     <meta name="theme-color" content="#0f172a">
 
     <!-- SEO: Robots directive -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
     <!-- SEO: Open Graph tags -->
-    <meta property="og:title" content="UX HeatGrid | Real-Time UX Heatmaps for Chrome" />
+    <meta property="og:title" content="UX HeatGrid | Real-Time UX Heatmaps" />
     <meta property="og:description"
         content="Visualize UX attention in real time. Generate heatmaps, scroll insights, and attention analysis directly on live web pages." />
     <meta property="og:image" content="https://heykaan.dev/assets/icons/og-image.png" />
@@ -31,7 +30,7 @@
 
     <!-- SEO: Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="UX HeatGrid | Real-Time UX Heatmaps for Chrome" />
+    <meta name="twitter:title" content="UX HeatGrid | Real-Time UX Heatmaps" />
     <meta name="twitter:description"
         content="Visualize UX attention in real time. Generate heatmaps, scroll insights, and attention analysis directly on live web pages." />
     <meta name="twitter:image" content="https://heykaan.dev/assets/icons/og-image.png" />
@@ -44,380 +43,31 @@
          SECURITY HEADERS
          ============================================= -->
 
-    <!-- CSP: Controls which resources the browser is allowed to load.
-         Prevents XSS, data injection, and clickjacking attacks. -->
+    <!-- CSP -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://api.producthunt.com https://heykaan.dev; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://api.producthunt.com https://heykaan.dev; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
 
-    <!-- X-Frame-Options removed: Not supported via meta tags on GitHub Pages -->
-
-    <!-- X-Content-Type-Options: Prevents MIME-sniffing attacks. -->
+    <!-- X-Content-Type-Options -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 
-    <!-- Referrer-Policy: Controls referrer info sent to external sites.
-         strict-origin-when-cross-origin = full path same-origin, domain-only cross-origin, nothing on HTTP downgrade. -->
+    <!-- Referrer-Policy -->
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-
-    <!-- Permissions-Policy: Cannot be set via meta tags — add to server config:
-         Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=() -->
 
     <link rel="icon" type="image/svg+xml"
         href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%23febc2e"/><text x="50" y="68" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="white" text-anchor="middle">HG</text></svg>'>
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
     <!-- SEO: Preconnect to Google Fonts for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap"
         rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#135bec",
-                        "primary-dark": "#0e45b5",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                        "heatmap-hot": "#ff5b3a",
-                        "heatmap-warm": "#ffb326",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
-                    backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, #1f2937 1px, transparent 1px), linear-gradient(to bottom, #1f2937 1px, transparent 1px)",
-                    }
-                },
-            },
-        }
-    </script>
-    <style>
-        /* =============================================
-           THEME TOKENS
-           ============================================= */
-        :root {
-            --bg: #0f172a;
-            /* Slate 900 */
-            --bg-alt: #020617;
-            /* Slate 950 */
-            --text: #94a3b8;
-            /* Slate 400 */
-            --text-heading: #f8fafc;
-            /* Slate 50 */
-            --muted: #64748b;
-            /* Slate 500 */
-            --card: rgba(30, 41, 59, 0.5);
-            /* Slate 800 alpha */
-            --card-border: rgba(148, 163, 184, 0.1);
-            --border: rgba(148, 163, 184, 0.08);
-            --primary: #2563eb;
-            /* Blue 600 */
-            --primary-hover: #1d4ed8;
-            /* Blue 700 */
-            --primary-contrast: #ffffff;
-            --primary-glow: rgba(37, 99, 235, 0.12);
-            --surface: rgba(37, 99, 235, 0.04);
-        }
-
-        /* =============================================
-            LAYOUT UTILS
-           ============================================= */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            width: 100%;
-        }
-
-        /* =============================================
-           NAVIGATION — Modern style
-           ============================================= */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 72px;
-        }
-
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-heading);
-            letter-spacing: -0.04em;
-            text-transform: none;
-            display: flex;
-            align-items: center;
-            gap: 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .nav-logo-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-
-        .nav-center {
-            display: flex;
-            align-items: center;
-            gap: 0;
-            padding: 4px;
-            border-radius: 100px;
-            border: 1px solid var(--border);
-            background: var(--surface);
-        }
-
-        .nav-center a {
-            padding: 8px 20px;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--muted);
-            transition: all 0.2s;
-        }
-
-        .nav-center a:hover,
-        .nav-center a.active {
-            color: var(--text-heading);
-            background: var(--surface);
-        }
-
-        .theme-toggle {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--muted);
-            transition: all 0.2s;
-        }
-
-        .theme-toggle svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .nav-cta {
-            padding: 8px 20px;
-            border-radius: 8px;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.25s;
-            cursor: pointer;
-            background: transparent;
-        }
-
-        .nav-cta:hover {
-            background: var(--primary);
-            color: var(--primary-contrast);
-        }
-
-        @media (max-width: 768px) {
-            .nav-center {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-inner {
-                padding: 0 1rem;
-            }
-
-            .nav-logo {
-                font-size: 1.2rem;
-            }
-
-            .nav-cta {
-                padding: 6px 12px;
-                font-size: 0.75rem;
-                white-space: nowrap;
-            }
-
-            .nav-right {
-                gap: 0.4rem;
-            }
-        }
-
-        /* =============================================
-           FOOTER — Dark style
-           ============================================= */
-        .site-footer {
-            border-top: 1px solid var(--border);
-            padding: 80px 0 40px;
-            background: var(--bg-alt);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-brand {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-desc {
-            font-size: 0.9rem;
-            color: var(--muted);
-            line-height: 1.6;
-            margin-bottom: 24px;
-            max-width: 300px;
-        }
-
-        .footer-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--muted);
-            margin-bottom: 8px;
-        }
-
-        .footer-contact {
-            color: var(--primary);
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: opacity 0.2s;
-        }
-
-        .footer-contact:hover {
-            opacity: 0.8;
-        }
-
-        .footer-col-title {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-heading);
-            margin-bottom: 24px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-links a {
-            font-size: 0.9rem;
-            color: var(--muted);
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--border);
-            padding-top: 32px;
-            text-align: center;
-        }
-
-        .footer-copy {
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
-
-        @media (max-width: 900px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* UX Heatgrid Custom Styles */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .glass-panel {
-            background: rgba(16, 22, 34, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .heatmap-glow {
-            background: radial-gradient(circle at 50% 50%, rgba(255, 91, 58, 0.25) 0%, rgba(19, 91, 236, 0.15) 40%, transparent 70%);
-            filter: blur(60px);
-        }
-
-
-
-        @keyframes heatmap-flow {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            33% {
-                background-position: 100% 0%;
-            }
-
-            66% {
-                background-position: 50% 100%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .animate-gradient-text {
-            background-size: 400% 400% !important;
-            animation: heatmap-flow 8s ease-in-out infinite !important;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <link rel="stylesheet" href="ux-heatgrid.css">
 
     <!-- SEO: Schema.org JSON-LD structured data (SoftwareApplication) -->
     <script type="application/ld+json">
@@ -445,478 +95,364 @@
     </script>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white antialiased overflow-x-hidden">
+<body>
     <!-- SEO: Semantic header wrapper for navigation -->
     <header>
-        <!-- SEO: Added aria-label for accessibility -->
         <nav class="nav" aria-label="Main navigation">
             <div class="container nav-inner">
-                <a href="/" class="nav-logo">heykaan<span style="color: #febc2e; font-weight: 500">.dev</span></a>
+                <a href="/" class="nav-logo">heykaan<span class="nav-logo-accent">.dev</span></a>
                 <div class="nav-center">
-                    <a href="#overview" class="nav-link">Overview</a>
+                    <a href="#overview" class="nav-link active">Overview</a>
                     <a href="#features" class="nav-link">Features</a>
+                    <a href="#how-it-works" class="nav-link">How it works</a>
                     <a href="#use-cases" class="nav-link">Use Cases</a>
-                    <a href="#get-started" class="nav-link">Get Started</a>
                 </div>
                 <div class="nav-right">
-                    <button class="theme-toggle" aria-label="Toggle theme" style="cursor: default; opacity: 0.6;">
-                        <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                        </svg>
-                    </button>
-                    <!-- SEO: Added rel="noopener noreferrer" to external link -->
                     <a href="https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn"
                         target="_blank" rel="noopener noreferrer" class="nav-cta">Add to Chrome</a>
                 </div>
             </div>
         </nav>
     </header>
+
     <!-- SEO: Main content wrapper starts here -->
     <main role="main">
         <!-- Hero Section -->
-        <header class="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden" id="overview"
-            aria-label="Hero — UX HeatGrid overview">
-            <!-- Background Effects -->
-            <div class="absolute inset-0 z-0">
-                <!-- Grid Pattern -->
-                <div class="absolute inset-0 bg-[length:40px_40px] opacity-[0.07]"
-                    style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px);">
+        <section class="hero" id="overview" aria-label="Hero — UX HeatGrid overview">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Visualize UX attention in <span class="hero-title-accent">real time.</span>
+                    </h1>
+                    <p class="hero-description">
+                        Generate real-time UX heatmaps, scroll insights, and attention analysis directly on live web
+                        pages. Everything runs in your browser.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn"
+                            target="_blank" rel="noopener noreferrer" class="hero-cta">
+                            Add to Chrome
+                        </a>
+                        <a href="https://github.com/kaanddemir/ux-heatgrid" target="_blank" rel="noopener noreferrer" class="hero-github">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="https://www.producthunt.com/products/ux-heatgrid?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-ux-heatgrid"
+                            target="_blank" rel="noopener noreferrer" class="hero-ph-badge">
+                            <img alt="UX HeatGrid - Visualize user attention and content density in real time | Product Hunt"
+                                width="250" height="54"
+                                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1074210&amp;theme=light&amp;t=1770326223344">
+                        </a>
+                    </div>
                 </div>
-                <!-- Heatmap Glow -->
-                <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] heatmap-glow opacity-60">
-                </div>
-                <!-- Secondary Glows -->
-                <div
-                    class="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3">
-                </div>
-                <div
-                    class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-heatmap-hot/10 rounded-full blur-[120px] translate-y-1/3 -translate-x-1/4">
+                <div class="hero-mockup-wrapper">
+                    <div class="hero-mockup">
+                        <!-- Header -->
+                        <div class="ux-popup-header">
+                            <span class="ux-popup-title">UX HeatGrid</span>
+                            <div class="ux-popup-header-right">
+                                <span class="ux-popup-version">v1.1.1</span>
+                                <span class="material-symbols-outlined ux-popup-help">help</span>
+                            </div>
+                        </div>
+                        <!-- Status / Circle -->
+                        <div class="ux-popup-status-card">
+                            <div class="ux-popup-circle-wrapper">
+                                <div class="ux-popup-circle">
+                                    <div class="ux-popup-circle-value">10</div>
+                                    <div class="ux-popup-circle-label">ANALYZING</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Actions -->
+                        <div class="ux-popup-actions">
+                            <div class="ux-popup-action-btn">
+                                <span class="material-symbols-outlined">play_arrow</span>
+                                <span>Start</span>
+                            </div>
+                            <div class="ux-popup-action-btn">
+                                <span class="material-symbols-outlined">visibility</span>
+                                <span>Show</span>
+                            </div>
+                            <div class="ux-popup-action-btn">
+                                <span class="material-symbols-outlined">delete</span>
+                                <span>Clear</span>
+                            </div>
+                        </div>
+                        <!-- UX Analysis -->
+                        <div class="ux-popup-analysis">
+                            <div class="ux-popup-analysis-header">
+                                <div class="ux-popup-analysis-title-wrapper">
+                                    <span class="material-symbols-outlined">push_pin</span>
+                                    <span>UX ANALYSIS</span>
+                                </div>
+                                <span class="ux-popup-review">REVIEW</span>
+                            </div>
+                            <div class="ux-popup-grid">
+                                <div class="ux-popup-grid-item">
+                                    <span class="material-symbols-outlined">title</span>
+                                    <span>READABILITY</span>
+                                </div>
+                                <div class="ux-popup-grid-item">
+                                    <span class="material-symbols-outlined">format_list_bulleted</span>
+                                    <span>COMPLEXITY</span>
+                                </div>
+                                <div class="ux-popup-grid-item">
+                                    <span class="material-symbols-outlined">crop_square</span>
+                                    <span>WHITE SPACE</span>
+                                </div>
+                                <div class="ux-popup-grid-item">
+                                    <span class="material-symbols-outlined">dashboard</span>
+                                    <span>CONTENT DENSITY</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Intensity -->
+                        <div class="ux-popup-intensity">
+                            <span class="ux-popup-intensity-label">Intensity</span>
+                            <div class="ux-popup-intensity-bar"></div>
+                        </div>
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="hero-decoration"></div>
                 </div>
             </div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        </section>
 
-                <h1
-                    class="text-5xl md:text-7xl font-display font-extrabold tracking-tight mb-6 text-white leading-[1.1]">
-                    Visualize UX Attention in
-                    <span
-                        class="text-transparent bg-clip-text bg-gradient-to-br from-[#ff5b3a] via-[#ffb326] via-[#135bec] to-[#ff5b3a] animate-gradient-text whitespace-nowrap">Real
-                        Time</span>
-                </h1>
-                <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-400">
-                    Generate real-time UX heatmaps, scroll insights, and attention analysis directly on live web pages.
-                </p>
-                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <!-- SEO: Added rel="noopener noreferrer" to external link -->
-                    <a class="inline-flex items-center justify-center px-8 h-[54px] border border-transparent text-base font-semibold rounded-lg text-white bg-primary hover:bg-primary-dark transition-all shadow-[0_0_20px_rgba(19,91,236,0.3)] hover:shadow-[0_0_30px_rgba(19,91,236,0.5)] hover:-translate-y-0.5"
-                        href="https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn"
-                        target="_blank" rel="noopener noreferrer">
-                        Add to Chrome
-                    </a>
-                    <a href="https://www.producthunt.com/products/ux-heatgrid?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-ux-heatgrid"
-                        target="_blank" rel="noopener noreferrer"
-                        class="block w-[250px] h-[54px] hover:opacity-90 transition-opacity hover:-translate-y-0.5 transition-all">
-                        <img alt="UX HeatGrid - Visualize user attention and content density in real time | Product Hunt"
-                            width="250" height="54"
-                            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1074210&amp;theme=light&amp;t=1770326223344"
-                            class="w-full h-full object-contain rounded-xl shadow-xl shadow-slate-900/10">
-                    </a>
 
+
+        <!-- Features Section: Bento Grid -->
+        <section class="features-section" id="features" aria-label="UX HeatGrid features">
+            <div class="features-inner">
+                <div class="features-header">
+                    <div class="asymmetric-break"></div>
+                    <h2 class="features-title">Real-Time UX Insights.</h2>
+                    <p class="features-subtitle">Runs entirely in your browser to generate instant UX insights without
+                        external tracking or performance impact.</p>
                 </div>
-
-                <!-- Premium Browser Mockup -->
-                <div class="mt-20 relative mx-auto max-w-5xl group">
-                    <!-- Background glow behind mockup -->
-                    <div
-                        class="absolute -inset-4 bg-primary/20 rounded-[2rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                    </div>
-
-                    <div
-                        class="relative rounded-2xl border border-slate-700/50 bg-[#0f172a] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] overflow-hidden ring-1 ring-white/10">
-                        <!-- Chrome Header -->
-                        <div
-                            class="flex items-center gap-2 sm:gap-4 px-5 sm:px-6 py-2.5 sm:py-3 bg-[#1e293b]/50 border-b border-slate-700/50 backdrop-blur-md">
-                            <div class="flex gap-1.5 sm:gap-2">
-                                <div class="w-3 h-3 rounded-full bg-[#ff5f57] shadow-inner"></div>
-                                <div class="w-3 h-3 rounded-full bg-[#febc2e] shadow-inner"></div>
-                                <div class="w-3 h-3 rounded-full bg-[#28c840] shadow-inner"></div>
+                <div class="features-grid">
+                    <!-- Large Card: Visual Heatmap Engine -->
+                    <div class="feature-card feature-card-wide">
+                        <div class="feature-card-large">
+                            <div>
+                                <span class="material-symbols-outlined">grid_on</span>
+                                <h3>Visual Heatmap Engine</h3>
+                                <p>Visualize scroll depth, interaction density, and attention patterns directly on live
+                                    web pages. See where users focus with real-time color-coded overlays.</p>
                             </div>
-                            <div
-                                class="flex-1 bg-[#0f172a]/60 rounded-lg h-6 sm:h-7 flex items-center px-2 sm:px-4 border border-slate-700/50 min-w-0">
-                                <div
-                                    class="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-slate-500 font-mono overflow-hidden whitespace-nowrap min-w-0">
-                                    <span class="material-icons text-[12px] sm:text-[14px]">lock</span>
-                                    <span class="truncate">extension://ux-heatgrid</span>
-                                </div>
-                            </div>
-                            <div class="hidden sm:flex gap-3 text-slate-500">
-                                <span class="material-icons text-[18px]">add</span>
-                                <span class="material-icons text-[18px]">more_vert</span>
-                            </div>
-                        </div>
-
-                        <!-- Browser Content -->
-                        <div class="relative h-[560px] sm:h-auto sm:aspect-video bg-[#0f172a] overflow-hidden">
-                            <!-- Dashboard Content (Realistic Mockup) -->
-                            <div class="absolute inset-0 p-4 sm:p-8 flex flex-col gap-4 sm:gap-6 opacity-40">
-                                <div class="flex justify-between items-center">
-                                    <div class="h-8 w-48 bg-slate-700/50 rounded-lg"></div>
-                                    <div class="flex gap-2">
-                                        <div class="h-8 w-8 bg-slate-700/50 rounded-full"></div>
-                                        <div class="h-8 w-32 bg-slate-700/50 rounded-lg"></div>
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mt-2">
-                                    <div class="h-20 sm:h-24 bg-slate-800/50 rounded-xl border border-white/5"></div>
-                                    <div class="h-20 sm:h-24 bg-slate-800/50 rounded-xl border border-white/5"></div>
-                                    <div
-                                        class="h-20 sm:h-24 bg-slate-800/50 rounded-xl border border-white/5 hidden sm:block">
-                                    </div>
-                                    <div
-                                        class="h-20 sm:h-24 bg-slate-800/50 rounded-xl border border-white/5 hidden sm:block">
-                                    </div>
-                                </div>
-                                <div class="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-                                    <div
-                                        class="col-span-1 sm:col-span-2 bg-slate-800/30 rounded-2xl border border-white/5 p-4 sm:p-6">
-                                        <div class="h-4 w-1/3 bg-slate-700/50 rounded mb-4"></div>
-                                        <div
-                                            class="w-full h-full bg-gradient-to-t from-slate-800/0 to-slate-700/20 rounded-lg">
-                                        </div>
-                                    </div>
-                                    <div class="bg-slate-800/30 rounded-2xl border border-white/5 p-6 space-y-4">
-                                        <div class="h-4 w-1/2 bg-slate-700/50 rounded"></div>
-                                        <div
-                                            class="h-32 w-full bg-slate-700/20 rounded-full border-8 border-slate-700/30">
-                                        </div>
-                                        <div class="space-y-2">
-                                            <div class="h-2 w-full bg-slate-700/50 rounded"></div>
-                                            <div class="h-2 w-2/3 bg-slate-700/50 rounded"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- HEATGRID OVERLAY (The actual "Product" look) -->
-                            <div class="absolute inset-0 pointer-events-none mix-blend-screen opacity-70">
-                                <!-- Organic Heatmap Blobs -->
-                                <div
-                                    class="absolute top-[15%] left-[10%] w-[40%] h-[40%] bg-heatmap-hot rounded-full blur-[80px] opacity-40 animate-pulse">
-                                </div>
-                                <div
-                                    class="absolute top-[40%] right-[15%] w-[35%] h-[35%] bg-primary rounded-full blur-[100px] opacity-30">
-                                </div>
-                                <div
-                                    class="absolute bottom-[10%] left-[25%] w-[30%] h-[30%] bg-heatmap-warm rounded-full blur-[90px] opacity-40">
-                                </div>
-                                <div
-                                    class="absolute top-[20%] right-[30%] w-[20%] h-[20%] bg-red-400 rounded-full blur-[60px] opacity-50">
-                                </div>
-
-                                <!-- Grid Mesh Overlay -->
-                                <div class="absolute inset-0 bg-[length:32px_32px] opacity-20"
-                                    style="background-image: linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);">
-                                </div>
-                            </div>
-
-                            <!-- Floating Extension UI (Realistic Mockup from screenshot) -->
-                            <div
-                                class="absolute top-6 left-1/2 -translate-x-1/2 w-[90%] sm:w-[305px] sm:right-6 sm:left-auto sm:translate-x-0 bg-[#0c121e] rounded-2xl border border-slate-700/50 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden font-sans translate-y-0 group-hover:-translate-y-1.5 transition-transform duration-500">
-                                <!-- Header -->
-                                <div class="flex items-center justify-between p-4 pb-2">
-                                    <span class="text-sm font-bold text-white tracking-tight">UX HeatGrid</span>
-                                    <div class="flex items-center gap-1.5">
-                                        <span
-                                            class="text-[10px] font-semibold text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-md border border-slate-700">v1.1.0</span>
-                                        <button
-                                            class="w-[22px] h-[22px] flex items-center justify-center rounded-full border border-slate-700/80 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
-                                            <span class="material-icons text-[13px]">help_outline</span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div class="px-4 pb-4 space-y-3">
-                                    <!-- Score Section -->
-                                    <div
-                                        class="bg-[#151b2b] rounded-xl border border-slate-700/60 py-6 flex flex-col items-center justify-center text-center shadow-inner">
-                                        <div
-                                            class="text-6xl font-bold text-[#10b981] tracking-tighter leading-none mb-3 drop-shadow-lg">
-                                            100</div>
-                                        <div
-                                            class="bg-[#10b981]/10 text-[#10b981] text-[11px] font-bold uppercase tracking-[0.15em] px-5 py-1 rounded-full border border-[#10b981]/30">
-                                            EXCELLENT
-                                        </div>
-                                    </div>
-
-                                    <!-- Action Buttons -->
-                                    <div class="grid grid-cols-3 gap-2">
-                                        <button id="mock-pause-btn"
-                                            class="flex items-center justify-center gap-1 py-2 rounded-lg border border-amber-500/50 bg-[#151b2b] text-amber-500 text-[9px] font-semibold transition-all">
-                                            <span class="material-icons text-[14px] mb-0.5">pause</span>
-                                            <span>Pause</span>
-                                        </button>
-                                        <button id="mock-hide-btn"
-                                            class="flex items-center justify-center gap-1 py-2 rounded-lg border border-orange-500/50 bg-[#151b2b] text-orange-500 text-[9px] font-semibold transition-all">
-                                            <span class="material-icons text-[14px] mb-0.5">visibility_off</span>
-                                            <span>Hide</span>
-                                        </button>
-                                        <button
-                                            class="flex items-center justify-center gap-1 py-2 rounded-lg border border-slate-600 bg-[#151b2b] text-slate-100 text-[9px] font-semibold transition-all">
-                                            <span class="material-icons text-[14px] mb-0.5">delete_outline</span>
-                                            <span>Clear</span>
-                                        </button>
-                                    </div>
-
-                                    <!-- UX Analysis Section -->
-                                    <div class="bg-[#151b2b] rounded-xl border border-slate-700/60 p-3 space-y-3">
-                                        <div class="flex justify-between items-center px-0.5">
-                                            <span
-                                                class="text-[9px] font-bold text-slate-400 uppercase tracking-widest pl-1">UX
-                                                ANALYSIS</span>
-                                            <div class="flex gap-2.5 items-center">
-                                                <span class="material-icons text-[#2563eb] text-[14px]">push_pin</span>
-                                                <span
-                                                    class="text-[9px] font-bold text-[#3b82f6] uppercase tracking-[0.1em] cursor-pointer">REVIEW</span>
-                                            </div>
-                                        </div>
-                                        <div class="grid grid-cols-2 gap-2">
-                                            <!-- Readability -->
-                                            <div
-                                                class="bg-[#1a2133] rounded-xl border border-slate-700/40 p-3 flex flex-col items-center justify-center text-center">
-                                                <div class="text-[20px] font-bold text-white mb-1 leading-none">99%
-                                                </div>
-                                                <div
-                                                    class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">
-                                                    Readability</div>
-                                            </div>
-                                            <!-- Complexity -->
-                                            <div
-                                                class="bg-[#1a2133] rounded-xl border border-slate-700/40 p-3 flex flex-col items-center justify-center text-center">
-                                                <div class="text-[20px] font-bold text-white mb-1 leading-none">15.7
-                                                </div>
-                                                <div
-                                                    class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">
-                                                    Complexity</div>
-                                            </div>
-                                            <!-- White Space -->
-                                            <div
-                                                class="bg-[#1a2133] rounded-xl border border-slate-700/40 p-3 flex flex-col items-center justify-center text-center">
-                                                <div class="text-[20px] font-bold text-white mb-1 leading-none">100%
-                                                </div>
-                                                <div
-                                                    class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">
-                                                    White Space</div>
-                                            </div>
-                                            <!-- Content Density -->
-                                            <div
-                                                class="bg-[#1a2133] rounded-xl border border-slate-700/40 p-3 flex flex-col items-center justify-center text-center">
-                                                <div class="text-[20px] font-bold text-white mb-1 leading-none">24%
-                                                </div>
-                                                <div
-                                                    class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">
-                                                    Density</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Intensity Slider -->
-                                    <div
-                                        class="bg-[#151b2b] rounded-xl border border-slate-700/60 p-3 flex items-center justify-between gap-3">
-                                        <span class="text-[10px] font-bold text-white tracking-wide">Intensity</span>
-                                        <div
-                                            class="h-1.5 bg-gradient-to-r from-blue-700 via-cyan-400 via-green-400 via-yellow-400 to-red-600 rounded-full flex-1">
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="feature-card-footer">
+                                <span class="feature-tag">REAL-TIME</span>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </header>
-        <!-- Features Grid -->
-        <section class="py-24 relative overflow-hidden" id="features" aria-label="UX HeatGrid features">
-            <!-- Decoration -->
-            <div class="absolute top-1/4 -left-64 w-96 h-96 bg-primary/10 rounded-full blur-[100px]"></div>
-            <div class="absolute bottom-1/4 -right-64 w-96 h-96 bg-heatmap-hot/5 rounded-full blur-[100px]"></div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">Real-Time UX Insights.</h2>
-                    <p class="text-lg text-slate-400">Runs entirely in your browser to generate instant
-                        UX insights without external tracking or performance impact.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="glass-panel p-8 rounded-2xl hover:border-primary/30 transition-all group">
-                        <div
-                            class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                            <span class="material-icons text-primary text-2xl">grid_on</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Visual Heatmap Engine</h3>
-                        <p class="text-slate-400 leading-relaxed">
-                            Visualize scroll depth, interaction density, and attention patterns directly on live web
-                            pages.
-                        </p>
+                    <!-- Small Card: UX Score -->
+                    <div class="feature-card feature-card-narrow">
+                        <span class="material-symbols-outlined">speed</span>
+                        <h3>UX Score</h3>
+                        <p>Get an instant UX score for any page. Measure layout balance, content density, readability,
+                            and whitespace with a single click.</p>
                     </div>
-                    <!-- Feature 2 -->
-                    <div class="glass-panel p-8 rounded-2xl hover:border-primary/30 transition-all group">
-                        <div
-                            class="w-12 h-12 rounded-lg bg-heatmap-hot/10 flex items-center justify-center mb-6 group-hover:bg-heatmap-hot/20 transition-colors">
-                            <span class="material-icons text-heatmap-hot text-2xl">electric_bolt</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Live UX Analysis</h3>
-                        <p class="text-slate-400 leading-relaxed">
-                            See layout balance, content density, and interaction signals instantly without dashboards.
-                        </p>
+                    <!-- Medium Card: Live UX Analysis -->
+                    <div class="feature-card feature-card-half">
+                        <span class="material-symbols-outlined">electric_bolt</span>
+                        <h3>Live UX Analysis</h3>
+                        <p>See layout balance, content density, and interaction signals instantly. No external dashboards
+                            needed — everything runs on-page.</p>
                     </div>
-                    <!-- Feature 3 -->
-                    <div class="glass-panel p-8 rounded-2xl hover:border-primary/30 transition-all group">
-                        <div
-                            class="w-12 h-12 rounded-lg bg-heatmap-warm/10 flex items-center justify-center mb-6 group-hover:bg-heatmap-warm/20 transition-colors">
-                            <span class="material-icons text-heatmap-warm text-2xl">auto_awesome</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Explainable UX Signals</h3>
-                        <p class="text-slate-400 leading-relaxed">
-                            Detect dense layouts, attention gaps, and structural friction using transparent rule-based
-                            analysis.
-                        </p>
+                    <!-- Medium Card: Explainable UX Signals -->
+                    <div class="feature-card feature-card-half">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                        <h3>Explainable UX Signals</h3>
+                        <p>Detect dense layouts, attention gaps, and structural friction using transparent, rule-based
+                            analysis with clear visual feedback.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Technical Detail Section -->
+
+        <!-- How It Works Section -->
+        <section class="how-it-works" id="how-it-works" aria-label="How it works">
+            <div class="how-inner">
+                <div class="how-layout">
+                    <div class="how-sidebar">
+                        <div class="how-sidebar-sticky">
+                            <div class="asymmetric-break"></div>
+                            <h2 class="how-title">How It Works.</h2>
+                            <p class="how-subtitle">Analyze any web page visually in seconds. Everything runs directly
+                                in your browser — no tracking, no servers.</p>
+                        </div>
+                    </div>
+                    <div class="how-steps">
+                        <div class="how-step">
+                            <div class="how-step-number">1</div>
+                            <div class="how-step-content">
+                                <h4>Page Scan</h4>
+                                <p>UX HeatGrid scans the current page's DOM to identify interactive elements, content
+                                    blocks, and layout structure without modifying the page.</p>
+                            </div>
+                        </div>
+                        <div class="how-step">
+                            <div class="how-step-number">2</div>
+                            <div class="how-step-content">
+                                <h4>Heatmap Generation</h4>
+                                <p>A real-time heatmap overlay is generated based on element density, scroll position,
+                                    and interaction patterns using color-coded visualization.</p>
+                            </div>
+                        </div>
+                        <div class="how-step">
+                            <div class="how-step-number">3</div>
+                            <div class="how-step-content">
+                                <h4>UX Analysis</h4>
+                                <p>The extension calculates readability, complexity, whitespace ratio, and content
+                                    density scores to provide an overall UX assessment.</p>
+                            </div>
+                        </div>
+                        <div class="how-step">
+                            <div class="how-step-number">4</div>
+                            <div class="how-step-content">
+                                <h4>Visual Feedback</h4>
+                                <p>Review attention zones, friction points, and layout balance through an intuitive
+                                    popup panel with actionable UX metrics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Use Cases Section -->
-        <section class="py-24 bg-slate-900/30 border-y border-white/5" id="use-cases"
-            aria-label="UX HeatGrid use cases">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-primary font-semibold tracking-wide uppercase text-sm">Applications</span>
-                    <h2 class="text-3xl md:text-4xl font-display font-bold text-white mt-2">Real Use Cases for Visual UX
-                        Analysis</h2>
+        <section class="use-cases" id="use-cases" aria-label="Use cases">
+            <div class="use-cases-inner">
+                <div class="use-cases-header">
+                    <div class="asymmetric-break"></div>
+                    <h2 class="use-cases-title">Use Cases.</h2>
+                    <p class="use-cases-subtitle">See who UX HeatGrid is built for.</p>
                 </div>
-
-                <div class="flex flex-col lg:flex-row items-center gap-16">
-                    <!-- Left: Restored Visualization -->
-                    <div class="w-full lg:w-1/2">
-                        <div class="relative">
-                            <!-- Realistic Heatmap Visualization -->
-                            <div
-                                class="aspect-square rounded-2xl overflow-hidden glass-panel border border-white/10 p-8 relative">
-                                <!-- Mock Article Content -->
-                                <div class="space-y-6 opacity-20 blur-[0.5px]">
-                                    <div class="h-8 w-1/2 bg-slate-400 rounded"></div>
-                                    <div class="space-y-3">
-                                        <div class="h-3 w-full bg-slate-500 rounded"></div>
-                                        <div class="h-3 w-full bg-slate-500 rounded"></div>
-                                        <div class="h-3 w-3/4 bg-slate-500 rounded"></div>
-                                    </div>
-                                    <div class="h-48 w-full bg-slate-600 rounded-xl"></div>
-                                    <div class="space-y-3">
-                                        <div class="h-3 w-full bg-slate-500 rounded"></div>
-                                        <div class="h-3 w-5/6 bg-slate-500 rounded"></div>
-                                    </div>
-                                </div>
-
-                                <!-- Heatmap Overlay -->
-                                <div class="absolute inset-0 p-8 mix-blend-screen">
-                                    <div
-                                        class="absolute top-[10%] left-[10%] w-32 h-32 bg-heatmap-hot rounded-full blur-[40px] opacity-60">
-                                    </div>
-                                    <div
-                                        class="absolute top-[15%] left-[20%] w-24 h-24 bg-red-400 rounded-full blur-[30px] opacity-40">
-                                    </div>
-                                    <div
-                                        class="absolute top-[45%] left-[15%] w-48 h-48 bg-primary rounded-full blur-[60px] opacity-30">
-                                    </div>
-                                    <div
-                                        class="absolute bottom-[20%] right-[20%] w-40 h-40 bg-heatmap-warm rounded-full blur-[50px] opacity-50">
-                                    </div>
-                                </div>
-                            </div>
+                <div class="use-cases-grid">
+                    <!-- UX Designers -->
+                    <div class="use-case-card">
+                        <div class="use-case-glow use-case-glow-blue"></div>
+                        <div class="use-case-icon use-case-icon-blue">
+                            <span class="material-symbols-outlined">psychology</span>
                         </div>
+                        <h3>UX Designers</h3>
+                        <ul class="use-case-list">
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Identify hot spots and attention gaps to resolve structural friction.</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Validate layout hierarchy with real-time visual heatmaps.</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Analyze content density without complex analytics dashboards.</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <!-- Right: Use Case Cards -->
-                    <div class="w-full lg:w-1/2 space-y-6">
-                        <!-- Case 1 -->
-                        <div
-                            class="glass-panel p-6 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group flex items-start gap-5">
-                            <div
-                                class="w-12 h-12 flex-shrink-0 rounded-lg bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <span class="material-icons text-primary">psychology</span>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white mb-2">UX Friction Detection</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed">
-                                    Identify hot spots and attention gaps to resolve structural friction in your layouts
-                                    without complex dashboards.
-                                </p>
-                            </div>
+                    <!-- Developers -->
+                    <div class="use-case-card">
+                        <div class="use-case-glow use-case-glow-orange"></div>
+                        <div class="use-case-icon use-case-icon-orange">
+                            <span class="material-symbols-outlined">grid_view</span>
                         </div>
-                        <!-- Case 2 -->
-                        <div
-                            class="glass-panel p-6 rounded-2xl border border-white/10 hover:border-heatmap-hot/50 transition-all duration-300 group flex items-start gap-5">
-                            <div
-                                class="w-12 h-12 flex-shrink-0 rounded-lg bg-heatmap-hot/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <span class="material-icons text-heatmap-hot">grid_view</span>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white mb-2">Layout Balance Check</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed">
-                                    Visualize content density and whitespace in real-time to ensure your design matches
-                                    intended hierarchy.
-                                </p>
-                            </div>
+                        <h3>Developers</h3>
+                        <ul class="use-case-list">
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Visualize content density and whitespace balance in real-time.</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Check layout structure matches intended design hierarchy.</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Debug visual layout issues with instant UX scoring.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Teams & Reviews -->
+                    <div class="use-case-card">
+                        <div class="use-case-glow use-case-glow-amber"></div>
+                        <div class="use-case-icon use-case-icon-amber">
+                            <span class="material-symbols-outlined">visibility</span>
                         </div>
-                        <!-- Case 3 -->
-                        <div
-                            class="glass-panel p-6 rounded-2xl border border-white/10 hover:border-heatmap-warm/50 transition-all duration-300 group flex items-start gap-5">
-                            <div
-                                class="w-12 h-12 flex-shrink-0 rounded-lg bg-heatmap-warm/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <span class="material-icons text-heatmap-warm">visibility</span>
+                        <h3>Teams & Reviews</h3>
+                        <ul class="use-case-list">
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Run live design reviews with transparent visual signals.</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Share explainable UX metrics to support design decisions.</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Compare page layouts before and after design changes.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requirements Section -->
+        <section class="requirements">
+            <div class="requirements-inner">
+                <div class="requirements-card">
+                    <h3 class="requirements-title">
+                        <span class="material-symbols-outlined">info</span> Technical Requirements
+                    </h3>
+                    <div class="requirements-grid">
+                        <div class="requirement-item">
+                            <div class="requirement-header">
+                                <span class="material-symbols-outlined">language</span>
+                                <p>Browser Support</p>
                             </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white mb-2">Live Design Reviews</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed">
-                                    Perfect for team meetings to explain design decisions with transparent, explainable
-                                    visual signals.
-                                </p>
+                            <p>Works on Chrome and Chromium-based browsers. Supports Chrome, Edge, Brave, and
+                                Vivaldi.</p>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-header">
+                                <span class="material-symbols-outlined">security</span>
+                                <p>Privacy First</p>
                             </div>
+                            <p>All analysis runs locally in your browser. No data is sent to external servers.</p>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-header">
+                                <span class="material-symbols-outlined">verified</span>
+                                <p>Core Features</p>
+                            </div>
+                            <p>All core features work instantly. No setup or special configuration required.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Pricing / CTA Bottom -->
-        <section class="py-24 relative" id="get-started" aria-label="Get started with UX HeatGrid">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-                <div
-                    class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-10 border border-slate-700 shadow-2xl relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
-                    <div
-                        class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] group-hover:bg-primary/20 transition-all duration-700">
-                    </div>
-                    <div class="relative z-10 flex flex-col items-center text-center gap-8">
-                        <div class="max-w-2xl">
-                            <div class="text-3xl font-bold text-white mb-4">Start analyzing UX instantly</div>
-                            <div class="text-slate-400 text-lg leading-relaxed">
-                                Install UX HeatGrid and visualize attention and layout balance directly in your browser.
-                            </div>
-                            <div class="mt-8">
-                                <!-- SEO: Added rel="noopener noreferrer" to external link -->
-                                <a class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-bold rounded-xl text-white bg-primary hover:bg-primary-dark transition-all shadow-lg shadow-primary/20 hover:-translate-y-1"
-                                    href="https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn"
-                                    target="_blank" rel="noopener noreferrer">
-                                    Add to Chrome
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Final CTA -->
+        <section class="final-cta" id="get-started" aria-label="Get started with UX HeatGrid">
+            <div class="final-cta-inner">
+                <h2 class="final-cta-title">Start analyzing UX instantly.</h2>
+                <p class="final-cta-subtitle">Install UX HeatGrid and visualize attention and layout balance directly in
+                    your browser.</p>
+                <a href="https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn"
+                    target="_blank" rel="noopener noreferrer" class="final-cta-btn">
+                    Add to Chrome
+                </a>
+            </div>
         </section>
     </main>
+
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
@@ -925,8 +461,8 @@
                     <div class="footer-brand">
                         heykaan.dev
                     </div>
-                    <p class="footer-desc">Independent developer building Chrome extensions, UX tools
-                        and experimental web apps for the modern web.</p>
+                    <p class="footer-desc">Data analyst and developer building dashboards, browser tools, and
+                        data-driven web applications.</p>
                     <div class="footer-label">Email</div>
                     <a href="mailto:heykaan.dev@gmail.com" class="footer-contact">heykaan.dev@gmail.com</a>
                 </div>
@@ -934,24 +470,12 @@
                 <div>
                     <div class="footer-col-title">Navigation</div>
                     <div class="footer-links">
-                        <a href="/#tools">Tools</a>
-                        <a href="/#how-it-works">How it works</a>
-                        <a href="/#about">About</a>
+                        <a href="/main/#overview">Overview</a>
+                        <a href="/about/">About</a>
+                        <a href="/main/#projects">Projects</a>
                     </div>
                 </div>
-                <!-- Col 3: Tools -->
-                <div>
-                    <div class="footer-col-title">Tools</div>
-                    <div class="footer-links">
-                        <a href="/readscore/">ReadScore</a>
-                        <a href="/ux-heatgrid/">UX HeatGrid</a>
-                        <a href="/soft-blackout/">Soft Blackout</a>
-                        <a href="/typeflux/">TypeFlux</a>
-                        <a href="/#web-apps">StudyHub</a>
-                        <a href="/#web-apps">Zanaat.app</a>
-                    </div>
-                </div>
-                <!-- Col 4: Follow -->
+                <!-- Col 3: Follow -->
                 <div>
                     <div class="footer-col-title">Follow us</div>
                     <div class="footer-links">
@@ -967,82 +491,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Scroll Spy
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-center a');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        // Clear active from all
-                        navLinks.forEach(link => link.classList.remove('active'));
-                        // Add active to matching
-                        navLinks.forEach(link => {
-                            const href = link.getAttribute('href');
-                            if (href === `#${id}`) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, {
-                rootMargin: '-50% 0px -50% 0px'
-            });
-
-            sections.forEach(section => observer.observe(section));
-
-            // Force Overview active when at top
-            window.addEventListener('scroll', () => {
-                if (window.scrollY < 100) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === '#overview') {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-
-            // Mock Extension UI Interactivity
-            const pauseBtn = document.getElementById('mock-pause-btn');
-            const hideBtn = document.getElementById('mock-hide-btn');
-
-            if (pauseBtn) {
-                pauseBtn.addEventListener('click', () => {
-                    const isPaused = pauseBtn.innerText.includes('Pause');
-                    if (isPaused) {
-                        pauseBtn.innerHTML = '<span class="material-icons text-[14px] mb-0.5">play_arrow</span><span>Resume</span>';
-                        pauseBtn.classList.remove('border-amber-500/50', 'text-amber-500');
-                        pauseBtn.classList.add('border-slate-600', 'text-slate-100');
-                    } else {
-                        pauseBtn.innerHTML = '<span class="material-icons text-[14px] mb-0.5">pause</span><span>Pause</span>';
-                        pauseBtn.classList.add('border-amber-500/50', 'text-amber-500');
-                        pauseBtn.classList.remove('border-slate-600', 'text-slate-100');
-                    }
-                });
-            }
-
-            if (hideBtn) {
-                hideBtn.addEventListener('click', () => {
-                    const isHidden = hideBtn.innerText.includes('Hide');
-                    if (isHidden) {
-                        hideBtn.innerHTML = '<span class="material-icons text-[14px] mb-0.5">visibility</span><span>Show</span>';
-                        hideBtn.classList.remove('border-orange-500/50', 'text-orange-500');
-                        hideBtn.classList.add('border-slate-600', 'text-slate-100');
-                    } else {
-                        hideBtn.innerHTML = '<span class="material-icons text-[14px] mb-0.5">visibility_off</span><span>Hide</span>';
-                        hideBtn.classList.add('border-orange-500/50', 'text-orange-500');
-                        hideBtn.classList.remove('border-slate-600', 'text-slate-100');
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="ux-heatgrid.js" defer></script>
 </body>
 
 </html>

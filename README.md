@@ -3,15 +3,14 @@
 <div align="center">
   <img src="./assets/icons/og-image.png" alt="heykaan.dev Hero" width="100%" style="border-radius: 12px; margin-bottom: 24px;">
   <p align="center">
-    <strong>Chrome extensions and developer tools for the modern web</strong><br>
-    <em>Explore readability analysis, UX heatmaps and smart visual redaction tools built to analyze web content in your browser.</em>
+    <strong>Recent MIS graduate focused on data analysis</strong><br>
+    <em>Dashboards, data projects, and data-driven browser tools. Turning complex datasets into clear, actionable insight with Python, SQL, and Power BI.</em>
   </p>
   <p align="center">
     <a href="https://heykaan.dev"><strong>Live Site</strong></a> •
     <a href="#projects"><strong>Projects</strong></a> •
-    <a href="#tech-stack"><strong>Tech Stack</strong></a> •
-    <a href="#optimization--web-standards"><strong>Optimization</strong></a> •
-    <a href="#connect"><strong>Connect</strong></a>
+    <a href="#profile--skills"><strong>Profile & Skills</strong></a> •
+    <a href="#contact"><strong>Contact</strong></a>
   </p>
 </div>
 
@@ -19,17 +18,17 @@
 
 ## Overview
 
-**heykaan.dev** is a platform designed to showcase functional web tools and experimental projects. It serves as the primary home for my browser extensions and web applications, focused on providing clear, functional, and effective user experiences directly in the browser.
-
-### Core Philosophy
-- **Privacy First**: No tracking—all logic runs locally within the user's environment.
-- **Visual Excellence**: Modern aesthetics featuring glassmorphism and smooth micro-interactions.
-- **Optimized Experience**: Built for high responsiveness and modern browser standards.
-- **Universal Accessibility**: Semantic HTML and multi-mode theming support.
+**heykaan.dev** is the portfolio and home of Kaan Demir, a recent Management Information Systems graduate focused on data analysis. It brings together data projects, interactive dashboards, and the browser extensions and web applications I build to turn complex data into clear, useful insight.
 
 ---
 
 ## Projects
+
+### Data & Web Projects
+| Icon | Project | Description | Status |
+| :---: | :--- | :--- | :--- |
+| <img src="./assets/images/studyhub_logo.png" width="40"> | **[StudyHub](https://github.com/kaanddemir/studyhub)** | A comprehensive personal study dashboard system. | [Repo] |
+| <img src="./assets/images/spectra_logo.png" width="40"> | **[Spectra](https://github.com/kaanddemir/spectra-vision)** | A Python/OpenCV driving risk analysis dashboard with object and lane detection. | [Repo] |
 
 ### Browser Extensions
 | Icon | Project | Description | Status |
@@ -39,20 +38,18 @@
 | <img src="./assets/images/ux_heatgrid_logo.png" width="40"> | **[UX HeatGrid](https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn)** | Real-time page attention heatmaps for designers and devs. | [Live] |
 | <img src="./assets/images/typeflux_logo.png" width="40"> | **[TypeFlux](https://chromewebstore.google.com/detail/typeflux/nemkilhkadhfoafhdbmomnoaanodeehh)** | Live typography preview tool for fonts and vertical rhythm. | [Live] |
 
-### Featured Websites
-| Icon | Project | Description | Status |
-| :---: | :--- | :--- | :--- |
-| <img src="./assets/images/zanaat_logo.png" width="40"> | **[Zanaat.app](https://zanaat.app)** | Interactive AI alchemy experience with stunning visuals. | [Live] |
-| <img src="./assets/images/studyhub_logo.png" width="40"> | **[StudyHub](https://github.com/kaanddemir/studyhub)** | A comprehensive personal study dashboard system. | [Repo] |
-
 ---
 
-## Tech Stack
+## Profile & Skills
 
-- **Frontend**: HTML5, Vanilla JavaScript (ES6+)
-- **Styling**: Vanilla CSS / Tailwind CSS (Project specific)
-- **Typography**: Inter (UI), Space Mono / IBM Plex (Code)
-- **Deployment**: Static hosting via GitHub Pages
+Recent **Management Information Systems** graduate focused on data analysis. Turning complex datasets into clear, actionable insight.
+
+| Area | Skills |
+| :--- | :--- |
+| **Programming & Databases** | Python, SQL, C# |
+| **Data Analytics & Visualization** | Pandas, NumPy, OpenCV, Power BI (DAX), Microsoft Excel |
+| **Web** | JavaScript, HTML, CSS |
+| **Cloud & Tools** | Microsoft Azure, Google Cloud Platform (GCP), Linux, Git, GitHub |
 
 ---
 
@@ -67,6 +64,8 @@ Distinct visual identities for each tool, focused on clarity and functional cont
 | **TypeFlux** | Cyan Teal `#06B6D4` | Bright Aqua `#22D3EE` | Slate Space `#0F172A` |
 | **UX HeatGrid** | Amber Gold `#FEBC2E` | Heatmap Red `#FF5B3A` | Dark Space `#101622` |
 | **Soft Blackout** | Minimal Onyx `#1E1E1E` | Cream White `#F7F5E7` | Absolute Black `#000000` |
+| **StudyHub** | Emerald Teal `#0D9488` | Soft Mint `#A7F3D0` | Light Emerald `#F0FDF4` |
+| **Spectra** | Crimson Red `#DC2626` | Light Coral `#FECACA` | Light Rose `#FFF1F2` |
 
 ---
 
@@ -74,53 +73,45 @@ Distinct visual identities for each tool, focused on clarity and functional cont
 
 ```bash
 heykaan.dev/
-├── index.html              # Main Hub & Portfolio
-├── about/                  # About Me & Profile
-│   └── index.html          # Detailed Profile Page
-├── readscore/              # ReadScore Directory
-├── typeflux/               # TypeFlux Directory
-├── ux-heatgrid/            # UX HeatGrid Directory
-├── soft-blackout/          # Soft Blackout Directory
-├── assets/                 # Centralized Media Repository
-│   ├── icons/              # Logic & Meta Icons
-│   └── images/             # Product Showcase Logos
-├── manifest.json           # PWA Configuration
-├── sitemap.xml             # Search Engine Optimization
-└── ...                     # Robots.txt, CNAME, etc.
+├── index.html              # Root redirect → /main/
+├── main/                   # Main hub & portfolio
+│   ├── index.html          # Landing page
+│   ├── main.css            # Styles
+│   └── main.js             # Theme + scroll behavior
+├── about/                  # About & profile
+│   ├── index.html          # Detailed profile page
+│   ├── about.css           # Styles
+│   └── about.js            # Theme + scroll behavior
+├── readscore/              # ReadScore
+│   ├── index.html          # Landing page
+│   ├── readscore.css       # Styles
+│   └── readscore.js        # Scroll spy + footer year updater
+├── typeflux/               # TypeFlux
+│   ├── index.html          # Landing page
+│   ├── typeflux.css        # Styles
+│   └── typeflux.js         # Scroll spy + footer year updater
+├── ux-heatgrid/            # UX HeatGrid
+│   ├── index.html          # Landing page
+│   ├── ux-heatgrid.css     # Styles
+│   └── ux-heatgrid.js      # Scroll spy + footer year updater
+├── soft-blackout/          # Soft Blackout
+│   ├── index.html          # Landing page
+│   ├── soft-blackout.css   # Styles
+│   └── soft-blackout.js    # Scroll spy + footer year updater + interactive toggle
+├── assets/                 # Centralized media repository
+│   ├── icons/              # Meta & app icons
+│   └── images/             # Project showcase logos
+├── manifest.json           # PWA configuration
+├── sitemap.xml             # Search engine optimization
+├── robots.txt              # Crawler directives
+├── 404.html                # Custom not-found page
+├── CNAME                   # Custom domain mapping
+└── LICENSE                 # MIT License
 ```
 
 ---
 
-## Optimization & Web Standards
-
-The platform is built with a focus on discoverability, accessibility, and high standards:
-
-- **Search Visibility**: Includes comprehensive meta-tag optimization, Schema.org structured data, and canonical mapping.
-- **Responsiveness**: Implements resource preloading and lazy-loading strategies for efficient asset delivery.
-- **Accessibility**: Uses semantic HTML and ARIA-compliant structures to ensure a universal user experience.
-- **Security**: Hardened with Content Security Policy (CSP) and local-first data principles for privacy.
-
----
-
-## Local Development
-
-To preview the site locally, clone the repository and run a simple HTTP server:
-
-```bash
-# Clone
-git clone https://github.com/kaanddemir/heykaan.dev.git
-cd heykaan.dev
-
-# Run with Python
-python -m http.server 8000
-
-# or Node.js
-npx http-server
-```
-
----
-
-## Connect
+## Contact
 
 - **GitHub**: [@kaanddemir](https://github.com/kaanddemir)
 - **X (Twitter)**: [@heykaandev](https://x.com/heykaandev)
