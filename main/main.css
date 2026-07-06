@@ -873,6 +873,8 @@ a {
     .marquee-section {
         position: static;
         margin-top: 40px;
+        width: 100%;
+        overflow: hidden;
     }
 }
 
