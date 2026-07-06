@@ -73,10 +73,9 @@ Distinct visual identities for each tool, focused on clarity and functional cont
 
 ```bash
 heykaan.dev/
-├── index.html              # Root redirect → /main/
-├── main/                   # Main hub & portfolio
-│   ├── index.html          # Landing page
-│   ├── main.css            # Styles
+├── index.html              # Main hub & portfolio
+├── main/                   # Main hub assets (styles & scripts)
+│   ├── main.css            # Landing page styles
 │   └── main.js             # Theme + scroll behavior
 ├── about/                  # About & profile
 │   ├── index.html          # Detailed profile page
