@@ -29,6 +29,7 @@
 | :---: | :--- | :--- | :--- |
 | <img src="./assets/images/studyhub_logo.png" width="40"> | **[StudyHub](https://github.com/kaanddemir/studyhub)** | A comprehensive personal study dashboard system. | [Repo] |
 | <img src="./assets/images/spectra_logo.png" width="40"> | **[Spectra](https://github.com/kaanddemir/spectra-vision)** | A Python/OpenCV driving risk analysis dashboard with object and lane detection. | [Repo] |
+| <img src="./assets/images/applypilot_logo.png" width="40"> | **[ApplyPilot](https://github.com/kaanddemir/applypilot)** | A job application tracker with AI-assisted CV review, cover-letter drafting, and focused job-search chat. | [Repo] |
 
 ### Browser Extensions
 | Icon | Project | Description | Status |
@@ -66,6 +67,7 @@ Distinct visual identities for each tool, focused on clarity and functional cont
 | **Soft Blackout** | Minimal Onyx `#1E1E1E` | Cream White `#F7F5E7` | Absolute Black `#000000` |
 | **StudyHub** | Emerald Teal `#0D9488` | Soft Mint `#A7F3D0` | Light Emerald `#F0FDF4` |
 | **Spectra** | Crimson Red `#DC2626` | Light Coral `#FECACA` | Light Rose `#FFF1F2` |
+| **ApplyPilot** | Indigo `#4F46E5` | Soft Indigo `#C7D2FE` | Lavender Blue `#F4F6FB` |
 
 ---
 
