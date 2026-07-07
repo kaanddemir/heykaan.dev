@@ -38,11 +38,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-// Toggle Mockup
-function toggleMockup() {
-    var redacted = document.querySelectorAll('.sb-redacted');
-    redacted.forEach(function (el) {
-        el.classList.toggle('active');
-    });
-}
