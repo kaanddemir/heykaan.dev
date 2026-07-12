@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ReadScore | Browser Extension for Readability & AI Summary</title>
+
+    <!-- SEO: Meta description (155 chars) -->
+    <meta name="description" content="Analyze readability, generate AI summaries, and use focused reading tools.">
+
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://heykaan.dev/readscore/" />
+
+    <!-- Mobile Status Bar Style (Slate-900) -->
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- SEO: Robots directive -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- SEO: Open Graph tags -->
+    <meta property="og:title" content="ReadScore | Browser Extension for Readability & AI Summary" />
+    <meta property="og:description"
+        content="Analyze readability, generate AI summaries, and use focused reading tools." />
+    <meta property="og:image" content="https://heykaan.dev/assets/icons/og-image.png" />
+    <meta property="og:url" content="https://heykaan.dev/readscore/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="heykaan.dev" />
+
+    <!-- SEO: Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ReadScore | Browser Extension for Readability & AI Summary" />
+    <meta name="twitter:description"
+        content="Analyze readability, generate AI summaries, and use focused reading tools." />
+    <meta name="twitter:image" content="https://heykaan.dev/assets/icons/og-image.png" />
+
+    <!-- SEO: Author & copyright -->
+    <meta name="author" content="heykaan.dev" />
+    <meta name="copyright" content="heykaan.dev" />
+
+    <!-- =============================================
+         SECURITY HEADERS
+         ============================================= -->
+
+    <!-- CSP -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://api.producthunt.com https://heykaan.dev https://lh3.googleusercontent.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
+
+    <!-- X-Content-Type-Options -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+    <!-- Referrer-Policy -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <link rel="icon" type="image/svg+xml"
+        href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%232563eb"/><text x="50" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">RS</text></svg>'>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- SEO: Preconnect to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="readscore.css">
+
+    <!-- SEO: Schema.org JSON-LD structured data (SoftwareApplication) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ReadScore",
+        "description": "Analyze readability, generate AI summaries, and use focused reading tools.",
+        "url": "https://heykaan.dev/readscore/",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "heykaan.dev",
+            "url": "https://heykaan.dev"
+        },
+        "image": "https://heykaan.dev/assets/icons/og-image.png",
+        "installUrl": "https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg"
+    }
+    </script>
+</head>
+
+<body>
+    <!-- SEO: Semantic header wrapper for navigation -->
+    <header>
+        <!-- SEO: Added aria-label for accessibility -->
+        <nav class="nav" aria-label="Main navigation">
+            <div class="container nav-inner">
+                <a href="/" class="nav-logo">heykaan<span class="nav-logo-accent">.dev</span></a>
+                <div class="nav-center">
+                    <a href="#overview" class="nav-link active">Overview</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#how-it-works" class="nav-link">How it works</a>
+                    <a href="#use-cases" class="nav-link">Use Cases</a>
+                </div>
+                <div class="nav-right">
+                    <!-- SEO: Added rel="noopener noreferrer" to external link -->
+                    <a href="https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en"
+                        target="_blank" rel="noopener noreferrer" class="nav-cta">Add to Chrome</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SEO: Main content wrapper starts here -->
+    <main role="main">
+        <!-- Hero Section -->
+        <section class="hero" id="overview" aria-label="Hero — ReadScore overview">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Analyze, summarize, and read any page <span class="hero-title-accent">better.</span>
+                    </h1>
+                    <p class="hero-description">
+                        Everything you need to understand any page with readability insights, AI summaries, and focused
+                        reading tools. It runs entirely on your device.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en"
+                            target="_blank" rel="noopener noreferrer" class="hero-cta">
+                            Add to Chrome
+                        </a>
+                        <a href="https://github.com/kaanddemir/readscore" target="_blank" rel="noopener noreferrer" class="hero-github">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="https://www.producthunt.com/products/readscore?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-readscore"
+                            target="_blank" rel="noopener noreferrer" class="hero-ph-badge">
+                            <img alt="ReadScore - Analyze web readability with clear, explainable metrics | Product Hunt"
+                                width="250" height="54"
+                                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1073057&amp;theme=light&amp;t=1770238138305">
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-mockup-wrapper">
+                    <div class="hero-mockup rs-popup-panel">
+                        <!-- Header -->
+                        <div class="rs-popup-header">
+                            <div class="rs-popup-header-left">
+                                <span class="rs-popup-brand">ReadScore</span>
+                                <span class="rs-popup-badge-ver">1.1.1</span>
+                            </div>
+                             <div class="rs-popup-header-right">
+                                <span class="material-symbols-outlined rs-header-icon">format_size</span>
+                                <span class="material-symbols-outlined rs-header-icon">help_outline</span>
+                             </div>
+                        </div>
+
+                        <!-- General Analysis -->
+                        <div class="rs-section-title">General Analysis</div>
+                        <div class="rs-card-list">
+                            <!-- Card 1 -->
+                            <div class="rs-card">
+                                <div class="rs-card-left">
+                                    <div class="rs-card-icon icon-book"><span
+                                            class="material-symbols-outlined">menu_book</span></div>
+                                    <div class="rs-card-details">
+                                        <div class="rs-card-title text-orange">Medium</div>
+                                        <div class="rs-card-subtitle">READABILITY SCORE</div>
+                                    </div>
+                                </div>
+                                <span class="rs-card-badge badge-orange">AVERAGE</span>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="rs-card">
+                                <div class="rs-card-left">
+                                    <div class="rs-card-icon icon-bubble"><span
+                                            class="material-symbols-outlined">chat_bubble</span></div>
+                                    <div class="rs-card-details">
+                                        <div class="rs-card-title">10.8</div>
+                                        <div class="rs-card-subtitle">WORDS/SENTENCE</div>
+                                    </div>
+                                </div>
+                                <span class="rs-card-badge badge-green">SHORT</span>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="rs-card">
+                                <div class="rs-card-left">
+                                    <div class="rs-card-icon icon-doc"><span
+                                            class="material-symbols-outlined">description</span></div>
+                                    <div class="rs-card-details">
+                                        <div class="rs-card-title">162</div>
+                                        <div class="rs-card-subtitle">TOTAL WORDS</div>
+                                    </div>
+                                </div>
+                                <span class="rs-card-badge badge-green">QUICK READ</span>
+                            </div>
+                        </div>
+
+                        <!-- AI Features -->
+                        <div class="rs-section-title flex-between">
+                            <span>AI Features</span>
+                            <span class="rs-badge-beta">BETA</span>
+                        </div>
+                        <div class="rs-card-list">
+                            <div class="rs-card">
+                                <div class="rs-card-left">
+                                    <div class="rs-card-icon-sparkle"><span
+                                            class="material-symbols-outlined">auto_awesome</span></div>
+                                    <div class="rs-card-details">
+                                        <div class="rs-card-title">AI Summary</div>
+                                    </div>
+                                </div>
+                                <div class="rs-card-actions">
+                                    <span class="material-symbols-outlined rs-icon-dim">settings</span>
+                                    <button class="rs-btn-generate">Generate</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reading Tools -->
+                        <div class="rs-section-title">Reading Tools</div>
+                        <div class="rs-card-list">
+                            <!-- Tool 1 -->
+                            <div class="rs-card">
+                                <div class="rs-card-left">
+                                    <div class="rs-card-icon-tool"><span
+                                            class="material-symbols-outlined">center_focus_strong</span></div>
+                                    <div class="rs-card-details">
+                                        <div class="rs-card-title title-sm">Focus Mode</div>
+                                        <div class="rs-card-subtitle">Clean layout, larger text</div>
+                                    </div>
+                                </div>
+                                <div class="rs-toggle">
+                                    <div class="rs-toggle-thumb"></div>
+                                </div>
+                            </div>
+                            <!-- Tool 2 -->
+                            <div class="rs-card">
+                                <div class="rs-card-left">
+                                    <div class="rs-card-icon-tool"><span class="material-symbols-outlined">menu</span>
+                                    </div>
+                                    <div class="rs-card-details">
+                                        <div class="rs-card-title title-sm">Tracking Assist</div>
+                                        <div class="rs-card-subtitle">Easier line & word tracking</div>
+                                    </div>
+                                </div>
+                                <div class="rs-toggle">
+                                    <div class="rs-toggle-thumb"></div>
+                                </div>
+                            </div>
+                            <!-- Tool 3 -->
+                            <div class="rs-card">
+                                <div class="rs-card-left">
+                                    <div class="rs-card-icon-tool"><span class="material-symbols-outlined">tag</span>
+                                    </div>
+                                    <div class="rs-card-details">
+                                        <div class="rs-card-title title-sm">Reading Guide</div>
+                                        <div class="rs-card-subtitle">Line-by-line focus ruler</div>
+                                    </div>
+                                </div>
+                                <div class="rs-toggle">
+                                    <div class="rs-toggle-thumb"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="hero-decoration"></div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Features Section: Bento Grid -->
+        <section class="features-section" id="features" aria-label="ReadScore features">
+            <div class="features-inner">
+                <div class="features-header">
+                    <div class="asymmetric-break"></div>
+                    <h2 class="features-title">Tools to help you read better.</h2>
+                    <p class="features-subtitle">Features designed to improve focus, clarity, and understanding.</p>
+                </div>
+                <div class="features-grid">
+                    <!-- Large Card: Readability Score & Metrics -->
+                    <div class="feature-card feature-card-wide">
+                        <div class="feature-card-large">
+                            <div>
+                                <span class="material-symbols-outlined">analytics</span>
+                                <h3>Readability Score &amp; Metrics</h3>
+                                <p>Analyze web page readability with clear, explainable scores. Measure sentence
+                                    complexity, word count, and reading difficulty using fast, local text analysis.</p>
+                            </div>
+                            <div class="feature-card-footer">
+                                <span class="feature-tag">FLESCH-KINCAID</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Small Card: Selection Analysis -->
+                    <div class="feature-card feature-card-narrow">
+                        <span class="material-symbols-outlined">ads_click</span>
+                        <h3>Selection Analysis</h3>
+                        <p>Analyze selected text for readability and clarity. Highlight any content to get instant
+                            readability insights and accurate text analysis feedback.</p>
+                    </div>
+                    <!-- Medium Card: AI Summary -->
+                    <div class="feature-card feature-card-half">
+                        <span class="material-symbols-outlined">summarize</span>
+                        <h3>AI Summary</h3>
+                        <p>Generate AI summaries for any web page instantly. Use Chrome's built-in AI to summarize
+                            content and understand pages faster without leaving your browser.</p>
+                    </div>
+                    <!-- Medium Card: Reading Tools -->
+                    <div class="feature-card feature-card-half">
+                        <span class="material-symbols-outlined">auto_stories</span>
+                        <h3>Reading Tools</h3>
+                        <p>Improve reading focus with powerful web reading tools. Use Focus Mode, Tracking Assist, and
+                            Reading Guide to read faster and stay focused on any page.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works" id="how-it-works" aria-label="How it works">
+            <div class="how-inner">
+                <div class="how-layout">
+                    <div class="how-sidebar">
+                        <div class="how-sidebar-sticky">
+                            <div class="asymmetric-break"></div>
+                            <h2 class="how-title">How It Works.</h2>
+                            <p class="how-subtitle">Understand any web page in a simple and clear way. Everything runs
+                                directly in your browser.</p>
+                        </div>
+                    </div>
+                    <div class="how-steps">
+                        <div class="how-step">
+                            <div class="how-step-number">1</div>
+                            <div class="how-step-content">
+                                <h4>Content Extraction</h4>
+                                <p>Extract clean, readable content from any web page. We remove navigation, ads, and
+                                    noise to isolate the main text for accurate readability analysis.</p>
+                            </div>
+                        </div>
+                        <div class="how-step">
+                            <div class="how-step-number">2</div>
+                            <div class="how-step-content">
+                                <h4>Readability Analysis</h4>
+                                <p>Analyze text complexity with clear, explainable metrics. We calculate sentence
+                                    length,
+                                    word density, and readability scores locally in your browser.</p>
+                            </div>
+                        </div>
+                        <div class="how-step">
+                            <div class="how-step-number">3</div>
+                            <div class="how-step-content">
+                                <h4>AI Summary</h4>
+                                <p>Generate fast, on-page summaries with built-in AI. When available, Chrome's native
+                                    models create concise summaries directly in your browser.</p>
+                            </div>
+                        </div>
+                        <div class="how-step">
+                            <div class="how-step-number">4</div>
+                            <div class="how-step-content">
+                                <h4>Reader Tools</h4>
+                                <p>Rebuild the page for focused, distraction-free reading. Use Focus Mode and reading
+                                    aids to reduce cognitive load and stay on track.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="use-cases" id="use-cases" aria-label="Use cases">
+            <div class="use-cases-inner">
+                <div class="use-cases-header">
+                    <div class="asymmetric-break"></div>
+                    <h2 class="use-cases-title">Use Cases.</h2>
+                    <p class="use-cases-subtitle">See who ReadScore is built for.</p>
+                </div>
+                <div class="use-cases-grid">
+                    <!-- Readers & Students -->
+                    <div class="use-case-card">
+                        <div class="use-case-glow use-case-glow-blue"></div>
+                        <div class="use-case-icon use-case-icon-blue">
+                            <span class="material-symbols-outlined">school</span>
+                        </div>
+                        <h3>Readers & Students</h3>
+                        <ul class="use-case-list">
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Turn long articles into quick summaries with one click.</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Use Focus Mode to remove distractions and read more comfortably.</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Understand how complex a text is before you start reading.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Professionals & Researchers -->
+                    <div class="use-case-card">
+                        <div class="use-case-glow use-case-glow-indigo"></div>
+                        <div class="use-case-icon use-case-icon-indigo">
+                            <span class="material-symbols-outlined">work</span>
+                        </div>
+                        <h3>Professionals</h3>
+                        <ul class="use-case-list">
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Quickly assess the readability of reports, documents, and articles.</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Use AI Summary to get the key points of any page without reading it in
+                                    full.</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Check how accessible your content is before sharing it.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Accessibility & Daily Use -->
+                    <div class="use-case-card">
+                        <div class="use-case-glow use-case-glow-teal"></div>
+                        <div class="use-case-icon use-case-icon-teal">
+                            <span class="material-symbols-outlined">accessibility_new</span>
+                        </div>
+                        <h3>Accessibility</h3>
+                        <ul class="use-case-list">
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Reduce eye strain with adjustable text size, line spacing, and letter
+                                    spacing.</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Never lose your place with Reading Guide.</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Use Tracking Assist to stay focused on long paragraphs.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requirements Section -->
+        <section class="requirements">
+            <div class="requirements-inner">
+                <div class="requirements-card">
+                    <h3 class="requirements-title">
+                        <span class="material-symbols-outlined">info</span> Technical Requirements
+                    </h3>
+                    <div class="requirements-grid">
+                        <div class="requirement-item">
+                            <div class="requirement-header">
+                                <span class="material-symbols-outlined">language</span>
+                                <p>Browser Support</p>
+                            </div>
+                            <p>Works on Chrome and Chromium-based browsers. Supports Chrome, Edge, Brave, and
+                                Vivaldi.</p>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-header">
+                                <span class="material-symbols-outlined">auto_awesome</span>
+                                <p>AI Summarizer</p>
+                            </div>
+                            <p>AI summaries require Chrome with built-in support. Available on newer versions.</p>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-header">
+                                <span class="material-symbols-outlined">verified</span>
+                                <p>Core Features</p>
+                            </div>
+                            <p>All core features work instantly. No setup or special configuration required.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta" id="get-started" aria-label="Get started with ReadScore">
+            <div class="final-cta-inner">
+                <h2 class="final-cta-title">Start reading better today.</h2>
+                <p class="final-cta-subtitle">Improve your comprehension and focus with fast, privacy-first reading
+                    tools.</p>
+                <a href="https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg?authuser=0&hl=en"
+                    target="_blank" rel="noopener noreferrer" class="final-cta-btn">
+                    Add to Chrome
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Brand -->
+                <div>
+                    <div class="footer-brand">
+                        heykaan.dev
+                    </div>
+                    <p class="footer-desc">Data analyst and developer building dashboards, browser tools, and
+                        data-driven web applications.</p>
+                    <div class="footer-label">Email</div>
+                    <a href="mailto:heykaan.dev@gmail.com" class="footer-contact">heykaan.dev@gmail.com</a>
+                </div>
+                <!-- Col 2: Navigation -->
+                <div>
+                    <div class="footer-col-title">Navigation</div>
+                    <div class="footer-links">
+                        <a href="/#overview">Overview</a>
+                        <a href="/about/">About</a>
+                        <a href="/#projects">Projects</a>
+                    </div>
+                </div>
+                <!-- Col 3: Follow -->
+                <div>
+                    <div class="footer-col-title">Follow us</div>
+                    <div class="footer-links">
+                        <a href="https://github.com/kaanddemir" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://x.com/heykaandev" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+                        <a href="https://www.producthunt.com/@heykaandev" target="_blank"
+                            rel="noopener noreferrer">Product Hunt</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; <span id="year"></span> heykaan.dev. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="readscore.js" defer></script>
+</body>
+
+</html>
