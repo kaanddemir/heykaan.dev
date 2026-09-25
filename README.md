@@ -1,7 +1,7 @@
 # heykaan.dev
 
 <div align="center">
-  <img src="./assets/icons/og-image.png" alt="heykaan.dev Hero" width="100%" style="border-radius: 12px; margin-bottom: 24px;">
+  <img src="./public/assets/icons/og-image.png" alt="heykaan.dev Hero" width="100%" style="border-radius: 12px; margin-bottom: 24px;">
   <p align="center">
     <strong>Recent MIS graduate focused on data analysis</strong><br>
     <em>Dashboards, data projects, and data-driven browser tools. Turning complex datasets into clear, actionable insight with Python, SQL, and Power BI.</em>
@@ -27,17 +27,17 @@
 ### Data & Web Projects
 | Icon | Project | Description | Status |
 | :---: | :--- | :--- | :--- |
-| <img src="./assets/images/studyhub_logo.png" width="40"> | **[StudyHub](https://github.com/kaanddemir/studyhub)** | A comprehensive personal study dashboard system. | [Repo] |
-| <img src="./assets/images/spectra_logo.png" width="40"> | **[Spectra](https://github.com/kaanddemir/spectra-vision)** | A Python/OpenCV driving risk analysis dashboard with object and lane detection. | [Repo] |
-| <img src="./assets/images/applypilot_logo.png" width="40"> | **[ApplyPilot](https://github.com/kaanddemir/applypilot)** | A job application tracker with AI-assisted CV review, cover-letter drafting, and focused job-search chat. | [Repo] |
+| <img src="./public/assets/images/studyhub_logo.png" width="40"> | **[StudyHub](https://github.com/kaanddemir/studyhub)** | A comprehensive personal study dashboard system. | [Repo] |
+| <img src="./public/assets/images/spectra_logo.png" width="40"> | **[Spectra](https://github.com/kaanddemir/spectra-vision)** | A Python/OpenCV driving risk analysis dashboard with object and lane detection. | [Repo] |
+| <img src="./public/assets/images/applypilot_logo.png" width="40"> | **[ApplyPilot](https://github.com/kaanddemir/applypilot)** | A job application tracker with AI-assisted CV review, cover-letter drafting, and focused job-search chat. | [Repo] |
 
 ### Browser Extensions
 | Icon | Project | Description | Status |
 | :---: | :--- | :--- | :--- |
-| <img src="./assets/images/soft_blackout_logo.png" width="40"> | **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Intelligent redaction modes to hide sensitive content locally. | [Live] |
-| <img src="./assets/images/readscore_logo.png" width="40"> | **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg)** | Readability analysis, AI-powered summaries, and focused reading tools. | [Live] |
-| <img src="./assets/images/ux_heatgrid_logo.png" width="40"> | **[UX HeatGrid](https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn)** | Real-time page attention heatmaps for designers and devs. | [Live] |
-| <img src="./assets/images/typeflux_logo.png" width="40"> | **[TypeFlux](https://chromewebstore.google.com/detail/typeflux/nemkilhkadhfoafhdbmomnoaanodeehh)** | Live typography preview tool for fonts and vertical rhythm. | [Live] |
+| <img src="./public/assets/images/soft_blackout_logo.png" width="40"> | **[Soft Blackout](https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo)** | Intelligent redaction modes to hide sensitive content locally. | [Live] |
+| <img src="./public/assets/images/readscore_logo.png" width="40"> | **[ReadScore](https://chromewebstore.google.com/detail/readscore/ocklmdaccbpakdjnkhckobkoochkajeg)** | Readability analysis, AI-powered summaries, and focused reading tools. | [Live] |
+| <img src="./public/assets/images/ux_heatgrid_logo.png" width="40"> | **[UX HeatGrid](https://chromewebstore.google.com/detail/ux-heatgrid/apdgicimbpoimklcanijmfbpfkekiajn)** | Real-time page attention heatmaps for designers and devs. | [Live] |
+| <img src="./public/assets/images/typeflux_logo.png" width="40"> | **[TypeFlux](https://chromewebstore.google.com/detail/typeflux/nemkilhkadhfoafhdbmomnoaanodeehh)** | Live typography preview tool for fonts and vertical rhythm. | [Live] |
 
 ---
 
