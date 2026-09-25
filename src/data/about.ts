@@ -1,7 +1,8 @@
-// About content carried over unchanged from the legacy /about/ page.
+// About content from the legacy /about/ page. The biography drops the
+// time-sensitive word "recent"; everything else is unchanged.
 
 export const bio =
-  'I am a recent Management Information Systems graduate focused on data analysis. I build interactive dashboards, data projects, browser extensions, and web applications that translate complex datasets into clear, actionable insights.';
+  'I am a Management Information Systems graduate focused on data analysis. I build interactive dashboards, data projects, browser extensions, and web applications that translate complex datasets into clear, actionable insights.';
 
 export const skillsIntro =
   'Technical proficiencies and frameworks developed through academic study and hands-on project experience.';
