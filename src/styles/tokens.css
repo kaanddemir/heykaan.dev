@@ -32,10 +32,13 @@
   --text-body: 1rem;
   --text-nav: clamp(1rem, 0.9rem + 0.35vw, 1.25rem);
   --text-lead: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  --text-tagline: clamp(1rem, 0.9rem + 0.5vw, 1.375rem);
   --text-title: clamp(1.75rem, 1rem + 2vw, 3rem);
   /* Section headings: measured from the Featured Projects reference
-     (cap height ≈ 7.3vw → 10.3vw font); larger relative size on narrow screens. */
-  --text-heading: clamp(3rem, 17vw, 8rem);
+     (cap height ≈ 7.3vw → 10.3vw font) on wide screens. Narrow screens use
+     the largest size at which the longest heading line ("Extensions",
+     ≈5.62em including its indent) still fits between the gutters. */
+  --text-heading: clamp(3rem, 15vw, 7.5rem);
   --text-heading-wide: min(10.3vw, 12rem);
   /* Hero name: fills the width on narrow screens, matches the reference
      (cap height ≈ 11.7vw, Geist cap height 0.71em) on wide screens. */
