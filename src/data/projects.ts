@@ -1,19 +1,23 @@
 import type { Project } from '../types/project';
-import tarifeaiLogo from '../assets/projects/tarifeai-logo.png';
-import spectraLogo from '../assets/projects/spectra-logo.png';
+import tarifeaiScreenshot from '../assets/projects/tarifeai-screenshot.png';
+import spectraScreenshot from '../assets/projects/spectra-screenshot.png';
 import applypilotScreenshot from '../assets/projects/applypilot-screenshot.png';
 import studyhubScreenshot from '../assets/projects/studyhub-screenshot.png';
 
 // Content carried over unchanged from the legacy homepage (Featured Projects).
-// Logos stand in until real screenshots are available. Screenshots are
-// captured from the running apps with fictional demo data.
+// Screenshots are captured from the running apps: ApplyPilot and StudyHub
+// with fictional demo data, TarifeAI and Spectra in their initial state.
 export const featuredProjects: Project[] = [
   {
     name: 'TarifeAI',
     tagline: 'Retrieval-augmented assistant',
     description:
       'A RAG assistant that compares Turkish mobile plans, grounding every answer in retrieved plan data with FastAPI, PostgreSQL + pgvector, and BGE-M3 embeddings.',
-    media: { kind: 'logo', src: tarifeaiLogo },
+    media: {
+      kind: 'screenshot',
+      src: tarifeaiScreenshot,
+      alt: 'TarifeAI welcome screen with a how-it-works guide, sample questions about Turkish mobile plans, the question input and a sidebar for conversations.',
+    },
     primaryLink: { label: 'GitHub', href: 'https://github.com/kaanddemir/tarife-ai-rag' },
   },
   {
@@ -21,7 +25,11 @@ export const featuredProjects: Project[] = [
     tagline: 'Driving video risk analysis',
     description:
       'A Python/OpenCV dashboard combining object detection, lane detection, depth estimation, and optical flow to assess driving risk and estimate time-to-collision.',
-    media: { kind: 'logo', src: spectraLogo },
+    media: {
+      kind: 'screenshot',
+      src: spectraScreenshot,
+      alt: 'Spectra dashboard before a video is uploaded, with an empty video area, event timeline and risk analysis panel for time to collision and risk score.',
+    },
     primaryLink: { label: 'GitHub', href: 'https://github.com/kaanddemir/spectra-vision' },
   },
   {
