@@ -1,0 +1,63 @@
+---
+import { site } from '../data/site';
+
+// Rendered at build time; the site is rebuilt on every deploy.
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p>&copy; {year} {site.name}. All rights reserved.</p>
+      <nav aria-label="Footer">
+        <ul>
+          {
+            site.nav.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-block-start: var(--space-section);
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-8);
+    padding-block: var(--space-6) var(--space-8);
+    border-block-start: var(--border-width) solid var(--color-border);
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+  }
+
+  ul {
+    display: flex;
+    gap: var(--space-6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>

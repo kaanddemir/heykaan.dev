@@ -4,6 +4,9 @@ import SiteHeader from '../components/SiteHeader.astro';
 import Hero from '../components/home/Hero.astro';
 import FeaturedProjects from '../components/home/FeaturedProjects.astro';
 import BrowserExtensions from '../components/home/BrowserExtensions.astro';
+import About from '../components/home/About.astro';
+import Contact from '../components/home/Contact.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 ---
 
 <BaseLayout noindex>
@@ -12,11 +15,8 @@ import BrowserExtensions from '../components/home/BrowserExtensions.astro';
     <Hero />
     <FeaturedProjects />
     <BrowserExtensions />
-    <!--
-      Temporary anchor targets for the header navigation, replaced by the
-      About and Contact sections in later phases.
-    -->
-    <div id="about"></div>
-    <div id="contact"></div>
+    <About />
+    <Contact />
   </main>
+  <SiteFooter />
 </BaseLayout>
