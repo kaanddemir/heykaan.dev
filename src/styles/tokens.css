@@ -37,12 +37,15 @@
   /* Section headings: measured from the Featured Projects reference
      (cap height ≈ 7.3vw → 10.3vw font) on wide screens. Narrow screens use
      the largest size at which the longest heading line ("Extensions",
-     ≈5.62em including its indent) still fits between the gutters. */
-  --text-heading: clamp(3rem, 15vw, 7.5rem);
+     ≈5.62em including its indent) still fits between the gutters, capped at
+     6.5rem to meet the wide size at 64rem without a drop. */
+  --text-heading: clamp(3rem, 15vw, 6.5rem);
   --text-heading-wide: min(10.3vw, 12rem);
   /* Hero name: fills the width on narrow screens, matches the reference
-     (cap height ≈ 11.7vw, Geist cap height 0.71em) on wide screens. */
-  --text-display: clamp(5.5rem, 28vw, 13rem);
+     (cap height ≈ 11.7vw, Geist cap height 0.71em) on wide screens. The
+     narrow-screen cap (10.5rem) equals the wide size at 64rem, so the name
+     never shrinks as the viewport grows. */
+  --text-display: clamp(5.5rem, 28vw, 10.5rem);
   --text-display-wide: min(16.5vw, 20rem);
 
   --leading-display: 0.89;
