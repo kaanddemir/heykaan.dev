@@ -1,0 +1,19 @@
+/*
+ * Global stylesheet entry, imported once by BaseLayout.
+ * Layer order keeps global specificity predictable. Astro scoped
+ * <style> blocks are unlayered, so component styles always win
+ * over these global layers.
+ */
+@layer tokens, base, layout, utilities;
+
+@import './tokens.css' layer(tokens);
+@import './base.css' layer(base);
+
+@layer layout {
+  .container {
+    width: 100%;
+    max-width: var(--content-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+}

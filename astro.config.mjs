@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 // Static site served from the domain root by GitHub Pages.
 // Legacy product pages and root files live in public/ and are copied
@@ -11,4 +11,17 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  // Geist is downloaded at build time and self-hosted from /_astro/fonts/.
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Geist',
+      cssVariable: '--font-geist',
+      weights: ['100 900'],
+      styles: ['normal', 'italic'],
+      subsets: ['latin'],
+      fallbacks: ['system-ui', 'sans-serif'],
+      display: 'swap',
+    },
+  ],
 });
