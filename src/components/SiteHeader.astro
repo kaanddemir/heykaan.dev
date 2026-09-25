@@ -67,6 +67,11 @@ import ThemeToggle from './ThemeToggle.astro';
     grid-area: nav;
   }
 
+  /* 44px minimum touch target; text stays left-aligned within it. */
+  .site-header__nav a {
+    min-inline-size: 2.75rem;
+  }
+
   ul {
     display: flex;
     gap: var(--space-6);
