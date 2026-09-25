@@ -75,40 +75,42 @@ Distinct visual identities for each tool, focused on clarity and functional cont
 
 ```bash
 heykaan.dev/
-├── index.html              # Main hub & portfolio
-├── main/                   # Main hub assets (styles & scripts)
-│   ├── main.css            # Landing page styles
-│   └── main.js             # Theme + scroll behavior
-├── about/                  # About & profile
-│   ├── index.html          # Detailed profile page
-│   ├── about.css           # Styles
-│   └── about.js            # Theme + scroll behavior
-├── readscore/              # ReadScore
-│   ├── index.html          # Landing page
-│   ├── readscore.css       # Styles
-│   └── readscore.js        # Scroll spy + footer year updater
-├── typeflux/               # TypeFlux
-│   ├── index.html          # Landing page
-│   ├── typeflux.css        # Styles
-│   └── typeflux.js         # Scroll spy + footer year updater
-├── ux-heatgrid/            # UX HeatGrid
-│   ├── index.html          # Landing page
-│   ├── ux-heatgrid.css     # Styles
-│   └── ux-heatgrid.js      # Scroll spy + footer year updater
-├── soft-blackout/          # Soft Blackout
-│   ├── index.html          # Landing page
-│   ├── soft-blackout.css   # Styles
-│   └── soft-blackout.js    # Scroll spy + footer year updater + interactive toggle
-├── assets/                 # Centralized media repository
-│   ├── icons/              # Meta & app icons
-│   └── images/             # Project showcase logos
-├── manifest.json           # PWA configuration
-├── sitemap.xml             # Search engine optimization
-├── robots.txt              # Crawler directives
-├── 404.html                # Custom not-found page
-├── CNAME                   # Custom domain mapping
-└── LICENSE                 # MIT License
+├── src/                        # Astro source (new homepage)
+│   ├── pages/index.astro       # Homepage route
+│   ├── layouts/BaseLayout.astro  # Document shell, metadata, theme bootstrap, fonts
+│   ├── data/site.ts            # Site identity, SEO and social links
+│   ├── types/                  # Shared TypeScript types
+│   └── styles/                 # Global CSS: tokens, base, layers
+├── public/                     # Copied to the build output unchanged
+│   ├── about/                  # About & profile
+│   ├── readscore/              # ReadScore
+│   ├── typeflux/               # TypeFlux
+│   ├── ux-heatgrid/            # UX HeatGrid
+│   ├── soft-blackout/          # Soft Blackout
+│   ├── assets/                 # Icons and project logos
+│   ├── manifest.json           # PWA configuration
+│   ├── sitemap.xml             # Search engine optimization
+│   ├── robots.txt              # Crawler directives
+│   ├── 404.html                # Custom not-found page
+│   └── CNAME                   # Custom domain mapping
+├── index.html, main/           # Legacy homepage, kept as a reference until the Astro homepage ships
+├── astro.config.mjs            # Astro configuration (static output, Geist font)
+├── tsconfig.json               # Strict TypeScript
+└── LICENSE                     # MIT License
 ```
+
+### Development
+
+Requires Node.js 22.19 or newer (Astro needs 22.12+, one of its dependencies 22.19+).
+
+```bash
+npm install
+npm run dev       # local dev server
+npm run build     # type check + static build into dist/
+npm run preview   # serve dist/ locally
+```
+
+In `npm run dev`, legacy pages in `public/` open via their full path (for example `/readscore/index.html`). The build, `npm run preview` and GitHub Pages also serve them at `/readscore/`.
 
 ---
 

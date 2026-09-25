@@ -1,0 +1,80 @@
+---
+import { Font } from 'astro:assets';
+import { site } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Keeps work-in-progress pages out of search indexes. */
+  noindex?: boolean;
+}
+
+const { title = site.title, description = site.description, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+// Fonts are self-hosted, so Google Fonts origins from the legacy policy are dropped.
+// Dev mode skips the policy because the Vite dev server needs inline scripts and websockets.
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "font-src 'self'",
+  "img-src 'self' data: https://api.producthunt.com https://heykaan.dev",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join('; ');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {import.meta.env.PROD && <meta http-equiv="Content-Security-Policy" content={csp} />}
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta
+      name="robots"
+      content={noindex
+        ? 'noindex, nofollow'
+        : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}
+    />
+
+    <meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#151515" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!--
+      Theme bootstrap: runs before first paint to avoid a wrong-theme flash.
+      "theme-mode" (system | light | dark) is the homepage key. The legacy
+      "theme" key (light | dark), shared with /about/, counts as an explicit
+      choice when no mode is stored. System mode leaves data-theme unset so
+      the prefers-color-scheme rules in tokens.css apply.
+    -->
+    <script is:inline>
+      (function () {
+        var mode = null;
+        try {
+          mode = localStorage.getItem('theme-mode') || localStorage.getItem('theme');
+        } catch (e) {}
+        if (mode === 'light' || mode === 'dark') {
+          document.documentElement.setAttribute('data-theme', mode);
+        }
+      })();
+    </script>
+
+    <Font cssVariable="--font-geist" preload={[{ style: 'normal' }]} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+  </body>
+</html>
