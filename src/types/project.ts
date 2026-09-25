@@ -26,3 +26,13 @@ export interface Project {
   /** Further destinations listed under the description. */
   links?: ProjectLink[];
 }
+
+/**
+ * Browser extension: same text and link fields as a project, but with a
+ * small square icon instead of a media frame. The primary link is the
+ * extension's on-site product page.
+ */
+export interface Extension extends Omit<Project, 'media' | 'links'> {
+  icon: ImageMetadata;
+  links: ProjectLink[];
+}
