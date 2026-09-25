@@ -11,7 +11,12 @@ export const site: SiteConfig = {
   socialDescription:
     'MIS graduate focused on data analysis. Dashboards, data projects, browser extensions and web applications.',
   heroCaption: 'Building digital experiences through data, design & technology.',
-  // Phase 6C: set ogImage to the new 1200x630 image once it exists in public/.
+  ogImage: {
+    path: '/assets/og/og-home.png',
+    width: 1200,
+    height: 630,
+    alt: 'Kaan Demir, heykaan.dev',
+  },
   email: 'heykaan.dev@gmail.com',
   social: [
     { label: 'GitHub', href: 'https://github.com/kaanddemir' },
