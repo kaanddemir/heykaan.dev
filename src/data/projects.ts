@@ -33,9 +33,9 @@ export const featuredProjects: Project[] = [
   },
   {
     name: 'StudyHub',
-    tagline: 'Learning platform',
+    tagline: 'Student study dashboard',
     description:
-      'A modern learning web app that generates study materials and course aware answers, with a chat interface and local model integration.',
+      'A local-first study dashboard for tracking courses, exams, grades and habits, with a Pomodoro timer, digital notebook and customizable widgets.',
     media: { kind: 'logo', src: studyhubLogo },
     primaryLink: { label: 'GitHub', href: 'https://github.com/kaanddemir/studyhub' },
   },
