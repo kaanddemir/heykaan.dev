@@ -1,0 +1,99 @@
+---
+interface Props {
+  /** Supporting line beside the name. Omitted until the wording is approved. */
+  caption?: string;
+}
+
+const { caption } = Astro.props;
+// Dev-only outline of the caption slot so its placement can be reviewed
+// without publishing unapproved copy. Never rendered in production builds.
+const showDraftCaption = !caption && import.meta.env.DEV;
+---
+
+<section id="overview" class="hero" aria-labelledby="hero-title">
+  <div class="hero__inner container">
+    <h1 id="hero-title" class="hero__title">
+      <span>Kaan</span>{' '}<span>Demir</span>
+    </h1>
+    {caption && <p class="hero__caption">{caption}</p>}
+    {
+      showDraftCaption && (
+        <p class="hero__caption hero__caption--draft" aria-hidden="true">
+          Caption slot (dev only). Wording not approved yet.
+        </p>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .hero {
+    /* Proportions taken from the reference hero at 1650px wide. */
+    --hero-caption-width: clamp(14rem, 15vw, 22rem);
+    --hero-caption-gap: 1.4vw;
+    --hero-space-below: 9svh;
+  }
+
+  .hero__inner {
+    padding-block: clamp(4rem, 14svh, 8rem) var(--space-16);
+  }
+
+  .hero__title {
+    font-size: var(--text-display);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-display);
+    /* Each word is its own line; words never break internally. */
+    text-wrap: nowrap;
+    /* "K" and "D" carry ≈0.093em left side bearing in Geist; pull the ink onto the gutter line. */
+    margin-inline-start: -0.09em;
+  }
+
+  .hero__title span {
+    display: block;
+  }
+
+  .hero__caption {
+    max-inline-size: 34ch;
+    margin-block-start: var(--space-8);
+    font-size: var(--text-lead);
+    line-height: 1.45;
+    color: var(--color-text);
+  }
+
+  .hero__caption--draft {
+    color: var(--color-text-muted);
+    outline: var(--border-width) dashed var(--color-border-strong);
+    outline-offset: var(--space-2);
+  }
+
+  /*
+   * Wide layout: the hero fills the first screen with the name set low, and
+   * the caption sits to the right of "Demir", sharing its last baseline.
+   */
+  @media (min-width: 64rem) {
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-block-size: calc(100svh - var(--header-height));
+    }
+
+    .hero__inner {
+      display: grid;
+      grid-template-columns: max-content minmax(0, var(--hero-caption-width));
+      column-gap: var(--hero-caption-gap);
+      align-items: last baseline;
+      padding-block: var(--space-24) var(--hero-space-below);
+    }
+
+    .hero__title {
+      font-size: var(--text-display-wide);
+    }
+
+    .hero__caption {
+      max-inline-size: none;
+      margin-block-start: 0;
+    }
+  }
+</style>

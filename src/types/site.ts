@@ -3,6 +3,11 @@ export interface SocialLink {
   href: string;
 }
 
+export interface NavLink {
+  label: string;
+  href: string;
+}
+
 export interface SiteConfig {
   name: string;
   author: string;
@@ -15,4 +20,5 @@ export interface SiteConfig {
   ogImage: string;
   email: string;
   social: SocialLink[];
+  nav: NavLink[];
 }

@@ -1,11 +1,19 @@
 ---
-// Foundation placeholder. Replaced by the homepage sections in the next phase.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import Hero from '../components/home/Hero.astro';
 ---
 
 <BaseLayout noindex>
-  <main id="main" class="container">
-    <h1>Kaan Demir</h1>
-    <p>Homepage in progress.</p>
+  <SiteHeader />
+  <main id="main">
+    <Hero />
+    <!--
+      Temporary anchor targets for the header navigation. Each is replaced
+      by its section (Featured Projects, About, Contact) in later phases.
+    -->
+    <div id="projects"></div>
+    <div id="about"></div>
+    <div id="contact"></div>
   </main>
 </BaseLayout>

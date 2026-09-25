@@ -18,4 +18,9 @@ export const site: SiteConfig = {
     { label: 'Product Hunt', href: 'https://www.producthunt.com/@heykaandev' },
     { label: 'X (Twitter)', href: 'https://x.com/heykaandev' },
   ],
+  nav: [
+    { label: 'Work', href: '#projects' },
+    { label: 'About', href: '#about' },
+    { label: 'Contact', href: '#contact' },
+  ],
 };
