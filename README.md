@@ -101,7 +101,7 @@ heykaan.dev/
 
 ### Development
 
-Requires Node.js 22.19 or newer (Astro needs 22.12+, one of its dependencies 22.19+).
+Requires Node.js 22.19 or newer (Astro needs 22.12+, one of its dependencies 22.19+). `.nvmrc` pins the tested version (22.23.3) for nvm/fnm.
 
 ```bash
 npm install
