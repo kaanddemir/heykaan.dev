@@ -13,6 +13,8 @@ export interface ProjectLink {
 export interface ProjectMedia {
   kind: 'logo' | 'screenshot';
   src: ImageMetadata;
+  /** Required for screenshots; logos are decorative next to the title. */
+  alt?: string;
 }
 
 export interface Project {

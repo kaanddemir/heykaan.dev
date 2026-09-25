@@ -1,11 +1,12 @@
 import type { Project } from '../types/project';
 import tarifeaiLogo from '../assets/projects/tarifeai-logo.png';
 import spectraLogo from '../assets/projects/spectra-logo.png';
-import applypilotLogo from '../assets/projects/applypilot-logo.png';
-import studyhubLogo from '../assets/projects/studyhub-logo.png';
+import applypilotScreenshot from '../assets/projects/applypilot-screenshot.png';
+import studyhubScreenshot from '../assets/projects/studyhub-screenshot.png';
 
 // Content carried over unchanged from the legacy homepage (Featured Projects).
-// Logos stand in until real screenshots are available.
+// Logos stand in until real screenshots are available. Screenshots are
+// captured from the running apps with fictional demo data.
 export const featuredProjects: Project[] = [
   {
     name: 'TarifeAI',
@@ -28,7 +29,11 @@ export const featuredProjects: Project[] = [
     tagline: 'AI job application tracker',
     description:
       'A job application tracker with AI-assisted CV review, cover-letter drafting, and focused job-search chat.',
-    media: { kind: 'logo', src: applypilotLogo },
+    media: {
+      kind: 'screenshot',
+      src: applypilotScreenshot,
+      alt: 'ApplyPilot Kanban board with eight job applications sorted into Saved, Applied, Interview, Offer and Rejected columns.',
+    },
     primaryLink: { label: 'GitHub', href: 'https://github.com/kaanddemir/applypilot' },
   },
   {
@@ -36,7 +41,11 @@ export const featuredProjects: Project[] = [
     tagline: 'Student study dashboard',
     description:
       'A local-first study dashboard for tracking courses, exams, grades and habits, with a Pomodoro timer, digital notebook and customizable widgets.',
-    media: { kind: 'logo', src: studyhubLogo },
+    media: {
+      kind: 'screenshot',
+      src: studyhubScreenshot,
+      alt: 'StudyHub dashboard with course list, study-hours chart, daily habits, to-do list, calendar, weekly schedule, focus timer and grade calculator.',
+    },
     primaryLink: { label: 'GitHub', href: 'https://github.com/kaanddemir/studyhub' },
   },
 ];
