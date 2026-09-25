@@ -84,6 +84,9 @@ const csp = [
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
+    <!-- iOS: home-screen title and standalone launch for versions that predate manifest support. -->
+    <meta name="apple-mobile-web-app-title" content={site.name} />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
     <!--
       Theme bootstrap, run before first paint to avoid a wrong-theme flash.
