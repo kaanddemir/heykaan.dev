@@ -53,21 +53,39 @@ const csp = [
     <link rel="manifest" href="/manifest.json" />
 
     <!--
-      Theme bootstrap: runs before first paint to avoid a wrong-theme flash.
-      "theme-mode" (system | light | dark) is the homepage key. The legacy
-      "theme" key (light | dark), shared with /about/, counts as an explicit
-      choice when no mode is stored. System mode leaves data-theme unset so
-      the prefers-color-scheme rules in tokens.css apply.
+      Theme bootstrap, run before first paint to avoid a wrong-theme flash.
+      "theme-mode" (system | light | dark) is the homepage preference. The
+      legacy "theme" key (light | dark) is read by /about/, so it always holds
+      the resolved theme. A legacy value without a stored mode was set by the
+      old site's toggle and counts as an explicit choice.
+      Keep in sync with src/scripts/theme.ts.
     -->
     <script is:inline>
       (function () {
-        var mode = null;
+        var root = document.documentElement;
+        var stored = null;
+        var legacy = null;
         try {
-          mode = localStorage.getItem('theme-mode') || localStorage.getItem('theme');
+          stored = localStorage.getItem('theme-mode');
+          legacy = localStorage.getItem('theme');
         } catch (e) {}
-        if (mode === 'light' || mode === 'dark') {
-          document.documentElement.setAttribute('data-theme', mode);
-        }
+
+        var mode = 'system';
+        if (stored === 'system' || stored === 'light' || stored === 'dark') mode = stored;
+        else if (legacy === 'light' || legacy === 'dark') mode = legacy;
+
+        var resolved =
+          mode === 'system'
+            ? window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            : mode;
+
+        root.setAttribute('data-theme-mode', mode);
+        root.setAttribute('data-theme', resolved);
+
+        try {
+          if (stored !== mode) localStorage.setItem('theme-mode', mode);
+          if (legacy !== resolved) localStorage.setItem('theme', resolved);
+        } catch (e) {}
       })();
     </script>
 
