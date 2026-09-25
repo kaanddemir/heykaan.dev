@@ -1,0 +1,48 @@
+---
+// Two-line editorial section heading: an upright bold first line and an
+// indented bold italic second line, read as one h2.
+interface Props {
+  id: string;
+  first: string;
+  second: string;
+}
+
+const { id, first, second } = Astro.props;
+---
+
+<h2 id={id} class="section-heading">
+  <span class="section-heading__first">{first}</span>{' '}<span class="section-heading__second"
+    >{second}</span
+  >
+</h2>
+
+<style>
+  .section-heading {
+    font-size: var(--text-heading);
+    font-weight: var(--weight-bold);
+    line-height: var(--leading-heading);
+    letter-spacing: var(--tracking-heading);
+    text-wrap: nowrap;
+  }
+
+  .section-heading span {
+    display: block;
+  }
+
+  /* Geist Bold "F"-style stems carry ≈0.074em left side bearing; align the ink to the gutter. */
+  .section-heading__first {
+    margin-inline-start: -0.074em;
+  }
+
+  /* Indent measured from the reference (≈0.77em), minus the italic's ≈0.018em side bearing. */
+  .section-heading__second {
+    margin-inline-start: 0.752em;
+    font-style: italic;
+  }
+
+  @media (min-width: 64rem) {
+    .section-heading {
+      font-size: var(--text-heading-wide);
+    }
+  }
+</style>

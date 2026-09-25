@@ -7,6 +7,7 @@
   /* Palette primitives */
   --palette-light-bg: #fafaf8;
   --palette-light-surface: #ffffff;
+  --palette-light-media: #efefeb;
   --palette-light-text: #171717;
   --palette-light-text-muted: #6b6b6b;
   --palette-light-border: #e5e5e2;
@@ -24,6 +25,7 @@
 
   --weight-regular: 400;
   --weight-medium: 500;
+  --weight-semibold: 600;
   --weight-bold: 700;
 
   --text-label: 0.875rem;
@@ -31,19 +33,22 @@
   --text-nav: clamp(1rem, 0.9rem + 0.35vw, 1.25rem);
   --text-lead: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
   --text-title: clamp(1.75rem, 1rem + 2vw, 3rem);
-  --text-heading: clamp(3rem, 10vw, 11rem);
+  /* Section headings: measured from the Featured Projects reference
+     (cap height ≈ 7.3vw → 10.3vw font); larger relative size on narrow screens. */
+  --text-heading: clamp(3rem, 17vw, 8rem);
+  --text-heading-wide: min(10.3vw, 12rem);
   /* Hero name: fills the width on narrow screens, matches the reference
      (cap height ≈ 11.7vw, Geist cap height 0.71em) on wide screens. */
   --text-display: clamp(5.5rem, 28vw, 13rem);
   --text-display-wide: min(16.5vw, 20rem);
 
   --leading-display: 0.89;
-  --leading-heading: 0.95;
+  --leading-heading: 1.02;
   --leading-snug: 1.2;
   --leading-body: 1.6;
 
   --tracking-display: -0.045em;
-  --tracking-heading: -0.04em;
+  --tracking-heading: -0.037em;
   --tracking-title: -0.02em;
 
   /* Spacing (4px base) */
@@ -82,6 +87,7 @@
   color-scheme: light;
   --color-bg: var(--palette-light-bg);
   --color-surface: var(--palette-light-surface);
+  --color-media: var(--palette-light-media);
   --color-text: var(--palette-light-text);
   --color-text-muted: var(--palette-light-text-muted);
   --color-border: var(--palette-light-border);
@@ -94,6 +100,7 @@
   color-scheme: dark;
   --color-bg: var(--palette-dark-bg);
   --color-surface: var(--palette-dark-surface);
+  --color-media: var(--palette-dark-surface);
   --color-text: var(--palette-dark-text);
   --color-text-muted: var(--palette-dark-text-muted);
   --color-border: var(--palette-dark-border);
@@ -108,6 +115,7 @@
     color-scheme: dark;
     --color-bg: var(--palette-dark-bg);
     --color-surface: var(--palette-dark-surface);
+  --color-media: var(--palette-dark-surface);
     --color-text: var(--palette-dark-text);
     --color-text-muted: var(--palette-dark-text-muted);
     --color-border: var(--palette-dark-border);

@@ -2,17 +2,18 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import Hero from '../components/home/Hero.astro';
+import FeaturedProjects from '../components/home/FeaturedProjects.astro';
 ---
 
 <BaseLayout noindex>
   <SiteHeader />
   <main id="main">
     <Hero />
+    <FeaturedProjects />
     <!--
-      Temporary anchor targets for the header navigation. Each is replaced
-      by its section (Featured Projects, About, Contact) in later phases.
+      Temporary anchor targets for the header navigation, replaced by the
+      About and Contact sections in later phases.
     -->
-    <div id="projects"></div>
     <div id="about"></div>
     <div id="contact"></div>
   </main>
