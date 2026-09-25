@@ -7,12 +7,13 @@ import BrowserExtensions from '../components/home/BrowserExtensions.astro';
 import About from '../components/home/About.astro';
 import Contact from '../components/home/Contact.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import { site } from '../data/site';
 ---
 
 <BaseLayout noindex>
   <SiteHeader />
   <main id="main">
-    <Hero />
+    <Hero caption={site.heroCaption} />
     <FeaturedProjects />
     <BrowserExtensions />
     <About />

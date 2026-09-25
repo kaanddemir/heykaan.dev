@@ -11,6 +11,7 @@ export const site: SiteConfig = {
   socialTitle: 'heykaan.dev · Kaan Demir',
   socialDescription:
     'Recent MIS graduate focused on data analysis. Dashboards, insights, and data-driven web tools built with Python, SQL, and Power BI.',
+  heroCaption: 'Building digital experiences through data, design & technology.',
   ogImage: 'https://heykaan.dev/assets/icons/og-image.png',
   email: 'heykaan.dev@gmail.com',
   social: [

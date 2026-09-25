@@ -17,6 +17,8 @@ export interface SiteConfig {
   /** Shorter description used for Open Graph and Twitter cards. */
   socialDescription: string;
   socialTitle: string;
+  /** Supporting line beside the hero name. */
+  heroCaption: string;
   ogImage: string;
   email: string;
   social: SocialLink[];

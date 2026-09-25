@@ -1,13 +1,10 @@
 ---
 interface Props {
-  /** Supporting line beside the name. Omitted until the wording is approved. */
+  /** Supporting line beside the name. */
   caption?: string;
 }
 
 const { caption } = Astro.props;
-// Dev-only outline of the caption slot so its placement can be reviewed
-// without publishing unapproved copy. Never rendered in production builds.
-const showDraftCaption = !caption && import.meta.env.DEV;
 ---
 
 <section id="overview" class="hero" aria-labelledby="hero-title">
@@ -16,20 +13,13 @@ const showDraftCaption = !caption && import.meta.env.DEV;
       <span>Kaan</span>{' '}<span>Demir</span>
     </h1>
     {caption && <p class="hero__caption">{caption}</p>}
-    {
-      showDraftCaption && (
-        <p class="hero__caption hero__caption--draft" aria-hidden="true">
-          Caption slot (dev only). Wording not approved yet.
-        </p>
-      )
-    }
   </div>
 </section>
 
 <style>
   .hero {
     /* Proportions taken from the reference hero at 1650px wide. */
-    --hero-caption-width: clamp(14rem, 15vw, 22rem);
+    --hero-caption-width: clamp(15rem, 17vw, 24rem);
     --hero-caption-gap: 1.4vw;
     --hero-space-below: 10svh;
   }
@@ -59,12 +49,6 @@ const showDraftCaption = !caption && import.meta.env.DEV;
     font-size: var(--text-lead);
     line-height: 1.45;
     color: var(--color-text);
-  }
-
-  .hero__caption--draft {
-    color: var(--color-text-muted);
-    outline: var(--border-width) dashed var(--color-border-strong);
-    outline-offset: var(--space-2);
   }
 
   /*
