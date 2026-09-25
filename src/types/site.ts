@@ -8,6 +8,14 @@ export interface NavLink {
   href: string;
 }
 
+/** Social-sharing image. `path` is root-relative to public/, e.g. '/assets/og/home.png'. */
+export interface OgImage {
+  path: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
 export interface SiteConfig {
   name: string;
   author: string;
@@ -19,7 +27,8 @@ export interface SiteConfig {
   socialTitle: string;
   /** Supporting line beside the hero name. */
   heroCaption: string;
-  ogImage: string;
+  /** Omitted until a real asset exists; image tags are only emitted when set. */
+  ogImage?: OgImage;
   email: string;
   social: SocialLink[];
   nav: NavLink[];

@@ -1,18 +1,17 @@
 import type { SiteConfig } from '../types/site';
 
-// Values carried over unchanged from the legacy homepage metadata.
 export const site: SiteConfig = {
   name: 'heykaan.dev',
   author: 'Kaan Demir',
   url: 'https://heykaan.dev/',
-  title: 'heykaan.dev | Kaan Demir',
+  title: 'Kaan Demir | heykaan.dev',
   description:
-    'Portfolio of Kaan Demir, a recent MIS graduate focused on data analysis. Turning complex datasets into clear dashboards, insights, and data-driven web tools with Python, SQL, and Power BI.',
-  socialTitle: 'heykaan.dev · Kaan Demir',
+    'Portfolio of Kaan Demir, an MIS graduate focused on data analysis, building dashboards, data projects, browser extensions and web applications with Python, SQL and Power BI.',
+  socialTitle: 'Kaan Demir | heykaan.dev',
   socialDescription:
-    'Recent MIS graduate focused on data analysis. Dashboards, insights, and data-driven web tools built with Python, SQL, and Power BI.',
+    'MIS graduate focused on data analysis. Dashboards, data projects, browser extensions and web applications.',
   heroCaption: 'Building digital experiences through data, design & technology.',
-  ogImage: 'https://heykaan.dev/assets/icons/og-image.png',
+  // Phase 6C: set ogImage to the new 1200x630 image once it exists in public/.
   email: 'heykaan.dev@gmail.com',
   social: [
     { label: 'GitHub', href: 'https://github.com/kaanddemir' },
