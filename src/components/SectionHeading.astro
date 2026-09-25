@@ -5,12 +5,25 @@ interface Props {
   id: string;
   first: string;
   second: string;
+  /**
+   * Left side bearing (em) of each line's first glyph, so the ink rather than
+   * the glyph box sits on the gutter and on the indent. Defaults fit stem
+   * letters (F, B) upright and P/E italic.
+   */
+  firstBearing?: number;
+  secondBearing?: number;
 }
 
-const { id, first, second } = Astro.props;
+const { id, first, second, firstBearing, secondBearing } = Astro.props;
+const bearings = [
+  firstBearing !== undefined && `--first-bearing: ${firstBearing}em`,
+  secondBearing !== undefined && `--second-bearing: ${secondBearing}em`,
+]
+  .filter(Boolean)
+  .join('; ');
 ---
 
-<h2 id={id} class="section-heading">
+<h2 id={id} class="section-heading" style={bearings || undefined}>
   <span class="section-heading__first">{first}</span>{' '}<span class="section-heading__second"
     >{second}</span
   >
@@ -31,12 +44,12 @@ const { id, first, second } = Astro.props;
 
   /* Geist Bold "F"-style stems carry ≈0.074em left side bearing; align the ink to the gutter. */
   .section-heading__first {
-    margin-inline-start: -0.074em;
+    margin-inline-start: calc(-1 * var(--first-bearing, 0.074em));
   }
 
-  /* Indent measured from the reference (≈0.77em), minus the italic's ≈0.018em side bearing. */
+  /* Indent measured from the reference (≈0.77em), minus the italic's side bearing (P, E ≈0.018em). */
   .section-heading__second {
-    margin-inline-start: 0.752em;
+    margin-inline-start: calc(0.77em - var(--second-bearing, 0.018em));
     font-style: italic;
   }
 
