@@ -33,6 +33,7 @@
   --text-nav: clamp(1rem, 0.9rem + 0.35vw, 1.25rem);
   --text-lead: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
   --text-tagline: clamp(1rem, 0.9rem + 0.5vw, 1.375rem);
+  --text-description: clamp(1rem, 0.95rem + 0.15vw, 1.125rem);
   --text-title: clamp(1.75rem, 1rem + 2vw, 3rem);
   /* Section headings: measured from the Featured Projects reference
      (cap height ≈ 7.3vw → 10.3vw font) on wide screens. Narrow screens use
