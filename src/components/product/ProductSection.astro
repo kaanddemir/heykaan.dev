@@ -1,0 +1,36 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import ProductRows from './ProductRows.astro';
+import type { ProductRow } from '../../types/product';
+
+interface Props {
+  id: string;
+  first: string;
+  second: string;
+  rows: ProductRow[];
+  numbered?: boolean;
+}
+
+const { id, first, second, rows, numbered } = Astro.props;
+const titleId = `${id}-title`;
+---
+
+<section id={id} class="product-section" aria-labelledby={titleId}>
+  <div class="container">
+    <SectionHeading id={titleId} first={first} second={second} />
+    <div class="product-section__body">
+      <ProductRows rows={rows} numbered={numbered} />
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-section {
+    margin-block-start: var(--space-section);
+  }
+
+  .product-section__body {
+    margin-block-start: clamp(var(--space-12), 5vw, 6rem);
+  }
+</style>

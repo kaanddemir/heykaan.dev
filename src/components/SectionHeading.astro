@@ -1,6 +1,6 @@
 ---
 // Two-line editorial section heading: an upright bold first line and an
-// indented bold italic second line, read as one h2.
+// indented bold italic second line, read as one heading (h2 by default).
 interface Props {
   id: string;
   first: string;
@@ -12,9 +12,11 @@ interface Props {
    */
   firstBearing?: number;
   secondBearing?: number;
+  /** Product pages use the same treatment for their h1. */
+  level?: 1 | 2;
 }
 
-const { id, first, second, firstBearing, secondBearing } = Astro.props;
+const { id, first, second, firstBearing, secondBearing, level = 2 } = Astro.props;
 const bearings = [
   firstBearing !== undefined && `--first-bearing: ${firstBearing}em`,
   secondBearing !== undefined && `--second-bearing: ${secondBearing}em`,
@@ -23,11 +25,19 @@ const bearings = [
   .join('; ');
 ---
 
-<h2 id={id} class="section-heading" style={bearings || undefined}>
-  <span class="section-heading__first">{first}</span>{' '}<span class="section-heading__second"
-    >{second}</span
-  >
-</h2>
+{
+  level === 1 ? (
+    <h1 id={id} class="section-heading" style={bearings || undefined}>
+      <span class="section-heading__first">{first}</span>{' '}<span class="section-heading__second">{second}</span>
+    </h1>
+  ) : (
+    <h2 id={id} class="section-heading" style={bearings || undefined}>
+      <span class="section-heading__first">{first}</span>{' '}<span class="section-heading__second"
+        >{second}</span
+      >
+    </h2>
+  )
+}
 
 <style>
   .section-heading {

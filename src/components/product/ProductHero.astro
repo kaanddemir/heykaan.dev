@@ -1,0 +1,226 @@
+---
+import { Image } from 'astro:assets';
+import SectionHeading from '../SectionHeading.astro';
+import type { ProductPage } from '../../types/product';
+import type { ProjectLink } from '../../types/project';
+
+interface Props {
+  product: ProductPage;
+  store: ProjectLink;
+  secondary: ProjectLink[];
+}
+
+const { product, store, secondary } = Astro.props;
+const { extension, heading, lead, description, screenshot } = product;
+---
+
+<section class="product-hero" aria-labelledby="product-title">
+  <div class="container">
+    <nav class="product-hero__crumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/#extensions">Browser Extensions</a></li>
+        <li aria-current="page">{extension.name}</li>
+      </ol>
+    </nav>
+
+    <div class="product-hero__grid">
+      <SectionHeading
+        level={1}
+        id="product-title"
+        first={heading.first}
+        second={heading.second}
+        firstBearing={heading.firstBearing}
+        secondBearing={heading.secondBearing}
+      />
+
+      <div class="product-hero__copy">
+        <p class="product-hero__meta">
+          <Image src={extension.icon} alt="" width={40} height={40} densities={[1, 2]} />
+          Chrome extension
+        </p>
+        <p class="product-hero__lead">{lead}</p>
+        <p class="product-hero__description">{description}</p>
+        <ul class="product-hero__actions">
+          <li>
+            <a class="product-hero__primary" href={store.href} target="_blank" rel="noopener noreferrer">
+              Add to Chrome<span class="visually-hidden">, opens the Chrome Web Store in a new tab</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+          {
+            secondary.map((link) => (
+              <li>
+                <a class="product-hero__link" href={link.href} target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                  <span class="visually-hidden">, opens in a new tab</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-hero__media">
+      <Image
+        src={screenshot.src}
+        alt={screenshot.alt}
+        widths={[640, 960, 1280, 1600, 1920, 2560]}
+        sizes="(min-width: 120rem) 113rem, calc(100vw - 2 * clamp(1.25rem, 2.85vw, 3.5rem))"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-hero {
+    padding-block-start: clamp(var(--space-8), 6vw, 6rem);
+  }
+
+  .product-hero__crumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+  }
+
+  .product-hero__crumb li {
+    display: flex;
+    align-items: center;
+  }
+
+  .product-hero__crumb li + li::before {
+    content: '/';
+    padding-inline: 0.4em;
+  }
+
+  .product-hero__crumb a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+    color: inherit;
+  }
+
+  .product-hero__crumb a:hover {
+    color: var(--color-text);
+  }
+
+  .product-hero__grid {
+    display: grid;
+    gap: var(--space-8);
+    margin-block-start: var(--space-4);
+  }
+
+  .product-hero__copy {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .product-hero__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+  }
+
+  .product-hero__meta img {
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    border-radius: 22%;
+  }
+
+  .product-hero__lead {
+    max-inline-size: 22ch;
+    font-size: var(--text-title);
+    font-weight: var(--weight-medium);
+    line-height: 1.15;
+    letter-spacing: var(--tracking-title);
+    text-wrap: balance;
+  }
+
+  .product-hero__description {
+    max-inline-size: 52ch;
+    font-size: var(--text-description);
+    line-height: var(--leading-body);
+    color: var(--color-text-muted);
+  }
+
+  .product-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-8);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--text-lead);
+  }
+
+  .product-hero__actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    min-block-size: 2.75rem;
+    text-decoration: none;
+  }
+
+  .product-hero__actions [aria-hidden] {
+    font-size: 0.75em;
+  }
+
+  /* The site's only filled button: the one action a product page exists for. */
+  .product-hero__primary {
+    padding-inline: 1.25em;
+    border-radius: 999px;
+    background: var(--color-text);
+    color: var(--color-bg);
+    font-weight: var(--weight-medium);
+  }
+
+  .product-hero__primary:hover {
+    text-decoration: underline;
+  }
+
+  .product-hero__link {
+    color: var(--color-text);
+  }
+
+  .product-hero__link:hover {
+    text-decoration: underline;
+  }
+
+  .product-hero__media {
+    aspect-ratio: 16 / 10;
+    margin-block-start: clamp(var(--space-12), 6vw, 5rem);
+    overflow: hidden;
+    border-radius: var(--radius-media);
+    background: var(--color-media);
+  }
+
+  .product-hero__media img {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  /* Wide: name on the left, copy on the right, sharing a bottom edge. */
+  @media (min-width: 64rem) {
+    .product-hero__grid {
+      grid-template-columns: max-content minmax(0, 1fr);
+      align-items: end;
+      column-gap: clamp(var(--space-12), 6vw, 8rem);
+    }
+
+    .product-hero__copy {
+      padding-block-end: 0.6rem;
+    }
+  }
+</style>
