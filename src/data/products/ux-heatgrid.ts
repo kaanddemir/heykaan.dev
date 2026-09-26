@@ -96,7 +96,7 @@ export const uxHeatgrid: ProductPage = {
     title: 'UX HeatGrid | Browser Extension for Real-Time UX Heatmaps',
     description:
       'Visualize UX attention in real time. Generate heatmaps, a UX score and layout analysis directly on live web pages with UX HeatGrid.',
-    socialTitle: 'UX HeatGrid | Real-Time UX Heatmaps',
+    socialTitle: 'UX HeatGrid | Attention Heatmaps & UX Analysis',
     socialDescription:
       'Visualize UX attention in real time. Generate heatmaps, a UX score and layout analysis directly on live web pages.',
   },

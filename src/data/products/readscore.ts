@@ -82,6 +82,7 @@ export const readscore: ProductPage = {
   closing: 'Improve your comprehension and focus with fast, privacy-first reading tools.',
   seo: {
     title: 'ReadScore | Browser Extension for Readability & AI Summary',
+    socialTitle: 'ReadScore | Readability & Reading Tools',
     description: 'Analyze readability, generate AI summaries, and use focused reading tools.',
   },
   ogImage: {

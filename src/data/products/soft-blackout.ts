@@ -96,7 +96,7 @@ export const softBlackout: ProductPage = {
     title: 'Soft Blackout | Browser Extension for Instant Visual Redaction',
     description:
       'Soft Blackout is a privacy-first browser extension that lets you obscure text directly in your browser. Redact sensitive content instantly.',
-    socialTitle: 'Soft Blackout | Instant Visual Redaction for Chrome',
+    socialTitle: 'Soft Blackout | Visual Text Redaction',
     socialDescription:
       'A privacy-first browser extension that lets you obscure text directly in your browser. Redact sensitive content instantly — runs 100% locally.',
   },
