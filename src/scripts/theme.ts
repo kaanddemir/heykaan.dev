@@ -5,7 +5,7 @@ export type ThemeMode = 'system' | 'light' | 'dark';
 type ResolvedTheme = 'light' | 'dark';
 
 const MODE_KEY = 'theme-mode';
-// Read by the legacy /about/ page; always holds the resolved theme.
+// Key from the old site; always holds the resolved theme.
 const LEGACY_KEY = 'theme';
 const ORDER: ThemeMode[] = ['system', 'light', 'dark'];
 

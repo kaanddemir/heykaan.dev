@@ -87,11 +87,12 @@ const csp = [
     <!-- iOS: home-screen title and standalone launch for versions that predate manifest support. -->
     <meta name="apple-mobile-web-app-title" content={site.name} />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
 
     <!--
       Theme bootstrap, run before first paint to avoid a wrong-theme flash.
       "theme-mode" (system | light | dark) is the homepage preference. The
-      legacy "theme" key (light | dark) is read by /about/, so it always holds
+      legacy "theme" key (light | dark) came from the old site and still holds
       the resolved theme. A legacy value without a stored mode was set by the
       old site's toggle and counts as an explicit choice.
       Keep in sync with src/scripts/theme.ts.
