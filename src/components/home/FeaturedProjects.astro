@@ -1,0 +1,34 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import ProjectItem from '../ProjectItem.astro';
+import { featuredProjects } from '../../data/projects';
+---
+
+<section id="projects" class="featured-projects" aria-labelledby="projects-title">
+  <div class="container">
+    <SectionHeading id="projects-title" first="Featured" second="Projects" />
+    <div class="featured-projects__grid">
+      {featuredProjects.map((project) => <ProjectItem project={project} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Margin rather than padding so the #projects jump lands at the heading. */
+  .featured-projects {
+    margin-block-start: var(--space-section);
+  }
+
+  .featured-projects__grid {
+    display: grid;
+    gap: clamp(var(--space-16), 9vw, 9rem) var(--gutter);
+    margin-block-start: clamp(var(--space-12), 5vw, 6rem);
+  }
+
+  /* Two columns once each image frame can be at least ~22rem wide. */
+  @media (min-width: 48rem) {
+    .featured-projects__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

@@ -1,0 +1,66 @@
+---
+import type { ProjectLink } from '../../types/project';
+
+interface Props {
+  name: string;
+  closing: string;
+  store: ProjectLink;
+}
+
+const { name, closing, store } = Astro.props;
+---
+
+<section class="product-cta" aria-label={`Add ${name} to Chrome`}>
+  <div class="container">
+    <p class="product-cta__text">{closing}</p>
+    <a class="product-cta__link" href={store.href} target="_blank" rel="noopener noreferrer">
+      Add {name} to Chrome<span class="visually-hidden">, opens the Chrome Web Store in a new tab</span>
+      <span class="product-cta__arrow" aria-hidden="true">↗</span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .product-cta {
+    margin-block-start: var(--space-section);
+  }
+
+  .product-cta .container {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-4);
+  }
+
+  .product-cta__text {
+    max-inline-size: 48ch;
+    font-size: var(--text-description);
+    line-height: var(--leading-body);
+    color: var(--color-text-muted);
+  }
+
+  /* Same scale and treatment as the Contact email link. */
+  .product-cta__link {
+    display: inline-flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0 0.3em;
+    min-block-size: 2.75rem;
+    font-size: clamp(1.375rem, 1rem + 1.6vw, 2.5rem);
+    font-weight: var(--weight-medium);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .product-cta__link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.05em;
+    text-underline-offset: 0.15em;
+  }
+
+  .product-cta__arrow {
+    font-size: 0.7em;
+    color: var(--color-text-muted);
+  }
+</style>

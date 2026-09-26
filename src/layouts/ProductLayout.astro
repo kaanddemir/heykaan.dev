@@ -1,0 +1,73 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ProductHero from '../components/product/ProductHero.astro';
+import ProductSection from '../components/product/ProductSection.astro';
+import ProductCta from '../components/product/ProductCta.astro';
+import { site } from '../data/site';
+import type { ProductPage } from '../types/product';
+
+interface Props {
+  product: ProductPage;
+  /** Only for work-in-progress pages. */
+  noindex?: boolean;
+}
+
+const { product, noindex = false } = Astro.props;
+const { extension, seo } = product;
+
+// Links come from the homepage extension entry so both pages share one source.
+const linkByLabel = (label: string) => extension.links.find((link) => link.label === label);
+const store = linkByLabel('Chrome Web Store');
+if (!store) throw new Error(`${extension.name}: missing Chrome Web Store link`);
+const secondary = ['GitHub', 'Product Hunt'].flatMap((label) => linkByLabel(label) ?? []);
+
+const requirements = [
+  ...product.requirements,
+  {
+    title: 'Privacy',
+    description: product.privacy.description,
+    link: { label: 'Privacy policy', href: product.privacy.policyUrl },
+  },
+];
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: extension.name,
+  description: seo.description,
+  url: canonical,
+  applicationCategory: 'BrowserApplication',
+  operatingSystem: 'Chrome',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  author: { '@type': 'Person', '@id': `${site.url}#person`, name: site.author, url: site.url },
+}).replace(/</g, '\\u003c');
+---
+
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  socialTitle={seo.socialTitle ?? seo.title}
+  socialDescription={seo.socialDescription ?? seo.description}
+  ogImage={product.ogImage}
+  noindex={noindex}
+>
+  <script type="application/ld+json" slot="head" set:html={jsonLd} />
+  <SiteHeader />
+  <main id="main">
+    <ProductHero product={product} store={store} secondary={secondary} />
+    <ProductSection id="what-it-does" first="What it" second="does" rows={product.features}>
+      <slot name="features" />
+    </ProductSection>
+    <ProductSection id="how-it-works" first="How it" second="works" rows={product.steps} numbered>
+      <slot name="steps" />
+    </ProductSection>
+    <ProductSection id="before-you-install" first="Before you" second="install" rows={requirements}>
+      <slot name="requirements" />
+    </ProductSection>
+    <ProductCta name={extension.name} closing={product.closing} store={store} />
+  </main>
+  <SiteFooter />
+</BaseLayout>

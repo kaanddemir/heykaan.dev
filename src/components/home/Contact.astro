@@ -1,0 +1,139 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import { site } from '../../data/site';
+---
+
+<section id="contact" class="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <!-- "Get in touch" was the legacy contact panel title. "G" ≈0.042em, italic "t" ≈0.074em bearing. -->
+    <SectionHeading
+      id="contact-title"
+      first="Get in"
+      second="touch"
+      firstBearing={0.042}
+      secondBearing={0.074}
+    />
+
+    <div class="contact__body">
+      <div class="contact__row">
+        <p class="contact__label">Email</p>
+        <a class="contact__email" href={`mailto:${site.email}`}>
+          {site.email}
+          <span class="contact__arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <ul class="contact__social">
+        {
+          site.social.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${link.label}, opens in a new tab`}
+              >
+                {link.label}
+                <span class="contact__arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    margin-block-start: var(--space-section);
+  }
+
+  .contact__body {
+    margin-block-start: clamp(var(--space-12), 5vw, 6rem);
+  }
+
+  /* Email row between two hairline dividers. */
+  .contact__row {
+    display: grid;
+    gap: var(--space-2) var(--gutter);
+    padding-block: clamp(var(--space-6), 2.5vw, var(--space-8));
+    border-block: var(--border-width) solid var(--color-border);
+  }
+
+  .contact__label {
+    color: var(--color-text-muted);
+  }
+
+  .contact__email {
+    display: inline-flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0 0.3em;
+    justify-self: start;
+    min-block-size: 2.75rem;
+    font-size: clamp(1.375rem, 1rem + 1.6vw, 2.5rem);
+    font-weight: var(--weight-medium);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--color-text);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .contact__email:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.05em;
+    text-underline-offset: 0.15em;
+  }
+
+  .contact__arrow {
+    font-size: 0.7em;
+    color: var(--color-text-muted);
+  }
+
+  .contact__social {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: clamp(var(--space-6), 3vw, var(--space-12));
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--text-lead);
+  }
+
+  .contact__social a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.25em;
+    min-block-size: 2.75rem;
+    padding-block: var(--space-2);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .contact__social a:hover {
+    text-decoration: underline;
+  }
+
+  /* Wide screens: the same narrow label / wide content columns as About. */
+  @media (min-width: 64rem) {
+    .contact__body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      column-gap: var(--gutter);
+    }
+
+    .contact__row {
+      grid-column: 1 / -1;
+      grid-template-columns: subgrid;
+      align-items: baseline;
+    }
+
+    .contact__social {
+      grid-column: 2;
+    }
+  }
+</style>

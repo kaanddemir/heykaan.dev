@@ -1,0 +1,140 @@
+/*
+ * Design tokens.
+ * Components use the semantic tokens only; raw values live here.
+ */
+
+:root {
+  /* Palette primitives */
+  --palette-light-bg: #fafaf8;
+  --palette-light-surface: #ffffff;
+  --palette-light-media: #efefeb;
+  --palette-light-text: #171717;
+  --palette-light-text-muted: #6b6b6b;
+  --palette-light-border: #e5e5e2;
+  --palette-light-border-strong: #8f8f8a;
+
+  --palette-dark-bg: #151515;
+  --palette-dark-surface: #1e1e1e;
+  --palette-dark-text: #f5f5f5;
+  --palette-dark-text-muted: #a3a3a3;
+  --palette-dark-border: #353535;
+  --palette-dark-border-strong: #6e6e6e;
+
+  /* Typography */
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --text-label: 0.875rem;
+  --text-body: 1rem;
+  --text-nav: clamp(1rem, 0.9rem + 0.35vw, 1.25rem);
+  --text-lead: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  --text-tagline: clamp(1rem, 0.9rem + 0.5vw, 1.375rem);
+  --text-description: clamp(1rem, 0.95rem + 0.15vw, 1.125rem);
+  --text-title: clamp(1.75rem, 1rem + 2vw, 3rem);
+  /* Section headings: measured from the Featured Projects reference
+     (cap height ≈ 7.3vw → 10.3vw font) on wide screens. Narrow screens use
+     the largest size at which the longest heading line ("Extensions",
+     ≈5.62em including its indent) still fits between the gutters, capped at
+     6.5rem to meet the wide size at 64rem without a drop. */
+  --text-heading: clamp(3rem, 15vw, 6.5rem);
+  --text-heading-wide: min(10.3vw, 12rem);
+  /* Hero name: fills the width on narrow screens, matches the reference
+     (cap height ≈ 11.7vw, Geist cap height 0.71em) on wide screens. The
+     narrow-screen cap (10.5rem) equals the wide size at 64rem, so the name
+     never shrinks as the viewport grows. */
+  --text-display: clamp(5.5rem, 28vw, 10.5rem);
+  --text-display-wide: min(16.5vw, 20rem);
+
+  --leading-display: 0.89;
+  --leading-heading: 1.02;
+  --leading-snug: 1.2;
+  --leading-body: 1.6;
+
+  --tracking-display: -0.045em;
+  --tracking-heading: -0.037em;
+  --tracking-title: -0.02em;
+
+  /* Spacing (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-section: clamp(6rem, 14vw, 14rem);
+
+  /* Layout */
+  --gutter: clamp(1.25rem, 2.85vw, 3.5rem);
+  --content-max: 120rem;
+  --measure: 60ch;
+  --header-height: 4.25rem;
+
+  /* Shape */
+  --radius-media: 0.875rem;
+  --border-width: 1px;
+  --focus-width: 2px;
+  --focus-offset: 3px;
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Semantic color tokens: light by default and when chosen explicitly. */
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+  --color-bg: var(--palette-light-bg);
+  --color-surface: var(--palette-light-surface);
+  --color-media: var(--palette-light-media);
+  --color-text: var(--palette-light-text);
+  --color-text-muted: var(--palette-light-text-muted);
+  --color-border: var(--palette-light-border);
+  --color-border-strong: var(--palette-light-border-strong);
+  --color-interactive: var(--palette-light-text);
+  --color-focus: var(--palette-light-text);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: var(--palette-dark-bg);
+  --color-surface: var(--palette-dark-surface);
+  --color-media: var(--palette-dark-surface);
+  --color-text: var(--palette-dark-text);
+  --color-text-muted: var(--palette-dark-text-muted);
+  --color-border: var(--palette-dark-border);
+  --color-border-strong: var(--palette-dark-border-strong);
+  --color-interactive: var(--palette-dark-text);
+  --color-focus: var(--palette-dark-text);
+}
+
+/* No explicit choice and no script: follow the OS preference. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --color-bg: var(--palette-dark-bg);
+    --color-surface: var(--palette-dark-surface);
+  --color-media: var(--palette-dark-surface);
+    --color-text: var(--palette-dark-text);
+    --color-text-muted: var(--palette-dark-text-muted);
+    --color-border: var(--palette-dark-border);
+    --color-border-strong: var(--palette-dark-border-strong);
+    --color-interactive: var(--palette-dark-text);
+    --color-focus: var(--palette-dark-text);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
+}

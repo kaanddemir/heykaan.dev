@@ -1,0 +1,99 @@
+---
+import { site } from '../data/site';
+import ThemeToggle from './ThemeToggle.astro';
+
+// Navigation targets are homepage sections; other pages link back to them.
+const isHome = Astro.url.pathname === '/';
+const navHref = (href: string) => (!isHome && href.startsWith('#') ? `/${href}` : href);
+---
+
+<header class="site-header container">
+  <a class="site-header__brand" href="/">{site.name}</a>
+  <nav class="site-header__nav" aria-label="Main">
+    <ul>
+      {
+        site.nav.map((item) => (
+          <li>
+            <a href={navHref(item.href)}>{item.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div class="site-header__actions">
+    <ThemeToggle />
+  </div>
+</header>
+
+<style>
+  /*
+   * Mobile: brand and theme control share the first row, navigation gets its
+   * own row. From 40rem the three zones sit on one row; the equal 1fr side
+   * columns keep the navigation centered on the container, not in the space
+   * left over between the brand and the toggle.
+   */
+  .site-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'brand actions'
+      'nav nav';
+    align-items: center;
+    column-gap: var(--space-6);
+    padding-block: var(--space-3) var(--space-2);
+    font-size: var(--text-nav);
+    line-height: var(--leading-snug);
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .site-header__brand {
+    grid-area: brand;
+    justify-self: start;
+  }
+
+  .site-header__actions {
+    grid-area: actions;
+    justify-self: end;
+  }
+
+  .site-header__nav {
+    grid-area: nav;
+  }
+
+  /* 44px minimum touch target; text stays left-aligned within it. */
+  .site-header__nav a {
+    min-inline-size: 2.75rem;
+  }
+
+  ul {
+    display: flex;
+    gap: var(--space-6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (min-width: 40rem) {
+    .site-header {
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-areas: 'brand nav actions';
+      min-block-size: var(--header-height);
+      padding-block: 0;
+    }
+
+    ul {
+      gap: clamp(var(--space-6), 3vw, var(--space-12));
+    }
+  }
+</style>

@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import Hero from '../components/home/Hero.astro';
+import FeaturedProjects from '../components/home/FeaturedProjects.astro';
+import BrowserExtensions from '../components/home/BrowserExtensions.astro';
+import About from '../components/home/About.astro';
+import Contact from '../components/home/Contact.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { site } from '../data/site';
+
+// Minimal WebSite + Person graph. Escaping "<" keeps the JSON from closing the script tag.
+const personId = `${site.url}#person`;
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${site.url}#website`,
+      name: site.name,
+      url: site.url,
+      author: { '@id': personId },
+    },
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: site.author,
+      url: site.url,
+      sameAs: site.social.map((link) => link.href),
+    },
+  ],
+}).replace(/</g, '\\u003c');
+---
+
+<BaseLayout>
+  <script type="application/ld+json" slot="head" set:html={jsonLd} />
+  <SiteHeader />
+  <main id="main">
+    <Hero caption={site.heroCaption} />
+    <FeaturedProjects />
+    <BrowserExtensions />
+    <About />
+    <Contact />
+  </main>
+  <SiteFooter />
+</BaseLayout>

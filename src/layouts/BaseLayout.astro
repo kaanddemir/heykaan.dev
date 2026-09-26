@@ -1,0 +1,136 @@
+---
+import { Font } from 'astro:assets';
+import { site } from '../data/site';
+import type { OgImage } from '../types/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  socialTitle?: string;
+  socialDescription?: string;
+  ogImage?: OgImage;
+  /** Keeps work-in-progress pages out of search indexes. */
+  noindex?: boolean;
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  socialTitle = site.socialTitle,
+  socialDescription = site.socialDescription,
+  ogImage = site.ogImage,
+  noindex = false,
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = ogImage && new URL(ogImage.path, Astro.site).href;
+
+// Fonts are self-hosted, so Google Fonts origins from the legacy policy are dropped.
+// Dev mode skips the policy because the Vite dev server needs inline scripts and websockets.
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "font-src 'self'",
+  "img-src 'self' data: https://api.producthunt.com https://heykaan.dev",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join('; ');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {import.meta.env.PROD && <meta http-equiv="Content-Security-Policy" content={csp} />}
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {!noindex && <link rel="canonical" href={canonical} />}
+    <meta
+      name="robots"
+      content={noindex
+        ? 'noindex, nofollow'
+        : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={socialTitle} />
+    <meta property="og:description" content={socialDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={site.name} />
+    {
+      ogImage && (
+        <>
+          <meta property="og:image" content={ogImageUrl} />
+          <meta property="og:image:width" content={String(ogImage.width)} />
+          <meta property="og:image:height" content={String(ogImage.height)} />
+          <meta property="og:image:alt" content={ogImage.alt} />
+        </>
+      )
+    }
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={socialTitle} />
+    <meta name="twitter:description" content={socialDescription} />
+    {ogImage && <meta name="twitter:image" content={ogImageUrl} />}
+
+    <meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#151515" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <!-- iOS: home-screen title and standalone launch for versions that predate manifest support. -->
+    <meta name="apple-mobile-web-app-title" content={site.name} />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!--
+      Theme bootstrap, run before first paint to avoid a wrong-theme flash.
+      "theme-mode" (system | light | dark) is the homepage preference. The
+      legacy "theme" key (light | dark) came from the old site and still holds
+      the resolved theme. A legacy value without a stored mode was set by the
+      old site's toggle and counts as an explicit choice.
+      Keep in sync with src/scripts/theme.ts.
+    -->
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        var stored = null;
+        var legacy = null;
+        try {
+          stored = localStorage.getItem('theme-mode');
+          legacy = localStorage.getItem('theme');
+        } catch (e) {}
+
+        var mode = 'system';
+        if (stored === 'system' || stored === 'light' || stored === 'dark') mode = stored;
+        else if (legacy === 'light' || legacy === 'dark') mode = legacy;
+
+        var resolved =
+          mode === 'system'
+            ? window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            : mode;
+
+        root.setAttribute('data-theme-mode', mode);
+        root.setAttribute('data-theme', resolved);
+
+        try {
+          if (stored !== mode) localStorage.setItem('theme-mode', mode);
+          if (legacy !== resolved) localStorage.setItem('theme', resolved);
+        } catch (e) {}
+      })();
+    </script>
+
+    <slot name="head" />
+    <Font cssVariable="--font-geist" preload={[{ style: 'normal' }]} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+  </body>
+</html>

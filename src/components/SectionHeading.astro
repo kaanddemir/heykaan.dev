@@ -1,0 +1,71 @@
+---
+// Two-line editorial section heading: an upright bold first line and an
+// indented bold italic second line, read as one heading (h2 by default).
+interface Props {
+  id: string;
+  first: string;
+  second: string;
+  /**
+   * Left side bearing (em) of each line's first glyph, so the ink rather than
+   * the glyph box sits on the gutter and on the indent. Defaults fit stem
+   * letters (F, B) upright and P/E italic.
+   */
+  firstBearing?: number;
+  secondBearing?: number;
+  /** Product pages use the same treatment for their h1. */
+  level?: 1 | 2;
+}
+
+const { id, first, second, firstBearing, secondBearing, level = 2 } = Astro.props;
+const bearings = [
+  firstBearing !== undefined && `--first-bearing: ${firstBearing}em`,
+  secondBearing !== undefined && `--second-bearing: ${secondBearing}em`,
+]
+  .filter(Boolean)
+  .join('; ');
+---
+
+{
+  level === 1 ? (
+    <h1 id={id} class="section-heading" style={bearings || undefined}>
+      <span class="section-heading__first">{first}</span>{' '}<span class="section-heading__second">{second}</span>
+    </h1>
+  ) : (
+    <h2 id={id} class="section-heading" style={bearings || undefined}>
+      <span class="section-heading__first">{first}</span>{' '}<span class="section-heading__second"
+        >{second}</span
+      >
+    </h2>
+  )
+}
+
+<style>
+  .section-heading {
+    font-size: var(--text-heading);
+    font-weight: var(--weight-bold);
+    line-height: var(--leading-heading);
+    letter-spacing: var(--tracking-heading);
+    text-wrap: nowrap;
+  }
+
+  .section-heading span {
+    display: block;
+  }
+
+  /* Geist Bold "F"-style stems carry ≈0.074em left side bearing; align the ink to the gutter. */
+  .section-heading__first {
+    margin-inline-start: calc(-1 * var(--first-bearing, 0.074em));
+  }
+
+  /* Indent measured from the reference (≈0.77em), minus the italic's side bearing (P, E ≈0.018em). */
+  .section-heading__second {
+    margin-inline-start: calc(0.77em - var(--second-bearing, 0.018em));
+    font-style: italic;
+  }
+
+  @media (min-width: 64rem) {
+    .section-heading {
+      font-size: var(--text-heading-wide);
+    }
+  }
+</style>

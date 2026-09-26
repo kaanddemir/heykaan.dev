@@ -1,0 +1,23 @@
+---
+// The About content moved to the homepage. GitHub Pages cannot send HTTP
+// redirects, so this page uses an instant meta refresh, which Google treats
+// as a permanent redirect. The old page remains in Git history.
+const target = '/#about';
+const canonical = new URL('/', Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <title>About | Kaan Demir</title>
+    <link rel="canonical" href={canonical} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <p>This page has moved to <a href={target}>heykaan.dev/#about</a>.</p>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import { bio, skillsIntro, skillGroups } from '../../data/about';
+---
+
+<section id="about" class="about" aria-labelledby="about-title">
+  <div class="container">
+    <!-- "About me" was the legacy homepage heading. "A" has ≈0.019em left bearing. -->
+    <SectionHeading id="about-title" first="About" second="me" firstBearing={0.019} secondBearing={0.009} />
+
+    <div class="about__grid">
+      <p class="about__bio">{bio}</p>
+
+      <div class="about__skills-intro">
+        <h3 class="about__label">Skills &amp; Expertise</h3>
+        <p class="about__note">{skillsIntro}</p>
+      </div>
+
+      <dl class="about__skills">
+        {
+          skillGroups.map((group) => (
+            <div class="about__skill">
+              <dt>{group.category}</dt>
+              <dd>{group.skills.join(', ')}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    margin-block-start: var(--space-section);
+  }
+
+  /*
+   * Narrow label column, wider content column on wide screens; a single
+   * reading column on narrow ones.
+   */
+  .about__grid {
+    display: grid;
+    gap: var(--space-12) var(--gutter);
+    margin-block-start: clamp(var(--space-12), 5vw, 6rem);
+  }
+
+  .about__bio {
+    max-inline-size: 30ch;
+    font-size: clamp(1.5rem, 1rem + 1.6vw, 2.75rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    text-wrap: pretty;
+  }
+
+  .about__label {
+    font-size: var(--text-tagline);
+    font-weight: var(--weight-semibold);
+    line-height: 1.3;
+  }
+
+  .about__note {
+    max-inline-size: 36ch;
+    margin-block-start: var(--space-3);
+    color: var(--color-text-muted);
+  }
+
+  .about__skills {
+    margin: 0;
+  }
+
+  .about__skill {
+    display: grid;
+    gap: var(--space-1) var(--space-6);
+    padding-block: var(--space-4);
+    border-block-start: var(--border-width) solid var(--color-border);
+  }
+
+  .about__skill:last-child {
+    border-block-end: var(--border-width) solid var(--color-border);
+  }
+
+  dt {
+    color: var(--color-text-muted);
+  }
+
+  dd {
+    margin: 0;
+    font-size: var(--text-lead);
+    line-height: 1.45;
+  }
+
+  @media (min-width: 48rem) {
+    .about__skill {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      align-items: baseline;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .about__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      row-gap: clamp(var(--space-16), 7vw, 8rem);
+    }
+
+    .about__bio {
+      grid-column: 2;
+    }
+
+    .about__skills-intro {
+      grid-column: 1;
+    }
+
+    .about__skills {
+      grid-column: 2;
+    }
+  }
+</style>
