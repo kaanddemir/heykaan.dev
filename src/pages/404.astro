@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { site } from '../data/site';
+
+// GitHub Pages serves dist/404.html for any missing path, so every link and
+// asset here is root-relative.
+---
+
+<BaseLayout
+  title={`Page not found | ${site.name}`}
+  description="This page doesn’t exist."
+  noindex
+>
+  <SiteHeader />
+  <main id="main">
+    <section class="not-found" aria-labelledby="not-found-title">
+      <div class="container">
+        <h1 id="not-found-title" class="not-found__title">404</h1>
+        <p class="not-found__text">This page doesn’t exist.</p>
+        <a class="not-found__link" href="/">
+          Back to home <span class="not-found__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  /* Keeps the footer near the bottom of the screen on this short page. */
+  .not-found {
+    min-block-size: 70svh;
+    padding-block: clamp(var(--space-12), 10vw, 10rem) var(--space-section);
+  }
+
+  .not-found .container {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-6);
+  }
+
+  /* Same scale and treatment as the homepage hero name. */
+  .not-found__title {
+    font-size: var(--text-display);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .not-found__text {
+    font-size: var(--text-title);
+    font-weight: var(--weight-medium);
+    line-height: 1.15;
+    letter-spacing: var(--tracking-title);
+  }
+
+  /* Same scale and treatment as the product closing link. */
+  .not-found__link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.3em;
+    min-block-size: 2.75rem;
+    font-size: clamp(1.375rem, 1rem + 1.6vw, 2.5rem);
+    font-weight: var(--weight-medium);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .not-found__link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.05em;
+    text-underline-offset: 0.15em;
+  }
+
+  .not-found__arrow {
+    font-size: 0.7em;
+    color: var(--color-text-muted);
+  }
+
+  @media (min-width: 64rem) {
+    .not-found__title {
+      font-size: var(--text-display-wide);
+    }
+  }
+</style>

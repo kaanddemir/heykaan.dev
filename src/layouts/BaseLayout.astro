@@ -51,7 +51,7 @@ const csp = [
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {!noindex && <link rel="canonical" href={canonical} />}
     <meta
       name="robots"
       content={noindex
