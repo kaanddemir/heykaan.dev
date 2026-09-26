@@ -64,7 +64,9 @@ npm run preview   # serve the production build locally
 
 `npm run build` writes a fully static site to `dist/`, with one `index.html` per route directory, hashed assets in `dist/_astro/`, self-hosted fonts, and the files from `public/`. All links and asset paths are root-relative, for serving from the domain root.
 
-The live site is still the previous static version, published by GitHub Pages from the `main` branch. Moving publishing to this Astro build is pending. The legacy `index.html` and `main/` at the repository root belong to that previous version and are not part of the Astro build.
+`.github/workflows/deploy.yml` builds the site with the Node version in `.nvmrc` and publishes `dist/` to GitHub Pages on every push to `main` (or when run manually from `main`). It takes effect only once Settings → Pages → Source is set to “GitHub Actions”.
+
+**Status:** prepared, not yet active. The live site is still the previous static version, published by GitHub Pages from the `main` branch; it is tagged `pre-astro-launch-2026-09` for rollback. See [DEPLOYMENT.md](DEPLOYMENT.md) for the launch and rollback steps.
 
 ## License
 
