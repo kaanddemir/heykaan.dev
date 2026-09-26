@@ -27,7 +27,7 @@ export interface SiteConfig {
   socialTitle: string;
   /** Supporting line beside the hero name. */
   heroCaption: string;
-  /** Omitted until a real asset exists; image tags are only emitted when set. */
+  /** Social image; image tags are only emitted when set. */
   ogImage?: OgImage;
   email: string;
   social: SocialLink[];

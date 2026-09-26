@@ -2,8 +2,9 @@
 import { defineConfig, fontProviders } from 'astro/config';
 
 // Static site served from the domain root by GitHub Pages.
-// Legacy product pages and root files live in public/ and are copied
-// to the output unchanged, so their public URLs stay the same.
+// Every page is built from src/pages; public/ holds only root files (CNAME,
+// robots.txt, sitemap.xml, manifest.json, favicon.svg) and site icons and
+// social images, which are copied to the output unchanged.
 export default defineConfig({
   site: 'https://heykaan.dev',
   output: 'static',
