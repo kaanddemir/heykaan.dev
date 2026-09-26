@@ -50,6 +50,6 @@ export interface ProductPage {
     socialTitle?: string;
     socialDescription?: string;
   };
-  /** Product-specific social image; the shared legacy image is used until one exists. */
-  ogImage?: OgImage;
+  /** Product-specific social image (1200×630, public/assets/og/). */
+  ogImage: OgImage;
 }

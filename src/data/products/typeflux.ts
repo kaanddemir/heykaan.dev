@@ -100,4 +100,10 @@ export const typeflux: ProductPage = {
     socialDescription:
       'Live typography preview for any website. Test fonts, spacing, and hierarchy with instant results.',
   },
+  ogImage: {
+    path: '/assets/og/og-typeflux.png',
+    width: 1200,
+    height: 630,
+    alt: 'TypeFlux, a Chrome extension by heykaan.dev',
+  },
 };

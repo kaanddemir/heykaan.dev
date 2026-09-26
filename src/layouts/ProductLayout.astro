@@ -7,7 +7,6 @@ import ProductSection from '../components/product/ProductSection.astro';
 import ProductCta from '../components/product/ProductCta.astro';
 import { site } from '../data/site';
 import type { ProductPage } from '../types/product';
-import type { OgImage } from '../types/site';
 
 interface Props {
   product: ProductPage;
@@ -23,14 +22,6 @@ const linkByLabel = (label: string) => extension.links.find((link) => link.label
 const store = linkByLabel('Chrome Web Store');
 if (!store) throw new Error(`${extension.name}: missing Chrome Web Store link`);
 const secondary = ['GitHub', 'Product Hunt'].flatMap((label) => linkByLabel(label) ?? []);
-
-// Shared legacy social image, kept until the product gets its own (Phase 8E).
-const legacyOgImage: OgImage = {
-  path: '/assets/icons/og-image.png',
-  width: 1024,
-  height: 537,
-  alt: 'heykaan.dev',
-};
 
 const requirements = [
   ...product.requirements,
@@ -60,7 +51,7 @@ const jsonLd = JSON.stringify({
   description={seo.description}
   socialTitle={seo.socialTitle ?? seo.title}
   socialDescription={seo.socialDescription ?? seo.description}
-  ogImage={product.ogImage ?? legacyOgImage}
+  ogImage={product.ogImage}
   noindex={noindex}
 >
   <script type="application/ld+json" slot="head" set:html={jsonLd} />

@@ -100,4 +100,10 @@ export const softBlackout: ProductPage = {
     socialDescription:
       'A privacy-first browser extension that lets you obscure text directly in your browser. Redact sensitive content instantly — runs 100% locally.',
   },
+  ogImage: {
+    path: '/assets/og/og-soft-blackout.png',
+    width: 1200,
+    height: 630,
+    alt: 'Soft Blackout, a Chrome extension by heykaan.dev',
+  },
 };

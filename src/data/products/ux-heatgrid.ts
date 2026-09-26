@@ -100,4 +100,10 @@ export const uxHeatgrid: ProductPage = {
     socialDescription:
       'Visualize UX attention in real time. Generate heatmaps, a UX score and layout analysis directly on live web pages.',
   },
+  ogImage: {
+    path: '/assets/og/og-ux-heatgrid.png',
+    width: 1200,
+    height: 630,
+    alt: 'UX HeatGrid, a Chrome extension by heykaan.dev',
+  },
 };

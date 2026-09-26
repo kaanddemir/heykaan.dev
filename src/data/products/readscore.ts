@@ -84,4 +84,10 @@ export const readscore: ProductPage = {
     title: 'ReadScore | Browser Extension for Readability & AI Summary',
     description: 'Analyze readability, generate AI summaries, and use focused reading tools.',
   },
+  ogImage: {
+    path: '/assets/og/og-readscore.png',
+    width: 1200,
+    height: 630,
+    alt: 'ReadScore, a Chrome extension by heykaan.dev',
+  },
 };
