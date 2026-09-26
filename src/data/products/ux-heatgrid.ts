@@ -5,8 +5,8 @@ import screenshot from '../../assets/products/ux-heatgrid-screenshot.png';
 // Content from the legacy /ux-heatgrid/ page, checked against the extension
 // source (v1.1.1). The legacy "scroll depth" claim is dropped: scrolling only
 // slows heat gain. The screenshot combines two captures from one session of the
-// real extension on a sample page: the page with the heatmap shown, and the
-// popup opened from the toolbar, placed where Chrome anchors it.
+// real extension on a sample page, placed side by side: the heatmap area of the
+// page, and the full popup opened from the toolbar.
 
 const extension = extensions.find((item) => item.name === 'UX HeatGrid');
 if (!extension) throw new Error('UX HeatGrid is missing from src/data/extensions.ts');
@@ -19,7 +19,7 @@ export const uxHeatgrid: ProductPage = {
     'A live attention heatmap and a rule-based UX score for any web page, calculated locally in your browser.',
   screenshot: {
     src: screenshot,
-    alt: 'UX HeatGrid on a sample library events page: an orange attention heatmap over the headline, text, buttons and links, and the popup showing a UX Score of 70, Good, with readability 81%, complexity 17, white space 100% and content density 23%.',
+    alt: 'UX HeatGrid on a sample library events page: an orange attention heatmap over the headline, text, buttons and links, beside the popup showing a UX Score of 70, Good, with readability 80%, complexity 17, white space 100% and content density 15%.',
   },
   features: [
     {
