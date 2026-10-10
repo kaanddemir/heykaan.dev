@@ -29,9 +29,9 @@ While Pages publishes from the `main` branch, any push to `main` is published as
 6. **Watch the run** in Actions until both `build` and `deploy` succeed.
 7. **Verify the live site**:
    - HTTPS, and the `http://` and `www` redirects;
-   - `/`, `/readscore/`, `/ux-heatgrid/`, `/typeflux/`, `/soft-blackout/`, and `/about/` (redirects to `/#about`);
+   - `/`, `/readscore/`, `/ux-heatgrid/`, `/soft-blackout/`, and `/about/` (redirects to `/#about`);
    - an unknown path returns status 404 with the Astro page;
-   - `sitemap.xml`, `robots.txt`, `manifest.json`, the icons and the five images in `/assets/og/`;
+   - `sitemap.xml`, `robots.txt`, `manifest.json`, the icons and the four images in `/assets/og/`;
    - page titles and social metadata;
    - social-card previews.
 

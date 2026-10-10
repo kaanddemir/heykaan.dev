@@ -19,8 +19,8 @@ const { extension, seo } = product;
 
 // Links come from the homepage extension entry so both pages share one source.
 const linkByLabel = (label: string) => extension.links.find((link) => link.label === label);
+// Optional: an extension no longer in the store has no install links.
 const store = linkByLabel('Chrome Web Store');
-if (!store) throw new Error(`${extension.name}: missing Chrome Web Store link`);
 const secondary = ['GitHub', 'Product Hunt'].flatMap((label) => linkByLabel(label) ?? []);
 
 const requirements = [
@@ -67,7 +67,7 @@ const jsonLd = JSON.stringify({
     <ProductSection id="before-you-install" first="Before you" second="install" rows={requirements}>
       <slot name="requirements" />
     </ProductSection>
-    <ProductCta name={extension.name} closing={product.closing} store={store} />
+    {store && <ProductCta name={extension.name} closing={product.closing} store={store} />}
   </main>
   <SiteFooter />
 </BaseLayout>

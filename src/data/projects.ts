@@ -2,11 +2,10 @@ import type { Project } from '../types/project';
 import tarifeaiScreenshot from '../assets/projects/tarifeai-screenshot.png';
 import spectraScreenshot from '../assets/projects/spectra-screenshot.png';
 import applypilotScreenshot from '../assets/projects/applypilot-screenshot.png';
-import studyhubScreenshot from '../assets/projects/studyhub-screenshot.png';
 
 // Content carried over unchanged from the legacy homepage (Featured Projects).
-// Screenshots are captured from the running apps: ApplyPilot and StudyHub
-// with fictional demo data, TarifeAI and Spectra in their initial state.
+// Screenshots are captured from the running apps: ApplyPilot with fictional
+// demo data, TarifeAI and Spectra in their initial state.
 export const featuredProjects: Project[] = [
   {
     name: 'TarifeAI',
@@ -43,17 +42,5 @@ export const featuredProjects: Project[] = [
       alt: 'ApplyPilot Kanban board with eight job applications sorted into Saved, Applied, Interview, Offer and Rejected columns.',
     },
     primaryLink: { label: 'GitHub', href: 'https://github.com/kaanddemir/applypilot' },
-  },
-  {
-    name: 'StudyHub',
-    tagline: 'Student study dashboard',
-    description:
-      'A local-first study dashboard for tracking courses, exams, grades and habits, with a Pomodoro timer, digital notebook and customizable widgets.',
-    media: {
-      kind: 'screenshot',
-      src: studyhubScreenshot,
-      alt: 'StudyHub dashboard with course list, study-hours chart, daily habits, to-do list, calendar, weekly schedule, focus timer and grade calculator.',
-    },
-    primaryLink: { label: 'GitHub', href: 'https://github.com/kaanddemir/studyhub' },
   },
 ];

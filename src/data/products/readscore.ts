@@ -2,10 +2,12 @@ import type { ProductPage } from '../../types/product';
 import { extensions } from '../extensions';
 import screenshot from '../../assets/products/readscore-screenshot.png';
 
-// Content from the legacy /readscore/ page, checked against the extension
-// source (v1.1.1). The screenshot combines two captures from one session of
-// the real extension on a sample article: the page with Reading Guide on, and
-// the popup opened from the toolbar, placed where Chrome anchors it.
+// Content checked against the extension README and changelog (v2.0.0). 2.0
+// replaced the readability score, Selection Analysis and AI Summary with the
+// Focus, Comfort and Calm reading modes. The screenshot combines two real 2.0
+// captures from the same moment on the Store demo article (ReadScore
+// Store/source/captures): the page with all three modes on, and the popup,
+// placed where Chrome anchors it.
 
 const extension = extensions.find((item) => item.name === 'ReadScore');
 if (!extension) throw new Error('ReadScore is missing from src/data/extensions.ts');
@@ -13,77 +15,79 @@ if (!extension) throw new Error('ReadScore is missing from src/data/extensions.t
 export const readscore: ProductPage = {
   extension,
   heading: { first: 'Read', second: 'Score' },
-  lead: 'Analyze, summarize, and read any page better.',
+  lead: 'Make existing web pages easier to read.',
   description:
-    'Readability insights, AI summaries and focused reading tools for any web page. Analysis runs locally in your browser.',
+    'Reading tools that work on the page you already have open. Highlight one paragraph at a time, adjust text spacing, font and size, and calm busy pages, without replacing their content.',
   screenshot: {
     src: screenshot,
-    alt: 'The ReadScore popup on a sample article about community gardens, showing a Medium readability score, 15 words per sentence and 285 total words, with Reading Guide turned on and highlighting one line of the article.',
+    alt: 'The ReadScore popup on a sample essay about slow walks, with Focus, Comfort and Calm all turned on: the first paragraph is highlighted in yellow, the text is set larger with extra spacing, and the article and sidebar images are blurred.',
   },
   features: [
     {
-      title: 'Readability score',
+      title: 'Focus',
       description:
-        'A readability level based on the Flesch-Kincaid grade, with words per sentence and the total word count.',
+        'Highlights one paragraph at a time. Move with J and K, or let the highlight follow the middle of the screen as you scroll. The highlight can be yellow, blue, green or dark.',
     },
     {
-      title: 'Selection analysis',
+      title: 'Comfort',
       description:
-        'Select a passage to analyze only that text. Selections need at least 50 characters.',
+        'Adjusts reading text without changing the page’s layout: Relaxed, Roomy or custom line, letter, word and paragraph spacing, a choice of fonts including Atkinson Hyperlegible, and a minimum text size of 18, 20 or 22 pixels.',
     },
     {
-      title: 'AI summary',
+      title: 'Calm',
       description:
-        'A summary of the page in a draggable on-page panel, as bullet points or an overview, in short, medium or long length.',
+        'Reduce Motion makes animations finish instantly and pauses muted background videos; videos you start keep playing. Blur Images blurs large images and videos until you hover over or Tab to them.',
     },
     {
-      title: 'Reading tools',
+      title: 'Combine and keep',
       description:
-        'Focus Mode rebuilds the page with a clean layout and larger text, Tracking Assist adds spacing for easier line and word tracking, and Reading Guide adds a line-by-line focus ruler.',
+        'The three modes work independently and can be used together. Your settings are saved and sync across your Chrome browsers when Chrome sync is on.',
     },
   ],
   steps: [
     {
-      title: 'Extract the main text',
+      title: 'Open ReadScore',
       description:
-        'ReadScore finds the readable content in the current tab and filters out navigation, banners and sidebars.',
+        'Click the ReadScore icon on the page you want to read. It runs only on pages where you open it.',
     },
     {
-      title: 'Analyze readability',
+      title: 'Choose your modes',
       description:
-        'It calculates the readability level, sentence length and word count locally, for the whole page or for the text you selected.',
+        'Turn on Focus, Comfort or Calm and adjust their settings. Changes apply to the page right away.',
     },
     {
-      title: 'Summarize and read',
+      title: 'Reapply or reset',
       description:
-        'Generate a summary with Chrome’s built-in AI when it is available, or turn on Focus Mode, Tracking Assist or Reading Guide.',
+        'Effects end when you reload or leave the page. Open ReadScore again to reapply your saved settings, or use Reset All to restore the defaults.',
     },
   ],
   requirements: [
     {
       title: 'Browser support',
-      description: 'Chrome and Chromium-based browsers, including Edge, Brave and Vivaldi.',
+      description: 'Chrome 116 or newer.',
     },
     {
-      title: 'AI summaries',
+      title: 'Keyboard shortcuts',
       description:
-        'Need Chrome’s built-in summarizer (Chrome 138 or later, where available). All other features work without it.',
+        'J and K are ignored while you type or use a form control. On sites that use these keys themselves, choose Follow Scroll instead.',
     },
     {
       title: 'Supported pages',
-      description: 'ReadScore does not run on Chrome’s internal pages or in the Chrome Web Store.',
+      description:
+        'Works on regular websites, but not on Chrome’s own pages or in the Chrome Web Store. Focus works best on article-like text.',
     },
   ],
   privacy: {
     description:
-      'Analysis, reading tools and summary preparation run locally in your browser. ReadScore does not collect personal data or run its own server.',
+      'ReadScore has no accounts, servers, analytics or tracking, and makes no network requests. Page text and images are processed in the tab and never stored or sent anywhere.',
     policyUrl: 'https://github.com/kaanddemir/readscore/blob/main/PRIVACY_POLICY.md',
   },
-  closing: 'Improve your comprehension and focus with fast, privacy-first reading tools.',
+  closing: 'Install ReadScore and adjust any page for more comfortable reading.',
   seo: {
-    title: 'ReadScore | Browser Extension for Readability & AI Summary',
-    socialTitle: 'ReadScore | Readability & Reading Tools',
-    description: 'Analyze readability, generate AI summaries, and use focused reading tools.',
+    title: 'ReadScore | Browser Extension for Focused, Comfortable Reading',
+    socialTitle: 'ReadScore | Focus, Comfort & Calm',
+    description:
+      'Highlight one paragraph at a time, adjust text spacing, font and size, and reduce motion and distractions on existing web pages.',
   },
   ogImage: {
     path: '/assets/og/og-readscore.png',

@@ -2,11 +2,14 @@ import type { ProductPage } from '../../types/product';
 import { extensions } from '../extensions';
 import screenshot from '../../assets/products/ux-heatgrid-screenshot.png';
 
-// Content from the legacy /ux-heatgrid/ page, checked against the extension
-// source (v1.1.1). The legacy "scroll depth" claim is dropped: scrolling only
-// slows heat gain. The screenshot combines two captures from one session of the
-// real extension on a sample page, placed side by side: the heatmap area of the
-// page, and the full popup opened from the toolbar.
+// Content checked against the extension README, changelog and privacy policy
+// (v2.0.0). 2.0 replaced the 1.x popup, always-on attention heatmap and UX
+// Score with a side panel for Predict, Record and Inspect. The screenshot
+// combines two real 2.0 captures from the same moment of one recorded session
+// on the Store demo page (UX HeatGrid Store/source/captures): the page with
+// Show on page on, and the Record view of the side panel. They sit in a plain
+// browser-style frame with a side-panel header (extension icon, name, close).
+// The page is cropped on the right, before its on-page toolbar.
 
 const extension = extensions.find((item) => item.name === 'UX HeatGrid');
 if (!extension) throw new Error('UX HeatGrid is missing from src/data/extensions.ts');
@@ -14,91 +17,91 @@ if (!extension) throw new Error('UX HeatGrid is missing from src/data/extensions
 export const uxHeatgrid: ProductPage = {
   extension,
   heading: { first: 'UX', second: 'HeatGrid' },
-  lead: 'Visualize UX attention in real time.',
+  lead: 'See what stands out on a page, and how you use it.',
   description:
-    'A live attention heatmap and a rule-based UX score for any web page, calculated locally in your browser.',
+    'A side-panel inspector for people who design and review web pages. It estimates which controls stand out, records your own session, and shows both on the page. Everything stays in your browser.',
   screenshot: {
     src: screenshot,
-    alt: 'UX HeatGrid on a sample library events page: an orange attention heatmap over the headline, text, buttons and links, beside the popup showing a UX Score of 70, Good, with readability 80%, complexity 17, white space 100% and content density 15%.',
+    alt: 'UX HeatGrid on a sample product landing page: a recorded session drawn on the page as a soft heatmap with click markers and an on-page toolbar for Heatmap, Clicks and Scroll Depth, beside the side panel’s Record view showing 21 seconds, 6 clicks, 100% scroll and 6 interacted elements, with lists of Interacted Elements and controls with No Interaction.',
   },
   features: [
     {
-      title: 'Attention heatmap',
+      title: 'Predict',
       description:
-        'A color-coded overlay built from two heat sources: how long elements stay in view and how close they are to the cursor, within 150 pixels. It is drawn on a 15-pixel grid and updated every half second.',
+        'Ranks every button, link and control into High, Medium and Low structural prominence, based on size, position, visual style, text contrast, nearby competing controls and page context. It estimates what stands out visually, not where people will look or click.',
     },
     {
-      title: 'UX Score',
+      title: 'Record',
       description:
-        'A score from 0 to 100, graded Excellent (85+), Good (70+), Average (55+), Dense (40+) or Fatiguing (below 40).',
+        'Captures your own session on the page: clicks, hover, focus, time in view and scroll depth. Controls that were in view but never used are listed separately. It records you, in your browser, not a site’s visitors.',
     },
     {
-      title: 'Content density and white space',
+      title: 'Inspect',
       description:
-        'Two of the four score categories, 25 points each. Density measures how much of the page and the first screen is covered by content, and how evenly. White space measures the real pixel gaps between text blocks.',
+        'Expand any result to see the evidence behind it, from the measured factors in Predict to the clicks and time in view in Record. The matching element is highlighted on the live page.',
     },
     {
-      title: 'Complexity and readability',
+      title: 'Reasons and confidence',
       description:
-        'The other two categories, 25 points each. Complexity counts the elements per screen. Readability checks font size, line height, line length and text contrast.',
+        'Each prediction lists Positive and Negative factors written from measured values, such as a control’s size, its contrast ratio or the number of nearby controls. Confidence shows how settled the band is.',
     },
     {
-      title: 'Review and pinned panel',
+      title: 'On-page overlays',
       description:
-        'A review lists strengths, suggestions and issues for the page. The score and metrics can also be pinned to a panel on the page.',
+        'Show on page outlines predicted controls by band, or draws a recording as a heatmap, click markers and scroll depth, each with its own toggle.',
     },
   ],
   steps: [
     {
-      title: 'Start the analysis',
+      title: 'Open the side panel',
       description:
-        'Open UX HeatGrid on a page and press Start. It finds the text, headings, links and buttons without changing the page.',
+        'Click the UX HeatGrid icon in the toolbar. The side panel opens with Overview, Predict and Record views.',
     },
     {
-      title: 'Build the heatmap',
+      title: 'Run Predict',
       description:
-        'Visible elements heat up slowly, and twice as fast under the cursor. Fast scrolling reduces heat gain by up to 90%, and buttons and links heat up fastest.',
+        'Press Start under Predict to rank the page’s controls. No recording is needed, and results are marked as stale when the page changes.',
     },
     {
-      title: 'Score the layout',
+      title: 'Record a session',
       description:
-        'It measures density, white space, complexity and readability on the live page and combines them into the UX Score.',
+        'Press Start under Record, use the page as usual, then press Stop. The session continues across same-site navigations and reloads.',
     },
     {
-      title: 'Review the results',
+      title: 'Review on the page',
       description:
-        'Show or hide the heatmap, pause tracking, open the review, or pin the panel to the page.',
+        'Press Show on page in either view to draw the results on the page, then expand a result to inspect it.',
     },
   ],
   requirements: [
     {
       title: 'Browser support',
-      description: 'Chrome and Chromium-based browsers, including Edge, Brave and Vivaldi.',
+      description: 'Chrome 116 or newer, with the side panel.',
     },
     {
-      title: 'What the heatmap shows',
+      title: 'What the results mean',
       description:
-        'Attention is modeled from your own pointer and what is visible on your screen. It does not record other visitors.',
+        'Predict reads page structure, not people. Record covers only your own session and does not track other visitors.',
     },
     {
       title: 'Supported pages',
       description:
-        'UX HeatGrid does not run on browser pages such as chrome:// or in the Chrome Web Store and Edge Add-ons store.',
+        'Works on regular websites, but not on Chrome’s own pages or in the Chrome Web Store. Content inside cross-origin iframes is not analyzed or recorded.',
     },
   ],
   privacy: {
     description:
-      'All analysis runs locally in your browser. UX HeatGrid collects no personal data and sends nothing to external servers.',
+      'UX HeatGrid has no accounts, servers, analytics or tracking, and makes no network requests. It never reads form values or the keys you type, and recordings are cleared when you reset them, close the tab or end the browser session.',
     policyUrl: 'https://github.com/kaanddemir/ux-heatgrid/blob/main/PRIVACY_POLICY.md',
   },
-  closing: 'Install UX HeatGrid and visualize attention and layout balance directly in your browser.',
+  closing: 'Install UX HeatGrid and inspect any page’s controls from Chrome’s side panel.',
   seo: {
-    title: 'UX HeatGrid | Browser Extension for Real-Time UX Heatmaps',
+    title: 'UX HeatGrid | Browser Extension for UX Inspection & Heatmaps',
     description:
-      'Visualize UX attention in real time. Generate heatmaps, a UX score and layout analysis directly on live web pages with UX HeatGrid.',
-    socialTitle: 'UX HeatGrid | Attention Heatmaps & UX Analysis',
+      'Predict which controls stand out on a page, record your own session as an on-page heatmap, and inspect the evidence. Runs locally in Chrome.',
+    socialTitle: 'UX HeatGrid | Predict, Record & Inspect',
     socialDescription:
-      'Visualize UX attention in real time. Generate heatmaps, a UX score and layout analysis directly on live web pages.',
+      'Predict which controls stand out on a page, record your own session, and inspect the results directly on the page.',
   },
   ogImage: {
     path: '/assets/og/og-ux-heatgrid.png',

@@ -42,7 +42,7 @@ export interface ProductPage {
     description: string;
     policyUrl: string;
   };
-  /** Line above the closing "Add … to Chrome" link. */
+  /** Line above the closing "Add … to Chrome" link; unused without a store link. */
   closing: string;
   seo: {
     title: string;

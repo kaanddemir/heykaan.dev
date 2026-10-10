@@ -1,6 +1,6 @@
 # heykaan.dev
 
-Source for [heykaan.dev](https://heykaan.dev), the portfolio of Kaan Demir: featured projects, four Chrome extensions, an about section and contact details.
+Source for [heykaan.dev](https://heykaan.dev), the portfolio of Kaan Demir: featured projects, three Chrome extensions, an about section and contact details.
 
 ## Stack
 
@@ -19,14 +19,13 @@ There is no client-side framework. The only runtime JavaScript is the theme togg
 | `/` | `src/pages/index.astro` |
 | `/readscore/` | `src/pages/readscore/index.astro` |
 | `/ux-heatgrid/` | `src/pages/ux-heatgrid/index.astro` |
-| `/typeflux/` | `src/pages/typeflux/index.astro` |
 | `/soft-blackout/` | `src/pages/soft-blackout/index.astro` |
 | `/about/` | `src/pages/about.astro`, an instant redirect to `/#about` |
 | 404 | `src/pages/404.astro`, built as `404.html` and excluded from indexing |
 
 ### Product pages
 
-The four extension pages share `src/layouts/ProductLayout.astro` and the components in `src/components/product/`. Each page passes one typed data file from `src/data/products/` (type: `src/types/product.ts`) and renders the same sections in the same order: hero, What it does, How it works, Before you install, and a closing install link. Store, GitHub and Product Hunt links come from `src/data/extensions.ts`, which the homepage also uses.
+The three extension pages share `src/layouts/ProductLayout.astro` and the components in `src/components/product/`. Each page passes one typed data file from `src/data/products/` (type: `src/types/product.ts`) and renders the same sections in the same order: hero, What it does, How it works, Before you install, and a closing install link. Store, GitHub and Product Hunt links come from `src/data/extensions.ts`, which the homepage also uses.
 
 Product screenshots in `src/assets/products/` are captures of the real extensions; each data file notes how its screenshot was made.
 

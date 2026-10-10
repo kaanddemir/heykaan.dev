@@ -6,7 +6,7 @@ import type { ProjectLink } from '../../types/project';
 
 interface Props {
   product: ProductPage;
-  store: ProjectLink;
+  store?: ProjectLink;
   secondary: ProjectLink[];
 }
 
@@ -41,12 +41,16 @@ const { extension, heading, lead, description, screenshot } = product;
         <p class="product-hero__lead">{lead}</p>
         <p class="product-hero__description">{description}</p>
         <ul class="product-hero__actions">
-          <li>
-            <a class="product-hero__primary" href={store.href} target="_blank" rel="noopener noreferrer">
-              Add to Chrome<span class="visually-hidden">, opens the Chrome Web Store in a new tab</span>
-              <span aria-hidden="true">↗</span>
-            </a>
-          </li>
+          {
+            store && (
+              <li>
+                <a class="product-hero__primary" href={store.href} target="_blank" rel="noopener noreferrer">
+                  Add to Chrome<span class="visually-hidden">, opens the Chrome Web Store in a new tab</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </li>
+            )
+          }
           {
             secondary.map((link) => (
               <li>
