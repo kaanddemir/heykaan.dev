@@ -2,13 +2,13 @@ import type { ProductPage } from '../../types/product';
 import { extensions } from '../extensions';
 import screenshot from '../../assets/products/soft-blackout-screenshot.png';
 
-// Content from the legacy /soft-blackout/ page, checked against the extension
-// source (v1.1.1). Dropped legacy claims: blur, custom styles and hidden modes
-// (redaction is always a solid black block), and "click" to redact elements
-// (only selected text is redacted). The screenshot combines two captures from
-// one session of the real extension on a sample article: the page after Quick
-// Redact in Poetry mode, and the popup's settings view, placed where Chrome
-// anchors it.
+// Content checked against the extension README, changelog and privacy policy
+// (v2.0.0). 2.0 replaced the 1.x redaction tool (Quick Redact, Blackout All,
+// Privacy and Random modes, intensity levels) with Manual, Poetry and Pattern
+// Mask, which only mask what you choose. The screenshot combines two real 2.0
+// captures from the same moment on the Store demo article (Soft Blackout
+// Store/source/captures): the page with a poem applied, and the popup in
+// Poetry mode, placed where Chrome anchors it.
 
 const extension = extensions.find((item) => item.name === 'Soft Blackout');
 if (!extension) throw new Error('Soft Blackout is missing from src/data/extensions.ts');
@@ -16,89 +16,91 @@ if (!extension) throw new Error('Soft Blackout is missing from src/data/extensio
 export const softBlackout: ProductPage = {
   extension,
   heading: { first: 'Soft', second: 'Blackout' },
-  lead: 'Control what stays visible.',
+  lead: 'Mask text on any page, your way.',
   description:
-    'Black out text on any web page, by hand or automatically, to hide private details, remove distractions or make blackout poetry. Everything runs locally in your browser.',
+    'Cover the text you select, compose blackout poems from articles, or mask email addresses, links and phone numbers. Masks are visual, local and only appear when you ask for them.',
   screenshot: {
     src: screenshot,
-    alt: 'Soft Blackout on a sample short story: most of the text is covered by solid black bars, leaving a few words and the names Mara and Harbor Point visible, beside the Redaction Settings popup with Poetry mode, Medium intensity, and Proper Nouns and Long Words kept visible.',
+    alt: 'Soft Blackout on a sample essay, Notes from a lighthouse keeper: the first paragraphs are covered by dark bars except for kept phrases such as “the lamp was lit” and “the sea answered”, beside the popup in Poetry mode with Apply composition, the Solid and Marker styles, five colours, Undo, Redo and Reset page.',
   },
   features: [
     {
-      title: 'Manual Mode',
+      title: 'Manual',
       description:
-        'Turn on Manual Mode and select text with the mouse to black it out. Links and buttons do not respond while it is on.',
+        'Select text on the page and choose Mask. Select inside a mask and choose Reveal to remove just that part, or turn on Mask on select to skip the confirmation.',
     },
     {
-      title: 'Quick Redact',
+      title: 'Poetry',
       description:
-        'Black out text automatically in one of three modes: Poetry leaves a scattered trail of words for blackout poetry, Privacy targets names and numbers, and Random hides words at random.',
+        'Choose the words to keep and apply the composition to hide the rest of each paragraph. Soft Blackout never picks words for you, and an applied poem can be edited.',
     },
     {
-      title: 'Intensity and filters',
+      title: 'Pattern Mask',
       description:
-        'Choose Light, Medium or Heavy intensity, and keep proper nouns, long words (4+ characters) or numbers and dates visible.',
+        'Scan the page for email addresses, URLs and, optionally, phone numbers, check the counts, then apply masks. Scanning never masks anything on its own.',
     },
     {
-      title: 'Blackout All and Reset',
+      title: 'Styles and colours',
       description:
-        'Cover all the text on the page in one click, or remove every blackout at once.',
+        'Solid covers text with a block of colour and Marker draws a thick band through it, in ink black, warm white, terracotta, taupe or sage. Changing either restyles every mask on the page.',
     },
     {
-      title: 'Undo, Redo and reveal',
+      title: 'Undo, Redo and Reset',
       description:
-        'Step back or forward through up to 50 changes, or double-click a black bar to reveal the text underneath.',
+        'One history covers all three modes, and Reset page removes every mask at once. The popup and on-page controls follow a System, Light or Dark theme.',
     },
   ],
   steps: [
     {
       title: 'Open Soft Blackout',
-      description: 'Open Soft Blackout from the toolbar on the page you want to edit.',
+      description:
+        'Click the Soft Blackout icon on the page you want to mask. It runs on a page only after you use it there.',
     },
     {
-      title: 'Black out text',
+      title: 'Choose a mode',
       description:
-        'Turn on Manual Mode and select text, or use Quick Redact with the mode, intensity and filters from the settings.',
+        'Pick Manual, Poetry or Pattern Mask, then a style and colour. Masks appear on the page right away.',
     },
     {
-      title: 'Adjust the result',
+      title: 'Adjust or reset',
       description:
-        'Undo, redo or double-click a bar to reveal it. Refreshing the page restores the original text.',
+        'Undo, Redo or Reset page at any time. Masks disappear when you reload the page or navigate away.',
     },
   ],
   requirements: [
     {
       title: 'Browser support',
-      description: 'Chrome and Chromium-based browsers, including Edge, Brave and Vivaldi.',
-    },
-    {
-      title: 'Languages',
-      description: 'English and Turkish, chosen automatically from your browser language.',
+      description: 'Chrome 116 or newer.',
     },
     {
       title: 'Visual only',
       description:
-        'Blackouts change only how the page looks in your browser. They are not saved, and the website itself is not changed.',
+        'Masks are drawn over the page and do not remove the original text. It stays in the page, and copying masked text copies the original, so do not rely on masks to redact sensitive information.',
+    },
+    {
+      title: 'Pattern matching',
+      description:
+        'Pattern Mask is deliberately conservative and is not full personal-data detection. Phone numbers without separators and other formats are not matched.',
     },
     {
       title: 'Supported pages',
       description:
-        'Soft Blackout does not run on browser pages such as chrome://, on local files or in the Chrome Web Store. Code blocks and editable fields are skipped.',
+        'Works on regular websites, but not on Chrome’s own pages, local files or in the Chrome Web Store. Text in form fields, buttons and frames is not masked.',
     },
   ],
   privacy: {
     description:
-      'Everything runs locally in your browser. Soft Blackout collects no personal data and sends nothing to external servers; it only stores whether Manual Mode is on for a tab.',
+      'Soft Blackout has no accounts, servers, analytics or tracking, and makes no network requests. Page text is processed in the tab and never stored or sent anywhere; only your settings are saved, on this device.',
     policyUrl: 'https://github.com/kaanddemir/soft-blackout/blob/main/PRIVACY_POLICY.md',
   },
-  closing: 'Install Soft Blackout and control what stays visible on any page.',
+  closing: 'Install Soft Blackout and choose what stays visible on any page.',
   seo: {
-    title: 'Soft Blackout | Browser Extension for Instant Visual Redaction',
+    title: 'Soft Blackout | Browser Extension for Visual Text Masking',
     description:
-      'Soft Blackout is a privacy-first browser extension that lets you obscure text directly in your browser. Redact sensitive content instantly.',
-    socialTitle: 'Soft Blackout | Visual Text Redaction',
+      'Mask selected text, compose blackout poems, and cover email addresses, links and phone numbers on any web page. Runs locally in Chrome.',
+    socialTitle: 'Soft Blackout | Manual, Poetry & Pattern Mask',
     socialDescription:
-      'A privacy-first browser extension that lets you obscure text directly in your browser. Redact sensitive content instantly — runs 100% locally.',
+      'Mask the text you choose, compose blackout poems, or mask contact details on any web page.',
   },
   ogImage: {
     path: '/assets/og/og-soft-blackout.png',

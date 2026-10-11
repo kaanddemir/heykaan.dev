@@ -4,7 +4,7 @@ import readscoreIcon from '../assets/extensions/readscore-icon.png';
 import softBlackoutIcon from '../assets/extensions/soft-blackout-icon.png';
 
 // Order and destinations carried over unchanged from the legacy homepage
-// (Browser Extensions). UX HeatGrid and ReadScore copy updated for 2.0.0.
+// (Browser Extensions). Copy updated for 2.0.0.
 export const extensions: Extension[] = [
   {
     name: 'UX HeatGrid',
@@ -40,13 +40,16 @@ export const extensions: Extension[] = [
   },
   {
     name: 'Soft Blackout',
-    tagline: 'Focused visual redaction',
+    tagline: 'Visual text masking',
     description:
-      'Add a visual blackout overlay to web pages for focused screen sharing and content control.',
+      'Mask the text you select, compose blackout poems, or mask email addresses, links and phone numbers.',
     icon: softBlackoutIcon,
     primaryLink: { label: 'Soft Blackout', href: '/soft-blackout/' },
-    // No longer listed on the Chrome Web Store, so there is no store link.
     links: [
+      {
+        label: 'Chrome Web Store',
+        href: 'https://chromewebstore.google.com/detail/soft-blackout/oeefplhfabbdadpicjbgbiapoadppkpo',
+      },
       { label: 'GitHub', href: 'https://github.com/kaanddemir/soft-blackout' },
       { label: 'Product Hunt', href: 'https://www.producthunt.com/products/soft-blackout' },
     ],
