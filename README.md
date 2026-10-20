@@ -1,6 +1,6 @@
 # heykaan.dev
 
-Source for [heykaan.dev](https://heykaan.dev), the portfolio of Kaan Demir: featured projects, four Chrome extensions, an about section and contact details.
+Source for [heykaan.dev](https://heykaan.dev), the portfolio of Kaan Demir: featured projects, three Chrome extensions, an about section and contact details.
 
 ## Stack
 
@@ -19,14 +19,13 @@ There is no client-side framework. The only runtime JavaScript is the theme togg
 | `/` | `src/pages/index.astro` |
 | `/readscore/` | `src/pages/readscore/index.astro` |
 | `/ux-heatgrid/` | `src/pages/ux-heatgrid/index.astro` |
-| `/typeflux/` | `src/pages/typeflux/index.astro` |
 | `/soft-blackout/` | `src/pages/soft-blackout/index.astro` |
 | `/about/` | `src/pages/about.astro`, an instant redirect to `/#about` |
 | 404 | `src/pages/404.astro`, built as `404.html` and excluded from indexing |
 
 ### Product pages
 
-The four extension pages share `src/layouts/ProductLayout.astro` and the components in `src/components/product/`. Each page passes one typed data file from `src/data/products/` (type: `src/types/product.ts`) and renders the same sections in the same order: hero, What it does, How it works, Before you install, and a closing install link. Store, GitHub and Product Hunt links come from `src/data/extensions.ts`, which the homepage also uses.
+The three extension pages share `src/layouts/ProductLayout.astro` and the components in `src/components/product/`. Each page passes one typed data file from `src/data/products/` (type: `src/types/product.ts`) and renders the same sections in the same order: hero, What it does, How it works, Before you install, and a closing install link. Store, GitHub and Product Hunt links come from `src/data/extensions.ts`, which the homepage also uses.
 
 Product screenshots in `src/assets/products/` are captures of the real extensions; each data file notes how its screenshot was made.
 
@@ -64,9 +63,7 @@ npm run preview   # serve the production build locally
 
 `npm run build` writes a fully static site to `dist/`, with one `index.html` per route directory, hashed assets in `dist/_astro/`, self-hosted fonts, and the files from `public/`. All links and asset paths are root-relative, for serving from the domain root.
 
-`.github/workflows/deploy.yml` builds the site with the Node version in `.nvmrc` and publishes `dist/` to GitHub Pages on every push to `main` (or when run manually from `main`). It takes effect only once Settings → Pages → Source is set to “GitHub Actions”.
-
-**Status:** prepared, not yet active. The live site is still the previous static version, published by GitHub Pages from the `main` branch; it is tagged `pre-astro-launch-2026-09` for rollback. See [DEPLOYMENT.md](DEPLOYMENT.md) for the launch and rollback steps.
+`.github/workflows/deploy.yml` builds the site with the Node version in `.nvmrc` and publishes `dist/` to GitHub Pages. Every push to `main` deploys the live site at https://heykaan.dev; the workflow can also be run manually from `main` (Settings → Pages → Source: “GitHub Actions”).
 
 ## License
 
